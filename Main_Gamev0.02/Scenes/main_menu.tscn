@@ -7,40 +7,79 @@
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_1ehe0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(379, 414)
-scale = Vector2(1.69412, 1.68)
-texture = ExtResource("1_48xlc")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1559.25, 409.5)
-scale = Vector2(1.71029, 1.7075)
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1188, 109)
+scale = Vector2(0.536029, 0.535154)
 texture = ExtResource("2_1ehe0")
 
-[node name="Title" type="Label" parent="."]
-offset_left = 653.0
-offset_top = 240.0
-offset_right = 1268.0
-offset_bottom = 510.0
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.454
+anchor_top = 0.303
+anchor_right = 1.0
+anchor_bottom = 0.746
+offset_left = 60.8799
+offset_top = 26.84
+offset_right = -55.0
+offset_bottom = -26.1201
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(307.5, 135)
 theme_override_font_sizes/font_size = 69
 text = "CARDS IMPACT"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="."]
-offset_left = 715.0
-offset_top = 642.0
-offset_right = 1214.0
-offset_bottom = 772.0
+[node name="Subtitle" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.365
+anchor_right = 0.475
+anchor_bottom = 0.365
+offset_left = -100.125
+offset_top = -11.55
+offset_right = 99.875
+offset_bottom = 11.45
+pivot_offset = Vector2(100, 11)
+text = "A game by Gian and Killer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.581
+anchor_right = 0.954
+anchor_bottom = 0.761
+offset_left = 0.0799561
+offset_top = -0.320007
+offset_right = -0.120117
+offset_bottom = 0.0799561
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Exit" type="Button" parent="."]
-offset_left = 800.0
-offset_top = 842.0
-offset_right = 1137.0
-offset_bottom = 977.0
+[node name="Exit" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.779
+anchor_right = 0.888
+anchor_bottom = 0.967
+offset_top = 0.119995
+offset_right = 0.359863
+offset_bottom = -0.240051
 theme_override_font_sizes/font_size = 31
 text = "Exit"
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(308.5, 362)
+scale = Vector2(1.7853, 1.775)
+texture = ExtResource("1_48xlc")
+
+[connection signal="pressed" from="CanvasLayer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

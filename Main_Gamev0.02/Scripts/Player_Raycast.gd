@@ -10,6 +10,7 @@ var Tower_Instance = TOWERS.instantiate() as Node3D
 
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
+#O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
 
 #Variavel para o Killer fazer a carta sumir. Se for true, o mouse ta passando por uma
 #grid cell, se for false, nao esta
