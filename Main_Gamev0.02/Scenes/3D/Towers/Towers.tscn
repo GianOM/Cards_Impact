@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0g1t2f3o3mb4"]
+
+[ext_resource type="PackedScene" uid="uid://di3yyvhxqaj33" path="res://Assets/3D Assets/Towers/Tower Example.glb" id="1_yckre"]
+[ext_resource type="Script" uid="uid://cwp7f8fsjx0ws" path="res://Scripts/3D/Tower/Tower_Script.gd" id="2_8kg0s"]
+
+[node name="Tower Example" instance=ExtResource("1_yckre")]
+script = ExtResource("2_8kg0s")
+
+[node name="Tower_Test" parent="Tower_Test" index="0"]
+collision_layer = 2
+collision_mask = 2

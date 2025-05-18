@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx8xcpow54tel"]
+
+[ext_resource type="PackedScene" uid="uid://c73rab40ocxtv" path="res://Assets/3D Assets/Floors/Ground.glb" id="1_4vun4"]
+[ext_resource type="Material" uid="uid://cdfkg2go0lk76" path="res://Assets/3D Assets/Floors/Ground.tres" id="2_ao2nw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Ground2" parent="StaticBody3D" instance=ExtResource("1_4vun4")]
+
+[node name="Ground" parent="StaticBody3D/Ground2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00803852, 0.00984049, -0.012764)
+surface_material_override/0 = ExtResource("2_ao2nw")
+
+[editable path="StaticBody3D/Ground2"]

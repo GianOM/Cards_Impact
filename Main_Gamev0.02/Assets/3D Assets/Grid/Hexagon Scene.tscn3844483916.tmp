@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://12rb8vl52lhy"]
+
+[ext_resource type="PackedScene" uid="uid://b2lkpb43g0hf" path="res://Assets/3D Assets/Grid/Hexagon.glb" id="1_lcgbm"]
+[ext_resource type="Script" uid="uid://fat2quipg4r7" path="res://Scripts/Hexagon_Class.gd" id="2_trtjo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtjo"]
+transparency = 1
+albedo_color = Color(0.501961, 0.501961, 0.313726, 0.501961)
+
+[node name="Hexagon" instance=ExtResource("1_lcgbm")]
+script = ExtResource("2_trtjo")
+
+[node name="Hexagon_Grid" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_trtjo")

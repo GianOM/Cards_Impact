@@ -1,0 +1,14 @@
+Node
+CollisionShape3D
+Area3D
+StaticBody3D
+CollisionShape2D
+Area2D
+Label
+Sprite2D
+Button
+CanvasLayer
+GridMap
+PathFollow3D
+Path3D
+MeshInstance3D

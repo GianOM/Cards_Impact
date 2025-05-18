@@ -1,0 +1,15 @@
+res://Scenes/Main.tscn
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Scenes/Main2D.tscn
+res://Scenes/3D/Grid/Hexagon Tile.tscn
+res://Scenes/3D/Towers/Towers.tscn
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Scenes/canvas_layer.tscn
+res://Scenes/Player Camera Scene.tscn
+res://Scripts/3D/Grid/Generate_Grid.gd
+res://Scripts/Player Movement.gd
+res://Scripts/Player_Raycast.gd
+res://Scripts/3D/Tower/Tower_Script.gd
+res://Scripts/3D/Grid/Hexagon_Class.gd

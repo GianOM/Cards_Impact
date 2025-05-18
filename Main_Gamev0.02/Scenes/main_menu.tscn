@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynaphj5tfkt8"]
+
+[ext_resource type="Script" uid="uid://b8yq8oyeptc1b" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://bffltoe30gw13" path="res://Assets/2D Assets/ianCardH.png" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bxqgi0xbpq1cr" path="res://Assets/2D Assets/schollesCardH.png" id="2_1ehe0"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1ehe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(379, 414)
+scale = Vector2(1.69412, 1.68)
+texture = ExtResource("1_48xlc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1559.25, 409.5)
+scale = Vector2(1.71029, 1.7075)
+texture = ExtResource("2_1ehe0")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 653.0
+offset_top = 240.0
+offset_right = 1268.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 69
+text = "CARDS IMPACT"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+offset_left = 715.0
+offset_top = 642.0
+offset_right = 1214.0
+offset_bottom = 772.0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 800.0
+offset_top = 842.0
+offset_right = 1137.0
+offset_bottom = 977.0
+theme_override_font_sizes/font_size = 31
+text = "Exit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

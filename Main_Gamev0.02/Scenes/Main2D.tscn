@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcfnwcecgfqx7"]
+
+[ext_resource type="Script" uid="uid://mj2pemeljci3" path="res://Scripts/main_2d.gd" id="1_61gfo"]
+[ext_resource type="Script" uid="uid://bujnthksap3km" path="res://Scripts/card_manager.gd" id="1_kbhl5"]
+[ext_resource type="Texture2D" uid="uid://dfkako8o86n4n" path="res://Assets/2D Assets/back.png" id="3_gfyuw"]
+[ext_resource type="Script" uid="uid://23mucqr8g3xy" path="res://Scripts/player_hand.gd" id="4_x2dgl"]
+[ext_resource type="PackedScene" uid="uid://bbd1vp3hxspss" path="res://Scenes/card_slot.tscn" id="5_61gfo"]
+[ext_resource type="Script" uid="uid://bg0vdxq1ieapr" path="res://Scripts/deck.gd" id="6_f2efj"]
+[ext_resource type="Texture2D" uid="uid://dquvn15n4atwx" path="res://Assets/2D Assets/cardBack.png" id="6_yq41h"]
+[ext_resource type="Script" uid="uid://b4oerpv5ajd21" path="res://Scripts/input_manager.gd" id="8_yr5wd"]
+
+[sub_resource type="GDScript" id="GDScript_x2dgl"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijaib"]
+size = Vector2(369, 486.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2efj"]
+size = Vector2(148, 239)
+
+[node name="Main2D" type="Node2D"]
+script = ExtResource("1_61gfo")
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_kbhl5")
+
+[node name="InGameMenu" type="CanvasLayer" parent="."]
+visible = false
+script = SubResource("GDScript_x2dgl")
+
+[node name="Button" type="Button" parent="InGameMenu"]
+offset_left = 63.0
+offset_top = 438.0
+offset_right = 362.0
+offset_bottom = 511.0
+text = "Back to Main Menu"
+
+[node name="bgImg" type="Sprite2D" parent="InGameMenu"]
+modulate = Color(1, 1, 1, 0.541176)
+z_index = -1
+position = Vector2(207, 381)
+scale = Vector2(0.74, 0.610625)
+texture = ExtResource("3_gfyuw")
+
+[node name="Label" type="Label" parent="InGameMenu"]
+offset_left = 40.0
+offset_top = 176.0
+offset_right = 380.0
+offset_bottom = 257.0
+theme_override_font_sizes/font_size = 28
+text = "In Game Menu  
+WOOOOOOOOOOOOOW"
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="InGameMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InGameMenu/Area2D"]
+position = Vector2(204.5, 378.375)
+shape = SubResource("RectangleShape2D_ijaib")
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("4_x2dgl")
+
+[node name="CardSlot" parent="." instance=ExtResource("5_61gfo")]
+position = Vector2(757, 578)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Create" type="Button" parent="UI"]
+offset_left = 27.0
+offset_top = 51.0
+offset_right = 230.0
+offset_bottom = 117.0
+text = "AAAAAAAAAA"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 339.0
+offset_bottom = 23.0
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+metadata/_edit_use_anchors_ = true
+
+[node name="Warnings" type="Label" parent="UI"]
+offset_left = 905.0
+offset_top = 216.0
+offset_right = 1064.0
+offset_bottom = 319.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="UI"]
+
+[node name="Deck" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(150, 890)
+script = ExtResource("6_f2efj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_yq41h")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f2efj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Deck"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -14.0
+offset_top = -52.0
+offset_right = 26.0
+offset_bottom = -12.0
+scale = Vector2(3, 3)
+text = "0"
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("8_yr5wd")
+
+[connection signal="pressed" from="InGameMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]

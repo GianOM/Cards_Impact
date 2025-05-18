@@ -1,0 +1,110 @@
+extends Node3D
+
+@onready var camera_3d: Camera3D = $Camera3D
+
+var velocity: Vector3 = Vector3.ZERO
+var acceleration: float = 50#Uma boa aceleracao pra garantir que o jogo seja responsivo
+var max_speed: float = 6
+var friction: float = 10
+
+var Camera_Rotation_Speed :float = 50
+var Camera_Zoom_Speed :float = 800
+
+const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
+
+
+@onready var My_Ray_Cast = $RayCast3D
+
+var Hit_Hexagon: Hexagono
+
+var Clamped_Zoom:float = 0
+
+func _ready() -> void:
+	pass
+
+
+func _process(delta: float) -> void:
+	Move_Camera(delta)
+
+	
+	
+func Move_Camera(delta) -> void:
+	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
+	var Input_Sprint = Input.is_action_pressed("Shift_Key")
+	if Input_Sprint:
+		Camera_Rotation_Speed = 100
+		max_speed = 20
+	else:
+		max_speed = 6
+		Camera_Rotation_Speed = 50
+
+	
+	#Input_Direction e uma tupla do tipo (x,y), onde x e y vao de -1(Tecla A ou S) ate 1(Tecla D ou W)
+	var Input_Direction = Input.get_vector("A_Key","D_Key","W_Key","S_Key")
+	#As direcoes da camera mudam conforme ela gira. Logo, precisamos atualizar, multiplicando pela direcao local e normalizando
+	var movement_direction = (transform.basis * Vector3(Input_Direction.x,0,Input_Direction.y) ).normalized()
+	
+	if movement_direction != Vector3.ZERO:
+		# Aplica inercia de movimento
+		velocity = velocity.move_toward(movement_direction * max_speed, acceleration * delta)
+	else:
+		# Aplica friccao
+		velocity = velocity.move_toward(Vector3.ZERO, friction * delta)
+	
+	#Atualiza a Posicao do Node3D Player
+	position += velocity*delta
+	
+	
+	#Input_Rotation é um float que vai de -1(Quando aperta-se Q) ate +1(Quando Aperta-se E)
+	var Input_Rotation = Input.get_axis("E_Key","Q_Key")
+	rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
+	
+	
+	var zoom_direction = (int(Input.is_action_just_released("Scroll_Down"))
+						- int(Input.is_action_just_released("Scroll_Up")) )
+						
+	#Clamped_Zoom limita o Zoom de um valor acumulado -5 ate +3
+	var zoom_amount = Camera_Zoom_Speed * zoom_direction * delta
+	var new_zoom = clamp(Clamped_Zoom + zoom_amount, -5.0, 45.0)
+	zoom_amount = new_zoom - Clamped_Zoom
+	Clamped_Zoom = new_zoom
+
+	camera_3d.translate_object_local(Vector3(0, 0, zoom_amount))
+		
+	camera_3d.rotation.x = clamp(camera_3d.rotation.x - zoom_direction * 0.01, -1.25, -1.01)#Rotaciona a camera pra cima e para baixo um pouco quando da zoom
+
+
+func _input(event):
+	if event is InputEventMouseButton:
+		
+		#Funcao para adcionar a torre
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and My_Ray_Cast.is_colliding():
+			Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
+			
+			#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null,
+			#vc pode colocar uma torre no lugar
+			if Hit_Hexagon.Placed_Tower == null:
+				
+				var Tower_Instance = TOWERS.instantiate() as Node3D
+				get_tree().current_scene.add_child(Tower_Instance) 
+				
+				Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
+				
+				Hit_Hexagon.Placed_Tower = Tower_Instance#Cria uma referencia a torre
+				Tower_Instance.scale = Vector3(20,20,20)
+				
+				Hit_Hexagon.Occupied_Cell()
+			else:
+				SignalManager.send_warning()#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+				
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+				Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
+				
+				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
+				if Hit_Hexagon.Placed_Tower != null:
+					Hit_Hexagon.Placed_Tower.queue_free()
+					
+					Hit_Hexagon.Placed_Tower = null
+					
+					Hit_Hexagon.Highlight()
+					My_Ray_Cast.last_hovered = Hit_Hexagon
