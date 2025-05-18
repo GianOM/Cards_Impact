@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=4 uid="uid://jfyf77tcbqro"]
+[gd_scene load_steps=40 format=4 uid="uid://jfyf77tcbqro"]
 
+[ext_resource type="Script" uid="uid://l1g3sqkn5k7y" path="res://Scripts/main_3d.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://c7y05pvvfpsu6" path="res://Scenes/3D/Grid/hex_grid.tscn" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cu7u0kkwfe8mp" path="res://Scenes/Player Camera Scene.tscn" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://cdfkg2go0lk76" path="res://Assets/3D Assets/Floors/Ground.tres" id="4_v1gob"]
@@ -253,6 +254,7 @@ albedo_color = Color(0.956863, 0.235294, 0.0352941, 1)
 albedo_color = Color(0.992157, 0.364706, 0.0196078, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_50glp")
 
 [node name="Player Base" type="Node" parent="."]
 
@@ -282,8 +284,6 @@ transform = Transform3D(1.115, 0, 0, 0, 1, 0, 0, 0, 1.36, 0.00803852, 0.00984049
 mesh = SubResource("ArrayMesh_v1jeg")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_v1gob")
-
-[node name="Main2D" parent="Player Base" instance=ExtResource("6_jw32o")]
 
 [node name="PUFAVO_VEI" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.3654, 0, -0.483822, 0, 3.4, 0, 0.483822, 0, 3.3654, 11.9078, 0.246461, 1.15923)
@@ -437,3 +437,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jw32o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Base/Nexus2/Area3D"]
 shape = SubResource("BoxShape3D_v1gob")
+
+[node name="Main2D" parent="." instance=ExtResource("6_jw32o")]
