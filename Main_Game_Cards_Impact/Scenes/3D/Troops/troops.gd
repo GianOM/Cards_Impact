@@ -1,4 +1,4 @@
-class_name Tropas
+class_name Personagens
 extends CharacterBody3D
 
 var Vida: float = 15.0
