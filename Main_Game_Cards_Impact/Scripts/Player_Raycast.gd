@@ -7,7 +7,7 @@ const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
 var Tower_Instance = TOWERS.instantiate() as Node3D
-
+var Hovered_Tower_Index:int = 0
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
 #O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
@@ -71,7 +71,13 @@ func Screen_Point_to_Ray() -> void:
 			last_hovered.Remove_Highlight()
 			#last_hovered = null
 			
+		if Hovered_Tower_Index == 1:
+			Tower_Instance.Trocar_para_Torre_2()
+		elif Hovered_Tower_Index == 0:
+			Tower_Instance.Trocar_para_Torre_1()
+
 		Tower_Instance.global_position = Ray_Hit.global_position
+
 
 	else :
 		is_Mouse_Hitting_a_Hex_Cell = false

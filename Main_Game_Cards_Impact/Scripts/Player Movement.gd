@@ -7,28 +7,24 @@ var acceleration: float = 50#Uma boa aceleracao pra garantir que o jogo seja res
 var max_speed: float = 6
 var friction: float = 10
 
+var rotating :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
 var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
+var Clamped_Zoom:float = 0
 
-var rotating :bool = false
 
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
-
+var Tower_Selected_Index:int = 0
 
 @onready var My_Ray_Cast = $RayCast3D
 
 var Hit_Hexagon: Hexagono
 
-var Clamped_Zoom:float = 0
-
 func _ready() -> void:
 	pass
 
-
 func _process(delta: float) -> void:
 	Move_Camera(delta)
-
-	
 	
 func Move_Camera(delta) -> void:
 	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
@@ -90,6 +86,12 @@ func _input(event):
 				var Tower_Instance = TOWERS.instantiate() as Node3D
 				get_tree().current_scene.add_child(Tower_Instance) 
 				
+				if Tower_Selected_Index == 1:
+					Tower_Instance.Trocar_para_Torre_2()
+					
+				elif Tower_Selected_Index == 0:
+					Tower_Instance.Trocar_para_Torre_1()
+				
 				Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
 				
 				Hit_Hexagon.Placed_Tower = Tower_Instance#Cria uma referencia a torre
@@ -114,8 +116,7 @@ func _input(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 			rotating = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				
-				
+
 	elif Input.is_action_just_released("Middle_Mouse_Button"):
 		rotating = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -123,3 +124,10 @@ func _input(event):
 	if event is InputEventMouseMotion and rotating:
 		var delta = event.relative
 		rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x
+	
+	if Input.is_action_just_pressed("1_Key"):
+		Tower_Selected_Index = 0
+		My_Ray_Cast.Hovered_Tower_Index = 0
+	elif Input.is_action_just_pressed("2_Key"):
+		Tower_Selected_Index = 1
+		My_Ray_Cast.Hovered_Tower_Index = 1
