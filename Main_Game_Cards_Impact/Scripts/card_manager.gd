@@ -5,6 +5,8 @@ const COLLISION_MASK_CARD_SLOT = 2 #collision layer and mask in cardslot/area2d 
 const DEFAULT_CARD_MOVE_SPEED = 0.3
 
 
+
+
 var screen_size
 var card_being_dragged
 var is_hovering_on_card
@@ -120,6 +122,4 @@ func get_card_with_highest_z_index(cards):
 			highest_z_card = current_card
 			highest_z_index = current_card.z_index
 	return highest_z_card
-	
-	
 	
