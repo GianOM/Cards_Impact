@@ -6,6 +6,7 @@ extends Resource
 @export var Tower_Index: int
 var Tower_3d_Mesh: MeshInstance3D
 
+
 func Set_Mesh_Based_on_ID(i:int):
 	const TOWERS_DATABASE = preload("res://Scenes/3D/Towers/Towers_Database.tscn")
 	var database_instance = TOWERS_DATABASE.instantiate()

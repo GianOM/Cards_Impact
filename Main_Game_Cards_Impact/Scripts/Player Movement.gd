@@ -110,8 +110,8 @@ func _input(event):
 					My_Ray_Cast.last_hovered = Hit_Hexagon
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-			rotating = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		rotating = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	elif Input.is_action_just_released("Middle_Mouse_Button"):
 		rotating = false

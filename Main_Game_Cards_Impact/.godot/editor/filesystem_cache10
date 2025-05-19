@@ -1,7 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747634395
+::res://::1747634653
 icon.svg::CompressedTexture2D/CompressedTexture2D::829143363638864324::1747627854::1747627854::1::::<><><>0<>0<>1425327dd3a054e320b15a1838ef205f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Towers_Database_USING_RESOURCES.gd::GDScript/GDScript::8712046733156272541::1747630715::0::1::::<>ResourcePreloader<><>0<>0<><>::
 ::res://Assets/::1747627909
 ::res://Assets/2D Assets/::1747628020
 back_1.png::CompressedTexture2D/CompressedTexture2D::7192830347787550338::1747627854::1747627854::1::::<><><>0<>0<>6130be3e47e4f638daded70481dc2e8a<>res://.godot/imported/back_1.png-1910179fa925d1a4a256e92674799fae.ctex::
@@ -60,13 +59,13 @@ hex_grid.tscn::PackedScene/PackedScene::7070001749789563063::1747627854::0::1:::
 Path_Example.tscn::PackedScene::1060163173973188941::1747628454::0::1::::<><><>0<>0<><>::uid://bt5wk3ixfe5x4::::res://Scripts/3D/Path/Troops_Path_Follow.gd<>uid://b2jwvrl7sd26f::::res://Scenes/3D/Troops/Troops.tscn
 Troop.tscn::PackedScene/PackedScene::2457302134295075607::1747627854::0::1::::<><><>0<>0<><>::uid://b3ksaaf8a0br1::::res://Scenes/3D/Paths/Troops.gd
 Troops.gd::GDScript/GDScript::4373444998192777352::1747627854::0::1::::Tropas<>Node3D<><>0<>0<><>::
-::res://Scenes/3D/Towers/::1747634381
-Towers.tscn::PackedScene::8927983407597083503::1747634381::0::1::::<><><>0<>0<><>::uid://cwp7f8fsjx0ws::::res://Scripts/3D/Tower/Tower_Script.gd<>uid://n7o8ee7hmhcd::::res://Scripts/3D/Tower/Get_Tower_From_Database.gd
+::res://Scenes/3D/Towers/::1747634452
+Towers.tscn::PackedScene::8927983407597083503::1747634452::0::1::::<><><>0<>0<><>::uid://cwp7f8fsjx0ws::::res://Scripts/3D/Tower/Tower_Script.gd<>uid://n7o8ee7hmhcd::::res://Scripts/3D/Tower/Get_Tower_From_Database.gd
 Towers_Database.tscn::PackedScene::3622270454856647854::1747634337::0::1::::<><><>0<>0<><>::
 ::res://Scenes/3D/Troops/::1747628454
 troops.gd::GDScript/GDScript::7134000002897257336::1747627854::0::1::::Personagens<>CharacterBody3D<><>0<>0<><>::
 Troops.tscn::PackedScene::4301473048587317255::1747628454::0::1::::<><><>0<>0<><>::uid://bxe3hx7ivymd::::res://Scripts/3D/Troops/Moving_Units.gd
-::res://Scripts/::1747634381
+::res://Scripts/::1747634452
 card.gd::GDScript/GDScript::7586805371655841442::1747627854::0::1::::<>Node2D<><>0<>0<><>::
 card_database.gd::GDScript/GDScript::1942878805310342419::1747627854::0::1::::<>RefCounted<><>0<>0<><>::
 card_manager.gd::GDScript/GDScript::3809600591160398856::1747627854::0::1::::<>Node2D<><>0<>0<><>::
@@ -74,7 +73,7 @@ card_slot.gd::GDScript/GDScript::8778079465401544762::1747627854::0::1::::<>Node
 deck.gd::GDScript/GDScript::2860444837548693615::1747627854::0::1::::<>Node2D<><>0<>0<><>::
 fps.gd::GDScript/GDScript::8082169409473952610::1747627854::0::1::::<>Label<><>0<>0<><>::
 input_manager.gd::GDScript/GDScript::4451072485874891908::1747627854::0::1::::<>Node2D<><>0<>0<><>::
-main_2d.gd::GDScript::862511897984045868::1747634381::0::1::::<>Node2D<><>0<>0<><>::
+main_2d.gd::GDScript::862511897984045868::1747634452::0::1::::<>Node2D<><>0<>0<><>::
 main_3d.gd::GDScript::826166376419937920::1747629679::0::1::::<>Node3D<><>0<>0<><>::
 main_menu.gd::GDScript/GDScript::4753228765533474053::1747627854::0::1::::<>Node2D<><>0<>0<><>::
 Player Movement.gd::GDScript::6046463072335859306::1747634335::0::1::::<>Node3D<><>0<>0<><>::
@@ -92,8 +91,8 @@ fps.gd::GDScript/GDScript::8082169409473952610::1747627854::0::1::::<>Label<><>0
 input_manager.gd::GDScript/GDScript::4451072485874891908::1747627854::0::1::::<>Node2D<><>0<>0<><>::
 player_hand.gd::GDScript/GDScript::1953665805712184822::1747627854::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Scripts/3D/::1747627909
-::res://Scripts/3D/Grid/::1747634381
-Col_test.gd::GDScript::5824815171574555122::1747634381::0::1::::<>StaticBody3D<><>0<>0<><>::
+::res://Scripts/3D/Grid/::1747634452
+Col_test.gd::GDScript::5824815171574555122::1747634452::0::1::::<>StaticBody3D<><>0<>0<><>::
 Generate_Grid.gd::GDScript/GDScript::4084298651842075003::1747627854::0::1::::<>Node3D<><>0<>0<><>::
 Hexagon_Class.gd::GDScript/GDScript::352146929141645942::1747627854::0::1::::Hexagono<>Node3D<><>0<>0<><>::
 Hexagon_Collision_Script.gd::GDScript/GDScript::2237878340306182396::1747627854::0::1::::<>StaticBody3D<><>0<>0<><>::

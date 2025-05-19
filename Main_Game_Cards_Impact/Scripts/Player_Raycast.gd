@@ -3,7 +3,6 @@ extends RayCast3D
 const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 
 @onready var camera_3d: Camera3D = $"../Camera3D"
-#@onready var tower_example: Node3D = $"../Tower Example"
 
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
 var Tower_Instance = TOWERS.instantiate() as Node3D
@@ -31,12 +30,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	Screen_Point_to_Ray()
-	#print(is_Mouse_Hitting_a_Hex_Cell)
 
 func Screen_Point_to_Ray() -> void:
 	var mouse_Position = get_viewport().get_mouse_position()
 	#get_viewport().get_mouse_position() Retorna a posicao do mouse na tela, aumentando da esquerda para direita e
 	# de cima para baixo
+	
+	#TO DO: LIMITAR O RAY CAST PARA SOMENTE 60% DA ALTURA PARA NAO DAR PROBLEMA COM AS CARTAS
 	
 	var Ray_Cast_Origin = camera_3d.project_ray_origin(mouse_Position)
 	var Ray_Cast_Target = Ray_Cast_Origin + (camera_3d.project_ray_normal(mouse_Position)) * 8192#QUANTO MAIOR ESTE NUMERO, MAIS PRECISO E O RAYCAS
@@ -69,7 +69,6 @@ func Screen_Point_to_Ray() -> void:
 
 		elif last_hovered:
 			last_hovered.Remove_Highlight()
-			#last_hovered = null
 		
 		Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Hovered_Tower_Index)
 
