@@ -1,7 +1,12 @@
-res://Scenes/Main.tscn
+res://Scenes/3D/Towers/Towers.tscn
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
 res://Assets/3D Assets/Floors/Ground.tres
-res://Scripts/main_2d.gd
-res://Scenes/main_menu.tscn
-res://Scripts/main_3d.gd
+res://Scenes/Main.tscn
+res://Scripts/3D/Tower/Tower_Script.gd
+res://Scripts/3D/Tower/Get_Tower_From_Database.gd
+res://Scenes/3D/Towers/Towers_Databese.tscn
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Scenes/3D/Paths/Troop.tscn
+res://Scenes/3D/Paths/Troops.gd
+res://Scripts/3D/Path/Troops_Path_Follow.gd

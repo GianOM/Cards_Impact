@@ -1,13 +1,13 @@
-[gd_scene load_steps=40 format=4 uid="uid://jfyf77tcbqro"]
+[gd_scene load_steps=38 format=4 uid="uid://jfyf77tcbqro"]
 
 [ext_resource type="Script" uid="uid://l1g3sqkn5k7y" path="res://Scripts/main_3d.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://c7y05pvvfpsu6" path="res://Scenes/3D/Grid/hex_grid.tscn" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cu7u0kkwfe8mp" path="res://Scenes/Player Camera Scene.tscn" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://cdfkg2go0lk76" path="res://Assets/3D Assets/Floors/Ground.tres" id="4_v1gob"]
 [ext_resource type="PackedScene" uid="uid://dcfnwcecgfqx7" path="res://Scenes/Main2D.tscn" id="6_jw32o"]
-[ext_resource type="PackedScene" uid="uid://pdsy54p1w64h" path="res://Scenes/3D/Paths/Path_Example.tscn" id="6_v1gob"]
 [ext_resource type="PackedScene" uid="uid://bjdy1h8plb7lu" path="res://Scenes/canvas_layer.tscn" id="7_50glp"]
 [ext_resource type="Script" uid="uid://bt5wk3ixfe5x4" path="res://Scripts/3D/Path/Troops_Path_Follow.gd" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://b3ksaaf8a0br1" path="res://Scenes/3D/Paths/Troops.gd" id="7_vy5pj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rgh2o"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -154,9 +154,6 @@ albedo_color = Color(0.95, 0.74385, 0.361, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gob"]
 size = Vector3(11.6604, 1, 9.79663)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
-albedo_color = Color(0.68, 0.2822, 0.1496, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uf4a"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jmui3"]
@@ -238,14 +235,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2qsqq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy5pj"]
-albedo_color = Color(0.316667, 1, 0, 1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_180k3"]
+points = PackedVector3Array(-0.0813641, 0.0235488, -0.393055, 0.0579605, 0.133685, 0.406891, -0.0651478, 0.133685, 0.406891, 0.0358539, 1.27886, -0.0627582, 0.406874, 0.133685, -0.0650607, -0.39349, 0.133685, 0.119525, 0.0542651, 1.14825, 0.208592, -0.21228, 1.12116, -0.0604404, 0.285527, 0.0298975, 0.285465, 0.128602, 1.13791, -0.173513, -0.351737, 0.0276051, -0.196977, 0.290928, 0.018375, -0.278432, 0.208562, 1.14839, 0.0542898, -0.156363, 1.14323, 0.149186, -0.278426, 0.0183945, 0.290933, -0.115361, 1.11276, -0.189966, 0.119434, 0.133685, -0.393409, 0.324749, 0.133685, 0.263127, -0.126622, 0.133685, -0.393409, -0.39349, 0.133685, -0.126616, 0.015314, 1.06324, -0.230705, 0.34524, 0.133685, -0.229235, 0.207018, 1.14474, -0.060965, -0.229239, 0.133685, 0.345255, 0.386332, 0.022806, 0.113364, -0.0610267, 1.14456, 0.207031, 0.20156, 0.133685, 0.365827, 0.151558, 1.15097, 0.151569, 0.406874, 0.133685, 0.0578893, 0.113283, 0.0227772, 0.386366, -0.352427, 0.133685, 0.222144, 0.222051, 0.133685, -0.352426)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmxlf"]
-albedo_color = Color(0.317647, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kpch"]
-albedo_color = Color(0.317647, 1, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
+albedo_color = Color(0.68, 0.2822, 0.1496, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
 albedo_color = Color(0.956863, 0.235294, 0.0352941, 1)
@@ -285,15 +279,6 @@ mesh = SubResource("ArrayMesh_v1jeg")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_v1gob")
 
-[node name="PUFAVO_VEI" parent="Player Base" instance=ExtResource("6_v1gob")]
-transform = Transform3D(3.3654, 0, -0.483822, 0, 3.4, 0, 0.483822, 0, 3.3654, 11.9078, 0.246461, 1.15923)
-
-[node name="PUFAVO_VEI2" parent="Player Base" instance=ExtResource("6_v1gob")]
-transform = Transform3D(3.26339, 0, 0.954096, 0, 3.4, 0, -0.954096, 0, 3.26339, -13.4486, 0.362262, 0.671893)
-
-[node name="PUFAVO_VEI3" parent="Player Base" instance=ExtResource("6_v1gob")]
-transform = Transform3D(3.39137, 0, 0.242085, 0, 3.4, 0, -0.242085, 0, 3.39137, -0.887312, 0.511173, 0.600332)
-
 [node name="Nexus2" type="Node3D" parent="Player Base"]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0.011, -0.18, 33.7032)
 
@@ -315,6 +300,40 @@ surface_material_override/0 = SubResource("StandardMaterial3D_frkhe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player Base/Nexus2/Area3D"]
 shape = SubResource("BoxShape3D_v1gob")
 
+[node name="Path" type="Area3D" parent="Player Base"]
+transform = Transform3D(3.33686, 0, -0.652187, 0, 3.4, 0, 0.652187, 0, 3.33686, 14.4208, 1.49335, 2.16766)
+
+[node name="Path_Example" type="MeshInstance3D" parent="Player Base/Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
+mesh = SubResource("ArrayMesh_f8tit")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_mkus5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player Base/Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
+shape = SubResource("ConvexPolygonShape3D_0rkl7")
+debug_color = Color(0, 0.595, 0.7, 1)
+
+[node name="Path3D" type="Path3D" parent="Player Base/Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, 0.0589877, 0)
+curve = SubResource("Curve3D_4xxd8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Player Base/Path/Path3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+script = ExtResource("7_jw32o")
+
+[node name="Troops" type="Node3D" parent="Player Base/Path/Path3D/PathFollow3D"]
+script = ExtResource("7_vy5pj")
+
+[node name="Pawn" type="MeshInstance3D" parent="Player Base/Path/Path3D/PathFollow3D/Troops"]
+mesh = SubResource("ArrayMesh_js15p")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Player Base/Path/Path3D/PathFollow3D/Troops/Pawn"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player Base/Path/Path3D/PathFollow3D/Troops/Pawn/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_180k3")
+
 [node name="Enemy Base" type="Node" parent="."]
 
 [node name="Hex_Grid" parent="Enemy Base" instance=ExtResource("1_pbw6q")]
@@ -329,93 +348,6 @@ transform = Transform3D(1.115, 0, 0, 0, 1, 0, 0, 0, 1.36, 0.00803852, 0.00984049
 mesh = SubResource("ArrayMesh_v1jeg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_50glp")
-
-[node name="PUFAVO_VEI" type="Area3D" parent="Enemy Base"]
-transform = Transform3D(-3.3654, 0, 0.483822, 0, 3.4, 0, -0.483822, 0, -3.3654, -12.3827, 0.246461, -56.751)
-
-[node name="Path_Example" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-mesh = SubResource("ArrayMesh_f8tit")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_mkus5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Base/PUFAVO_VEI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-shape = SubResource("ConvexPolygonShape3D_0rkl7")
-debug_color = Color(0, 0.595, 0.7, 1)
-
-[node name="Path3D" type="Path3D" parent="Enemy Base/PUFAVO_VEI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, 0.0589877, 0)
-curve = SubResource("Curve3D_4xxd8")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Enemy Base/PUFAVO_VEI/Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
-script = ExtResource("7_jw32o")
-
-[node name="Pawn2" type="Node3D" parent="Enemy Base/PUFAVO_VEI/Path3D/PathFollow3D"]
-
-[node name="Pawn" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI/Path3D/PathFollow3D/Pawn2"]
-mesh = SubResource("ArrayMesh_js15p")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_vy5pj")
-
-[node name="PUFAVO_VEI2" type="Area3D" parent="Enemy Base"]
-transform = Transform3D(-3.26339, 0, -0.954096, 0, 3.4, 0, 0.954096, 0, -3.26339, 12.9737, 0.362262, -56.2637)
-
-[node name="Path_Example" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-mesh = SubResource("ArrayMesh_f8tit")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_mkus5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Base/PUFAVO_VEI2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-shape = SubResource("ConvexPolygonShape3D_0rkl7")
-debug_color = Color(0, 0.595, 0.7, 1)
-
-[node name="Path3D" type="Path3D" parent="Enemy Base/PUFAVO_VEI2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, 0.0589877, 0)
-curve = SubResource("Curve3D_4xxd8")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Enemy Base/PUFAVO_VEI2/Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
-script = ExtResource("7_jw32o")
-
-[node name="Pawn2" type="Node3D" parent="Enemy Base/PUFAVO_VEI2/Path3D/PathFollow3D"]
-
-[node name="Pawn" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI2/Path3D/PathFollow3D/Pawn2"]
-mesh = SubResource("ArrayMesh_js15p")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_bmxlf")
-
-[node name="PUFAVO_VEI3" type="Area3D" parent="Enemy Base"]
-transform = Transform3D(-3.39137, 0, -0.242085, 0, 3.4, 0, 0.242085, 0, -3.39137, 0.412447, 0.511173, -56.1921)
-
-[node name="Path_Example" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-mesh = SubResource("ArrayMesh_f8tit")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_mkus5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Base/PUFAVO_VEI3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, -0.526178, 0)
-shape = SubResource("ConvexPolygonShape3D_0rkl7")
-debug_color = Color(0, 0.595, 0.7, 1)
-
-[node name="Path3D" type="Path3D" parent="Enemy Base/PUFAVO_VEI3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505131, 0.0589877, 0)
-curve = SubResource("Curve3D_4xxd8")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Enemy Base/PUFAVO_VEI3/Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
-script = ExtResource("7_jw32o")
-
-[node name="Pawn2" type="Node3D" parent="Enemy Base/PUFAVO_VEI3/Path3D/PathFollow3D"]
-
-[node name="Pawn" type="MeshInstance3D" parent="Enemy Base/PUFAVO_VEI3/Path3D/PathFollow3D/Pawn2"]
-mesh = SubResource("ArrayMesh_js15p")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_4kpch")
 
 [node name="Nexus2" type="Node3D" parent="Enemy Base"]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, -0.485862, -0.18, -89.295)
