@@ -1,9 +1,9 @@
 extends PathFollow3D
+@onready var tropas: Moving_Units = $Tropas
 
-@onready var character_body_3d: Personagens = $CharacterBody3D
-
-func _ready() -> void:
-	var character_body_3d: Personagens = $CharacterBody3D
-	
 func _process(delta: float) -> void:
-	progress_ratio += character_body_3d.Velocidade * delta
+	
+	if tropas.Vida < 0:
+		queue_free()
+	else:
+		progress_ratio += tropas.Velocidade * delta

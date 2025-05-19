@@ -10,7 +10,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	in_game_menu.visible = false
-	SignalManager.connect("signal_manager_warning", reemit_signal)
+	SignalManager.connect("_signal_manager_warning", reemit_signal)
 
 func reemit_signal():
 
@@ -18,8 +18,6 @@ func reemit_signal():
 	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ESC") && is_on_main_menu == false:

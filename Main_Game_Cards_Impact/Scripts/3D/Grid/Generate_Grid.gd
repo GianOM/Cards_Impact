@@ -6,12 +6,10 @@ extends Node3D
 # y = 0.2
 #Alem disso, ele esta centralizado na origem
 const Hex_Tile = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")#Referencia à cena que contem o unico hexagono
-const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(0.18*HEX_SCALE,0.2*HEX_SCALE)
 const HEX_SCALE = 20
+const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(0.18*HEX_SCALE,0.2*HEX_SCALE)
 
-
-
-var Tile_Placement_Coordinates: Vector2 = Vector2(0,0)#Variavel usada para colocar o Tile na posicao certa
+var Tile_Placement_Coordinates: Vector2#Variavel usada para colocar o Tile na posicao certa
 const TILE_GRID_SIZE: Vector2= Vector2(21,14)#Tamanho 
 
 func _ready() -> void:

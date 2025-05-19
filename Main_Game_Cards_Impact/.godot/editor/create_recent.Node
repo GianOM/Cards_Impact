@@ -1,3 +1,5 @@
+Node
+ResourcePreloader
 Node3D
 Area3D
 CollisionShape3D
@@ -6,9 +8,7 @@ MarginContainer
 PanelContainer
 CanvasLayer
 Label
-Node
 StaticBody3D
 CollisionShape2D
 Area2D
 Sprite2D
-Button

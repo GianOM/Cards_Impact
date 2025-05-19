@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Tower_Data" load_steps=2 format=3 uid="uid://dtax7wui1rwpv"]
+
+[ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Scripts/3D/Tower/Towers_Resource_Database.gd" id="1_qp65f"]
+
+[resource]
+script = ExtResource("1_qp65f")
+Tower_Name = "Queen Tower"
+Tower_Range = 1.0
+Tower_Index = 1
+metadata/_custom_type_script = "uid://b1evb28lgpqnb"

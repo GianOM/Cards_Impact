@@ -76,7 +76,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		
 		#Funcao para adcionar a torre
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and My_Ray_Cast.is_colliding():
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
 			Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
 			
 			#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null,
@@ -86,11 +86,7 @@ func _input(event):
 				var Tower_Instance = TOWERS.instantiate() as Node3D
 				get_tree().current_scene.add_child(Tower_Instance) 
 				
-				if Tower_Selected_Index == 1:
-					Tower_Instance.Trocar_para_Torre_2()
-					
-				elif Tower_Selected_Index == 0:
-					Tower_Instance.Trocar_para_Torre_1()
+				Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
 				
 				Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
 				
@@ -114,8 +110,8 @@ func _input(event):
 					My_Ray_Cast.last_hovered = Hit_Hexagon
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-			rotating = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		rotating = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	elif Input.is_action_just_released("Middle_Mouse_Button"):
 		rotating = false
