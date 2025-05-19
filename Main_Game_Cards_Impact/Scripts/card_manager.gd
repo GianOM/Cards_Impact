@@ -23,7 +23,15 @@ func _process(delta: float) -> void:
 		card_being_dragged.position = Vector2(clamp(mouse_pos.x,0,screen_size.x),
 			clamp(mouse_pos.y,0,screen_size.y))
 
-
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var card = raycast_check()
+			if card:
+				start_drag(card)
+		else:
+			if card_being_dragged:
+				finish_drag()
 
 func start_drag(card):
 	card_being_dragged = card
@@ -70,10 +78,10 @@ func on_unhovered_card(card):
 
 func highlight_card(card, hovered):
 	if hovered:
-		
+		card.scale = Vector2(1.05, 1.05)
 		card.z_index = 2
 	else:
-		
+		card.scale = Vector2(1, 1)
 		card.z_index = 1
 
 

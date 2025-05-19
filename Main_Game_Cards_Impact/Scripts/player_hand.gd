@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const CARD_WIDTH = 200 #set to desired number that best fits the card size
+const CARD_WIDTH = 160 #set to desired number that best fits the card size
 const HAND_Y_POSITION = 890 #set to desired number that best fits the card pos
 const DEFAULT_CARD_MOVE_SPEED = 0.3
 
