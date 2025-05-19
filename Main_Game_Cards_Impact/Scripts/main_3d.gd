@@ -2,10 +2,15 @@ extends Node3D
 
 @onready var main_2d: Node2D = $Main2D
 
+
+
 func hideUI():
+	main_2d.set_process_mode(Node.PROCESS_MODE_DISABLED)
 	main_2d.visible = false
 func showUI():
+	main_2d.set_process_mode(Node.PROCESS_MODE_INHERIT)
 	main_2d.visible = true
+	
 var uiToggle: bool = false
 
 func _input(_event):

@@ -4,17 +4,11 @@ extends Node3D
 var Tower_Range : float
 var Possible_Targets:Array[Moving_Units]
 
-
 @onready var main_tower: MeshInstance3D = $Main_Tower
-@onready var tower_aim: MeshInstance3D = $Tower_Aim
+@onready var tower_aim: MeshInstance3D = $Main_Tower/Tower_Aim
 
-
-
-func Trocar_para_Torre_1():
-	main_tower.set_tier_1_Mesh()
-	
-func Trocar_para_Torre_2():
-	main_tower.set_tier_2_Mesh()
+func Troca_Pra_Torre_Pelo_Indice(idx:int):
+	main_tower.seleciona_mesh_pelo_indice(idx)
 
 func _process(_delta: float) -> void:
 	if Possible_Targets.size() > 0:

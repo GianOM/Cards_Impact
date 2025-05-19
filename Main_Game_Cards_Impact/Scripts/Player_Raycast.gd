@@ -70,11 +70,8 @@ func Screen_Point_to_Ray() -> void:
 		elif last_hovered:
 			last_hovered.Remove_Highlight()
 			#last_hovered = null
-			
-		if Hovered_Tower_Index == 1:
-			Tower_Instance.Trocar_para_Torre_2()
-		elif Hovered_Tower_Index == 0:
-			Tower_Instance.Trocar_para_Torre_1()
+		
+		Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Hovered_Tower_Index)
 
 		Tower_Instance.global_position = Ray_Hit.global_position
 

@@ -1,24 +1,18 @@
 extends MeshInstance3D
 
-const TOWERS_DATABASE = preload("res://Scenes/3D/Towers/Towers_Databese.tscn")
+const TOWERS_DATABASE = preload("res://Scenes/3D/Towers/Towers_Database.tscn")
 
+@onready var Dados_da_Torre: Tower_Data = preload("res://Scripts/3D/Tower/Rook_Tower.tres")
 
 @onready var collision_shape_3d: CollisionShape3D = $"../Enemy_Detection_3D/CollisionShape3D"
-@onready var tower_range: MeshInstance3D = $"../Enemy_Detection_3D/Tower_Range"
+@onready var tower_range: MeshInstance3D = $Tower_Range
 
 #0.5 Radius esta para 1.0 Scale do Tower_Range Mesh Instance
 
-func set_tier_1_Mesh():
-	var database_instance = TOWERS_DATABASE.instantiate()
-	var tower_tier_1 = database_instance.get_node("Tower_Tier_1")
-	collision_shape_3d.shape.set_radius(0.5)
-	tower_range.scale = Vector3(1,1,1)
-	mesh = tower_tier_1.mesh
-
-
-func set_tier_2_Mesh():
-	var database_instance = TOWERS_DATABASE.instantiate()
-	var tower_tier_2 = database_instance.get_node("Tower_Tier_2")
-	collision_shape_3d.shape.set_radius(1)
-	tower_range.scale = Vector3(2,2,2)
-	mesh = tower_tier_2.mesh
+func seleciona_mesh_pelo_indice(index:int):
+	Dados_da_Torre.Set_Mesh_Based_on_ID(index)
+	collision_shape_3d.shape.set_radius(Dados_da_Torre.Tower_Range)
+	tower_range.scale = Vector3(2*Dados_da_Torre.Tower_Range,
+								2*Dados_da_Torre.Tower_Range,
+								2*Dados_da_Torre.Tower_Range)
+	mesh = Dados_da_Torre.Tower_3d_Mesh.mesh

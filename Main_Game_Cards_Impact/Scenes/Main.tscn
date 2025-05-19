@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://jfyf77tcbqro"]
+[gd_scene load_steps=27 format=4 uid="uid://jfyf77tcbqro"]
 
 [ext_resource type="Script" uid="uid://l1g3sqkn5k7y" path="res://Scripts/main_3d.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://c7y05pvvfpsu6" path="res://Scenes/3D/Grid/hex_grid.tscn" id="1_pbw6q"]
@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://cdfkg2go0lk76" path="res://Assets/3D Assets/Floors/Ground.tres" id="4_v1gob"]
 [ext_resource type="PackedScene" uid="uid://dcfnwcecgfqx7" path="res://Scenes/Main2D.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://pdsy54p1w64h" path="res://Scenes/3D/Paths/Path_Example.tscn" id="6_v1gob"]
-[ext_resource type="PackedScene" uid="uid://bjdy1h8plb7lu" path="res://Scenes/2D/canvas_layer.tscn" id="7_50glp"]
+[ext_resource type="PackedScene" uid="uid://bjdy1h8plb7lu" path="res://Scenes/canvas_layer.tscn" id="7_50glp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rgh2o"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -153,14 +153,6 @@ albedo_color = Color(0.95, 0.74385, 0.361, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gob"]
 size = Vector3(11.6604, 1, 9.79663)
 
-[sub_resource type="GDScript" id="GDScript_jw32o"]
-script/source = "class_name UnidadesMoveis
-extends CharacterBody3D
-
-var Vida: float = 15.0
-@export var Velocidade: float = 1.0
-"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
 albedo_color = Color(0.68, 0.2822, 0.1496, 1)
 
@@ -232,9 +224,6 @@ surface_material_override/0 = null
 [node name="PathFollow3D" parent="Player Base/Path/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
-[node name="CharacterBody3D" parent="Player Base/Path/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
-
 [node name="Path2" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.18541, 0, 1.18876, 0, 3.4, 0, -1.18876, 0, 3.18541, -14.6235, 1.52006, 0.197824)
 
@@ -244,9 +233,6 @@ surface_material_override/0 = null
 [node name="PathFollow3D" parent="Player Base/Path2/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
-[node name="CharacterBody3D" parent="Player Base/Path2/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
-
 [node name="Path3" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.38784, 0, -0.287343, 0, 3.4, 0, 0.287343, 0, 3.38784, 4.28973, 1.52006, 0.197824)
 
@@ -255,9 +241,6 @@ surface_material_override/0 = null
 
 [node name="PathFollow3D" parent="Player Base/Path3/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
-
-[node name="CharacterBody3D" parent="Player Base/Path3/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
 
 [node name="Enemy Base" type="Node" parent="."]
 
@@ -304,9 +287,6 @@ surface_material_override/0 = null
 [node name="PathFollow3D" parent="Enemy Base/Path4/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
-[node name="CharacterBody3D" parent="Enemy Base/Path4/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
-
 [node name="Path5" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.06592, 0, -1.46973, 0, 3.4, 0, 1.46973, 0, -3.06592, 16.0074, 1.52006, -57.2759)
 
@@ -316,9 +296,6 @@ surface_material_override/0 = null
 [node name="PathFollow3D" parent="Enemy Base/Path5/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
-[node name="CharacterBody3D" parent="Enemy Base/Path5/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
-
 [node name="Path6" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.38269, 0, -0.342647, 0, 3.4, 0, 0.342647, 0, -3.38269, 0.0869408, 1.52006, -56.3157)
 
@@ -327,9 +304,6 @@ surface_material_override/0 = null
 
 [node name="PathFollow3D" parent="Enemy Base/Path6/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
-
-[node name="CharacterBody3D" parent="Enemy Base/Path6/Path3D/PathFollow3D" index="0"]
-script = SubResource("GDScript_jw32o")
 
 [node name="Main2D" parent="." instance=ExtResource("6_jw32o")]
 

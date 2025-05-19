@@ -37,9 +37,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3j6hg")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ihhw0"]
-resource_local_to_scene = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjacd"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp1vt"]
@@ -115,6 +112,9 @@ shadow_mesh = SubResource("ArrayMesh_ouu0e")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8kg0s"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ihhw0"]
+resource_local_to_scene = true
+
 [node name="Tower Example" type="Node3D"]
 script = ExtResource("2_8kg0s")
 
@@ -123,23 +123,23 @@ mesh = SubResource("ArrayMesh_ollxf")
 skeleton = NodePath("")
 script = ExtResource("2_yckre")
 
-[node name="Enemy_Detection_3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Detection_3D"]
-shape = SubResource("SphereShape3D_ihhw0")
-debug_fill = false
-
-[node name="Tower_Range" type="MeshInstance3D" parent="Enemy_Detection_3D"]
+[node name="Tower_Range" type="MeshInstance3D" parent="Main_Tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27, 0)
 mesh = SubResource("ArrayMesh_y7tnk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_yckre")
 
-[node name="Tower_Aim" type="MeshInstance3D" parent="."]
+[node name="Tower_Aim" type="MeshInstance3D" parent="Main_Tower"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kdxgj")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8kg0s")
+
+[node name="Enemy_Detection_3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Detection_3D"]
+shape = SubResource("SphereShape3D_ihhw0")
+debug_fill = false
 
 [connection signal="body_entered" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_entered"]
 [connection signal="body_exited" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_exited"]
