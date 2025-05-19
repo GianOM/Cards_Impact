@@ -218,6 +218,9 @@ shape = SubResource("BoxShape3D_v1gob")
 [node name="Path" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.08649, 0, -1.42603, 0, 3.4, 0, 1.42603, 0, 3.08649, 19.8267, 1.52006, 2.67502)
 
+[node name="Path_Example" parent="Player Base/Path" index="0"]
+surface_material_override/0 = null
+
 [node name="PathFollow3D" parent="Player Base/Path/Path3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
@@ -227,11 +230,23 @@ Velocidade = 0.25
 [node name="Path2" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.18541, 0, 1.18876, 0, 3.4, 0, -1.18876, 0, 3.18541, -14.6235, 1.52006, 0.197824)
 
+[node name="Path_Example" parent="Player Base/Path2" index="0"]
+surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Player Base/Path2/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+
 [node name="CharacterBody3D" parent="Player Base/Path2/Path3D/PathFollow3D" index="0"]
 Velocidade = 0.25
 
 [node name="Path3" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.38784, 0, -0.287343, 0, 3.4, 0, 0.287343, 0, 3.38784, 4.28973, 1.52006, 0.197824)
+
+[node name="Path_Example" parent="Player Base/Path3" index="0"]
+surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Player Base/Path3/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
 [node name="CharacterBody3D" parent="Player Base/Path3/Path3D/PathFollow3D" index="0"]
 Velocidade = 0.25
@@ -275,17 +290,35 @@ shape = SubResource("BoxShape3D_v1gob")
 [node name="Path4" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.20198, 0, 1.14339, 0, 3.4, 0, -1.14339, 0, -3.20198, -18.5261, 1.52006, -56.6525)
 
+[node name="Path_Example" parent="Enemy Base/Path4" index="0"]
+surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Enemy Base/Path4/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+
 [node name="CharacterBody3D" parent="Enemy Base/Path4/Path3D/PathFollow3D" index="0"]
 Velocidade = 0.25
 
 [node name="Path5" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.06592, 0, -1.46973, 0, 3.4, 0, 1.46973, 0, -3.06592, 16.0074, 1.52006, -57.2759)
 
+[node name="Path_Example" parent="Enemy Base/Path5" index="0"]
+surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Enemy Base/Path5/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+
 [node name="CharacterBody3D" parent="Enemy Base/Path5/Path3D/PathFollow3D" index="0"]
 Velocidade = 0.25
 
 [node name="Path6" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.38269, 0, -0.342647, 0, 3.4, 0, 0.342647, 0, -3.38269, 0.0869408, 1.52006, -56.3157)
+
+[node name="Path_Example" parent="Enemy Base/Path6" index="0"]
+surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Enemy Base/Path6/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
 [node name="CharacterBody3D" parent="Enemy Base/Path6/Path3D/PathFollow3D" index="0"]
 Velocidade = 0.25
