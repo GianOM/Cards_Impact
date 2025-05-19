@@ -1,0 +1,9 @@
+res://Scenes/Main2D.tscn
+res://Scripts/main_2d.gd
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Scripts/3D/Tower/Towers_Resource_Database.gd
+res://Scripts/3D/Tower/Rook_Tower.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Scenes/2D/card.tscn
+res://Scenes/Main.tscn
