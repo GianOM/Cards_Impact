@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 const CARD_WIDTH = 160 #set to desired number that best fits the card size
 const HAND_Y_POSITION = 890 #set to desired number that best fits the card pos
 const DEFAULT_CARD_MOVE_SPEED = 0.3
@@ -16,16 +15,11 @@ func _ready() -> void:
 
 
 func add_card_to_hand(card, speed):
-	if card not in player_hand and player_hand.size() < 6: 
+	if card not in player_hand:
 		player_hand.insert(0, card)
 		update_hand_positions(speed)
 	else:
 		animate_card_to_position(card, card.position_in_hand, DEFAULT_CARD_MOVE_SPEED)
-		#hand size limiter doesn't work properly, one last card is drawn after max
-		$"../Deck/Area2D/CollisionShape2D".disabled = true
-		$"../Deck/Sprite2D".visible = false
-		$"../Deck/RichTextLabel".visible = false
-
 
 func update_hand_positions(speed):
 	for i in range(player_hand.size()):

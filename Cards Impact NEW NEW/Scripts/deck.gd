@@ -2,7 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/card.tscn"
 const CARD_DRAW_SPEED = 0.3
-const STARTING_HAND_SIZE = 4
+const STARTING_HAND_SIZE = 6
 
 
 var player_deck = ["Ian", "Scholles", "Caio", "Gian", "Luis", "Ian", "Scholles", "Caio", "Gian", "Luis", 
