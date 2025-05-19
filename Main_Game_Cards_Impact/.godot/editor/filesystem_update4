@@ -2,9 +2,6 @@ res://Scenes/Main.tscn
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
 res://Assets/3D Assets/Floors/Ground.tres
-res://Scenes/3D/Paths/Path_Example.tscn
-res://Scenes/3D/Grid/Hexagon Tile.tscn
-res://Scenes/Player Camera Scene.tscn
-res://Scenes/Main2D.tscn
-res://Scripts/Player_Raycast.gd
+res://Scripts/main_2d.gd
 res://Scenes/main_menu.tscn
+res://Scripts/main_3d.gd
