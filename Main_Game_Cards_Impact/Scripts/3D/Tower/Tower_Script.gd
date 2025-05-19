@@ -2,7 +2,7 @@ class_name Torre
 extends Node3D
 
 var Tower_Range : float
-var Possible_Targets:Array[Personagens]
+var Possible_Targets:Array[Moving_Units]
 
 
 @onready var main_tower: MeshInstance3D = $Main_Tower
@@ -26,9 +26,9 @@ func _process(_delta: float) -> void:
 		tower_aim.scale = Vector3(0.025,0.025,0.025)
 
 func _on_enemy_detection_3d_body_entered(body: Node3D) -> void:
-		if body is  Personagens:
+		if body is Moving_Units:
 			Possible_Targets.append(body)
 
 func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
-	if body is  Personagens:
+	if body is Moving_Units:
 		Possible_Targets.erase(body)
