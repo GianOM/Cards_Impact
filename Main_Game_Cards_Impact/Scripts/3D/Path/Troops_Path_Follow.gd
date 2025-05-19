@@ -1,10 +1,9 @@
 extends PathFollow3D
 
-@onready var troops: Tropas = $Troops
+@onready var node_3d: Tropas = $Node3D
 
 func _ready() -> void:
-	var troops: Tropas = $Troops
+	var node_3d: Tropas = $Node3D
 	
-
 func _process(delta: float) -> void:
-	progress_ratio += troops.Velocidade * delta
+	progress_ratio += node_3d.Velocidade * delta

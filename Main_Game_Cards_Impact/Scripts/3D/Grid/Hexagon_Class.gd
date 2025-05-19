@@ -5,8 +5,6 @@ extends Node3D
 var Placed_Tower : Torre = null
 
 
-
-
 @onready var hexagon_grid: MeshInstance3D = $Hexagon_Grid
 
 

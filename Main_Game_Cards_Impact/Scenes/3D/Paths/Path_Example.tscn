@@ -108,14 +108,14 @@ curve = SubResource("Curve3D_4xxd8")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 script = ExtResource("1_0rkl7")
 
-[node name="Troops" type="Node3D" parent="Path3D/PathFollow3D"]
+[node name="Node3D" type="Node3D" parent="Path3D/PathFollow3D"]
 script = ExtResource("2_aqeca")
 
-[node name="Pawn" type="MeshInstance3D" parent="Path3D/PathFollow3D/Troops"]
+[node name="Pawn" type="MeshInstance3D" parent="Path3D/PathFollow3D/Node3D"]
 mesh = SubResource("ArrayMesh_js15p")
 skeleton = NodePath("")
 
-[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D/Troops/Pawn"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Path3D/PathFollow3D/Node3D/Pawn"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Troops/Pawn/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Node3D/Pawn/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_180k3")

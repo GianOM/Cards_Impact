@@ -10,6 +10,8 @@ var friction: float = 10
 var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
 
+var rotating :bool = false
+
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
 
 
@@ -56,7 +58,7 @@ func Move_Camera(delta) -> void:
 	
 	
 	#Input_Rotation é um float que vai de -1(Quando aperta-se Q) ate +1(Quando Aperta-se E)
-	var Input_Rotation = Input.get_axis("E_Key","Q_Key")
+	var Input_Rotation = Input.get_axis("Q_Key","E_Key")
 	rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
 	
 	
@@ -97,7 +99,7 @@ func _input(event):
 			else:
 				SignalManager.send_warning()#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
 				
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 				Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
 				
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
@@ -108,3 +110,16 @@ func _input(event):
 					
 					Hit_Hexagon.Highlight()
 					My_Ray_Cast.last_hovered = Hit_Hexagon
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
+			rotating = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				
+				
+	elif Input.is_action_just_released("Middle_Mouse_Button"):
+		rotating = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if event is InputEventMouseMotion and rotating:
+		var delta = event.relative
+		rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x

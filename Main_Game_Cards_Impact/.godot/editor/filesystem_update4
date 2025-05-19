@@ -10,3 +10,5 @@ res://Scenes/3D/Paths/Path_Example.tscn
 res://Scenes/3D/Paths/Troop.tscn
 res://Scenes/3D/Paths/Troops.gd
 res://Scripts/3D/Path/Troops_Path_Follow.gd
+res://Scripts/3D/Grid/Hexagon_Class.gd
+res://Scripts/Player Movement.gd
