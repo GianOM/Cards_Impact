@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcfnwcecgfqx7"]
+[gd_scene load_steps=13 format=3 uid="uid://dcfnwcecgfqx7"]
 
 [ext_resource type="Script" uid="uid://mj2pemeljci3" path="res://Scripts/main_2d.gd" id="1_61gfo"]
 [ext_resource type="Script" uid="uid://bujnthksap3km" path="res://Scripts/2D/card_manager.gd" id="1_kbhl5"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbd1vp3hxspss" path="res://Scenes/2D/card_slot.tscn" id="5_61gfo"]
 [ext_resource type="Script" uid="uid://bg0vdxq1ieapr" path="res://Scripts/2D/deck.gd" id="6_f2efj"]
 [ext_resource type="Texture2D" uid="uid://dquvn15n4atwx" path="res://Assets/2D Assets/cardBack.png" id="6_yq41h"]
-[ext_resource type="Script" uid="uid://b4oerpv5ajd21" path="res://Scripts/2D/input_manager.gd" id="8_yr5wd"]
+
 
 [sub_resource type="GDScript" id="GDScript_x2dgl"]
 script/source = "extends CanvasLayer
@@ -118,6 +118,7 @@ text = "0"
 script = ExtResource("8_yr5wd")
 
 [node name="LeftMenu" type="Node2D" parent="."]
+script = ExtResource("8_e1ypl")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftMenu"]
 position = Vector2(185, 539)
@@ -133,6 +134,7 @@ z_index = 1
 position = Vector2(98, 890)
 
 [node name="RerollButton" type="Button" parent="LeftMenu"]
+z_index = 1
 offset_left = 111.0
 offset_top = 678.0
 offset_right = 262.0
@@ -142,3 +144,4 @@ text = "Reroll"
 
 [connection signal="pressed" from="InGameMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="LeftMenu/RerollButton" to="LeftMenu" method="_on_reroll_button_pressed"]
