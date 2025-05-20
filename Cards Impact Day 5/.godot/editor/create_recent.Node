@@ -1,0 +1,14 @@
+CharacterBody3D
+PathFollow3D
+Area3D
+Label
+Node
+ResourcePreloader
+Node3D
+CollisionShape3D
+Container
+MarginContainer
+PanelContainer
+CanvasLayer
+StaticBody3D
+CollisionShape2D
