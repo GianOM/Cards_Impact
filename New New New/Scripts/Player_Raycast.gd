@@ -45,7 +45,6 @@ func Screen_Point_to_Ray() -> void:
 		# O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
 		Ray_Hit = get_collider()
 		var Ray_Hit_Owner = Ray_Hit.get_owner()#Precisamos catar o Owner para saber sua classe e sua posicao
-		
 		#o check de hexagono tem que vir antes de tentar pegarmos o owner, 
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
 		if Ray_Hit_Owner is Hexagono:
@@ -66,8 +65,6 @@ func Screen_Point_to_Ray() -> void:
 					
 			elif (Ray_Hit_Owner != remove_range_hovering and remove_range_hovering!= null):
 				remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
-				
-				
 				
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
 			#possui uma torre

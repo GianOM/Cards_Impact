@@ -150,6 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.304, 0, -24.5194)
 top_level = true
 
 [node name="Player" parent="Player Base" instance=ExtResource("3_kln2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Player Base"]
 environment = SubResource("Environment_v1gob")
@@ -193,15 +194,12 @@ shape = SubResource("BoxShape3D_v1gob")
 
 [node name="Path" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.16224, 0, -1.24909, 0, 3.4, 0, 1.24909, 0, 3.16224, 18.2325, 1.35266, 3.72086)
-Number_of_Troops_to_Spawn = 8
 
 [node name="Path2" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.39758, 0, 0.128265, 0, 3.4, 0, -0.128265, 0, 3.39758, 1.14678, 1.35266, 1.62951)
-Number_of_Troops_to_Spawn = 10
 
 [node name="Path3" parent="Player Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(3.19371, 0, 1.16627, 0, 3.4, 0, -1.16627, 0, 3.19371, -14.408, 1.35266, 2.27115)
-Number_of_Troops_to_Spawn = 4
 
 [node name="Enemy Base" type="Node" parent="."]
 
@@ -241,21 +239,18 @@ shape = SubResource("BoxShape3D_v1gob")
 
 [node name="Path4" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.22721, 0, 1.07011, 0, 3.4, 0, -1.07011, 0, -3.22721, -17.9966, 1.35266, -60.4246)
-Number_of_Troops_to_Spawn = 3
 
 [node name="Path_Example" parent="Enemy Base/Path4" index="0"]
 surface_material_override/0 = null
 
 [node name="Path5" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.12008, 0, -1.35096, 0, 3.4, 0, 1.35096, 0, -3.12008, 13.001, 1.35266, -57.2857)
-Number_of_Troops_to_Spawn = 1
 
 [node name="Path_Example" parent="Enemy Base/Path5" index="0"]
 surface_material_override/0 = null
 
 [node name="Path6" parent="Enemy Base" instance=ExtResource("6_v1gob")]
 transform = Transform3D(-3.39453, 0, -0.192756, 0, 3.4, 0, 0.192756, 0, -3.39453, -2.62529, 1.60762, -57.1805)
-Number_of_Troops_to_Spawn = 2
 
 [node name="Path_Example" parent="Enemy Base/Path6" index="0"]
 surface_material_override/0 = null

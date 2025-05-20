@@ -19,6 +19,7 @@ var Tower_Selected_Index:int = 0
 @onready var My_Ray_Cast = $RayCast3D
 
 var Hit_Hexagon: Hexagono
+var Hit_Enemy_Spawner: Enemy_Spawner
 
 func _ready() -> void:
 	pass
@@ -78,10 +79,9 @@ func _input(event):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
 			#Raycas sera Null e o jogo crasha
-			if (My_Ray_Cast.is_colliding()):#codigo para colocar a torre
+			#print(My_Ray_Cast.Ray_Hit.get_owner())
+			if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):#codigo para colocar a torre
 				Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
-				print(My_Ray_Cast.Ray_Hit.get_owner())
-				
 				#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null,
 				#vc pode colocar uma torre no lugar
 				if Hit_Hexagon.Placed_Tower == null:
@@ -102,12 +102,16 @@ func _input(event):
 					Hit_Hexagon.Occupied_Cell()
 				else:
 					SignalManager.send_warning()#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+			
+			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
+				Hit_Enemy_Spawner = My_Ray_Cast.Ray_Hit.get_owner()
+				Hit_Enemy_Spawner.Bota_Uma_Tropa_Ai_Chefe()
 				
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-				Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
 				
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
-				if Hit_Hexagon.Placed_Tower != null:
+				if (Hit_Hexagon.Placed_Tower != null) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
+					Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
 					Hit_Hexagon.Placed_Tower.queue_free()
 					
 					Hit_Hexagon.Placed_Tower = null
