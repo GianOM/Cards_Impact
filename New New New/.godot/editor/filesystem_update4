@@ -1,0 +1,14 @@
+res://Scenes/3D/Projectile/Projectile.tscn
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Scripts/3D/Tower/Towers_Resource_Database.gd
+res://Assets/3D Assets/Floors/Ground.tres
+res://Scripts/main_2d.gd
+res://Scenes/3D/Troops/Troops.tscn
+res://Scenes/Main.tscn
+res://Scenes/3D/Towers/Towers.tscn
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Scripts/3D/Path/Path_Main_Script.gd
+res://Scripts/Player Movement.gd
+res://Scenes/Player Camera Scene.tscn
+res://Scenes/3D/Floors/Floor.tscn
