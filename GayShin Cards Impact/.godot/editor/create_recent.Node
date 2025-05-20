@@ -1,0 +1,15 @@
+Marker3D
+Node
+Timer
+Node3D
+Area3D
+CharacterBody3D
+PathFollow3D
+Label
+ResourcePreloader
+CollisionShape3D
+Container
+MarginContainer
+PanelContainer
+CanvasLayer
+StaticBody3D
