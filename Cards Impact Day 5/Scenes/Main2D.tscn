@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcfnwcecgfqx7"]
+[gd_scene load_steps=15 format=3 uid="uid://dcfnwcecgfqx7"]
 
 [ext_resource type="Script" uid="uid://mj2pemeljci3" path="res://Scripts/main_2d.gd" id="1_61gfo"]
 [ext_resource type="Script" uid="uid://bujnthksap3km" path="res://Scripts/2D/card_manager.gd" id="1_kbhl5"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dquvn15n4atwx" path="res://Assets/2D Assets/cardBack.png" id="6_yq41h"]
 [ext_resource type="Script" uid="uid://c30w0tlu61pxg" path="res://Scripts/2D/left_menu.gd" id="8_e1ypl"]
 [ext_resource type="Script" uid="uid://b4oerpv5ajd21" path="res://Scripts/2D/input_manager.gd" id="8_yr5wd"]
+[ext_resource type="Texture2D" uid="uid://c2knikk04vfes" path="res://Assets/2D Assets/backFullscreen.png" id="10_e1ypl"]
+[ext_resource type="Texture2D" uid="uid://dmi10uj705e64" path="res://Assets/2D Assets/cardSlot.png" id="11_2gnqk"]
 
 [sub_resource type="GDScript" id="GDScript_x2dgl"]
 script/source = "extends CanvasLayer
@@ -88,6 +90,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="UI"]
+one_shot = true
 
 [node name="FPS" type="Label" parent="UI"]
 z_index = 5
@@ -95,6 +98,14 @@ offset_left = 20.0
 offset_top = 19.0
 offset_right = 60.0
 offset_bottom = 42.0
+
+[node name="Ready" type="Button" parent="UI"]
+offset_left = 729.0
+offset_top = 62.0
+offset_right = 1182.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 34
+text = "READY"
 
 [node name="Deck" type="Node2D" parent="."]
 z_index = -2
@@ -149,6 +160,49 @@ offset_bottom = 751.0
 theme_override_font_sizes/font_size = 30
 text = "Reroll"
 
+[node name="FullBGImage" type="Sprite2D" parent="LeftMenu"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+z_index = 5
+position = Vector2(961, 539)
+texture = ExtResource("10_e1ypl")
+
+[node name="RerollSlot1" type="Node2D" parent="LeftMenu"]
+visible = false
+position = Vector2(650, 540)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot1"]
+texture = ExtResource("11_2gnqk")
+
+[node name="RerollSlot2" type="Node2D" parent="LeftMenu"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot2"]
+texture = ExtResource("11_2gnqk")
+
+[node name="RerollSlot3" type="Node2D" parent="LeftMenu"]
+visible = false
+position = Vector2(1270, 540)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot3"]
+texture = ExtResource("11_2gnqk")
+
+[node name="RerollSelect" type="Button" parent="LeftMenu"]
+visible = false
+z_index = 7
+offset_left = 790.0
+offset_top = 780.0
+offset_right = 1140.0
+offset_bottom = 850.0
+theme_override_font_sizes/font_size = 26
+text = "Select"
+
 [connection signal="pressed" from="InGameMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
+[connection signal="reroll" from="LeftMenu" to="Deck" method="_on_left_menu_reroll"]
 [connection signal="pressed" from="LeftMenu/RerollButton" to="LeftMenu" method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="LeftMenu/RerollSelect" to="LeftMenu" method="_on_reroll_select_pressed"]

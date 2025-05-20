@@ -9,6 +9,7 @@ var screen_size
 var card_being_dragged
 var is_hovering_on_card
 var player_hand_reference
+var cards_inside_card_slots = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,17 +38,26 @@ func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
 
+	
+
+
 func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 	var card_slot_found = raycast_check_card_slot()
 	if card_slot_found and not card_slot_found.card_in_slot:
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
+		#reference to card slots----------------------------------------------AAAAAAAAAAAAAAAAAAAAAAA
+		cards_inside_card_slots.append(card_being_dragged)
+		print(card_being_dragged.name)
+		print(cards_inside_card_slots)
 		card_being_dragged.position = card_slot_found.position
 		#card in slot is not longer able to be interacted with
 		card_being_dragged.get_node("CardArea2D/CardCollisionShape2D").disabled = true
+
 		card_slot_found.card_in_slot = true
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+
 	card_being_dragged = null
 	
 
@@ -60,6 +70,7 @@ func connect_card_signals(card):
 func on_left_click_released():
 	if card_being_dragged:
 		finish_drag()
+		
 
 func on_hovered_card(card):
 	if !is_hovering_on_card:

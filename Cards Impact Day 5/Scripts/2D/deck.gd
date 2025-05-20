@@ -18,6 +18,8 @@ func _ready() -> void:
 	for i in range(STARTING_HAND_SIZE):
 		draw_card()
 
+
+
 func draw_card(): #called in input_manager.gd
 	var card_drawn_name = player_deck[0]
 	player_deck.erase(card_drawn_name) #removes currently drawn card from deck
@@ -44,3 +46,49 @@ func draw_card(): #called in input_manager.gd
 	new_card.name = "Card"
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	new_card.get_node("AnimationPlayer").play("card_flip")
+
+
+
+func draw_reroll_card(): #called in input_manager.gd
+	var card_drawn_name = player_deck[0]
+	player_deck.erase(card_drawn_name) #removes currently drawn card from deck
+	
+	if player_deck.size() == 0: #checks if deck empty and if so disables deck
+		$Area2D/CollisionShape2D.disabled = true
+		$Sprite2D.visible = false
+		$RichTextLabel.visible = false
+	
+	$RichTextLabel.text = str(player_deck.size())
+	var card_scene = preload(CARD_SCENE_PATH)
+	var new_card = card_scene.instantiate()
+	#$"../CardManager".add_child(new_card)
+	#new_card.position = position
+	var card_image_path = str("res://Assets/2D Assets/" + card_drawn_name + "Card.png")
+	new_card.get_node("CardImage").texture = load(card_image_path)
+	
+	new_card.get_node("ATK").text = str(card_database_reference.CARDS[card_drawn_name][0])
+	new_card.get_node("HP").text = str(card_database_reference.CARDS[card_drawn_name][1])
+	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
+	new_card.get_node("Name").text = card_drawn_name
+	$"../CardManager".add_child(new_card)
+	new_card.position = position
+	new_card.name = "Card"
+	new_card.get_node("AnimationPlayer").play("card_flip")
+	return new_card
+
+
+#func card_reroll():
+	
+
+
+func _on_left_menu_reroll() -> void:
+	var new_pos = [$"../LeftMenu/RerollSlot1".position, 
+					$"../LeftMenu/RerollSlot2".position, $"../LeftMenu/RerollSlot3".position]
+	var tween = get_tree().create_tween()
+	var tween2 = get_tree().create_tween()
+	var new_card
+	for i in range(3):
+		new_card = draw_reroll_card()
+		new_card.z_index = 7
+		tween.tween_property(new_card, "position", new_pos[i], CARD_DRAW_SPEED)
+		tween2.tween_property(new_card, "scale", Vector2(1.3, 1.3), CARD_DRAW_SPEED)

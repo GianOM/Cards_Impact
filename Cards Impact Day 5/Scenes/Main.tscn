@@ -242,6 +242,9 @@ transform = Transform3D(-3.22721, 0, 1.07011, 0, 3.4, 0, -1.07011, 0, -3.22721, 
 [node name="Path_Example" parent="Enemy Base/Path4" index="0"]
 surface_material_override/0 = null
 
+[node name="PathFollow3D" parent="Enemy Base/Path4/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+
 [node name="Pawn" parent="Enemy Base/Path4/Path3D/PathFollow3D/CharacterBody3D" index="0"]
 surface_material_override/0 = null
 
@@ -251,6 +254,9 @@ transform = Transform3D(-3.12008, 0, -1.35096, 0, 3.4, 0, 1.35096, 0, -3.12008, 
 [node name="Path_Example" parent="Enemy Base/Path5" index="0"]
 surface_material_override/0 = null
 
+[node name="PathFollow3D" parent="Enemy Base/Path5/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
+
 [node name="Pawn" parent="Enemy Base/Path5/Path3D/PathFollow3D/CharacterBody3D" index="0"]
 surface_material_override/0 = null
 
@@ -259,6 +265,9 @@ transform = Transform3D(-3.39453, 0, -0.192756, 0, 3.4, 0, 0.192756, 0, -3.39453
 
 [node name="Path_Example" parent="Enemy Base/Path6" index="0"]
 surface_material_override/0 = null
+
+[node name="PathFollow3D" parent="Enemy Base/Path6/Path3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -7.327)
 
 [node name="Pawn" parent="Enemy Base/Path6/Path3D/PathFollow3D/CharacterBody3D" index="0"]
 surface_material_override/0 = null
