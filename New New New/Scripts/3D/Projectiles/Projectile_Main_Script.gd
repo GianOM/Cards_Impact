@@ -1,10 +1,12 @@
 class_name Projetil
 extends CharacterBody3D
 
-var Projectile_Speed: float = 10.0
-var Projectile_Damage: float = 5
+var Projectile_Speed: float
+var Projectile_Damage: float
 var is_Projectile_Flying: bool = false
 var Target: Moving_Units
+
+@onready var projectile_mesh: MeshInstance3D = $Projectile_Mesh
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:#CODIGO SE O PROJETIL ACERTA UMA MOVING UNIT
@@ -26,3 +28,6 @@ func _process(_delta: float) -> void:
 	
 func set_projectile_target(Alvo: Moving_Units):
 	Target = Alvo
+	
+func seleciona_mesh_pelo_indice(index:int):
+	projectile_mesh.seleciona_mesh_do_projetil_pelo_indice(index)

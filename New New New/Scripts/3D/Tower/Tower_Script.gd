@@ -21,14 +21,13 @@ var is_Timer_Running:bool = false
 @onready var bullet_spawner: Timer = $"Bullet Spawner"
 
 
-@onready var Projectile: Projetil = $ProjectilBody3D
-
-var Projectile_Index: int = 0
+@onready var Projectile_Index: int = 0
 var Tower_Projectiles:Array[Projetil]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 func Troca_Pra_Torre_Pelo_Indice(idx:int):
+	Tower_Index = idx #Usada para acessar e setar a malha do projetil
 	main_tower.seleciona_mesh_pelo_indice(idx)
 	
 func Zerar_o_Tower_Range():
@@ -78,8 +77,9 @@ func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 func _on_bullet_spawner_timeout() -> void:
 	if Possible_Targets.size() > 0 and Possible_Targets[0] != null and is_instance_valid(Possible_Targets[0]):
 			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
+			temp_projectile.global_position = projectile_generation_point.global_position
 			Tower_Projectiles.append(temp_projectile)
 			get_node("Projectiles Container").add_child(Tower_Projectiles[Projectile_Index])
+			Tower_Projectiles[Projectile_Index].seleciona_mesh_pelo_indice(Tower_Index)
 			Projectile_Index += 1
-			temp_projectile.global_position = projectile_generation_point.global_position
 			is_Timer_Running = false

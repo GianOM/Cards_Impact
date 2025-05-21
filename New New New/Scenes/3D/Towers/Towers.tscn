@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://d0g1t2f3o3mb4"]
+[gd_scene load_steps=15 format=4 uid="uid://d0g1t2f3o3mb4"]
 
 [ext_resource type="Script" uid="uid://cwp7f8fsjx0ws" path="res://Scripts/3D/Tower/Tower_Script.gd" id="2_8kg0s"]
 [ext_resource type="Script" uid="uid://n7o8ee7hmhcd" path="res://Scripts/3D/Tower/Get_Tower_From_Database.gd" id="2_yckre"]
-[ext_resource type="PackedScene" uid="uid://bte5bmnenitp4" path="res://Scenes/3D/Projectile/Projectile.tscn" id="3_8kg0s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4q1c"]
 
@@ -145,12 +144,9 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_ihhw0")
 debug_fill = false
 
-[node name="ProjectilBody3D" parent="." instance=ExtResource("3_8kg0s")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.3, 0)
-
 [node name="Bullet Spawner" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.1
+wait_time = 0.5
 one_shot = true
 
 [node name="Projectiles Container" type="Node" parent="."]
