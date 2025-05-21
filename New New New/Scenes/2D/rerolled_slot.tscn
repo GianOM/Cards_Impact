@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ded7wdp534o5o"]
+
+[ext_resource type="Texture2D" uid="uid://dmi10uj705e64" path="res://Assets/2D Assets/cardSlot.png" id="1_l2evo"]
+[ext_resource type="Script" uid="uid://b33etspcj8x33" path="res://Scripts/2D/rerolled_slot.gd" id="1_nja81"]
+
+[node name="RerollSlot" type="Node2D"]
+visible = false
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_nja81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l2evo")

@@ -5,7 +5,14 @@ signal reroll
 @onready var card_slot: Node2D = $CardSlot
 @onready var card_slot_2: Node2D = $CardSlot2
 @onready var card_manager: Node2D = $"../CardManager"
-#@onready var player_hand: Node2D = $"../PlayerHand"
+
+@onready var reroll_slot_1: Node2D = $RerollSlot1
+@onready var reroll_slot_2: Node2D = $RerollSlot2
+@onready var reroll_slot_3: Node2D = $RerollSlot3
+
+
+
+var rerolled_cards = [reroll_slot_1, reroll_slot_2, reroll_slot_3]
 
 var reroll_card_slots = [card_slot, card_slot_2]
 
@@ -39,6 +46,6 @@ func _on_reroll_button_pressed() -> void:
 		
 
 
-func _on_reroll_select_pressed() -> void:
-	$FullBGImage.visible = false
-	$RerollSelect.visible = false
+#func _on_reroll_select_pressed() -> void:
+	#$FullBGImage.visible = false
+	#$RerollSelect.visible = false

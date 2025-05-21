@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://c30w0tlu61pxg" path="res://Scripts/2D/left_menu.gd" id="8_e1ypl"]
 [ext_resource type="Script" uid="uid://b4oerpv5ajd21" path="res://Scripts/2D/input_manager.gd" id="8_yr5wd"]
 [ext_resource type="Texture2D" uid="uid://c2knikk04vfes" path="res://Assets/2D Assets/backFullscreen.png" id="10_e1ypl"]
-[ext_resource type="Texture2D" uid="uid://dmi10uj705e64" path="res://Assets/2D Assets/cardSlot.png" id="11_2gnqk"]
+[ext_resource type="PackedScene" uid="uid://ded7wdp534o5o" path="res://Scenes/2D/rerolled_slot.tscn" id="11_2gnqk"]
 
 [sub_resource type="GDScript" id="GDScript_x2dgl"]
 script/source = "extends CanvasLayer
@@ -167,29 +167,14 @@ z_index = 5
 position = Vector2(961, 539)
 texture = ExtResource("10_e1ypl")
 
-[node name="RerollSlot1" type="Node2D" parent="LeftMenu"]
-visible = false
+[node name="RerollSlot1" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
 position = Vector2(650, 540)
-scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot1"]
-texture = ExtResource("11_2gnqk")
-
-[node name="RerollSlot2" type="Node2D" parent="LeftMenu"]
-visible = false
+[node name="RerollSlot2" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
 position = Vector2(960, 540)
-scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot2"]
-texture = ExtResource("11_2gnqk")
-
-[node name="RerollSlot3" type="Node2D" parent="LeftMenu"]
-visible = false
+[node name="RerollSlot3" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
 position = Vector2(1270, 540)
-scale = Vector2(0.4, 0.4)
-
-[node name="Sprite2D" type="Sprite2D" parent="LeftMenu/RerollSlot3"]
-texture = ExtResource("11_2gnqk")
 
 [node name="RerollSelect" type="Button" parent="LeftMenu"]
 visible = false
@@ -205,4 +190,4 @@ text = "Select"
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
 [connection signal="reroll" from="LeftMenu" to="Deck" method="_on_left_menu_reroll"]
 [connection signal="pressed" from="LeftMenu/RerollButton" to="LeftMenu" method="_on_reroll_button_pressed"]
-[connection signal="pressed" from="LeftMenu/RerollSelect" to="LeftMenu" method="_on_reroll_select_pressed"]
+[connection signal="pressed" from="LeftMenu/RerollSelect" to="Deck" method="_on_reroll_select_pressed"]

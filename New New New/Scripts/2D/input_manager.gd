@@ -4,6 +4,7 @@ signal left_mouse_button_clicked
 signal left_mouse_button_released
 
 const COLLISION_MASK_CARD = 1
+const COLLISION_MASK_REROLL_SLOT = 16
 const COLLISION_MASK_DECK = 4 #is set to 3 in inspector, but inspector and output show different values,
 							  #so 4 in code is 3 in inspector
 var card_manager_reference
@@ -30,11 +31,17 @@ func raycast_at_cursor():
 	var result = space_state.intersect_point(parameters)
 	if result.size() > 0:
 		var result_collision_mask = result[0].collider.collision_mask
+		var card_found = result[0].collider.get_parent()
 		if result_collision_mask == COLLISION_MASK_CARD:
 			#card clicked
-			var card_found = result[0].collider.get_parent()
+			print("card clicked")
+			
 			if card_found:
+				print("card found")
 				card_manager_reference.start_drag(card_found)
 		elif result_collision_mask == COLLISION_MASK_DECK:
 			#deck clicked
 			deck_reference.draw_card()
+		elif result_collision_mask == COLLISION_MASK_REROLL_SLOT:
+			card_manager_reference.select_rerolled_card(card_found)
+			print("card in rerolled card slot clicked")

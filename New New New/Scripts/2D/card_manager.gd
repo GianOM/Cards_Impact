@@ -4,18 +4,20 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_CARD_SLOT = 2 #collision layer and mask in cardslot/area2d should also match this number
 const DEFAULT_CARD_MOVE_SPEED = 0.3
 
+@onready var input_manager: Node2D = $"../InputManager"
 
 var screen_size
 var card_being_dragged
 var is_hovering_on_card
 var player_hand_reference
 var cards_inside_card_slots = []
+var selected_rerolled_card
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
-	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
+	input_manager.connect("left_mouse_button_released", on_left_click_released)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -24,15 +26,6 @@ func _process(_delta: float) -> void:
 		card_being_dragged.position = Vector2(clamp(mouse_pos.x,0,screen_size.x),
 			clamp(mouse_pos.y,0,screen_size.y))
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			var card = raycast_check()
-			if card:
-				start_drag(card)
-		else:
-			if card_being_dragged:
-				finish_drag()
 
 func start_drag(card):
 	card_being_dragged = card
@@ -45,6 +38,11 @@ func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 	var card_slot_found = raycast_check_card_slot()
 	if card_slot_found and not card_slot_found.card_in_slot:
+		
+		#card_being_dragged.z_index = -1
+		#is_hovering_on_card = false
+		#card_being_dragged.card_slot_card_is_in = card_slot_found
+		
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 		#reference to card slots----------------------------------------------AAAAAAAAAAAAAAAAAAAAAAA
 		cards_inside_card_slots.append(card_being_dragged)
@@ -73,19 +71,73 @@ func on_left_click_released():
 		
 
 func on_hovered_card(card):
+
+	#if !is_hovering_on_card and !card.is_reroll_card:
 	if !is_hovering_on_card:
+		if card.is_reroll_card:
+			highlight_rerolled_card(card, true)
+			return
 		is_hovering_on_card = true
 		highlight_card(card, true)
+	#elif !is_hovering_on_card and card.is_reroll_card:
+		#highlight_rerolled_card(card, true)
+
 	
 func on_unhovered_card(card):
+	#if !card_being_dragged and !card.is_reroll_card:
+		#highlight_card(card, false)
 	if !card_being_dragged:
+		if card.is_reroll_card:
+			highlight_rerolled_card(card, false)
+			return
 		highlight_card(card, false)
 		var new_card_hovered = raycast_check()
 		if new_card_hovered:
 			highlight_card(new_card_hovered, true)
 		else:
 			is_hovering_on_card = false
+	#else:
+		#highlight_rerolled_card(card, false)
 
+#PREVIOUS HOVER AND UNHOVER LOGIC WITHOUT REROLL CARDS-----------------------------------------------
+
+#func on_hovered_card(card):
+	#if !is_hovering_on_card:
+		#is_hovering_on_card = true
+		#highlight_card(card, true)
+	#
+#func on_unhovered_card(card):
+	#if !card_being_dragged:
+		#highlight_card(card, false)
+		#var new_card_hovered = raycast_check()
+		#if new_card_hovered:
+			#highlight_card(new_card_hovered, true)
+		#else:
+			#is_hovering_on_card = false
+
+#----------------------------------------------------------------------------------------------------
+
+func select_rerolled_card(card):
+	if selected_rerolled_card:
+		if selected_rerolled_card == card:
+			card.position.y += 40
+			selected_rerolled_card = null
+		else:
+			selected_rerolled_card.position.y += 40
+			selected_rerolled_card = card
+			card.position.y -= 40
+	else:
+		selected_rerolled_card = card
+		card.position.y -= 40
+
+
+func highlight_rerolled_card(card, hovered):
+	if hovered:
+		card.scale = Vector2(1.5, 1.5)
+		card.z_index = 7
+	else:
+		card.scale = Vector2(1.3, 1.3)
+		card.z_index = 6
 
 func highlight_card(card, hovered):
 	if hovered:

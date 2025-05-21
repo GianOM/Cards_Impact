@@ -3,8 +3,15 @@ extends Node2D
 signal hovered
 signal unhovered
 
+var card_slot_card_is_in
 var position_in_hand
+var card_name
+var card_atk
+var card_hp
 var card_type
+
+var is_reroll_card = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

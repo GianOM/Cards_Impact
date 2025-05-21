@@ -42,10 +42,10 @@ func Show_Tower_Range_When_Hovered():
 
 func _process(_delta: float) -> void:
 	if Possible_Targets.size() > 0:
-		tower_aim.global_position = Possible_Targets[0].global_position
-		tower_aim.global_position.y += 8
-		tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
-		
+		if is_instance_valid(Possible_Targets[0]):
+			tower_aim.global_position = Possible_Targets[0].global_position
+			tower_aim.global_position.y += 8
+			tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
 	else:
 		tower_aim.global_position = main_tower.global_position
 		tower_aim.scale = Vector3(0.025,0.025,0.025)
