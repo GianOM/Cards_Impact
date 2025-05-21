@@ -3,10 +3,10 @@ extends RayCast3D
 const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 
 @onready var camera_3d: Camera3D = $"../Camera3D"
+@onready var player: Node3D = $".."
 
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
 var Tower_Instance = TOWERS.instantiate() as Node3D
-var Hovered_Tower_Index:int = 0
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
 #O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
@@ -48,6 +48,8 @@ func Screen_Point_to_Ray() -> void:
 		#o check de hexagono tem que vir antes de tentar pegarmos o owner, 
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
 		if Ray_Hit_Owner is Hexagono:
+			Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
+			Tower_Instance.global_position = Ray_Hit.global_position
 			
 			is_Mouse_Hitting_a_Hex_Cell = true
 			
@@ -59,12 +61,14 @@ func Screen_Point_to_Ray() -> void:
 				last_hovered = Ray_Hit_Owner
 			
 			#O CODIGO ABAIXO MOSTRA E ESCONDE O TOWER RANGE SE ESTIVER HOVERING
+			if (Ray_Hit_Owner != remove_range_hovering) and (remove_range_hovering != null):
+				if (remove_range_hovering.Placed_Tower!= null):
+					remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
+			
 			if Ray_Hit_Owner.Placed_Tower != null:
 					Ray_Hit_Owner.Placed_Tower.Show_Tower_Range_When_Hovered()
 					remove_range_hovering = Ray_Hit_Owner
 					
-			elif (Ray_Hit_Owner != remove_range_hovering and remove_range_hovering!= null):
-				remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
 				
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
 			#possui uma torre
@@ -75,9 +79,10 @@ func Screen_Point_to_Ray() -> void:
 
 		elif last_hovered:
 			last_hovered.Remove_Highlight()
-		
-		Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Hovered_Tower_Index)
-		Tower_Instance.global_position = Ray_Hit.global_position
+			#O RayCast3D sempre entre nesta condicao quando ele colide com algo
+			#que nao seja um Hexagono, como por exemplo o Enemy Spawner
+			Tower_Instance.scale = Vector3(0.01,0.01,0.01)
+
 
 	else :
 		is_Mouse_Hitting_a_Hex_Cell = false
@@ -87,6 +92,7 @@ func Screen_Point_to_Ray() -> void:
 			last_hovered = null
 		
 		if remove_range_hovering != null :
+			if (remove_range_hovering.Placed_Tower!= null):
 			#Para o caso de colocar a torre em um Hexagono, verificar o range dela
 			# dando hovering, e o mouse sumir para a PQP
-			remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
+				remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()

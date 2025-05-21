@@ -18,8 +18,6 @@ var Tower_Selected_Index:int = 0
 
 @onready var My_Ray_Cast = $RayCast3D
 
-var Hit_Hexagon: Hexagono
-var Hit_Enemy_Spawner: Enemy_Spawner
 
 func _ready() -> void:
 	pass
@@ -76,16 +74,16 @@ func Move_Camera(delta) -> void:
 
 func _input(event):
 	if event is InputEventMouseButton:
-		
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		# My_Ray_Cast.Ray_Hit.get_owner() RETORNA O OBJETO QUE O RAYCAST ACERTOU
+		#print(My_Ray_Cast.Ray_Hit.get_owner())
+		if Input.is_action_just_pressed("left_mouse_click"):
 			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
 			#Raycas sera Null e o jogo crasha
-			#print(My_Ray_Cast.Ray_Hit.get_owner())
 			if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):#codigo para colocar a torre
-				Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
+				
 				#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null,
 				#vc pode colocar uma torre no lugar
-				if Hit_Hexagon.Placed_Tower == null:
+				if My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null:
 					
 					var Tower_Instance = TOWERS.instantiate() as Node3D
 					get_tree().current_scene.add_child(Tower_Instance) 
@@ -93,34 +91,30 @@ func _input(event):
 					Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
 					
 					Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
+					Tower_Instance.scale = Vector3(20,20,20)
 					
 					Tower_Instance.Zerar_o_Tower_Range()#Zera o indicador visual do range da torre
 					Tower_Instance.is_Tower_Place_on_Grid = true#Usada para evitar que a hovered tower de dano
 					
-					Hit_Hexagon.Placed_Tower = Tower_Instance#Cria uma referencia a torre
-					Tower_Instance.scale = Vector3(20,20,20)
+					My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
 					
-					Hit_Hexagon.Occupied_Cell()
-				else:
-					SignalManager.send_warning()#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+					My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
+				else:#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+					SignalManager.send_warning()
 			
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
-				Hit_Enemy_Spawner = My_Ray_Cast.Ray_Hit.get_owner()
-				Hit_Enemy_Spawner.Bota_Uma_Tropa_Ai_Chefe()
+				My_Ray_Cast.Ray_Hit.get_owner().Bota_Uma_Tropa_Ai_Chefe()
 				
-		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-				
+		if Input.is_action_just_pressed("right_mouse_click"):
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
-				if (Hit_Hexagon.Placed_Tower != null) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
-					Hit_Hexagon = My_Ray_Cast.Ray_Hit.get_owner()
-					Hit_Hexagon.Placed_Tower.queue_free()
+				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
 					
-					Hit_Hexagon.Placed_Tower = null
+					My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.queue_free()
 					
-					Hit_Hexagon.Highlight()
-					My_Ray_Cast.last_hovered = Hit_Hexagon
+					My_Ray_Cast.Ray_Hit.get_owner().Highlight()
+					My_Ray_Cast.last_hovered = My_Ray_Cast.Ray_Hit.get_owner()
 	
-		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 			rotating_on_middle_mouse_button = true #Setado para poder rodar a camera
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)#Faz o mouse desaparecer
 
@@ -132,9 +126,8 @@ func _input(event):
 		var delta = event.relative
 		rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x
 	
+	#TODO: MELHORAR ISSO AQUI
 	if Input.is_action_just_pressed("1_Key"):
 		Tower_Selected_Index = 0
-		My_Ray_Cast.Hovered_Tower_Index = 0
 	elif Input.is_action_just_pressed("2_Key"):
 		Tower_Selected_Index = 1
-		My_Ray_Cast.Hovered_Tower_Index = 1

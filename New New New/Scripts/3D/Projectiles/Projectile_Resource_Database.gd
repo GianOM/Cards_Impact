@@ -9,7 +9,7 @@ var Mesh_3D: MeshInstance3D
 
 
 const PROJECTILE_PROPERTIES = {
-	0: {"name": "Pointy 1", "damage": 1.0,"Speed": 2.0, "node_path": "Tower_Projectile_Tier_1"},
+	0: {"name": "Pointy 1", "damage": 1.0,"Speed": 5, "node_path": "Tower_Projectile_Tier_1"},
 	1: {"name": "Pointy 1", "damage": 2.0,"Speed": 10.0, "node_path": "Tower_Projectile_Tier_2"},
 	#Propriedades das Torres
 }
