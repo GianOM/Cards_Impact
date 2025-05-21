@@ -31,11 +31,11 @@ func _on_reroll_button_pressed() -> void:
 			card_to_be_destroyed2.visible = false
 			card_manager.cards_inside_card_slots.clear()
 
-			print(card_manager.cards_inside_card_slots)
+			#print(card_manager.cards_inside_card_slots)
 			card_slot.card_in_slot = false
 			card_slot_2.card_in_slot = false
 			$RerollButton.disabled = false
-			print("reroll")
+			#print("reroll")
 			reroll.emit()
 			$FullBGImage.visible = true
 			$RerollSelect.visible = true

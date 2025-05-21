@@ -42,10 +42,13 @@ func Show_Tower_Range_When_Hovered():
 
 func _process(_delta: float) -> void:
 	if Possible_Targets.size() > 0:
-		if is_instance_valid(Possible_Targets[0]):
-			tower_aim.global_position = Possible_Targets[0].global_position
-			tower_aim.global_position.y += 8
-			tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
+		for n in range (Possible_Targets.size()):
+				if Possible_Targets[n] != null:
+					tower_aim.global_position = Possible_Targets[n].global_position
+					break
+		tower_aim.global_position.y += 8
+		tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
+
 	else:
 		tower_aim.global_position = main_tower.global_position
 		tower_aim.scale = Vector3(0.025,0.025,0.025)
@@ -69,8 +72,12 @@ func _on_bullet_spawner_timeout() -> void:
 			get_node("Projectiles Container").add_child(temp_projectile)
 			temp_projectile.global_position = projectile_generation_point.global_position
 			temp_projectile.seleciona_mesh_pelo_indice(Tower_Index)
-			temp_projectile.set_projectile_target(Possible_Targets[0])
-			temp_projectile.is_Projectile_Flying = true
 			
+			for n in range (Possible_Targets.size()):
+				if Possible_Targets[n] != null:
+					temp_projectile.set_projectile_target(Possible_Targets[n])
+					break
+			
+			temp_projectile.is_Projectile_Flying = true
 			Tower_Projectiles.append(temp_projectile)
 			is_Timer_Running = false

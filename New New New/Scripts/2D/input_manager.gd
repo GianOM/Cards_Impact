@@ -34,14 +34,14 @@ func raycast_at_cursor():
 		var card_found = result[0].collider.get_parent()
 		if result_collision_mask == COLLISION_MASK_CARD:
 			#card clicked
-			print("card clicked")
+			#print("card clicked")
 			
 			if card_found:
-				print("card found")
+				#print("card found")
 				card_manager_reference.start_drag(card_found)
 		elif result_collision_mask == COLLISION_MASK_DECK:
 			#deck clicked
 			deck_reference.draw_card()
 		elif result_collision_mask == COLLISION_MASK_REROLL_SLOT:
 			card_manager_reference.select_rerolled_card(card_found)
-			print("card in rerolled card slot clicked")
+			#print("card in rerolled card slot clicked")

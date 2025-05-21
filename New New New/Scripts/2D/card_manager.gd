@@ -46,8 +46,8 @@ func finish_drag():
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 		#reference to card slots----------------------------------------------AAAAAAAAAAAAAAAAAAAAAAA
 		cards_inside_card_slots.append(card_being_dragged)
-		print(card_being_dragged.name)
-		print(cards_inside_card_slots)
+		#print(card_being_dragged.name)
+		#print(cards_inside_card_slots)
 		card_being_dragged.position = card_slot_found.position
 		#card in slot is not longer able to be interacted with
 		card_being_dragged.get_node("CardArea2D/CardCollisionShape2D").disabled = true

@@ -105,8 +105,8 @@ func _on_left_menu_reroll() -> void:
 		new_card.get_node("CardArea2D").collision_mask = 16
 		new_card.is_reroll_card = true
 		rerolled_cards.append(new_card)
-		print(rerolled_cards[i].card_name)
-		print(rerolled_cards[i].card_hp)
+		#print(rerolled_cards[i].card_name)
+		#print(rerolled_cards[i].card_hp)
 
 
 func _on_reroll_select_pressed() -> void:
