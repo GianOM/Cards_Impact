@@ -7,7 +7,7 @@ var acceleration: float = 50#Uma boa aceleracao pra garantir que o jogo seja res
 var max_speed: float = 6
 var friction: float = 10
 
-var rotating :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
+var rotating_on_middle_mouse_button :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
 var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
 var Clamped_Zoom:float = 0
@@ -56,7 +56,8 @@ func Move_Camera(delta) -> void:
 	
 	#Input_Rotation é um float que vai de -1(Quando aperta-se Q) ate +1(Quando Aperta-se E)
 	var Input_Rotation = Input.get_axis("Q_Key","E_Key")
-	rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
+	if rotating_on_middle_mouse_button == false:
+		rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
 	
 	
 	var zoom_direction = (int(Input.is_action_just_released("Scroll_Down"))
@@ -120,14 +121,14 @@ func _input(event):
 					My_Ray_Cast.last_hovered = Hit_Hexagon
 	
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-			rotating = true #Setado para poder rodar a camera
+			rotating_on_middle_mouse_button = true #Setado para poder rodar a camera
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)#Faz o mouse desaparecer
 
 		elif Input.is_action_just_released("Middle_Mouse_Button"):
-			rotating = false
+			rotating_on_middle_mouse_button = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if event is InputEventMouseMotion and rotating:
+	if event is InputEventMouseMotion and rotating_on_middle_mouse_button:
 		var delta = event.relative
 		rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x
 	

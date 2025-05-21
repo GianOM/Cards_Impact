@@ -147,7 +147,7 @@ debug_fill = false
 [node name="Bullet Spawner" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
-one_shot = true
+autostart = true
 
 [node name="Projectiles Container" type="Node" parent="."]
 
