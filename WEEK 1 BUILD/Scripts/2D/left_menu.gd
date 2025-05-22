@@ -40,7 +40,8 @@ func _on_reroll_button_pressed() -> void:
 			$FullBGImage.visible = true
 			#$RerollSlot1.visible = true
 	else:
-		print("needs 2 cards to reroll")
+		SignalManager.unable_to_reroll()
+		#print("needs 2 cards to reroll")
 	$RerollButton.disabled = false
 		
 

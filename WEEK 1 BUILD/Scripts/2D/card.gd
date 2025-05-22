@@ -9,6 +9,8 @@ var card_name
 var card_atk
 var card_hp
 var card_type
+var gaslight_cost
+var gatekeep_cost
 
 var is_reroll_card = false
 

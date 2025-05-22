@@ -5,6 +5,7 @@ extends Node3D
 
 
 func hideUI():
+
 	main_2d.set_process_mode(Node.PROCESS_MODE_DISABLED)
 	main_2d.visible = false
 func showUI():
@@ -17,6 +18,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("hide_ui"): #just_pressed triggers only once
 		if ui_visible == false:
 			ui_visible = true
+
 			hideUI()
 		else:
 			ui_visible = false

@@ -2,7 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/2D/card.tscn"
 const CARD_DRAW_SPEED = 0.3
-const STARTING_HAND_SIZE = 4
+const STARTING_HAND_SIZE = 6
 #const COLLISION_MASK_CARD = 1
 #const COLLISION_MASK_REROLL_SLOT = 16
 var rerolled_card_1
@@ -12,7 +12,8 @@ var rerolled_card_3
 var rerolled_cards = []
 var new_card
 var player_deck = ["Ian", "Scholles", "Caio", "Gian", "Luis", "Ian", "Scholles", "Caio", "Gian", "Luis", 
-					"Ian", "Scholles", "Caio", "Gian", "Luis", "Ian", "Scholles", "Caio", "Gian", "Luis"]
+"Ian", "Scholles", "Caio", "Gian", "Luis", "Ian", "Scholles", "Caio", "Gian", "Luis", 
+"Ian", "Scholles", "Caio", "Gian", "Luis", "Ian", "Scholles", "Caio", "Gian", "Luis"]
 var card_database_reference 
 
 
@@ -41,12 +42,15 @@ func draw_card(): #called in input_manager.gd
 	#$"../CardManager".add_child(new_card)
 	#new_card.position = position
 	var card_image_path = str("res://Assets/2D Assets/" + card_drawn_name + "Card.png")
+
 	new_card.get_node("CardImage").texture = load(card_image_path)
 	
 	new_card.get_node("ATK").text = str(card_database_reference.CARDS[card_drawn_name][0])
 	new_card.get_node("HP").text = str(card_database_reference.CARDS[card_drawn_name][1])
 	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
 	new_card.get_node("Name").text = card_drawn_name
+	new_card.get_node("GaslightTokens").text = str(card_database_reference.CARDS[card_drawn_name][3])
+	new_card.get_node("GatekeepTokens").text = str(card_database_reference.CARDS[card_drawn_name][4])
 	$"../CardManager".add_child(new_card)
 	new_card.position = position
 	new_card.name = "Card"
@@ -75,6 +79,9 @@ func draw_reroll_card(): #called in input_manager.gd
 	new_card.get_node("Name").text = card_drawn_name
 	new_card.get_node("ATK").text = str(card_database_reference.CARDS[card_drawn_name][0])
 	new_card.get_node("HP").text = str(card_database_reference.CARDS[card_drawn_name][1])
+	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
+	new_card.get_node("GaslightTokens").text = str(card_database_reference.CARDS[card_drawn_name][3])
+	new_card.get_node("GatekeepTokens").text = str(card_database_reference.CARDS[card_drawn_name][4])
 	#set variables according to the card drawn, so they can be used later------
 	new_card.card_name = card_drawn_name
 	new_card.card_atk = card_database_reference.CARDS[card_drawn_name][0]
@@ -237,7 +244,7 @@ func _process_reroll_card(card_to_keep: Node2D, cards_to_free: Array[Node2D]) ->
 		if is_instance_valid(card): # Garante que o nó ainda existe antes de tentar liberá-lo
 			card.queue_free()
 
-	# Desativar elementos da UI (seja lá o que esses RerollSlot sejam)
+
 	$"../LeftMenu/FullBGImage".visible = false
 	$"../LeftMenu/RerollSlot1".visible = false
 	$"../LeftMenu/RerollSlot2".visible = false

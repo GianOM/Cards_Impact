@@ -3,6 +3,7 @@ extends Node2D
 signal left_mouse_button_clicked
 signal left_mouse_button_released
 
+const COLLISION_MASK_CARD_IN_HAND = 8
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_REROLL_SLOT = 16
 const COLLISION_MASK_DECK = 4 #is set to 3 in inspector, but inspector and output show different values,
@@ -39,6 +40,7 @@ func raycast_at_cursor():
 			if card_found:
 				#print("card found")
 				card_manager_reference.start_drag(card_found)
+				#card_manager_reference.select_rerolled_card(card_found)
 		elif result_collision_mask == COLLISION_MASK_DECK:
 			#deck clicked
 			deck_reference.draw_card()
