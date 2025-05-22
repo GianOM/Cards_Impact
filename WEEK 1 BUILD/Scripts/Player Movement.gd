@@ -96,9 +96,10 @@ func _input(event):
 					
 					My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
 				elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
-					SignalManager.send_warning()
+					SignalManager.occupied_tile_warning()
 				elif (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == true):
-					print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
+					SignalManager.cannot_interact_with_enemy_field()
+					#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
 			
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
 				My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner()

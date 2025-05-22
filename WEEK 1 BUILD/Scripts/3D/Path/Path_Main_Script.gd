@@ -11,7 +11,7 @@ func Adcionar_Tropa_Ao_Enemy_Spawner():
 	Number_of_Troops_to_Spawn += 1
 
 func _on_spawn_timer_cooldown_timeout() -> void:
-	print(ReadyButton.I_AM_READY)
+	#print(ReadyButton.I_AM_READY)
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
 	if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
 		var temp_enemy = TROOPS.instantiate()

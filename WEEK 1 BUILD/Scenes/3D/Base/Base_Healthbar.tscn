@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch2cvtaxikhcm"]
+[gd_scene load_steps=7 format=3 uid="uid://ch2cvtaxikhcm"]
 
+[ext_resource type="Script" uid="uid://223da6jf3bpj" path="res://Scripts/3D/Base/Tower_Base_Health_Bar_Script.gd" id="1_0vmsv"]
 [ext_resource type="Texture2D" uid="uid://daqi4n4xwp355" path="res://Assets/2D Assets/back.png" id="1_7yotk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltu37"]
@@ -48,8 +49,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ltu37")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7yotk")
-value = 69.2
+max_value = 5500.0
+value = 5500.0
 show_percentage = false
+script = ExtResource("1_0vmsv")
 
 [node name="Control" type="Control" parent="Base_Progress_Bar"]
 layout_mode = 1
@@ -71,18 +74,20 @@ alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Base_Progress_Bar/Control/VBoxContainer"]
 z_index = -1
-position = Vector2(960, 0.0960093)
-scale = Vector2(3.84, 0.0500001)
+position = Vector2(578, 0.0960093)
+scale = Vector2(2.312, 0.0500001)
 texture = ExtResource("1_7yotk")
 
 [node name="Control2" type="Control" parent="Base_Progress_Bar"]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="Base_Progress_Bar/Control2"]
-position = Vector2(960.019, 10.8052)
+position = Vector2(576.149, 10.8066)
 rotation = -1.5708
-scale = Vector2(0.318989, 29.9839)
+scale = Vector2(0.318989, 17.988)
 texture = SubResource("GradientTexture2D_0vmsv")

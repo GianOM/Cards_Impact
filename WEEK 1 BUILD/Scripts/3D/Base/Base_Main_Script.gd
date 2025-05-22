@@ -1,7 +1,14 @@
+class_name Tower_Base
 extends Node3D
 
 var Base_Possible_Targets:Array[Moving_Units]
 
+var Base_Health_Points : float = 5500.0
+
+@onready var progress_bar: Control = $SubViewport/ProgressBar
+
+
+@onready var base_node_3d: Node3D = $"."
 @onready var base_projectile_origin_marker_3d: Marker3D = $Base_Projectile_Origin_Marker3D
 
 var Base_Projectiles:Array[Projetil]
@@ -9,13 +16,13 @@ var Base_Projectiles:Array[Projetil]
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 func _process(delta: float) -> void:
-	
 	if Base_Projectiles.size() > 32:
 		Base_Projectiles = Base_Projectiles.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
+		body.Tower_Target = base_node_3d#Seta o alvo da tropa
 		Base_Possible_Targets.append(body)
 
 

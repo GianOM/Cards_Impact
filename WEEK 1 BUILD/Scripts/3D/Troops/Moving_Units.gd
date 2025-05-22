@@ -4,9 +4,10 @@ extends CharacterBody3D
 @export var Vida: float
 @export var Velocidade: float
 
+var Tower_Target: Tower_Base
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
-	
+
 func Take_Damage(Dano: float) -> void:
 	Vida -= Dano

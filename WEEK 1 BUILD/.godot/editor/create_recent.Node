@@ -1,3 +1,5 @@
+CollisionShape3D
+Area3D
 CanvasLayer
 Control
 Sprite2D
@@ -8,7 +10,5 @@ ProgressBar
 Node
 Timer
 Marker3D
-CollisionShape3D
-Area3D
 Container
 Button
