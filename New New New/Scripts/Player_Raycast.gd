@@ -6,6 +6,7 @@ const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 @onready var player: Node3D = $".."
 
 const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
+
 var Tower_Instance = TOWERS.instantiate() as Node3D
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
@@ -73,7 +74,7 @@ func Screen_Point_to_Ray() -> void:
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
 			#possui uma torre
 			if Ray_Hit_Owner.Placed_Tower == null:
-				Tower_Instance.scale = Vector3(20,20,20)
+				Tower_Instance.scale = Vector3(1,1,1)
 			else:
 				Tower_Instance.scale = Vector3(0.01,0.01,0.01)
 

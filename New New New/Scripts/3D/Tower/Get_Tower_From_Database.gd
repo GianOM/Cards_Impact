@@ -17,9 +17,9 @@ func seleciona_mesh_pelo_indice(index:int):
 	
 	collision_shape_3d.shape.set_radius(Dados_da_Torre.Tower_Range)#O COLLISION SHAPE É O REAL RAIO DA TORRE
 	#O TOWER_RANGE É O VISUALIZADOR DO RANGE
-	tower_range.scale = Vector3(2*Dados_da_Torre.Tower_Range,
-								2*Dados_da_Torre.Tower_Range,
-								2*Dados_da_Torre.Tower_Range)
+	tower_range.scale = Vector3(0.1*Dados_da_Torre.Tower_Range,
+								0.1*Dados_da_Torre.Tower_Range,
+								0.1*Dados_da_Torre.Tower_Range)
 	mesh = Dados_da_Torre.Tower_3d_Mesh.mesh
 	
 	bullet_spawner.set_wait_time(Dados_da_Torre.Tower_Attack_Cooldown)

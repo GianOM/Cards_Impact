@@ -1,17 +1,17 @@
 extends Node3D
 
 #Dimensoes do Hexagono:
-# x = 0.173
-# y = 0.2
+# x = 3.46
+# y = 4
 #Alem disso, ele esta centralizado na origem
 const Hex_Tile = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")#Referencia à cena que contem o unico hexagono
-const HEX_SCALE = 20
-const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(0.18*HEX_SCALE,0.2*HEX_SCALE)
+const HEX_SCALE = 1
+const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(3.66,4.24)
 
 @export var is_enemy_grid: bool = false#Variavel usada para diferenciar grid aliada de inimiga
 
 var Tile_Placement_Coordinates: Vector2#Variavel usada para colocar o Tile na posicao certa
-const TILE_GRID_SIZE: Vector2 = Vector2(21,14)#Tamanho 
+const TILE_GRID_SIZE: Vector2 = Vector2(31,27)#Tamanho 
 
 func _ready() -> void:
 	_generate_grid()#Assim que comeca o game gera a grid

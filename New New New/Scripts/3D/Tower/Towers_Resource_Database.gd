@@ -9,8 +9,8 @@ var Tower_Attack_Cooldown: float
 var Tower_3d_Mesh: MeshInstance3D
 
 const TOWER_PROPERTIES = {
-	0: {"name": "ROOK_TOWER", "range": 0.5, "Cooldown":2.0, "node_path": "Tower_Tier_1"},
-	1: {"name": "QUEEN_TOWER", "range": 1.0, "Cooldown":1.0, "node_path": "Tower_Tier_2"},
+	0: {"name": "ROOK_TOWER", "range": 10, "Cooldown":2.0, "node_path": "Tower_Tier_1"},
+	1: {"name": "QUEEN_TOWER", "range": 20, "Cooldown":1.0, "node_path": "Tower_Tier_2"},
 	#Propriedades das Torres
 }
 

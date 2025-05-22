@@ -13,11 +13,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		Target.Take_Damage(Projectile_Damage)#Funcao que subtrai o parametro da propria vida
 		queue_free()
 		
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Target != null:
 		velocity = global_position.direction_to(Target.global_position) * Projectile_Speed
 		look_at(Target.global_position)
 		move_and_slide()
+		#rotation.z += 1.25 * delta
 		
 	elif Target == null and is_Projectile_Flying:
 		queue_free()

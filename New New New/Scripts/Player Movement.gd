@@ -4,8 +4,8 @@ extends Node3D
 
 var velocity: Vector3 = Vector3.ZERO
 var acceleration: float = 50#Uma boa aceleracao pra garantir que o jogo seja responsivo
-var max_speed: float = 6
-var friction: float = 10
+var max_speed: float = 15
+var friction: float = 22
 
 var rotating_on_middle_mouse_button :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
 var Camera_Rotation_Speed :float = 50
@@ -18,10 +18,6 @@ var Tower_Selected_Index:int = 0
 
 @onready var My_Ray_Cast = $RayCast3D
 
-
-func _ready() -> void:
-	pass
-
 func _process(delta: float) -> void:
 	Move_Camera(delta)
 	
@@ -30,9 +26,9 @@ func Move_Camera(delta) -> void:
 	var Input_Sprint = Input.is_action_pressed("Shift_Key")
 	if Input_Sprint:
 		Camera_Rotation_Speed = 100
-		max_speed = 20
+		max_speed = 30
 	else:
-		max_speed = 6
+		max_speed = 15
 		Camera_Rotation_Speed = 50
 
 	
@@ -92,7 +88,6 @@ func _input(event):
 					Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
 					
 					Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
-					Tower_Instance.scale = Vector3(20,20,20)
 					
 					Tower_Instance.Zerar_o_Tower_Range()#Zera o indicador visual do range da torre
 					Tower_Instance.is_Tower_Place_on_Grid = true#Usada para evitar que a hovered tower de dano

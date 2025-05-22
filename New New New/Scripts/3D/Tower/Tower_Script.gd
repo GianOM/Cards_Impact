@@ -28,17 +28,17 @@ func Troca_Pra_Torre_Pelo_Indice(idx:int):
 	main_tower.seleciona_mesh_pelo_indice(idx)
 	
 func Zerar_o_Tower_Range():
-		tower_range.scale = Vector3(2*0.01,
-									2*0.01,
-									2*0.01)
+		tower_range.scale = Vector3(0.01,
+									0.01,
+									0.01)
 	
 	
 func Show_Tower_Range_When_Hovered():
 	var Novo_Raio = collision_shape_3d.shape.get_radius()
 
-	tower_range.scale = Vector3(2*Novo_Raio,
-								2*Novo_Raio,
-								2*Novo_Raio)
+	tower_range.scale = Vector3(0.1*Novo_Raio,
+								0.1*Novo_Raio,
+								0.1*Novo_Raio)
 
 func _process(delta: float) -> void:
 	if Possible_Targets.size() > 0:
@@ -47,12 +47,10 @@ func _process(delta: float) -> void:
 					tower_aim.global_position = Possible_Targets[n].global_position
 					tower_aim.rotation.y += 1.25 * delta
 					break
-		tower_aim.global_position.y += 8
-		tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
+		tower_aim.global_position.y += 3
 
 	else:
 		tower_aim.global_position = main_tower.global_position
-		tower_aim.scale = Vector3(0.025,0.025,0.025)
 	
 	if Tower_Projectiles.size() > 32:
 		Tower_Projectiles = Tower_Projectiles.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null

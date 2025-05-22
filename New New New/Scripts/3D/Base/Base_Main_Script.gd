@@ -4,8 +4,6 @@ var Base_Possible_Targets:Array[Moving_Units]
 
 @onready var base_projectile_origin_marker_3d: Marker3D = $Base_Projectile_Origin_Marker3D
 
-@onready var base_projectiles_container: Node = $Base_Projectiles_Container
-
 var Base_Projectiles:Array[Projetil]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
