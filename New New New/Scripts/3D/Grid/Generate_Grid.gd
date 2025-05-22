@@ -1,6 +1,5 @@
 extends Node3D
 
-
 #Dimensoes do Hexagono:
 # x = 0.173
 # y = 0.2
@@ -9,8 +8,10 @@ const Hex_Tile = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")#Referencia à
 const HEX_SCALE = 20
 const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(0.18*HEX_SCALE,0.2*HEX_SCALE)
 
+@export var is_enemy_grid: bool = false#Variavel usada para diferenciar grid aliada de inimiga
+
 var Tile_Placement_Coordinates: Vector2#Variavel usada para colocar o Tile na posicao certa
-const TILE_GRID_SIZE: Vector2= Vector2(21,14)#Tamanho 
+const TILE_GRID_SIZE: Vector2 = Vector2(21,14)#Tamanho 
 
 func _ready() -> void:
 	_generate_grid()#Assim que comeca o game gera a grid
@@ -33,5 +34,9 @@ func _generate_grid():
 				#Nao podemos usar global_position em nodes que ainda nao estao na scene tree. Para isto, usamos o Transform Origin
 				Hex_Tile_Instance.transform.origin = Vector3(global_position.x + Tile_Placement_Coordinates.y, 0, global_position.z + Tile_Placement_Coordinates.x)#Precisa ficar invertido
 				Hex_Tile_Instance.scale = Vector3(HEX_SCALE,HEX_SCALE,HEX_SCALE)#o Scale é UNIFORME
+				
+				if is_enemy_grid == true:
+					Hex_Tile_Instance.is_enemy_tile = true
+			
 			
 			Tile_Placement_Coordinates.y += HEXAGON_SIZE_IN_METERS.x

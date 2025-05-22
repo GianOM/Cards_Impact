@@ -141,6 +141,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Detection_3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.274634, 0)
 shape = SubResource("SphereShape3D_ihhw0")
 debug_fill = false
 
@@ -148,8 +149,6 @@ debug_fill = false
 process_callback = 0
 wait_time = 0.5
 autostart = true
-
-[node name="Projectiles Container" type="Node" parent="."]
 
 [node name="Projectile Generation Point" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.300089, 0)

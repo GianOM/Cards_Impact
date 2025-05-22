@@ -40,8 +40,8 @@ shadow_mesh = SubResource("ArrayMesh_2qsqq")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u200w"]
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4mdb3"]
-points = PackedVector3Array(-0.0813641, 0.0235488, -0.393055, 0.0579605, 0.133685, 0.406891, -0.0651478, 0.133685, 0.406891, 0.0358539, 1.27886, -0.0627582, 0.406874, 0.133685, -0.0650607, -0.39349, 0.133685, 0.119525, 0.0542651, 1.14825, 0.208592, -0.21228, 1.12116, -0.0604404, 0.285527, 0.0298975, 0.285465, 0.128602, 1.13791, -0.173513, -0.351737, 0.0276051, -0.196977, 0.290928, 0.018375, -0.278432, 0.208562, 1.14839, 0.0542898, -0.156363, 1.14323, 0.149186, -0.278426, 0.0183945, 0.290933, -0.115361, 1.11276, -0.189966, 0.119434, 0.133685, -0.393409, 0.324749, 0.133685, 0.263127, -0.126622, 0.133685, -0.393409, -0.39349, 0.133685, -0.126616, 0.015314, 1.06324, -0.230705, 0.34524, 0.133685, -0.229235, 0.207018, 1.14474, -0.060965, -0.229239, 0.133685, 0.345255, 0.386332, 0.022806, 0.113364, -0.0610267, 1.14456, 0.207031, 0.20156, 0.133685, 0.365827, 0.151558, 1.15097, 0.151569, 0.406874, 0.133685, 0.0578893, 0.113283, 0.0227772, 0.386366, -0.352427, 0.133685, 0.222144, 0.222051, 0.133685, -0.352426)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u200w"]
+height = 1.48984
 
 [node name="PathFollow3D" type="PathFollow3D"]
 loop = false
@@ -60,4 +60,5 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_u200w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("ConvexPolygonShape3D_4mdb3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641789, 0)
+shape = SubResource("CapsuleShape3D_u200w")

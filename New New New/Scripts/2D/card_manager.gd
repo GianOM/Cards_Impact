@@ -12,6 +12,7 @@ var is_hovering_on_card
 var player_hand_reference
 var cards_inside_card_slots = []
 var selected_rerolled_card
+var which_reroll_slot_path
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -118,18 +119,62 @@ func on_unhovered_card(card):
 #----------------------------------------------------------------------------------------------------
 
 func select_rerolled_card(card):
+	
+	var button_path
 	if selected_rerolled_card:
 		if selected_rerolled_card == card:
 			card.position.y += 40
+			which_reroll_slot_path = which_slot_is_selected(card)
+			#button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path) + "/Button" + var_to_str(which_reroll_slot_path))
+			if which_reroll_slot_path != null:
+				button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path))
+				$"../LeftMenu".get_node(button_path).visible = false
+			#$"../LeftMenu".get_node(which_reroll_slot_path).visible = false
 			selected_rerolled_card = null
 		else:
 			selected_rerolled_card.position.y += 40
+			which_reroll_slot_path = which_slot_is_selected(selected_rerolled_card)
+			#button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path) + "/Button" + var_to_str(which_reroll_slot_path))
+			if which_reroll_slot_path != null:
+				button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path))
+				$"../LeftMenu".get_node(button_path).visible = false
+			#$"../LeftMenu".get_node(which_reroll_slot_path).visible = false
 			selected_rerolled_card = card
 			card.position.y -= 40
+			which_reroll_slot_path = which_slot_is_selected(card)
+			if which_reroll_slot_path != null:
+				button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path))
+			#button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path) + "/Button" + var_to_str(which_reroll_slot_path))
+				$"../LeftMenu".get_node(button_path).visible = true
+			#$"../LeftMenu".get_node(which_reroll_slot_path).visible = true
+			
 	else:
 		selected_rerolled_card = card
 		card.position.y -= 40
+		which_reroll_slot_path = which_slot_is_selected(card)
+		if which_reroll_slot_path != null:
+			button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path))
+		#button_path = str("RerollSlot" + var_to_str(which_reroll_slot_path) + "/Button" + var_to_str(which_reroll_slot_path))
+			$"../LeftMenu".get_node(button_path).visible = true
+		#$"../LeftMenu".get_node(which_reroll_slot_path).visible = true
+	#which_reroll_slot_path = which_slot_is_the_card_in(card)
+	#$"../LeftMenu".get_node(which_reroll_slot_path).visible = true
 
+func which_slot_is_selected(card):
+	var reroll_slot_n
+	if card.position.x == $"../LeftMenu/RerollSlot1".position.x:
+		reroll_slot_n = 1
+	elif card.position.x == $"../LeftMenu/RerollSlot2".position.x:
+		reroll_slot_n = 2
+	elif card.position.x == $"../LeftMenu/RerollSlot3".position.x:
+		reroll_slot_n = 3
+	#var path = str("RerollSlot" + var_to_str(reroll_slot_n))
+	#$"../LeftMenu".get_node(path).visible = true
+	return reroll_slot_n
+
+func which_card_to_return(card):
+	#player_hand_reference.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
+	pass
 
 func highlight_rerolled_card(card, hovered):
 	if hovered:
@@ -184,5 +229,18 @@ func get_card_with_highest_z_index(cards):
 			highest_z_index = current_card.z_index
 	return highest_z_card
 	
-	
-	
+
+#
+#func _on_button_1_pressed() -> void:
+	#var aaa = get_parent()
+	#print(aaa.card_name)
+#
+#
+#func _on_button_2_pressed() -> void:
+	#var aaa = get_parent()
+	#print(aaa.card_name)
+#
+#
+#func _on_button_3_pressed() -> void:
+	#var aaa = get_parent()
+	#print(aaa.card_name)

@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://b33etspcj8x33" path="res://Scripts/2D/rerolled_slot.gd" id="1_nja81"]
 
 [node name="RerollSlot" type="Node2D"]
-visible = false
+z_index = 7
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_nja81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_l2evo")

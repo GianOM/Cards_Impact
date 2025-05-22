@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcfnwcecgfqx7"]
+[gd_scene load_steps=16 format=3 uid="uid://dcfnwcecgfqx7"]
 
 [ext_resource type="Script" uid="uid://mj2pemeljci3" path="res://Scripts/main_2d.gd" id="1_61gfo"]
 [ext_resource type="Script" uid="uid://bujnthksap3km" path="res://Scripts/2D/card_manager.gd" id="1_kbhl5"]
 [ext_resource type="Texture2D" uid="uid://daqi4n4xwp355" path="res://Assets/2D Assets/back.png" id="3_gfyuw"]
 [ext_resource type="Script" uid="uid://23mucqr8g3xy" path="res://Scripts/2D/player_hand.gd" id="4_x2dgl"]
 [ext_resource type="PackedScene" uid="uid://bbd1vp3hxspss" path="res://Scenes/2D/card_slot.tscn" id="5_61gfo"]
+[ext_resource type="Script" uid="uid://detu08ox8fipn" path="res://Scripts/2D/Ready_Button.gd" id="5_hrbg0"]
 [ext_resource type="Script" uid="uid://bg0vdxq1ieapr" path="res://Scripts/2D/deck.gd" id="6_f2efj"]
 [ext_resource type="Texture2D" uid="uid://dquvn15n4atwx" path="res://Assets/2D Assets/cardBack.png" id="6_yq41h"]
 [ext_resource type="Script" uid="uid://c30w0tlu61pxg" path="res://Scripts/2D/left_menu.gd" id="8_e1ypl"]
@@ -106,6 +107,7 @@ offset_right = 1182.0
 offset_bottom = 140.0
 theme_override_font_sizes/font_size = 34
 text = "READY"
+script = ExtResource("5_hrbg0")
 
 [node name="Deck" type="Node2D" parent="."]
 z_index = -2
@@ -168,26 +170,46 @@ position = Vector2(961, 539)
 texture = ExtResource("10_e1ypl")
 
 [node name="RerollSlot1" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
+visible = false
 position = Vector2(650, 540)
 
+[node name="Button1" type="Button" parent="LeftMenu/RerollSlot1"]
+offset_left = -250.0
+offset_top = 417.5
+offset_right = 250.0
+offset_bottom = 532.5
+theme_override_font_sizes/font_size = 30
+text = "Select"
+
 [node name="RerollSlot2" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
+visible = false
 position = Vector2(960, 540)
 
+[node name="Button2" type="Button" parent="LeftMenu/RerollSlot2"]
+offset_left = -250.0
+offset_top = 417.5
+offset_right = 250.0
+offset_bottom = 532.5
+theme_override_font_sizes/font_size = 30
+text = "Select"
+
 [node name="RerollSlot3" parent="LeftMenu" instance=ExtResource("11_2gnqk")]
+visible = false
 position = Vector2(1270, 540)
 
-[node name="RerollSelect" type="Button" parent="LeftMenu"]
-visible = false
-z_index = 7
-offset_left = 790.0
-offset_top = 780.0
-offset_right = 1140.0
-offset_bottom = 850.0
-theme_override_font_sizes/font_size = 26
+[node name="Button3" type="Button" parent="LeftMenu/RerollSlot3"]
+offset_left = -250.0
+offset_top = 417.5
+offset_right = 250.0
+offset_bottom = 532.5
+theme_override_font_sizes/font_size = 30
 text = "Select"
 
 [connection signal="pressed" from="InGameMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/Ready" to="UI/Ready" method="_on_pressed"]
 [connection signal="reroll" from="LeftMenu" to="Deck" method="_on_left_menu_reroll"]
 [connection signal="pressed" from="LeftMenu/RerollButton" to="LeftMenu" method="_on_reroll_button_pressed"]
-[connection signal="pressed" from="LeftMenu/RerollSelect" to="Deck" method="_on_reroll_select_pressed"]
+[connection signal="pressed" from="LeftMenu/RerollSlot1/Button1" to="Deck" method="_on_button_1_pressed"]
+[connection signal="pressed" from="LeftMenu/RerollSlot2/Button2" to="Deck" method="_on_button_2_pressed"]
+[connection signal="pressed" from="LeftMenu/RerollSlot3/Button3" to="Deck" method="_on_button_3_pressed"]

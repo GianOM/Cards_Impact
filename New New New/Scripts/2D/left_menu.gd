@@ -38,8 +38,7 @@ func _on_reroll_button_pressed() -> void:
 			#print("reroll")
 			reroll.emit()
 			$FullBGImage.visible = true
-			$RerollSelect.visible = true
-			
+			#$RerollSlot1.visible = true
 	else:
 		print("needs 2 cards to reroll")
 	$RerollButton.disabled = false

@@ -40,11 +40,12 @@ func Show_Tower_Range_When_Hovered():
 								2*Novo_Raio,
 								2*Novo_Raio)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Possible_Targets.size() > 0:
 		for n in range (Possible_Targets.size()):
 				if Possible_Targets[n] != null:
 					tower_aim.global_position = Possible_Targets[n].global_position
+					tower_aim.rotation.y += 1.25 * delta
 					break
 		tower_aim.global_position.y += 8
 		tower_aim.scale = Vector3(0.25,0.25,0.25)#Podemos melhorar
@@ -65,11 +66,10 @@ func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 	if body is Moving_Units:
 		Possible_Targets.remove_at(0)
 
-
 func _on_bullet_spawner_timeout() -> void:
 	if Possible_Targets.size() > 0 and is_Tower_Place_on_Grid == true:
 			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
-			get_node("Projectiles Container").add_child(temp_projectile)
+			get_tree().root.add_child(temp_projectile)
 			temp_projectile.global_position = projectile_generation_point.global_position
 			temp_projectile.seleciona_mesh_pelo_indice(Tower_Index)
 			
@@ -80,4 +80,3 @@ func _on_bullet_spawner_timeout() -> void:
 			
 			temp_projectile.is_Projectile_Flying = true
 			Tower_Projectiles.append(temp_projectile)
-			is_Timer_Running = false

@@ -79,12 +79,13 @@ func _input(event):
 		if Input.is_action_just_pressed("left_mouse_click"):
 			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
 			#Raycas sera Null e o jogo crasha
+			
+			#TODO: QUANDO ELE ENCONTRA UM NULL, ELE TENTA ACESSAR O NULL E CRASHA
 			if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):#codigo para colocar a torre
 				
-				#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null,
+				#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
 				#vc pode colocar uma torre no lugar
-				if My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null:
-					
+				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
 					var Tower_Instance = TOWERS.instantiate() as Node3D
 					get_tree().current_scene.add_child(Tower_Instance) 
 					
@@ -99,11 +100,13 @@ func _input(event):
 					My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
 					
 					My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
-				else:#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+				elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
 					SignalManager.send_warning()
+				elif (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == true):
+					print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
 			
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
-				My_Ray_Cast.Ray_Hit.get_owner().Bota_Uma_Tropa_Ai_Chefe()
+				My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner()
 				
 		if Input.is_action_just_pressed("right_mouse_click"):
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null

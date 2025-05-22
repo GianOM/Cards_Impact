@@ -9,7 +9,7 @@ var Target: Moving_Units
 @onready var projectile_mesh: MeshInstance3D = $Projectile_Mesh
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Moving_Units and body == Target:#So da dano na tropa que mirou
+	if body == Target:#So da dano na tropa que mirou
 		Target.Take_Damage(Projectile_Damage)#Funcao que subtrai o parametro da propria vida
 		queue_free()
 		

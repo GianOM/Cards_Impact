@@ -42,6 +42,6 @@ func raycast_at_cursor():
 		elif result_collision_mask == COLLISION_MASK_DECK:
 			#deck clicked
 			deck_reference.draw_card()
-		elif result_collision_mask == COLLISION_MASK_REROLL_SLOT:
+		elif result_collision_mask == 16 or result_collision_mask == 32 or result_collision_mask == 64:
 			card_manager_reference.select_rerolled_card(card_found)
 			#print("card in rerolled card slot clicked")

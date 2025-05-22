@@ -1,19 +1,25 @@
-res://Assets/3D Assets/Floors/Ground.tres::b40a41342e9450d0cab8c114d48f9e00::1747773593::res://.godot/exported/133200997/export-504a6fdf0c5ce18d505fc52d9b21633d-Ground.res
-res://Assets/3D Assets/Grid/Default_Grid_Material.tres::cedaa7a04bb7c1914c73bc5904720351::1747678923::res://.godot/exported/133200997/export-c4a5ec883e91744a79cc60e402b489ae-Default_Grid_Material.res
-res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres::53c3cfe65fbf5add5c27cdabd643e72b::1747773593::res://.godot/exported/133200997/export-d2e2416bbd0264268701864fb0f0aa35-Highlighted_Grid_Material.tres.res
-res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres::8230862bdc184a6ff5c23fd5ea88d9bb::1747773593::res://.godot/exported/133200997/export-143948bf98cd830ace898c3791441686-Occupied_Grid_Material.res
-res://Scenes/2D/card.tscn::2e581d712d3d2551f31ceae8b17263e3::1747703206::res://.godot/exported/133200997/export-ce3e9a50775c5a1aea185d4428b242f7-card.scn
-res://Scenes/2D/card_slot.tscn::311c593826ac7bc8e9dcf070d45e83a4::1747638989::res://.godot/exported/133200997/export-590aa2a4d0b50b76d6093127ac6002ef-card_slot.scn
-res://Scenes/3D/Floors/Floor.tscn::25462957c97eaaa2dfc54d244ec7b32f::1747678923::res://.godot/exported/133200997/export-ec189ddc6812c23be863bf11248efa2a-Floor.scn
-res://Scenes/3D/Grid/Hexagon Tile.tscn::71c1a508c28e62eb5b92fc5733306295::1747766844::res://.godot/exported/133200997/export-b953cfe40a10c2f9a918734cfe31111c-Hexagon Tile.scn
-res://Scenes/3D/Grid/hex_grid.tscn::ca1c24a24fc1f9735c2378d88d61db82::1747766844::res://.godot/exported/133200997/export-8a2047bf1073efef563918ae9c42a61c-hex_grid.scn
-res://Scenes/3D/Paths/Path_Example.tscn::94fd251aa6621066f25146f08c7930cd::1747713297::res://.godot/exported/133200997/export-65ded1716029a78ea3bde00a7e71fbd8-Path_Example.scn
-res://Scenes/3D/Projectile/Projectile.tscn::be1cc0c52f41b49647b78c5cbdfa003b::1747773922::res://.godot/exported/133200997/export-1889c69fd7eeded4323bf67ee047dea5-Projectile.scn
-res://Scenes/3D/Towers/Towers.tscn::6195272a218c8de909eb503a5b291b1c::1747773922::res://.godot/exported/133200997/export-21bcbdef99b12d5b5c17b345074c0a52-Towers.scn
-res://Scenes/3D/Towers/Towers_Database.tscn::34008dffd97ef9aeb01e4081afba6857::1747698697::res://.godot/exported/133200997/export-091cdbebafccd15722663115075a2214-Towers_Database.scn
-res://Scenes/3D/Troops/Troops.tscn::bbb9199625304f68d7217a6cc173bcc4::1747773922::res://.godot/exported/133200997/export-4d77c1fc10cfaf4ade31d3745c65a66c-Troops.scn
-res://Scenes/Main2D.tscn::c7f4f9df32cce8b64161ed28b4824e14::1747773922::res://.godot/exported/133200997/export-9b5abaac8958ef682a2fa102cc680828-Main2D.scn
-res://Scenes/Main.tscn::54277cbd592a17961cadc96722886058::1747773922::res://.godot/exported/133200997/export-a8e1520d83f25710dd4e3da8c6f32601-Main.scn
-res://Scenes/main_menu.tscn::4072f1609c995c1959073e319369c40d::1747773922::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
-res://Scenes/Player Camera Scene.tscn::09c806cc29b8f7860b959d13b9c74ed9::1747766844::res://.godot/exported/133200997/export-f4f8cc58eb48d5992a48b645512449a4-Player Camera Scene.scn
-res://Scripts/3D/Tower/Tower_Properties_Example.tres::6952cf6c74d72f7cf1fe04d80e82036f::1747695573::res://.godot/exported/133200997/export-c02ea04eb2675d19b63808a5d03e0267-Tower_Properties_Example.res
+res://Assets/3D Assets/Floors/Ground.tres::b40a41342e9450d0cab8c114d48f9e00::1747798302::res://.godot/exported/133200997/export-504a6fdf0c5ce18d505fc52d9b21633d-Ground.res
+res://Assets/3D Assets/Grid/Default_Grid_Material.tres::cedaa7a04bb7c1914c73bc5904720351::1747798302::res://.godot/exported/133200997/export-c4a5ec883e91744a79cc60e402b489ae-Default_Grid_Material.res
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres::53c3cfe65fbf5add5c27cdabd643e72b::1747815460::res://.godot/exported/133200997/export-d2e2416bbd0264268701864fb0f0aa35-Highlighted_Grid_Material.tres.res
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres::8230862bdc184a6ff5c23fd5ea88d9bb::1747815460::res://.godot/exported/133200997/export-143948bf98cd830ace898c3791441686-Occupied_Grid_Material.res
+res://Scenes/2D/card.tscn::2e581d712d3d2551f31ceae8b17263e3::1747798302::res://.godot/exported/133200997/export-ce3e9a50775c5a1aea185d4428b242f7-card.scn
+res://Scenes/2D/card_slot.tscn::311c593826ac7bc8e9dcf070d45e83a4::1747798302::res://.godot/exported/133200997/export-590aa2a4d0b50b76d6093127ac6002ef-card_slot.scn
+res://Scenes/3D/Floors/Floor.tscn::25462957c97eaaa2dfc54d244ec7b32f::1747798302::res://.godot/exported/133200997/export-ec189ddc6812c23be863bf11248efa2a-Floor.scn
+res://Scenes/3D/Grid/Hexagon Tile.tscn::71c1a508c28e62eb5b92fc5733306295::1747798302::res://.godot/exported/133200997/export-b953cfe40a10c2f9a918734cfe31111c-Hexagon Tile.scn
+res://Scenes/3D/Grid/hex_grid.tscn::ca1c24a24fc1f9735c2378d88d61db82::1747815408::res://.godot/exported/133200997/export-8a2047bf1073efef563918ae9c42a61c-hex_grid.scn
+res://Scenes/3D/Paths/Path_Example.tscn::2262f50efbe6c17c21cf2a0635e3fdf5::1747815408::res://.godot/exported/133200997/export-65ded1716029a78ea3bde00a7e71fbd8-Path_Example.scn
+res://Scenes/3D/Projectile/Projectile.tscn::78280dbde55b092c8cd2bb259d0f478e::1747815408::res://.godot/exported/133200997/export-1889c69fd7eeded4323bf67ee047dea5-Projectile.scn
+res://Scenes/3D/Towers/Towers.tscn::c0243b18be6bdd09fa183ad26dd347a4::1747815408::res://.godot/exported/133200997/export-21bcbdef99b12d5b5c17b345074c0a52-Towers.scn
+res://Scenes/3D/Towers/Towers_Database.tscn::34008dffd97ef9aeb01e4081afba6857::1747798302::res://.godot/exported/133200997/export-091cdbebafccd15722663115075a2214-Towers_Database.scn
+res://Scenes/3D/Troops/Troops.tscn::0d416d737b6c288f6618fb74a15f025b::1747815408::res://.godot/exported/133200997/export-4d77c1fc10cfaf4ade31d3745c65a66c-Troops.scn
+res://Scenes/Main2D.tscn::60a7a229a557e5abe044e61a7224e343::1747798302::res://.godot/exported/133200997/export-9b5abaac8958ef682a2fa102cc680828-Main2D.scn
+res://Scenes/Main.tscn::9b70ac0d6a86b7b4d3ddcc6eb42e71c9::1747798302::res://.godot/exported/133200997/export-a8e1520d83f25710dd4e3da8c6f32601-Main.scn
+res://Scenes/main_menu.tscn::4072f1609c995c1959073e319369c40d::1747798302::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/Player Camera Scene.tscn::09c806cc29b8f7860b959d13b9c74ed9::1747815544::res://.godot/exported/133200997/export-f4f8cc58eb48d5992a48b645512449a4-Player Camera Scene.scn
+res://Scripts/3D/Tower/Tower_Properties_Example.tres::6952cf6c74d72f7cf1fe04d80e82036f::1747798302::res://.godot/exported/133200997/export-c02ea04eb2675d19b63808a5d03e0267-Tower_Properties_Example.res
+res://Assets/3D Assets/Projectile/Tier 1 Projectile Material.tres::45c1dbef54f5b4c55728aad0c806adc1::1747815460::res://.godot/exported/133200997/export-ccbd9ca3b9d58de8914ed5cf7579eb9a-Tier 1 Projectile Material.res
+res://Assets/3D Assets/Projectile/Tier 2 Projectile Material.tres::7bedb9562bb2bf88f82a7b377d5828d9::1747815460::res://.godot/exported/133200997/export-508266b1676844d7c379c0672bd4a03e-Tier 2 Projectile Material.res
+res://Scenes/2D/rerolled_slot.tscn::819b31e68931d09332531e0f39646955::1747798302::res://.godot/exported/133200997/export-93571572c5d36c0308580af94b812ea9-rerolled_slot.scn
+res://Scenes/3D/Paths/Enemy_spawner.tscn::c35149f63b44dd36a5883fd6cc0e3faf::1747798302::res://.godot/exported/133200997/export-fe8dc8048194b506f20b7c7a9acf9d7e-Enemy_spawner.scn
+res://Scenes/3D/Projectile/Projectile_Database.tscn::c07c12ac37c60ced81765a600411498d::1747798302::res://.godot/exported/133200997/export-0216673d4075363809b23d45ae40d333-Projectile_Database.scn
+res://Scripts/3D/Projectiles/Projectile_Resource_Example.tres::72bcf8e1404521a58b1991cffab4dd0b::1747798302::res://.godot/exported/133200997/export-3a73bd67eb77d540f1c2f017a0b7f6e0-Projectile_Resource_Example.res
