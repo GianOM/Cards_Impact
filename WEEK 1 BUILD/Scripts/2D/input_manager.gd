@@ -11,19 +11,26 @@ const COLLISION_MASK_DECK = 4 #is set to 3 in inspector, but inspector and outpu
 var card_manager_reference
 var deck_reference
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("left_mouse_click"):
+		emit_signal("left_mouse_button_clicked")
+		raycast_at_cursor()
+	elif Input.is_action_just_released("left_mouse_click"):
+		emit_signal("left_mouse_button_released")
+
 func _ready() -> void:
 	card_manager_reference = $"../CardManager"
 	deck_reference = $"../Deck"
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			emit_signal("left_mouse_button_clicked")
-			raycast_at_cursor()
-		else:
-			emit_signal("left_mouse_button_released")
-			
-			
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		#if event.pressed:
+			#emit_signal("left_mouse_button_clicked")
+			#raycast_at_cursor()
+		#else:
+			#emit_signal("left_mouse_button_released")
+			#
+			#
 func raycast_at_cursor():
 	var space_state = get_viewport().world_2d.direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
@@ -40,6 +47,7 @@ func raycast_at_cursor():
 			if card_found:
 				#print("card found")
 				card_manager_reference.start_drag(card_found)
+				CollisionCheck.is_a_card_being_dragged = true
 				#card_manager_reference.select_rerolled_card(card_found)
 		elif result_collision_mask == COLLISION_MASK_DECK:
 			#deck clicked

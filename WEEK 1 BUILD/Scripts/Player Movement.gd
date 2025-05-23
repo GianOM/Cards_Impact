@@ -75,13 +75,16 @@ func _input(event):
 	if event is InputEventMouseButton:
 		# My_Ray_Cast.Ray_Hit.get_owner() RETORNA O OBJETO QUE O RAYCAST ACERTOU
 		#print(My_Ray_Cast.Ray_Hit.get_owner())
-		if Input.is_action_just_pressed("left_mouse_click"):
+		if Input.is_action_just_released("left_mouse_click"):
 			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
 			#Raycas sera Null e o jogo crasha
 			if (My_Ray_Cast.is_colliding()):
-				if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):#codigo para colocar a torre
+				if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and CollisionCheck.is_a_card_being_dragged):#codigo para colocar a torre
 					#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
 					#vc pode colocar uma torre no lugar
+					
+					
+					
 					if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
 						var Tower_Instance = TOWERS.instantiate() as Node3D
 						get_tree().current_scene.add_child(Tower_Instance) 

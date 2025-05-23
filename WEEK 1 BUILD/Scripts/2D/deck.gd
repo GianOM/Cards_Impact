@@ -2,7 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/2D/card.tscn"
 const CARD_DRAW_SPEED = 0.3
-const STARTING_HAND_SIZE = 6
+const STARTING_HAND_SIZE = 7
 #const COLLISION_MASK_CARD = 1
 #const COLLISION_MASK_REROLL_SLOT = 16
 var rerolled_card_1
@@ -44,13 +44,18 @@ func draw_card(): #called in input_manager.gd
 	var card_image_path = str("res://Assets/2D Assets/" + card_drawn_name + "Card.png")
 
 	new_card.get_node("CardImage").texture = load(card_image_path)
-	
 	new_card.get_node("ATK").text = str(card_database_reference.CARDS[card_drawn_name][0])
 	new_card.get_node("HP").text = str(card_database_reference.CARDS[card_drawn_name][1])
-	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
 	new_card.get_node("Name").text = card_drawn_name
 	new_card.get_node("GaslightTokens").text = str(card_database_reference.CARDS[card_drawn_name][3])
 	new_card.get_node("GatekeepTokens").text = str(card_database_reference.CARDS[card_drawn_name][4])
+	new_card.card_name = card_drawn_name
+	new_card.card_atk = card_database_reference.CARDS[card_drawn_name][0]
+	new_card.card_hp = card_database_reference.CARDS[card_drawn_name][1]
+	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
+	new_card.gaslight_cost = card_database_reference.CARDS[card_drawn_name][3]
+	new_card.gatekeep_cost = card_database_reference.CARDS[card_drawn_name][4]
+
 	$"../CardManager".add_child(new_card)
 	new_card.position = position
 	new_card.name = "Card"
@@ -87,6 +92,8 @@ func draw_reroll_card(): #called in input_manager.gd
 	new_card.card_atk = card_database_reference.CARDS[card_drawn_name][0]
 	new_card.card_hp = card_database_reference.CARDS[card_drawn_name][1]
 	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
+	new_card.gaslight_cost = card_database_reference.CARDS[card_drawn_name][3]
+	new_card.gatekeep_cost = card_database_reference.CARDS[card_drawn_name][4]
 	#---------------------------------------------------------------------------
 
 

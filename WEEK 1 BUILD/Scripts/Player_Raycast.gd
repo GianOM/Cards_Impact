@@ -54,7 +54,10 @@ func Screen_Point_to_Ray() -> void:
 		var Ray_Hit_Owner = Ray_Hit.get_owner()#Precisamos catar o Owner para saber sua classe e sua posicao
 		#o check de hexagono tem que vir antes de tentar pegarmos o owner, 
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
-		if Ray_Hit_Owner is Hexagono:
+		if Ray_Hit_Owner is Hexagono and CollisionCheck.is_a_card_being_dragged:
+			
+			CollisionCheck.is_mouse_hitting_a_hex_cell = true
+			
 			Troop_Instance.scale = Vector3(0.01,0.01,0.01)
 			
 			
@@ -88,6 +91,9 @@ func Screen_Point_to_Ray() -> void:
 				Tower_Instance.scale = Vector3(0.01,0.01,0.01)
 		
 		elif Ray_Hit_Owner is Enemy_Spawner:
+			
+			CollisionCheck.is_mouse_hitting_a_hex_cell = false
+			
 			Troop_Instance.scale = Vector3(1,1,1)
 			Troop_Instance.global_position = Ray_Hit.global_position
 			Tower_Instance.scale = Vector3(0.01,0.01,0.01)
@@ -99,7 +105,12 @@ func Screen_Point_to_Ray() -> void:
 			Tower_Instance.scale = Vector3(0.01,0.01,0.01)
 			Troop_Instance.scale = Vector3(0.01,0.01,0.01)
 			
+			CollisionCheck.is_mouse_hitting_a_hex_cell = false
+			
 	else :
+		
+		CollisionCheck.is_mouse_hitting_a_hex_cell = false
+		
 		is_Mouse_Hitting_a_Hex_Cell = false
 		Tower_Instance.scale = Vector3(0.01,0.01,0.01)#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell
 		Troop_Instance.scale = Vector3(0.01,0.01,0.01)

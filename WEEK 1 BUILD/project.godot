@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SceneSwitcher="*res://Scripts/scene_switcher.gd"
 SignalManager="*res://Scripts/signal_manager.gd"
 ReadyButton="*res://Scripts/2D/Ready_Button.gd"
+CollisionCheck="*res://Scripts/collision_check.gd"
 
 [display]
 

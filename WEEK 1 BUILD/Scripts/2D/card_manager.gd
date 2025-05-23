@@ -4,7 +4,13 @@ const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_CARD_SLOT = 2 #collision layer and mask in cardslot/area2d should also match this number
 const DEFAULT_CARD_MOVE_SPEED = 0.3
 
+const CARD_SCENE_PATH = "res://Scenes/2D/card.tscn"
+
+@onready var deck: Node2D = $"../Deck"
+@onready var player_hand: Node2D = $"../PlayerHand"
+
 @onready var input_manager: Node2D = $"../InputManager"
+@onready var card_database_reference = preload("res://Scripts/2D/card_database.gd")
 
 var screen_size
 var card_being_dragged
@@ -12,7 +18,10 @@ var is_hovering_on_card
 var player_hand_reference
 var cards_inside_card_slots = []
 var selected_rerolled_card
+var selected_card
 var which_reroll_slot_path
+var hand_with_stuff
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,8 +40,27 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
-
-	
+	hand_with_stuff = player_hand.player_hand
+	print(card.card_name)
+	print(card.card_atk)
+	if CollisionCheck.is_mouse_hitting_a_hex_cell == true:
+		card.visible = false
+	else:
+		card.visible = true
+#
+	#if selected_card:
+		#if selected_card == card:
+			#card.position.y += 40
+#
+		#else:
+			#selected_card.position.y += 40
+#
+			#selected_card = card
+			#card.position.y -= 40
+#
+	#else:
+		#selected_card = card
+		#card.position.y -= 40
 
 
 func finish_drag():
@@ -68,6 +96,7 @@ func connect_card_signals(card):
 	
 func on_left_click_released():
 	if card_being_dragged:
+		CollisionCheck.is_a_card_being_dragged = false
 		finish_drag()
 		
 
