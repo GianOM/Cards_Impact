@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @export var Vida: float
 @export var Velocidade: float
+@export var Dano: float
 
 var Tower_Target: Tower_Base
 

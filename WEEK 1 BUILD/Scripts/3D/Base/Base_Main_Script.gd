@@ -16,13 +16,15 @@ var Base_Projectiles:Array[Projetil]
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 func _process(delta: float) -> void:
-	if Base_Projectiles.size() > 32:
+	if Base_Projectiles.size() > 32:#Limpa o array com os projeteis da Base
 		Base_Projectiles = Base_Projectiles.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
-		body.Tower_Target = base_node_3d#Seta o alvo da tropa
+		#Seta o alvo da tropa, para que assim a tropa possa acessa - lo e dar dano
+		body.Tower_Target = base_node_3d
+		
 		Base_Possible_Targets.append(body)
 
 
