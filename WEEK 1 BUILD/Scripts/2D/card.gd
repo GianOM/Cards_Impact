@@ -11,6 +11,7 @@ var card_hp
 var card_type
 var gaslight_cost
 var gatekeep_cost
+var card_id
 
 var is_reroll_card = false
 

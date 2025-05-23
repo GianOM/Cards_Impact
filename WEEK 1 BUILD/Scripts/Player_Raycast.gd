@@ -1,52 +1,66 @@
 extends RayCast3D
 
+# --- Constantes ---
 const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
+const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
+const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
 
+const INSTANCE_SCALE_HIDDEN = Vector3(0.01, 0.01, 0.01)
+const INSTANCE_SCALE_VISIBLE = Vector3(1.0, 1.0, 1.0)
+const RAYCAST_DISTANCE = 8192.0
+
+# --- Nodes Onready ---
 @onready var camera_3d: Camera3D = $"../Camera3D"
 @onready var player: Node3D = $".."
 
-const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
-var Tower_Instance = TOWERS.instantiate() as Node3D
 
-const INDIVIDUAL_TROOP = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
-var Troop_Instance = INDIVIDUAL_TROOP.instantiate() as Node3D
-
+# --- Instâncias de Cenas ---
+var Tower_Instance: Node3D
+var Troop_Instance: Node3D
 
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
 #O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
 
-#Variavel para o Killer fazer a carta sumir. Se for true, o mouse ta passando por uma
-#grid cell, se for false, nao esta
-var is_Mouse_Hitting_a_Hex_Cell : bool
-
 var last_hovered: Hexagono
 var remove_range_hovering: Hexagono
 #------------------------removed/commented from here
 
-func _ready() -> void:      
+func _ready() -> void:
+	Tower_Instance = TOWERS_SCENE.instantiate()
+	Troop_Instance = INDIVIDUAL_TROOP_SCENE.instantiate()
+	
 	SceneSwitcher.current_scene.add_child.call_deferred(Tower_Instance) 
 	SceneSwitcher.current_scene.add_child.call_deferred(Troop_Instance)
 	#Precisamos usar o SceneSwitcher.current_scene para obtermos a TScene atual
 
 	#ADCIONAMOS A TORRE NUMA ESCALA PEQUENA ASSIM Q COMECA O GAME
-	Tower_Instance.scale = Vector3(0.01,0.01,0.01)
-	Troop_Instance.scale = Vector3(0.01,0.01,0.01)
+	Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
+	Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
+	
+	# Se Tower_Instance e Troop_Instance precisam de um pai específico, considere passá-lo
+	# ou gerenciar suas posições de forma mais explícita.
+	# Atualmente eles estão sendo adicionados à cena atual (SceneSwitcher.current_scene),
+	# o que pode ser o comportamento desejado.
 
 func _process(_delta: float) -> void:
+	Update_Raycast_Target()
 	Screen_Point_to_Ray()
 
-func Screen_Point_to_Ray() -> void:
+func Update_Raycast_Target() -> void:
 	var mouse_Position = get_viewport().get_mouse_position()
 	#get_viewport().get_mouse_position() Retorna a posicao do mouse na tela, aumentando da esquerda para direita e
 	# de cima para baixo
 	
-	#TO DO: LIMITAR O RAY CAST PARA SOMENTE 60% DA ALTURA PARA NAO DAR PROBLEMA COM AS CARTAS
+	# TODO: LIMITAR O RAY CAST PARA SOMENTE 60% DA ALTURA PARA NAO DAR PROBLEMA COM AS CARTAS
+	# Isso pode ser feito ajustando 'mouse_position.y' ou a lógica de 'project_ray_normal'.
+	# Exemplo: if mouse_position.y > get_viewport().size.y * 0.6: return
 	
 	#Seta a Origem e o alvo do RayCast
 	position = camera_3d.project_ray_origin(mouse_Position)
 	target_position = position + (camera_3d.project_ray_normal(mouse_Position)) * 8192#QUANTO MAIOR ESTE NUMERO, MAIS PRECISO E O RAYCAS
-
+	
+func Screen_Point_to_Ray() -> void:
 	if is_colliding():
 		# Esta variavel precisa ser global para ser acessada por outros nodes
 		# O seu tipo e "Object" pq nao sabemos ainda o que o Ray_Hit vai acertar
@@ -54,17 +68,18 @@ func Screen_Point_to_Ray() -> void:
 		var Ray_Hit_Owner = Ray_Hit.get_owner()#Precisamos catar o Owner para saber sua classe e sua posicao
 		#o check de hexagono tem que vir antes de tentar pegarmos o owner, 
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
-		if Ray_Hit_Owner is Hexagono and CollisionCheck.is_a_card_being_dragged:
-			
+		if Ray_Hit_Owner is Hexagono:
+			if CollisionCheck.is_a_card_being_dragged and Ray_Hit_Owner.Placed_Tower == null:
+				Tower_Instance.scale = INSTANCE_SCALE_VISIBLE
+				Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
+				Tower_Instance.global_position = Ray_Hit.global_position
+			else:
+				Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
+				Tower_Instance.global_position = Vector3(-50,-50,-50)
+				
 			CollisionCheck.is_mouse_hitting_a_hex_cell = true
 			
-			Troop_Instance.scale = Vector3(0.01,0.01,0.01)
-			
-			
-			Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
-			Tower_Instance.global_position = Ray_Hit.global_position
-			
-			is_Mouse_Hitting_a_Hex_Cell = true
+			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 			
 			if last_hovered and (last_hovered.Placed_Tower == null):
 				last_hovered.Remove_Highlight()
@@ -81,39 +96,31 @@ func Screen_Point_to_Ray() -> void:
 			if Ray_Hit_Owner.Placed_Tower != null:
 					Ray_Hit_Owner.Placed_Tower.Show_Tower_Range_When_Hovered()
 					remove_range_hovering = Ray_Hit_Owner
-					
-				
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
 			#possui uma torre
-			if Ray_Hit_Owner.Placed_Tower == null:
-				Tower_Instance.scale = Vector3(1,1,1)
-			else:
-				Tower_Instance.scale = Vector3(0.01,0.01,0.01)
 		
 		elif Ray_Hit_Owner is Enemy_Spawner:
 			
 			CollisionCheck.is_mouse_hitting_a_hex_cell = false
 			
-			Troop_Instance.scale = Vector3(1,1,1)
+			Troop_Instance.scale = INSTANCE_SCALE_VISIBLE
 			Troop_Instance.global_position = Ray_Hit.global_position
-			Tower_Instance.scale = Vector3(0.01,0.01,0.01)
+			Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
 
 		elif last_hovered:
 			last_hovered.Remove_Highlight()
 			#O RayCast3D sempre entre nesta condicao quando ele colide com algo
 			#que nao seja um Hexagono, como por exemplo o Enemy Spawner
-			Tower_Instance.scale = Vector3(0.01,0.01,0.01)
-			Troop_Instance.scale = Vector3(0.01,0.01,0.01)
+			Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
+			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 			
 			CollisionCheck.is_mouse_hitting_a_hex_cell = false
 			
 	else :
-		
 		CollisionCheck.is_mouse_hitting_a_hex_cell = false
 		
-		is_Mouse_Hitting_a_Hex_Cell = false
-		Tower_Instance.scale = Vector3(0.01,0.01,0.01)#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell
-		Troop_Instance.scale = Vector3(0.01,0.01,0.01)
+		Tower_Instance.scale = INSTANCE_SCALE_HIDDEN#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell
+		Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 		
 		if last_hovered and (last_hovered.Placed_Tower == null):
 			last_hovered.Remove_Highlight()

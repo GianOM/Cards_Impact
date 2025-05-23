@@ -21,7 +21,7 @@ var selected_rerolled_card
 var selected_card
 var which_reroll_slot_path
 var hand_with_stuff
-
+var last_number_of_towers = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,8 +41,8 @@ func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
 	hand_with_stuff = player_hand.player_hand
-	print(card.card_name)
-	print(card.card_atk)
+	#print(card.card_name)
+	#print(card.card_atk)
 	if CollisionCheck.is_mouse_hitting_a_hex_cell == true:
 		card.visible = false
 	else:
@@ -65,6 +65,14 @@ func start_drag(card):
 
 func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
+	#if CollisionCheck.is_a_card_being_dragged == false:
+		#player_hand_reference.remove_card_from_hand(card_being_dragged)
+		#return
+	if CollisionCheck.number_of_towers_placed != last_number_of_towers:
+
+		player_hand_reference.remove_card_from_hand(card_being_dragged)
+		last_number_of_towers = CollisionCheck.number_of_towers_placed
+
 	var card_slot_found = raycast_check_card_slot()
 	if card_slot_found and not card_slot_found.card_in_slot:
 		

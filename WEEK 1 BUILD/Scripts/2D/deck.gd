@@ -55,6 +55,7 @@ func draw_card(): #called in input_manager.gd
 	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
 	new_card.gaslight_cost = card_database_reference.CARDS[card_drawn_name][3]
 	new_card.gatekeep_cost = card_database_reference.CARDS[card_drawn_name][4]
+	new_card.card_id = card_database_reference.CARDS[card_drawn_name][5]
 
 	$"../CardManager".add_child(new_card)
 	new_card.position = position
@@ -94,6 +95,7 @@ func draw_reroll_card(): #called in input_manager.gd
 	new_card.card_type = card_database_reference.CARDS[card_drawn_name][2]
 	new_card.gaslight_cost = card_database_reference.CARDS[card_drawn_name][3]
 	new_card.gatekeep_cost = card_database_reference.CARDS[card_drawn_name][4]
+	new_card.card_id = card_database_reference.CARDS[card_drawn_name][5]
 	#---------------------------------------------------------------------------
 
 

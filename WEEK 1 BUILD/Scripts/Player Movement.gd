@@ -1,25 +1,33 @@
 extends Node3D
 
+# --- Node Onready ---
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var My_Ray_Cast: RayCast3D = $RayCast3D # Renomeado para clareza e consistência
+
+
+# --- Constantes de Movimento da Câmera ---
+const DEFAULT_ACCELERATION: float = 50.0#Uma boa aceleracao pra garantir que o jogo seja responsivo
+const DEFAULT_MAX_SPEED: float = 15.0
+const SPRINT_ACCELERATION: float = 75.0 # Exemplo de ajuste se quiser uma aceleração diferente no sprint
+const SPRINT_MAX_SPEED: float = 30.0
+const FRICTION: float = 22.0
+
+
 
 var velocity: Vector3 = Vector3.ZERO
-var acceleration: float = 50#Uma boa aceleracao pra garantir que o jogo seja responsivo
 var max_speed: float = 15
-var friction: float = 22
 
 var rotating_on_middle_mouse_button :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
 var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
 var Clamped_Zoom:float = 0
 
-const TOWERS = preload("res://Scenes/3D/Towers/Towers.tscn")
+# --- Constantes de Cenário ---
+const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
+const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
+
 var Tower_Selected_Index:int = 0
-
-const INDIVIDUAL_TROOP = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
 var Individual_Troop_Selected_Index:int = 0
-
-
-@onready var My_Ray_Cast = $RayCast3D
 
 func _process(delta: float) -> void:
 	Move_Camera(delta)
@@ -42,14 +50,13 @@ func Move_Camera(delta) -> void:
 	
 	if movement_direction != Vector3.ZERO:
 		# Aplica inercia de movimento
-		velocity = velocity.move_toward(movement_direction * max_speed, acceleration * delta)
+		velocity = velocity.move_toward(movement_direction * max_speed, DEFAULT_ACCELERATION * delta)
 	else:
 		# Aplica friccao
-		velocity = velocity.move_toward(Vector3.ZERO, friction * delta)
+		velocity = velocity.move_toward(Vector3.ZERO, FRICTION * delta)
 	
 	#Atualiza a Posicao do Node3D Player
 	position += velocity*delta
-	
 	
 	#Input_Rotation é um float que vai de -1(Quando aperta-se Q) ate +1(Quando Aperta-se E)
 	var Input_Rotation = Input.get_axis("Q_Key","E_Key")
@@ -79,15 +86,16 @@ func _input(event):
 			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
 			#Raycas sera Null e o jogo crasha
 			if (My_Ray_Cast.is_colliding()):
+				#Checkamos se o Resultado do Raycast é um Hexagono e se há alguma carta sendo arrastada. Se sim, roda a parte abaixo
 				if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and CollisionCheck.is_a_card_being_dragged):#codigo para colocar a torre
 					#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
 					#vc pode colocar uma torre no lugar
-					
-					
-					
 					if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
-						var Tower_Instance = TOWERS.instantiate() as Node3D
+						var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
 						get_tree().current_scene.add_child(Tower_Instance) 
+						
+						#TODO: DESCOMENTAR
+						CollisionCheck.number_of_towers_placed += 1
 						
 						Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
 						
@@ -110,6 +118,9 @@ func _input(event):
 		if Input.is_action_just_pressed("right_mouse_click"):
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
 				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
+					
+					#TODO: DESCOMENTAR
+					#CollisionCheck.number_of_towers_placed -= 1
 					
 					My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.queue_free()
 					

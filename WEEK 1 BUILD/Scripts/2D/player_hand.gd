@@ -50,4 +50,5 @@ func animate_card_to_position(card, new_position, speed):
 func remove_card_from_hand(card):
 	if card in player_hand:
 		player_hand.erase(card)
+		#card.queue_free()
 		update_hand_positions(DEFAULT_CARD_MOVE_SPEED)
