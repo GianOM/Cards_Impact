@@ -20,6 +20,8 @@ func seleciona_mesh_pelo_indice(index:int):
 	tower_range.scale = Vector3(0.1*Dados_da_Torre.Tower_Range,
 								0.1*Dados_da_Torre.Tower_Range,
 								0.1*Dados_da_Torre.Tower_Range)
+	
+	
 	mesh = Dados_da_Torre.Tower_3d_Mesh.mesh
 	
 	bullet_spawner.set_wait_time(Dados_da_Torre.Tower_Attack_Cooldown)

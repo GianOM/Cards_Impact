@@ -3,7 +3,7 @@ extends RayCast3D
 # --- Constantes ---
 const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
-const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
+const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
 
 const INSTANCE_SCALE_HIDDEN = Vector3(0.01, 0.01, 0.01)
 const INSTANCE_SCALE_VISIBLE = Vector3(1.0, 1.0, 1.0)

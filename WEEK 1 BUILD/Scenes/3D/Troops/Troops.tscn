@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2jwvrl7sd26f"]
+[gd_scene load_steps=4 format=3 uid="uid://b2jwvrl7sd26f"]
 
 [ext_resource type="Script" uid="uid://bt5wk3ixfe5x4" path="res://Scripts/3D/Path/Troops_Path_Follow.gd" id="1_xa3w2"]
-[ext_resource type="PackedScene" uid="uid://bif2lico2shha" path="res://Scenes/3D/Troops/Individual_Troop.tscn" id="2_u200w"]
+[ext_resource type="Script" uid="uid://bxe3hx7ivymd" path="res://Scripts/3D/Troops/Moving_Units.gd" id="2_y7tcu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u200w"]
+radius = 0.708251
+height = 2.30989
 
 [node name="PathFollow3D" type="PathFollow3D"]
 loop = false
 script = ExtResource("1_xa3w2")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_u200w")]
-Dano = 150.0
+[node name="Moving_Unit_CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_y7tcu")
+
+[node name="Moving_Unit_MeshInstance3D" type="MeshInstance3D" parent="Moving_Unit_CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Moving_Unit_CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.817724, 0)
+shape = SubResource("CapsuleShape3D_u200w")

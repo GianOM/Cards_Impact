@@ -8,15 +8,14 @@ extends Node3D
 # --- Constantes de Movimento da Câmera ---
 const DEFAULT_ACCELERATION: float = 50.0#Uma boa aceleracao pra garantir que o jogo seja responsivo
 const DEFAULT_MAX_SPEED: float = 15.0
-const SPRINT_ACCELERATION: float = 75.0 # Exemplo de ajuste se quiser uma aceleração diferente no sprint
 const SPRINT_MAX_SPEED: float = 30.0
 const FRICTION: float = 22.0
-
-
 
 var velocity: Vector3 = Vector3.ZERO
 var max_speed: float = 15
 
+
+# --- Variáveis de Estado da Câmera ---
 var rotating_on_middle_mouse_button :bool = false#Variavel usada para rotacionar a camera com o botao do mouse
 var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
@@ -24,25 +23,24 @@ var Clamped_Zoom:float = 0
 
 # --- Constantes de Cenário ---
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
-const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Individual_Troop.tscn")
+const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
 
 var Tower_Selected_Index:int = 0
 var Individual_Troop_Selected_Index:int = 0
 
 func _process(delta: float) -> void:
-	Move_Camera(delta)
+	Handle_Camera_Movement(delta)
+	Handle_Camera_Rotation(delta)
+	Handle_Camera_Zoom(delta)
 	
-func Move_Camera(delta) -> void:
-	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
+	
+func Handle_Camera_Movement(delta: float) -> void:
 	var Input_Sprint = Input.is_action_pressed("Shift_Key")
 	if Input_Sprint:
-		Camera_Rotation_Speed = 100
-		max_speed = 30
+		max_speed = SPRINT_MAX_SPEED
 	else:
-		max_speed = 15
-		Camera_Rotation_Speed = 50
-
-	
+		max_speed = DEFAULT_MAX_SPEED
+		
 	#Input_Direction e uma tupla do tipo (x,y), onde x e y vao de -1(Tecla A ou S) ate 1(Tecla D ou W)
 	var Input_Direction = Input.get_vector("A_Key","D_Key","W_Key","S_Key")
 	#As direcoes da camera mudam conforme ela gira. Logo, precisamos atualizar, multiplicando pela direcao local e normalizando
@@ -58,12 +56,22 @@ func Move_Camera(delta) -> void:
 	#Atualiza a Posicao do Node3D Player
 	position += velocity*delta
 	
+func Handle_Camera_Rotation(delta: float) -> void:
+	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
+	var Input_Sprint = Input.is_action_pressed("Shift_Key")
+	if Input_Sprint:
+		Camera_Rotation_Speed = 100
+	else:
+		Camera_Rotation_Speed = 50
+	
 	#Input_Rotation é um float que vai de -1(Quando aperta-se Q) ate +1(Quando Aperta-se E)
 	var Input_Rotation = Input.get_axis("Q_Key","E_Key")
 	if rotating_on_middle_mouse_button == false:
 		rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
-	
-	
+		
+
+
+func Handle_Camera_Zoom(delta:float) -> void:
 	var zoom_direction = (int(Input.is_action_just_released("Scroll_Down"))
 						- int(Input.is_action_just_released("Scroll_Up")) )
 						
@@ -78,7 +86,8 @@ func Move_Camera(delta) -> void:
 	camera_3d.rotation.x = clamp(camera_3d.rotation.x - zoom_direction * 0.01, -1.25, -1.01)#Rotaciona a camera pra cima e para baixo um pouco quando da zoom
 
 
-func _input(event):
+#TODO: MELHORAR ISSO AQUI !!!
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# My_Ray_Cast.Ray_Hit.get_owner() RETORNA O OBJETO QUE O RAYCAST ACERTOU
 		#print(My_Ray_Cast.Ray_Hit.get_owner())
@@ -94,7 +103,6 @@ func _input(event):
 						var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
 						get_tree().current_scene.add_child(Tower_Instance) 
 						
-						#TODO: DESCOMENTAR
 						CollisionCheck.number_of_towers_placed += 1
 						
 						Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
@@ -113,7 +121,7 @@ func _input(event):
 						SignalManager.cannot_interact_with_enemy_field()
 						#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
 				elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
-					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner()
+					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
 				
 		if Input.is_action_just_pressed("right_mouse_click"):
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null

@@ -1,6 +1,8 @@
+res://Scripts/3D/Troops
+res://Scenes/3D/Troops/Troops Database
+res://Scripts/3D/Troops/Data
 res://Scripts
 res://Scenes/3D/Troops
-res://Scripts/3D/Troops
 res://Scripts/3D/Base
 res://Assets/2D Assets
 res://Scenes/3D/Base
@@ -18,5 +20,3 @@ C:/Cards_Impact_2.0
 C:/Concursos
 res://Scenes/3D/Towers
 res://Assets/3D Assets/Towers
-res://Assets/3D Assets/Grid
-res://Assets/3D Assets/Path

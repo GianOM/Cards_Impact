@@ -7,13 +7,34 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 @onready var path_3d: Path3D = $Path3D
 @onready var spawn_timer_cooldown: Timer = $"Spawn Timer Cooldown"
 
-func Adcionar_Tropa_Ao_Enemy_Spawner():
+const TroopsData = preload("res://Scripts/3D/Troops/Troops_Data.gd")
+
+@export var troop_types: Array[Moving_Units_Data] = []#Ainda to Usando Isso aq. Como automatizar?
+
+var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
+var troops_data_instance: Resource
+
+func _ready() -> void:
+	troops_data_instance = TroopsData.new()#Cria um novo resource do tipo Troops_Data
+	
+func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):
+	var troop_data_resource: Moving_Units_Data = troop_types[idx]
+	
+	var troop_scene = load(troop_data_resource.troop_scene_path)#Carrega a PackedScene contendo a malha 3D
+	var Correct_Troop_InstanceMesh3D = troop_scene.instantiate()#Ja que a Packed Scene so contem uma InstanceMesh3D, instancia-la carrega para uma variavel
+	
+	#Seta os parametros da tropa e guarda em um array de PathFollows
+	var temp_troop = TROOPS.instantiate()
+	temp_troop.get_node("Moving_Unit_CharacterBody3D").inicializar_Moving_Unit(troop_data_resource, Correct_Troop_InstanceMesh3D)
+	
+	Lista_de_Tropas.append(temp_troop)
 	Number_of_Troops_to_Spawn += 1
 
 func _on_spawn_timer_cooldown_timeout() -> void:
-	#print(ReadyButton.I_AM_READY)
+	
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
 	if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
-		var temp_enemy = TROOPS.instantiate()
-		path_3d.add_child(temp_enemy)
+		#TODO: Este array vai ficar grande um dia. Precisamos limpa-lo quando o player nao estiver ready
+		path_3d.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
 		Number_of_Troops_to_Spawn -= 1
+	

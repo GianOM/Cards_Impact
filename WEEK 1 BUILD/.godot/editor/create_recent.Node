@@ -1,3 +1,5 @@
+MeshInstance3D
+CharacterBody3D
 CollisionShape3D
 Area3D
 CanvasLayer
@@ -10,5 +12,3 @@ ProgressBar
 Node
 Timer
 Marker3D
-Container
-Button

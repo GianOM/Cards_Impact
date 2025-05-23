@@ -1,5 +1,4 @@
 extends Node3D
-
 #Dimensoes do Hexagono:
 # x = 3.46
 # y = 4
