@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://biclcu40ctid3"]
+
+[ext_resource type="PackedScene" uid="uid://ch2e12hp8ft2q" path="res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn" id="1_6nwjl"]
+[ext_resource type="Script" uid="uid://cuw3ykyjqa5io" path="res://Scripts/3D/Troops/Hovering_Troop.gd" id="1_n8irj"]
+[ext_resource type="PackedScene" uid="uid://byxugcc8drmi2" path="res://Scenes/3D/Troops/Troops Database/Tier_2_BISHOP.tscn" id="2_n8irj"]
+
+[node name="Hoverint_Troop_Node3D" type="Node3D"]
+script = ExtResource("1_n8irj")
+
+[node name="Tier_1" type="Node3D" parent="."]
+
+[node name="Pawn" parent="Tier_1" instance=ExtResource("1_6nwjl")]
+
+[node name="Tier_2" type="Node3D" parent="."]
+
+[node name="Bishop" parent="Tier_2" instance=ExtResource("2_n8irj")]

@@ -140,7 +140,10 @@ func _input(event: InputEvent) -> void:
 							SignalManager.cannot_interact_with_enemy_field()
 							#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
 					elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
-						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
+						#Unidades.Tower_Target.rpc("Take_Damage",Unidades.Dano_a_Bases)
+						#rpc("My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
+						My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
+						#My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
 				
 		if Input.is_action_just_pressed("right_mouse_click"):
 			if Owner_ID == multiplayer.get_unique_id():

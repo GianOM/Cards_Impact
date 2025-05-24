@@ -8,9 +8,8 @@ var List_of_Players = {}
 
 var Player_Basic_Info = {"name": "NAME"}
 
-var Basic_Peer = ENetMultiplayerPeer.new()
-
 func _ready() -> void:
+	
 	multiplayer.peer_connected.connect(_New_Player_Connected)
 	multiplayer.peer_disconnected.connect(_Player_Disconnected)
 	
@@ -22,6 +21,9 @@ func _ready() -> void:
 	
 
 func Create_Multiplayer_Game():
+	
+	var Basic_Peer = ENetMultiplayerPeer.new()
+	
 	Basic_Peer.create_server(7000,2)
 	multiplayer.multiplayer_peer = Basic_Peer
 	

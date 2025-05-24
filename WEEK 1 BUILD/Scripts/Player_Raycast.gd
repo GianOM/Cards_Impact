@@ -3,7 +3,10 @@ extends RayCast3D
 # --- Constantes ---
 const HEXAGON_SCENE = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
-const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
+#const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
+
+const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Hovering Troop.tscn")
+
 
 const INSTANCE_SCALE_HIDDEN = Vector3(0.01, 0.01, 0.01)
 const INSTANCE_SCALE_VISIBLE = Vector3(1.0, 1.0, 1.0)
@@ -24,11 +27,18 @@ var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outr
 
 var last_hovered: Hexagono
 var remove_range_hovering: Hexagono
-#------------------------removed/commented from here
+# --- Multiplayer Variables ---
+
+var Owner_ID: int
 
 func _ready() -> void:
+	
+	Owner_ID = player.name.to_int()
+	set_multiplayer_authority(Owner_ID)
+	
 	Tower_Instance = TOWERS_SCENE.instantiate()
 	Troop_Instance = INDIVIDUAL_TROOP_SCENE.instantiate()
+	Troop_Instance.set_mesh_from_tier(0)#Mostra uma malha tier 1 Temporariamente
 	
 	SceneSwitcher.current_scene.add_child.call_deferred(Tower_Instance) 
 	SceneSwitcher.current_scene.add_child.call_deferred(Troop_Instance)
@@ -44,7 +54,8 @@ func _ready() -> void:
 	# o que pode ser o comportamento desejado.
 
 func _process(_delta: float) -> void:
-	Update_Raycast_Target()
+	if Owner_ID == multiplayer.get_unique_id():
+		Update_Raycast_Target()# O raycast é atualizado atraves do MultiplayerSynchronizer
 	Screen_Point_to_Ray()
 
 func Update_Raycast_Target() -> void:
@@ -104,6 +115,7 @@ func Screen_Point_to_Ray() -> void:
 			#possui uma torre
 		
 		elif Ray_Hit_Owner is Enemy_Spawner:
+			Troop_Instance.set_mesh_from_tier(player.Tower_Selected_Index)
 			
 			CollisionCheck.is_mouse_hitting_a_hex_cell = false
 			

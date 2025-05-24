@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://pdsy54p1w64h"]
+[gd_scene load_steps=12 format=4 uid="uid://pdsy54p1w64h"]
 
 [ext_resource type="Script" uid="uid://ch6la6k5fwu8t" path="res://Scripts/3D/Path/Path_Main_Script.gd" id="1_aqeca"]
 [ext_resource type="PackedScene" uid="uid://b0tg6rqspritc" path="res://Scenes/3D/Paths/Enemy_spawner.tscn" id="2_aqeca"]
@@ -51,6 +51,11 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_r7jhd"]
+properties/0/path = NodePath(".:Number_of_Troops_to_Spawn")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Path_Area_3D" type="Area3D"]
 collision_layer = 2
 collision_mask = 2
@@ -75,5 +80,8 @@ autostart = true
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("2_aqeca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130969, 2.74075, -57.068)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_r7jhd")
 
 [connection signal="timeout" from="Spawn Timer Cooldown" to="." method="_on_spawn_timer_cooldown_timeout"]

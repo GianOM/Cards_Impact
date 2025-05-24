@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 func _on_play_pressed() -> void:
 	Hide_Main_Menu.rpc()
+	#Hide_Main_Menu()
 	change_level_to_play.call_deferred()
 	#SceneSwitcher.switch_scene("res://Scenes/Main.tscn")
 	

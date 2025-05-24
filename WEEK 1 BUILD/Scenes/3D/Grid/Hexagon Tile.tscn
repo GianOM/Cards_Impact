@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://12rb8vl52lhy"]
+[gd_scene load_steps=7 format=4 uid="uid://12rb8vl52lhy"]
 
 [ext_resource type="Script" uid="uid://fat2quipg4r7" path="res://Scripts/3D/Grid/Hexagon_Class.gd" id="1_ewg23"]
 [ext_resource type="Material" uid="uid://qy00notr7bpb" path="res://Assets/3D Assets/Grid/Default_Grid_Material.tres" id="2_ous63"]
@@ -38,6 +38,8 @@ shadow_mesh = SubResource("ArrayMesh_2xh7t")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_308cw"]
 points = PackedVector3Array(-1.76278, -0.135727, -0.992863, 1.62719, 0.102212, 0.853601, 1.56728, 0.102011, 0.965635, 1.7736, -0.135727, 0.930664, -0.397521, -0.135727, 1.86133, -1.60884, 0.101684, 0.906425, 0.146806, 0.101537, -1.81049, 1.58737, -0.135727, -1.17869, 0.146806, 0.101537, 1.81049, -1.60884, 0.101684, -0.906425, -0.149669, -0.135727, -1.98573, 1.62719, 0.102212, -0.853601, -1.76278, -0.135727, 0.992863, 0.160491, -0.135727, 1.98573, 1.7736, -0.135727, -0.930664, -0.136247, 0.101748, 1.81387, -0.360408, 0.101058, -1.68989, 1.58737, -0.135727, 1.17869, 0.160491, -0.135727, -1.98573, -1.57655, -0.135727, -1.17869, -1.50123, 0.102125, 1.0236, 1.43907, 0.100854, -1.06819, -1.57655, -0.135727, 1.17869, -1.50123, 0.102125, -1.02361, -0.136247, 0.101747, -1.81386, -0.149669, -0.135727, 1.98573, 1.43907, 0.100854, 1.06819, -0.397521, -0.135727, -1.86133, -1.14707, 0.100845, 1.23684, 1.56728, 0.102012, -0.965638, -1.26639, -0.135727, -1.3649, 0.284417, -0.135727, -1.92353)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_sban3"]
+
 [node name="Hexagon" type="Node3D"]
 script = ExtResource("1_ewg23")
 
@@ -50,3 +52,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hexagon_Grid/StaticBody3D"]
 transform = Transform3D(1.025, 0, 0, 0, 1.025, 0, 0, 0, 1.025, 0, 0.0604392, 0)
 shape = SubResource("ConvexPolygonShape3D_308cw")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_sban3")

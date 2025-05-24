@@ -3,7 +3,9 @@ extends Node3D
 @onready var main_2d: Node2D = $Main2D
 @export var players_containers: Node3D
 const PLAYER_CAMERA_SCENE = preload("res://Scenes/Player Camera Scene.tscn")
+
 @onready var label: Label = $Control/Label
+@onready var ready_status: Label = $"Control/Ready Status"
 
 func _ready() -> void:
 	if not multiplayer.is_server():#Somente o servidor spawna 2 tropas
@@ -20,6 +22,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	label.text = "my id is: " + str(multiplayer.get_unique_id())
+	ready_status.text = "my Status is: " + str(ReadyButton.I_AM_READY)
 	
 func add_player(id:int, player2:bool):
 	var New_Player = PLAYER_CAMERA_SCENE.instantiate()

@@ -17,7 +17,8 @@ var troops_data_instance: Resource
 func _ready() -> void:
 	troops_data_instance = TroopsData.new()#Cria um novo resource do tipo Troops_Data
 	
-func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):
+@rpc("any_peer","call_local","reliable")
+func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente o EnemySpawner
 	var troop_data_resource: Moving_Units_Data = troop_types[idx]
 	
 	var troop_scene = load(troop_data_resource.troop_scene_path)#Carrega a PackedScene contendo a malha 3D
@@ -32,19 +33,9 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):
 
 func _on_spawn_timer_cooldown_timeout() -> void:
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
-	#TODO: Botao de Ready ta Bugado, DESCOMENTAR AS DUAS LINHAS ABAIXO QUANDO CONSERTAR
 	#print(ReadyButton.I_AM_READY)
-	#if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
-	
-	#if Owner_ID == multiplayer.get_unique_id():
-	#var AAAAAA = get_multiplayer_authority()
-	#var bbbbbb = multiplayer.get_unique_id()
-	#if AAAAAA == bbbbbb:
-		##print(str(Lista_de_Tropas.size()) + " " +str(multiplayer.get_unique_id()))
-		#print(Number_of_Troops_to_Spawn)
-		
-		
-	if Number_of_Troops_to_Spawn > 0:
-		#TODO: Este array vai ficar grande um dia. Precisamos limpa-lo quando o player nao estiver ready
+	if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
 		$Path3D.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
 		Number_of_Troops_to_Spawn -= 1
+	elif ReadyButton.I_AM_READY == false and Number_of_Troops_to_Spawn == 0:
+		Lista_de_Tropas = Lista_de_Tropas.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
