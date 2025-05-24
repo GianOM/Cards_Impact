@@ -31,10 +31,20 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):
 	Number_of_Troops_to_Spawn += 1
 
 func _on_spawn_timer_cooldown_timeout() -> void:
-	
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
-	if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
-		#TODO: Este array vai ficar grande um dia. Precisamos limpa-lo quando o player nao estiver ready
-		path_3d.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
-		Number_of_Troops_to_Spawn -= 1
+	#TODO: Botao de Ready ta Bugado, DESCOMENTAR AS DUAS LINHAS ABAIXO QUANDO CONSERTAR
+	#print(ReadyButton.I_AM_READY)
+	#if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
 	
+	#if Owner_ID == multiplayer.get_unique_id():
+	#var AAAAAA = get_multiplayer_authority()
+	#var bbbbbb = multiplayer.get_unique_id()
+	#if AAAAAA == bbbbbb:
+		##print(str(Lista_de_Tropas.size()) + " " +str(multiplayer.get_unique_id()))
+		#print(Number_of_Troops_to_Spawn)
+		
+		
+	if Number_of_Troops_to_Spawn > 0:
+		#TODO: Este array vai ficar grande um dia. Precisamos limpa-lo quando o player nao estiver ready
+		$Path3D.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
+		Number_of_Troops_to_Spawn -= 1

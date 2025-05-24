@@ -3,7 +3,8 @@ extends Node3D
 
 var Base_Possible_Targets:Array[Moving_Units]
 
-var Base_Health_Points : float = 5500.0
+#Usar Export para ser sincronizado
+@export var Base_Health_Points : float = 5500.0
 
 @onready var progress_bar: Control = $SubViewport/ProgressBar
 
@@ -14,6 +15,42 @@ var Base_Health_Points : float = 5500.0
 var Base_Projectiles:Array[Projetil]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
+
+@onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
+
+
+
+func _ready():
+	# Ensure this node is configured for multiplayer
+	# In a server-authoritative setup, the server should have authority over the base.
+	# If the base is a scene spawned by the MultiplayerSpawner,
+	# it will typically already have the server as its authority.
+	#if multiplayer.is_server():
+		#set_multiplayer_authority(1) # Server (peer ID 1) has authority
+		#print("EU SOU A LEI")
+	#else:
+		# Clients don't have authority over the base, they just observe its state
+		pass
+
+@rpc("any_peer","call_local","reliable")
+func Take_Damage(Amount:float):
+	#if !is_multiplayer_authority():
+		#return
+		
+		
+	print("UI TOMEI")
+	
+	
+	Base_Health_Points -= Amount
+	#O codigo abaixo atualiza a UI de Vida
+	progress_bar.get_node("Base_Progress_Bar").Update_Base_Health(Base_Health_Points)
+	
+	#multiplayer_synchronizer.set_rep
+
+
+func _process(delta: float) -> void:
+	#print(str(Base_Health_Points)+ " " + str(multiplayer.get_unique_id()))
+	pass
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

@@ -117,3 +117,7 @@ ESC={
 3d_physics/layer_1="Camera Raycast Layer"
 2d_physics/layer_2="card_drop_area"
 3d_physics/layer_2="Area/Body Collision Layer"
+
+[rendering]
+
+anti_aliasing/size/initial_screen=0

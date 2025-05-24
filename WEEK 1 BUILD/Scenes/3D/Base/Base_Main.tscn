@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bl0uplexdc73f"]
+[gd_scene load_steps=14 format=4 uid="uid://bl0uplexdc73f"]
 
 [ext_resource type="Script" uid="uid://c0p3disnp2dc0" path="res://Scripts/3D/Base/Base_Main_Script.gd" id="1_n1hws"]
 [ext_resource type="Texture2D" uid="uid://do6bhqw1asaw0" path="res://Assets/3D Assets/Base/Base 2_Nexus_Base Material_BaseColor.png" id="2_n1hws"]
@@ -93,6 +93,11 @@ size = Vector3(45.8467, 2.95923, 38.7012)
 [sub_resource type="ViewportTexture" id="ViewportTexture_bu04a"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bb8rx"]
+properties/0/path = NodePath(".:Base_Health_Points")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Base_Node3D" type="Node3D"]
 script = ExtResource("1_n1hws")
 
@@ -138,6 +143,9 @@ transparent_bg = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 21, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_bu04a")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bb8rx")
 
 [connection signal="timeout" from="Base_Buller_Spawner_Timer" to="." method="_on_base_buller_spawner_timer_timeout"]
 [connection signal="body_entered" from="Nexus/Area3D" to="." method="_on_area_3d_body_entered"]

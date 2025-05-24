@@ -24,11 +24,7 @@ func _process(delta: float) -> void:
 func add_player(id:int, player2:bool):
 	var New_Player = PLAYER_CAMERA_SCENE.instantiate()
 	New_Player.name = str(id)
-	
-	#New_Player.set_multiplayer_authority(id)
 	players_containers.add_child(New_Player)
-	
-	
 	 
 func _exit_tree() -> void:
 	if not multiplayer.is_server():
@@ -69,9 +65,7 @@ func _input(_event):
 		#elif Input.is_action_just_pressed("ESC") or ui_visible == true:
 			#ui_visible = false
 			#showUI()
-		
-		
-		
+			
 		#else:
 			#ui_visible = false
 			#showUI()
