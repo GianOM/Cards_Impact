@@ -31,6 +31,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	print(CollisionCheck.tower_placed)
 	if card_being_dragged:
 		var  mouse_pos = get_global_mouse_position()
 		card_being_dragged.position = Vector2(clamp(mouse_pos.x,0,screen_size.x),
@@ -68,10 +69,10 @@ func finish_drag():
 	#if CollisionCheck.is_a_card_being_dragged == false:
 		#player_hand_reference.remove_card_from_hand(card_being_dragged)
 		#return
-	if CollisionCheck.number_of_towers_placed != last_number_of_towers:
-
+	if CollisionCheck.tower_placed == true and CollisionCheck.is_mouse_hitting_a_hex_cell == true:
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
-		last_number_of_towers = CollisionCheck.number_of_towers_placed
+		card_being_dragged.queue_free()
+	
 
 	var card_slot_found = raycast_check_card_slot()
 	if card_slot_found and not card_slot_found.card_in_slot:
@@ -90,11 +91,11 @@ func finish_drag():
 		card_being_dragged.get_node("CardArea2D/CardCollisionShape2D").disabled = true
 
 		card_slot_found.card_in_slot = true
-	else:
+	elif not card_slot_found and CollisionCheck.tower_placed == false:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 
 	card_being_dragged = null
-	
+	CollisionCheck.tower_placed = false
 
 
 

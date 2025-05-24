@@ -28,10 +28,28 @@ const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/T
 var Tower_Selected_Index:int = 0
 var Individual_Troop_Selected_Index:int = 0
 
+
+# --- Multiplayer Variables ---
+var Owner_ID: int
+#Trocar pra _enter_tree conserta o Bug, Erro, porem temos que atualizar todo frame
+func _enter_tree() -> void:
+	Owner_ID = name.to_int()
+	set_multiplayer_authority(Owner_ID)
+	
+	#set_right_camera()
+#func set_right_camera():
+	#if Owner_ID == multiplayer.get_unique_id() and camera_3d != null:
+		#camera_3d.make_current()
+	
+
 func _process(delta: float) -> void:
-	Handle_Camera_Movement(delta)
-	Handle_Camera_Rotation(delta)
-	Handle_Camera_Zoom(delta)
+	#print(multiplayer.get_unique_id())
+	if Owner_ID == multiplayer.get_unique_id():
+		camera_3d.make_current()
+		
+		Handle_Camera_Movement(delta)
+		Handle_Camera_Rotation(delta)
+		Handle_Camera_Zoom(delta)
 	
 	
 func Handle_Camera_Movement(delta: float) -> void:
@@ -68,7 +86,7 @@ func Handle_Camera_Rotation(delta: float) -> void:
 	var Input_Rotation = Input.get_axis("Q_Key","E_Key")
 	if rotating_on_middle_mouse_button == false:
 		rotation_degrees.y += Camera_Rotation_Speed * Input_Rotation * delta
-		
+	
 
 
 func Handle_Camera_Zoom(delta:float) -> void:
@@ -91,39 +109,41 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# My_Ray_Cast.Ray_Hit.get_owner() RETORNA O OBJETO QUE O RAYCAST ACERTOU
 		#print(My_Ray_Cast.Ray_Hit.get_owner())
-		if Input.is_action_just_released("left_mouse_click"):
-			#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
-			#Raycas sera Null e o jogo crasha
-			if (My_Ray_Cast.is_colliding()):
-				#Checkamos se o Resultado do Raycast é um Hexagono e se há alguma carta sendo arrastada. Se sim, roda a parte abaixo
-				if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and CollisionCheck.is_a_card_being_dragged):#codigo para colocar a torre
-					#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
-					#vc pode colocar uma torre no lugar
-					if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
-						var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
-						get_tree().current_scene.add_child(Tower_Instance) 
-						
-						CollisionCheck.number_of_towers_placed += 1
-						
-						Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
-						
-						Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
-						
-						Tower_Instance.Zerar_o_Tower_Range()#Zera o indicador visual do range da torre
-						Tower_Instance.is_Tower_Place_on_Grid = true#Usada para evitar que a hovered tower de dano
-						
-						My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
-						
-						My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
-					elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
-						SignalManager.occupied_tile_warning()
-					elif (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == true):
-						SignalManager.cannot_interact_with_enemy_field()
-						#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
-				elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
-					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
+		if Owner_ID == multiplayer.get_unique_id():
+			if Input.is_action_just_released("left_mouse_click"):
+				#Precisamos checkar o RayCast ta colidindo para rodar a logica, ou entao o resultado do
+				#Raycas sera Null e o jogo crasha
+				if (My_Ray_Cast.is_colliding()):
+					#Checkamos se o Resultado do Raycast é um Hexagono e se há alguma carta sendo arrastada. Se sim, roda a parte abaixo
+					if (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and CollisionCheck.is_a_card_being_dragged):#codigo para colocar a torre
+						#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
+						#vc pode colocar uma torre no lugar
+						if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
+							var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
+							get_tree().current_scene.add_child(Tower_Instance) 
+							
+							CollisionCheck.number_of_towers_placed += 1
+							
+							Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
+							
+							Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
+							
+							Tower_Instance.Zerar_o_Tower_Range()#Zera o indicador visual do range da torre
+							Tower_Instance.is_Tower_Place_on_Grid = true#Usada para evitar que a hovered tower de dano
+							
+							My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
+							
+							My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
+						elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
+							SignalManager.occupied_tile_warning()
+						elif (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == true):
+							SignalManager.cannot_interact_with_enemy_field()
+							#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
+					elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
+						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
 				
 		if Input.is_action_just_pressed("right_mouse_click"):
+			if Owner_ID == multiplayer.get_unique_id():
 				#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
 				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null) and (My_Ray_Cast.Ray_Hit.get_owner() is Hexagono):
 					
@@ -134,21 +154,26 @@ func _input(event: InputEvent) -> void:
 					
 					My_Ray_Cast.Ray_Hit.get_owner().Highlight()
 					My_Ray_Cast.last_hovered = My_Ray_Cast.Ray_Hit.get_owner()
-	
+
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-			rotating_on_middle_mouse_button = true #Setado para poder rodar a camera
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)#Faz o mouse desaparecer
+			if Owner_ID == multiplayer.get_unique_id():
+				rotating_on_middle_mouse_button = true #Setado para poder rodar a camera
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)#Faz o mouse desaparecer
 
 		elif Input.is_action_just_released("Middle_Mouse_Button"):
-			rotating_on_middle_mouse_button = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+			if Owner_ID == multiplayer.get_unique_id():
+				rotating_on_middle_mouse_button = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	if event is InputEventMouseMotion and rotating_on_middle_mouse_button:
-		var delta = event.relative
-		rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x
-	
+		if Owner_ID == multiplayer.get_unique_id():
+			var delta = event.relative
+			rotation_degrees.y -= (Camera_Rotation_Speed/512) * delta.x
+
 	#TODO: MELHORAR ISSO AQUI
 	if Input.is_action_just_pressed("1_Key"):
-		Tower_Selected_Index = 0
+		if Owner_ID == multiplayer.get_unique_id():
+			Tower_Selected_Index = 0
 	elif Input.is_action_just_pressed("2_Key"):
-		Tower_Selected_Index = 1
+		if Owner_ID == multiplayer.get_unique_id():
+			Tower_Selected_Index = 1

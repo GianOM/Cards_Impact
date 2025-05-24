@@ -1,10 +1,9 @@
-res://Scenes/3D/Troops/Troops.tscn
-res://Scripts/main_2d.gd
+res://Scenes/main_menu.tscn
 res://Assets/3D Assets/Projectile/Tier 1 Projectile Material.tres
 res://Assets/3D Assets/Projectile/Tier 2 Projectile Material.tres
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Scripts/main_2d.gd
+res://Scenes/Main.tscn
 res://Scenes/Player Camera Scene.tscn
-res://Scenes/3D/Towers/Towers.tscn
-res://Scenes/3D/Grid/hex_grid.tscn
-res://Scripts/Player Movement.gd

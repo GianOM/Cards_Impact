@@ -73,15 +73,19 @@ func Screen_Point_to_Ray() -> void:
 				Tower_Instance.scale = INSTANCE_SCALE_VISIBLE
 				Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
 				Tower_Instance.global_position = Ray_Hit.global_position
+				CollisionCheck.tower_placed = true
 			else:
 				Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
 				Tower_Instance.global_position = Vector3(-50,-50,-50)
 				
+				
 			CollisionCheck.is_mouse_hitting_a_hex_cell = true
+			
 			
 			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 			
 			if last_hovered and (last_hovered.Placed_Tower == null):
+				
 				last_hovered.Remove_Highlight()
 					
 			if (Ray_Hit_Owner and (Ray_Hit_Owner.Placed_Tower == null)):
@@ -118,6 +122,7 @@ func Screen_Point_to_Ray() -> void:
 			
 	else :
 		CollisionCheck.is_mouse_hitting_a_hex_cell = false
+		CollisionCheck.tower_placed = false
 		
 		Tower_Instance.scale = INSTANCE_SCALE_HIDDEN#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell
 		Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
@@ -131,3 +136,4 @@ func Screen_Point_to_Ray() -> void:
 			#Para o caso de colocar a torre em um Hexagono, verificar o range dela
 			# dando hovering, e o mouse sumir para a PQP
 				remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
+	#CollisionCheck.tower_placed = false

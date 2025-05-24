@@ -47,10 +47,10 @@ func Check_Overlap_Collision(Posicao_do_Ponto_Para_Testar:Vector3):
 	shape_query.position = Posicao_do_Ponto_Para_Testar
 	
 	#Retorna o resultado do Querry
-	space_state = SceneSwitcher.current_scene.get_world_3d().direct_space_state
-	var result = space_state.intersect_point(shape_query)
+	#space_state = SceneSwitcher.current_scene.get_world_3d().direct_space_state
+	#var result = space_state.intersect_point(shape_query)
 	
-	if result.size() > 0:
-		return true
+	#if result.size() > 0:
+		#return true
 		
 	return false

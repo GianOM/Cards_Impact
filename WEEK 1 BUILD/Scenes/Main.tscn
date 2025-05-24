@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://jfyf77tcbqro"]
+[gd_scene load_steps=18 format=3 uid="uid://jfyf77tcbqro"]
 
 [ext_resource type="Script" uid="uid://l1g3sqkn5k7y" path="res://Scripts/main_3d.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://c7y05pvvfpsu6" path="res://Scenes/3D/Grid/hex_grid.tscn" id="1_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://cu7u0kkwfe8mp" path="res://Scenes/Player Camera Scene.tscn" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://cdfkg2go0lk76" path="res://Assets/3D Assets/Floors/Ground.tres" id="4_v1gob"]
 [ext_resource type="PackedScene" uid="uid://bl0uplexdc73f" path="res://Scenes/3D/Base/Base_Main.tscn" id="6_50glp"]
 [ext_resource type="PackedScene" uid="uid://dcfnwcecgfqx7" path="res://Scenes/Main2D.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://pdsy54p1w64h" path="res://Scenes/3D/Paths/Path_Example.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://dj6vwx1ecqwtm" path="res://Testing/card_ui.tscn" id="8_50glp"]
+[ext_resource type="Script" uid="uid://b5sw2oybcoa81" path="res://Testing/hand.gd" id="8_vy5pj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw32o"]
 sky_top_color = Color(0.296, 0.5648, 0.8, 1)
@@ -61,8 +62,27 @@ albedo_color = Color(0.68, 0.2822, 0.1496, 1)
 
 [sub_resource type="GDScript" id="GDScript_pbw6q"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5pj"]
+size = Vector2(1550, 734.5)
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("players_containers")]
 script = ExtResource("1_50glp")
+players_containers = NodePath("Multiplayers/Players_Containers")
+
+[node name="Multiplayers" type="Node" parent="."]
+
+[node name="Players_Containers" type="Node3D" parent="Multiplayers"]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Multiplayers"]
+_spawnable_scenes = PackedStringArray("uid://cu7u0kkwfe8mp")
+spawn_path = NodePath("../Players_Containers")
+spawn_limit = 2
+
+[node name="Spawn_Point_00" type="Node3D" parent="Multiplayers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 98.6362)
+
+[node name="Spawn_Point_01" type="Node3D" parent="Multiplayers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -91.8495)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vy5pj")
@@ -123,16 +143,66 @@ transform = Transform3D(-0.998392, 0, -0.0566929, 0, 1, 0, 0.0566929, 0, -0.9983
 transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, 0.0153446, 1.75385, -131.933)
 
 [node name="Main2D" parent="." instance=ExtResource("6_jw32o")]
+process_mode = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.261995, 0.793587, -0.549162, 0.273039, 0.606743, 0.746534, 0.925639, 0.0456456, -0.375644, 0, 5.76364, 25.1075)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("3_kln2b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.19554e-06, 12.845, 117.851)
-
 [node name="GameManager" type="Node" parent="."]
 script = SubResource("GDScript_pbw6q")
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(1145, 366.75)
+shape = SubResource("RectangleShape2D_vy5pj")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -240.0
+offset_right = 384.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("8_vy5pj")
+
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
+layout_mode = 2
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
+layout_mode = 2
+
+[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.85
+anchor_bottom = 0.725
 
 [editable path="Enemy Base/Path4"]
 [editable path="Enemy Base/Path5"]
