@@ -33,6 +33,9 @@ var Individual_Troop_Selected_Index:int = 0
 var Owner_ID: int
 #Trocar pra _enter_tree conserta o Bug, Erro, porem temos que atualizar todo frame
 func _enter_tree() -> void:
+	#Setamos o Multiplayer Authority de cada player para o seu Unique Peer ID
+	#Assim, o player com o nome "1530935"(um Client) somente tem autoridade sobre 
+	#um dos players
 	Owner_ID = name.to_int()
 	set_multiplayer_authority(Owner_ID)
 	

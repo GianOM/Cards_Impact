@@ -4,30 +4,38 @@ extends Node3D
 @export var players_containers: Node3D
 const PLAYER_CAMERA_SCENE = preload("res://Scenes/Player Camera Scene.tscn")
 
-@onready var label: Label = $Control/Label
 @onready var ready_status: Label = $"Control/Ready Status"
 
 func _ready() -> void:
-	if not multiplayer.is_server():#Somente o servidor spawna 2 tropas
+	#Somente o servidor spawna 2 tropas assim que uma Instancia e colocada
+	if not multiplayer.is_server():
 		return
 	
+	#Conecta os sinais para peers conectados e desconectados
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(delete_player)
 	
-	for id in multiplayer.get_peers():
+	
+	#Adciona um Player para cada peer existente. Isso porem nao adciona um player para o host.
+	for id in multiplayer.get_peers():#get peers nao retorna o host
 		add_player(id, true)#Roda 1 vez para cada player
 		
-	add_player(1,false)#adciona o Host
+		
+	add_player(1,false)#Adciona um Player para o Host
+	
+func add_player(id:int, player2:bool):
+	var New_Player = PLAYER_CAMERA_SCENE.instantiate()#Cria uma instancia da cena do Player
+	New_Player.name = str(id)#Setamos o nome para ser o peer_unique_id
+	
+	#Adcionamos um Player a um Container contendo um Multiplayer Spawner para ser replicado
+	#aos outros Peers, dado que somente o Host adciona trop
+	players_containers.add_child(New_Player)
 	
 	
 func _process(delta: float) -> void:
-	label.text = "my id is: " + str(multiplayer.get_unique_id())
-	ready_status.text = "my Status is: " + str(ReadyButton.I_AM_READY)
-	
-func add_player(id:int, player2:bool):
-	var New_Player = PLAYER_CAMERA_SCENE.instantiate()
-	New_Player.name = str(id)
-	players_containers.add_child(New_Player)
+	#Seta os labels mostrando o Unique ID e o status de estar pronto ou nao
+	ready_status.text = "ID: " + str(multiplayer.get_unique_id()) + " Status: " + str(ReadyButton.I_AM_READY)
+	#print(multiplayer.get_peers())
 	 
 func _exit_tree() -> void:
 	if not multiplayer.is_server():
@@ -63,8 +71,6 @@ func _input(_event):
 	if Input.is_action_just_pressed("ESC") and ui_visible:
 			ui_visible = false
 			showUI()
-		
-		
 		#elif Input.is_action_just_pressed("ESC") or ui_visible == true:
 			#ui_visible = false
 			#showUI()

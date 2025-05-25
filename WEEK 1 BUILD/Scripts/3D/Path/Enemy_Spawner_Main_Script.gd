@@ -1,6 +1,7 @@
 class_name Enemy_Spawner
 extends MeshInstance3D
 
+@onready var enemy_spawner_counter: Control = $SubViewport/EnemySpawnerCounter
 @onready var path_area_3d: Area3D = $".."
 
 @rpc("any_peer","call_local","reliable")

@@ -9,7 +9,14 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 
 const TroopsData = preload("res://Scripts/3D/Troops/Troops_Data.gd")
 
+
+@onready var enemy_spawner_counter: Control = $"Enemy Spawner/SubViewport/EnemySpawnerCounter"
+
+
+
 @export var troop_types: Array[Moving_Units_Data] = []#Ainda to Usando Isso aq. Como automatizar?
+
+
 
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
 var troops_data_instance: Resource
@@ -29,13 +36,23 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente 
 	temp_troop.get_node("Moving_Unit_CharacterBody3D").inicializar_Moving_Unit(troop_data_resource, Correct_Troop_InstanceMesh3D)
 	
 	Lista_de_Tropas.append(temp_troop)
+	
 	Number_of_Troops_to_Spawn += 1
+	enemy_spawner_counter.get_node("Troops_Counter").text = str(Number_of_Troops_to_Spawn)
 
 func _on_spawn_timer_cooldown_timeout() -> void:
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
 	#print(ReadyButton.I_AM_READY)
-	if Number_of_Troops_to_Spawn > 0 and ReadyButton.I_AM_READY == true:
+	if Number_of_Troops_to_Spawn > 0 and is_everyone_ready():
 		$Path3D.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
 		Number_of_Troops_to_Spawn -= 1
+		enemy_spawner_counter.get_node("Troops_Counter").text = str(Number_of_Troops_to_Spawn)
 	elif ReadyButton.I_AM_READY == false and Number_of_Troops_to_Spawn == 0:
 		Lista_de_Tropas = Lista_de_Tropas.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
+		
+
+func is_everyone_ready() -> bool:
+	for player in LobbyMultiplayer.List_of_Players:
+		if LobbyMultiplayer.List_of_Players[player].is_Player_Ready == false:
+			return false
+	return true

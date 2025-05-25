@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://b0tg6rqspritc"]
+[gd_scene load_steps=8 format=4 uid="uid://b0tg6rqspritc"]
 
 [ext_resource type="Script" uid="uid://b6lajtxmb1p34" path="res://Scripts/3D/Path/Enemy_Spawner_Main_Script.gd" id="1_uwp6b"]
+[ext_resource type="PackedScene" uid="uid://bompkdiy31vbj" path="res://Scenes/3D/Paths/Enemy_Spawner_Counter.tscn" id="2_r4kbd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nw37"]
 albedo_color = Color(0.65, 0, 1, 1)
@@ -40,6 +41,9 @@ shadow_mesh = SubResource("ArrayMesh_87f0v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqeca"]
 size = Vector3(4.5459, 0.930664, 4.65625)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_r4kbd"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Enemy Spawner" type="MeshInstance3D"]
 mesh = SubResource("ArrayMesh_kt0iq")
 skeleton = NodePath("")
@@ -50,3 +54,13 @@ script = ExtResource("1_uwp6b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0328968, 0)
 shape = SubResource("BoxShape3D_aqeca")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="EnemySpawnerCounter" parent="SubViewport" instance=ExtResource("2_r4kbd")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90326, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_r4kbd")

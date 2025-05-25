@@ -1,14 +1,15 @@
+Sprite3D
+SubViewport
+Label
 Node3D
 Node
 MultiplayerSynchronizer
 Button
 CanvasLayer
 Control
-Label
 MeshInstance3D
 MultiplayerSpawner
 LineEdit
 VBoxContainer
 HBoxContainer
 CollisionShape2D
-Area2D

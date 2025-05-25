@@ -4,17 +4,32 @@ signal player_connected(peer_id, player_info)
 signal player_disconnected(peer_id)
 signal server_disconnected
 
+
+#LobbyMultiplayer.List_of_Players RETORNA O ID
+#Exemplo de variavel LobbyMultiplayer.List_of_Players[n]:
+#for n in LobbyMultiplayer.List_of_Players:
+#LobbyMultiplayer.List_of_Players[n] = { "name": 1, "is_Player_Ready": false }
+#
+#---------------
+#LobbyMultiplayer.List_of_Players[n] = { "name": "892482740", "is_Player_Ready": false }
+#---------------
+
+
+
 var List_of_Players = {}
 
-var Player_Basic_Info = {"name": "NAME"}
+var Player_Basic_Info = {"name": "NAME","is_Player_Ready": false}
 
 func _ready() -> void:
-	
+	#Conecta os sinais para caso algum Peer se Conecte ou Desconecte
 	multiplayer.peer_connected.connect(_New_Player_Connected)
 	multiplayer.peer_disconnected.connect(_Player_Disconnected)
 	
+	#Conecta o Sinal para caso alguem consiga se conectar ao servidor
 	multiplayer.connected_to_server.connect(_Player_Connected_Sucessfully)
 	
+	#Conecta os Sinais para caso alguem nao consiga se conectar ou entao
+	#
 	multiplayer.connection_failed.connect(_Connection_Failed)
 	multiplayer.server_disconnected.connect(_Server_Disconnected)
 	
@@ -22,21 +37,24 @@ func _ready() -> void:
 
 func Create_Multiplayer_Game():
 	
+	#Cria um novo Peer e seta ele como servidor
 	var Basic_Peer = ENetMultiplayerPeer.new()
 	
-	Basic_Peer.create_server(7000,2)
+	Basic_Peer.create_server(7000,2)#Numero da Porta (7000) e o numero maximo de players(2)
 	multiplayer.multiplayer_peer = Basic_Peer
 	
-	List_of_Players[1] = Player_Basic_Info
+	List_of_Players[1] = Player_Basic_Info#Captura informacoes basicas sobre o Host
+	
+	List_of_Players[1].name = 1#Atualiza o nome do host para ser o seu ID, neste caso 1
 	
 	player_connected.emit(1, Player_Basic_Info)
 	
 	print("Host Created")
 	
 func Join_Multiplayer_Game():
-	
+	#Cria um Peer e seta ele como Client
 	var ClientPeer = ENetMultiplayerPeer.new()
-	ClientPeer.create_client("localhost", 7000)
+	ClientPeer.create_client("localhost", 7000)#No futuro, substituir "localhost" por um IP gerado pelo UPnP(video com tutorial no ClickUp)
 	
 	multiplayer.multiplayer_peer = ClientPeer 
 	
@@ -54,11 +72,14 @@ func _Player_Disconnected(id):
 	player_disconnected.emit(id)
 
 func _Player_Connected_Sucessfully():
+	#Pega a informacao basica sobre o Player se ele conectar 
 	var peer_id = multiplayer.get_unique_id()
 	List_of_Players[peer_id] = Player_Basic_Info
+	List_of_Players[peer_id].name = str(peer_id)#Atualiza o nome do novo peer para ser o seu ID
 	player_connected.emit(peer_id, Player_Basic_Info)
 	
 func _Connection_Failed():
+	#Setar o player como null apaga ele
 	multiplayer.multiplayer_peer = null
 	
 func _Server_Disconnected():
