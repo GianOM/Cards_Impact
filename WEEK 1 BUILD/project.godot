@@ -22,9 +22,13 @@ SignalManager="*res://Scripts/signal_manager.gd"
 ReadyButton="*res://Scripts/2D/Ready_Button.gd"
 CollisionCheck="*res://Scripts/collision_check.gd"
 LobbyMultiplayer="*res://Scripts/Lobby_Multiplayer.gd"
+Events="*res://Testing/global/events.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 

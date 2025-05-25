@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dj6vwx1ecqwtm" path="res://Testing/card_ui.tscn" id="8_50glp"]
 [ext_resource type="Script" uid="uid://b5sw2oybcoa81" path="res://Testing/hand.gd" id="8_vy5pj"]
 [ext_resource type="Script" uid="uid://detu08ox8fipn" path="res://Scripts/2D/Ready_Button.gd" id="9_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://bers3xuynsf1y" path="res://Testing/card_target_selector.tscn" id="10_bmxlf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw32o"]
 sky_top_color = Color(0.296, 0.5648, 0.8, 1)
@@ -60,8 +61,6 @@ shadow_mesh = SubResource("ArrayMesh_13wbs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
 albedo_color = Color(0.68, 0.2822, 0.1496, 1)
-
-[sub_resource type="GDScript" id="GDScript_pbw6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5pj"]
 size = Vector2(1550, 734.5)
@@ -201,9 +200,6 @@ visible = false
 transform = Transform3D(-0.261995, 0.793587, -0.549162, 0.273039, 0.606743, 0.746534, 0.925639, 0.0456456, -0.375644, 0, 5.76364, 25.1075)
 shadow_enabled = true
 
-[node name="GameManager" type="Node" parent="."]
-script = SubResource("GDScript_pbw6q")
-
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
 
@@ -276,6 +272,8 @@ script = ExtResource("9_vy5pj")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_50glp")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("10_bmxlf")]
 
 [connection signal="pressed" from="CanvasLayer/NEW READY BUTTON" to="CanvasLayer/NEW READY BUTTON" method="_on_pressed"]
 

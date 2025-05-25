@@ -122,10 +122,10 @@ func _input(event: InputEvent) -> void:
 						#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
 						#vc pode colocar uma torre no lugar
 						if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == false):
+							#CODIGO PARA BOTAR A TORRE
 							var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
 							get_tree().current_scene.add_child(Tower_Instance) 
 							
-							CollisionCheck.number_of_towers_placed += 1
 							
 							Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
 							
@@ -137,11 +137,16 @@ func _input(event: InputEvent) -> void:
 							My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
 							
 							My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
+							
+							CollisionCheck.is_a_card_being_dragged = false
+							
 						elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
 							SignalManager.occupied_tile_warning()
 						elif (My_Ray_Cast.Ray_Hit.get_owner().is_enemy_tile == true):
 							SignalManager.cannot_interact_with_enemy_field()
-							#print("VOCE NÃO PODE COLOCAR TORRES EM BASES INIMIGAS, DUMB DUMB")
+							
+							
+							
 					elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
 						
 						#My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
@@ -154,7 +159,6 @@ func _input(event: InputEvent) -> void:
 					
 					#TODO: DESCOMENTAR
 					#CollisionCheck.number_of_towers_placed -= 1
-					
 					My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.queue_free()
 					
 					My_Ray_Cast.Ray_Hit.get_owner().Highlight()

@@ -11,7 +11,8 @@ const TroopsData = preload("res://Scripts/3D/Troops/Troops_Data.gd")
 
 @onready var enemy_spawner_counter: Control = $"Enemy Spawner/SubViewport/EnemySpawnerCounter"
 
-@export var troop_types: Array[Moving_Units_Data] = []#Ainda to Usando Isso aq. Como automatizar?
+#Ainda to Usando Isso aq. Como automatizar? O Array é preenchido
+@export var troop_types: Array[Moving_Units_Data] = []
 
 
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas

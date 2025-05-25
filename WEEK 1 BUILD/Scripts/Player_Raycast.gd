@@ -81,6 +81,10 @@ func Screen_Point_to_Ray() -> void:
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
 		if Ray_Hit_Owner is Hexagono:
 			if CollisionCheck.is_a_card_being_dragged and Ray_Hit_Owner.Placed_Tower == null:
+				
+				CollisionCheck.is_Tower_Showing_up = true
+				
+				
 				Tower_Instance.scale = INSTANCE_SCALE_VISIBLE
 				Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
 				Tower_Instance.global_position = Ray_Hit.global_position
@@ -90,7 +94,6 @@ func Screen_Point_to_Ray() -> void:
 				Tower_Instance.global_position = Vector3(-50,-50,-50)
 				
 				
-			CollisionCheck.is_mouse_hitting_a_hex_cell = true
 			
 			
 			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
@@ -117,8 +120,6 @@ func Screen_Point_to_Ray() -> void:
 		elif Ray_Hit_Owner is Enemy_Spawner:
 			Troop_Instance.set_mesh_from_tier(player.Tower_Selected_Index)
 			
-			CollisionCheck.is_mouse_hitting_a_hex_cell = false
-			
 			Troop_Instance.scale = INSTANCE_SCALE_VISIBLE
 			Troop_Instance.global_position = Ray_Hit.global_position
 			Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
@@ -133,7 +134,6 @@ func Screen_Point_to_Ray() -> void:
 			CollisionCheck.is_mouse_hitting_a_hex_cell = false
 			
 	else :
-		CollisionCheck.is_mouse_hitting_a_hex_cell = false
 		CollisionCheck.tower_placed = false
 		
 		Tower_Instance.scale = INSTANCE_SCALE_HIDDEN#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8yo7dc5ex3qd"]
+
+[ext_resource type="Texture2D" uid="uid://ct2x4yii2yv6w" path="res://Assets/2D Assets/caio.png" id="1_gd374"]
+[ext_resource type="Script" uid="uid://c5bj7thcubxfc" path="res://Testing/player.gd" id="1_jxl7p"]
+[ext_resource type="PackedScene" uid="uid://cie52aqmxldau" path="res://Testing/stats_ui.tscn" id="2_jxl7p"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_jxl7p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gd374")
+
+[node name="StatsUI" parent="." instance=ExtResource("2_jxl7p")]
