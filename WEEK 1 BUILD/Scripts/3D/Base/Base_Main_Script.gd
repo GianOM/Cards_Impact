@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
 		#Seta o alvo da tropa, para que assim a tropa possa acessa - lo e dar dano
-		body.Tower_Target = base_node_3d
+		body.Base_Target = base_node_3d
 		Base_Possible_Targets.append(body)
 
 

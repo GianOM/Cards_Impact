@@ -15,10 +15,8 @@ var is_Tower_Place_on_Grid : bool = false
 @onready var tower_range: MeshInstance3D = $Main_Tower/Tower_Range
 @onready var projectile_generation_point: Marker3D = $"Projectile Generation Point"
 
-var is_Timer_Running:bool = false
 @onready var bullet_spawner: Timer = $"Bullet Spawner"
 
-@onready var Projectile_Index: int = 0
 var Tower_Projectiles:Array[Projetil]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")

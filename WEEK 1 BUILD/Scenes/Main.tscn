@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jfyf77tcbqro"]
+[gd_scene load_steps=21 format=3 uid="uid://jfyf77tcbqro"]
 
 [ext_resource type="Script" uid="uid://l1g3sqkn5k7y" path="res://Scripts/main_3d.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://c7y05pvvfpsu6" path="res://Scenes/3D/Grid/hex_grid.tscn" id="1_pbw6q"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pdsy54p1w64h" path="res://Scenes/3D/Paths/Path_Example.tscn" id="6_v1gob"]
 [ext_resource type="PackedScene" uid="uid://dj6vwx1ecqwtm" path="res://Testing/card_ui.tscn" id="8_50glp"]
 [ext_resource type="Script" uid="uid://b5sw2oybcoa81" path="res://Testing/hand.gd" id="8_vy5pj"]
+[ext_resource type="Resource" uid="uid://wjg2wxy385od" path="res://Testing/characters/warrior/cards/warrior_axe_attack.tres" id="9_4kpch"]
 [ext_resource type="Script" uid="uid://detu08ox8fipn" path="res://Scripts/2D/Ready_Button.gd" id="9_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://bers3xuynsf1y" path="res://Testing/card_target_selector.tscn" id="10_bmxlf"]
 
@@ -225,12 +226,15 @@ script = ExtResource("8_vy5pj")
 
 [node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
 layout_mode = 2
+card = ExtResource("9_4kpch")
 
 [node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
 layout_mode = 2
+card = ExtResource("9_4kpch")
 
 [node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("8_50glp")]
 layout_mode = 2
+card = ExtResource("9_4kpch")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

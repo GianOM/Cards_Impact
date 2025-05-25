@@ -6,7 +6,9 @@ var Projectile_Damage: float
 var is_Projectile_Flying: bool = false
 var Target: Moving_Units
 
-@onready var projectile_mesh: MeshInstance3D = $Projectile_Mesh
+#@onready var projectile_mesh: MeshInstance3D = $Projectile_Mesh
+
+@export var Projectile_Database: Array[Projectile_Data] = []
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == Target:#So da dano na tropa que mirou
@@ -29,4 +31,14 @@ func set_projectile_target(Alvo: Moving_Units):
 	Target = Alvo
 	
 func seleciona_mesh_pelo_indice(index:int):
-	projectile_mesh.seleciona_mesh_do_projetil_pelo_indice(index)
+	
+	var Projectile_Data_Resource: Projectile_Data = Projectile_Database[index]
+	
+	var Projectile_Scene = load(Projectile_Data_Resource.Projectile_Scene_Path)#Carrega a PackedScene contendo a malha 3D
+	var Correct_Projectile_InstanceMesh3D = Projectile_Scene.instantiate()#Ja que a Packed Scene so contem uma InstanceMesh3D, instancia-la carrega para uma variavel
+	
+	$Projectile_Mesh.mesh = Correct_Projectile_InstanceMesh3D.mesh
+	
+	Projectile_Speed = Projectile_Data_Resource.Projectile_Speed
+	Projectile_Damage = Projectile_Data_Resource.Projectile_Damage
+	

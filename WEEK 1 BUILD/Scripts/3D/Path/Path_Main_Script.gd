@@ -4,22 +4,13 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 
 @export var Number_of_Troops_to_Spawn: int = 0
 
-@onready var path_3d: Path3D = $Path3D
-@onready var spawn_timer_cooldown: Timer = $"Spawn Timer Cooldown"
-
-const TroopsData = preload("res://Scripts/3D/Troops/Troops_Data.gd")
-
+#Contador pra Debugar
 @onready var enemy_spawner_counter: Control = $"Enemy Spawner/SubViewport/EnemySpawnerCounter"
-
 #Ainda to Usando Isso aq. Como automatizar? O Array é preenchido
 @export var troop_types: Array[Moving_Units_Data] = []
 
 
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
-var troops_data_instance: Resource
-
-func _ready() -> void:
-	troops_data_instance = TroopsData.new()#Cria um novo resource do tipo Troops_Data
 	
 @rpc("any_peer","call_local","reliable")
 func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente o EnemySpawner
@@ -42,9 +33,12 @@ func _on_spawn_timer_cooldown_timeout() -> void:
 	#print(ReadyButton.I_AM_READY)
 	if Number_of_Troops_to_Spawn > 0 and is_everyone_ready():
 		$Path3D.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
+		Lista_de_Tropas.remove_at(Number_of_Troops_to_Spawn - 1)#Removemos o elemento do Array para evitar acessos incorretos
+		
 		Number_of_Troops_to_Spawn -= 1
 		enemy_spawner_counter.get_node("Troops_Counter").text = str(Number_of_Troops_to_Spawn)
-	elif ReadyButton.I_AM_READY == false and Number_of_Troops_to_Spawn == 0:
+		
+	elif !is_everyone_ready():
 		Lista_de_Tropas = Lista_de_Tropas.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
 		
 

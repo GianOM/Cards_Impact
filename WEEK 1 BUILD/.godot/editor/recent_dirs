@@ -1,3 +1,7 @@
+res://Scripts/3D/Projectiles/Data
+res://Scenes/3D/Projectile/Projectile Database
+res://Scripts/3D/Tower/Data
+res://Scenes/3D/Towers/Towers Database
 res://Testing/global
 res://Scripts/3D/Troops
 res://Scenes/3D/Troops/Troops Database
@@ -16,8 +20,6 @@ res://Scripts/3D/Path
 res://Assets/3D Assets/Base
 res://Assets/3D Assets/Projectile
 res://Scripts/3D/Projectiles
-res://Scenes/3D/Projectile
-res://Scenes/3D/Paths
 C:/Rotten Crops v0.25
 C:/Cards_Impact_2.0
 C:/Concursos

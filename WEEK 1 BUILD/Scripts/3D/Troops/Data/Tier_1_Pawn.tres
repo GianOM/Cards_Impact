@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Moving_Units_Data" load_steps=2 format=3 uid="uid://6hqrx2mn30rl"]
 
-[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Scripts/3D/Troops/Troops_Data.gd" id="1_37vim"]
+[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Resources/Troops/Troops_Data.gd" id="1_37vim"]
 
 [resource]
 script = ExtResource("1_37vim")

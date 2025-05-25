@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Projectile_Data" load_steps=2 format=3 uid="uid://dpy1nyqi7ruo5"]
+
+[ext_resource type="Script" uid="uid://bhgbe5pdvt365" path="res://Resources/Projectile/Projectile_Resource_Database.gd" id="1_f8xsb"]
+
+[resource]
+script = ExtResource("1_f8xsb")
+Projectile_Name = "Pointy 1"
+Projectile_Speed = 20.0
+Projectile_Damage = 5.0
+Projectile_Scene_Path = "uid://b5a5boxry2poq"
+metadata/_custom_type_script = "uid://bhgbe5pdvt365"

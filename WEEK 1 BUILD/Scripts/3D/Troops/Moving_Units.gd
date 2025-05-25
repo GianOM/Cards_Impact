@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var Velocidade: float
 @export var Dano_a_Bases: float
 
-var Tower_Target: Tower_Base
+var Base_Target: Tower_Base
 
 func inicializar_Moving_Unit(Recurso:Moving_Units_Data, My_Mesh:MeshInstance3D):
 	Vida = Recurso.Vida

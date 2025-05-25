@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ch6la6k5fwu8t" path="res://Scripts/3D/Path/Path_Main_Script.gd" id="1_aqeca"]
 [ext_resource type="PackedScene" uid="uid://b0tg6rqspritc" path="res://Scenes/3D/Paths/Enemy_spawner.tscn" id="2_aqeca"]
-[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Scripts/3D/Troops/Troops_Data.gd" id="2_r7jhd"]
+[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Resources/Troops/Troops_Data.gd" id="2_r7jhd"]
 [ext_resource type="Resource" uid="uid://6hqrx2mn30rl" path="res://Scripts/3D/Troops/Data/Tier_1_Pawn.tres" id="3_uw470"]
 [ext_resource type="Resource" uid="uid://d25t2gj41y63x" path="res://Scripts/3D/Troops/Data/Tier_2_Bishop.tres" id="4_ckm71"]
 
@@ -77,6 +77,7 @@ curve = SubResource("Curve3D_4xxd8")
 
 [node name="Spawn Timer Cooldown" type="Timer" parent="."]
 autostart = true
+ignore_time_scale = true
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("2_aqeca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130969, 2.74075, -57.068)
