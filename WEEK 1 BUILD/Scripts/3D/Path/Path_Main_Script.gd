@@ -9,13 +9,9 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 
 const TroopsData = preload("res://Scripts/3D/Troops/Troops_Data.gd")
 
-
 @onready var enemy_spawner_counter: Control = $"Enemy Spawner/SubViewport/EnemySpawnerCounter"
 
-
-
 @export var troop_types: Array[Moving_Units_Data] = []#Ainda to Usando Isso aq. Como automatizar?
-
 
 
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
@@ -52,6 +48,8 @@ func _on_spawn_timer_cooldown_timeout() -> void:
 		
 
 func is_everyone_ready() -> bool:
+	#Checka se todo mundo ta ready iterando pela lista de players que é
+	#Atualizada pelo Ready_Button.gd
 	for player in LobbyMultiplayer.List_of_Players:
 		if LobbyMultiplayer.List_of_Players[player].is_Player_Ready == false:
 			return false
