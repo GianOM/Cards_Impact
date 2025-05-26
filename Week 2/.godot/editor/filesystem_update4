@@ -1,1 +1,5 @@
-res://Scenes/3D/Paths/Path_Example.tscn
+res://Scenes/Main.tscn
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Scripts/main_2d.gd

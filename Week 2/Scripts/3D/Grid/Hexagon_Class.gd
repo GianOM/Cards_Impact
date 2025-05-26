@@ -4,7 +4,7 @@ extends Node3D
 #se Placed_Tower for Null, e pq nao tem nada na Grid Cell
 var Placed_Tower : Torre = null
 
-var is_enemy_tile : bool
+var Hexagon_Team: int
 
 @onready var hexagon_grid: MeshInstance3D = $Hexagon_Grid
 

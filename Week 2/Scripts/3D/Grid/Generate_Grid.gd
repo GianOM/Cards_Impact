@@ -7,7 +7,8 @@ const Hex_Tile = preload("res://Scenes/3D/Grid/Hexagon Tile.tscn")#Referencia à
 const HEX_SCALE = 1
 const HEXAGON_SIZE_IN_METERS :Vector2 = Vector2(3.66,4.24)
 
-@export var is_enemy_grid: bool = false#Variavel usada para diferenciar grid aliada de inimiga
+#Variavel usada para diferenciar grid aliada de inimiga
+@export var Team_Grid: int
 
 var Tile_Placement_Coordinates: Vector2#Variavel usada para colocar o Tile na posicao certa
 const TILE_GRID_SIZE: Vector2 = Vector2(31,27)#Tamanho 
@@ -34,8 +35,7 @@ func _generate_grid():
 				Hex_Tile_Instance.transform.origin = Vector3(global_position.x + Tile_Placement_Coordinates.y, 0, global_position.z + Tile_Placement_Coordinates.x)#Precisa ficar invertido
 				Hex_Tile_Instance.scale = Vector3(HEX_SCALE,HEX_SCALE,HEX_SCALE)#o Scale é UNIFORME
 				
-				if is_enemy_grid == true:
-					Hex_Tile_Instance.is_enemy_tile = true
+				Hex_Tile_Instance.Hexagon_Team = Team_Grid
 			else:
 				Hex_Tile_Instance.queue_free()
 			

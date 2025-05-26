@@ -102,7 +102,8 @@ properties/0/replication_mode = 1
 script = ExtResource("1_n1hws")
 
 [node name="Base_Projectile_Origin_Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443483, 7.8164, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00325352, 18.5554, 0)
+gizmo_extents = 10.0
 
 [node name="Base_Buller_Spawner_Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -9,8 +9,15 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 #Ainda to Usando Isso aq. Como automatizar? O Array é preenchido
 @export var troop_types: Array[Moving_Units_Data] = []
 
+@onready var enemy_spawner: Enemy_Spawner = $"Enemy Spawner"
+
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
 
+@export var Path_Team: int 
+
+func _ready() -> void:
+	enemy_spawner.Troop_Spawner_Team = Path_Team
+	
 
 @rpc("any_peer","call_local","reliable")
 func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente o EnemySpawner
