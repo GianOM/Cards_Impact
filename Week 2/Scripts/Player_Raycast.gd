@@ -18,8 +18,8 @@ const RAYCAST_DISTANCE = 8192.0
 
 
 # --- Instâncias de Cenas ---
-var Tower_Instance: Node3D
-var Troop_Instance: Node3D
+@export var Tower_Instance: Node3D
+@export var Troop_Instance: Node3D
 
 
 var Ray_Hit: Object# Esta variavel precisa ser global para ser acessada por outros nodes
@@ -84,18 +84,13 @@ func Screen_Point_to_Ray() -> void:
 				
 				CollisionCheck.is_Tower_Showing_up = true
 				
-				
+				#O indice e setado no Player Movement usando eventos
 				Tower_Instance.scale = INSTANCE_SCALE_VISIBLE
-				Tower_Instance.Troca_Pra_Torre_Pelo_Indice(player.Tower_Selected_Index)
 				Tower_Instance.global_position = Ray_Hit.global_position
-				CollisionCheck.tower_placed = true
 			else:
 				Tower_Instance.scale = INSTANCE_SCALE_HIDDEN
 				Tower_Instance.global_position = Vector3(-50,-50,-50)
 				
-				
-			
-			
 			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 			
 			if last_hovered and (last_hovered.Placed_Tower == null):
@@ -134,7 +129,6 @@ func Screen_Point_to_Ray() -> void:
 			CollisionCheck.is_mouse_hitting_a_hex_cell = false
 			
 	else :
-		CollisionCheck.tower_placed = false
 		
 		Tower_Instance.scale = INSTANCE_SCALE_HIDDEN#Se nao colidir com nada, deixa a torre pequena e apaga a grid cell
 		Troop_Instance.scale = INSTANCE_SCALE_HIDDEN

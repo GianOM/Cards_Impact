@@ -10,9 +10,7 @@ func enter() -> void: #card is inside HBox and cannot move outside it, so repare
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 	
-	card_ui.color.color = Color.NAVY_BLUE
-	card_ui.state.text = "DRAGGING"
-	
+	card_ui.panel.set("theme_override_styles/panel", card_ui.DRAG_STYLEBOX)
 	minimum_drag_time_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)
 	threshold_timer.timeout.connect(func(): minimum_drag_time_elapsed = true)
@@ -26,7 +24,6 @@ func on_input(event: InputEvent) -> void:
 	if single_targeted and mouse_motion and card_ui.targets.size() > 0:
 		transition_requested.emit(self, CardState.State.AIMING)
 		return
-	
 	
 	if mouse_motion:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset

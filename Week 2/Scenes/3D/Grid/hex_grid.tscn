@@ -4,3 +4,5 @@
 
 [node name="Hex_Grid" type="Node3D"]
 script = ExtResource("1_sn3bp")
+
+[node name="Hexagons Container" type="Node3D" parent="."]

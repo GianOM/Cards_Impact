@@ -151,6 +151,8 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0569, 0)
 gizmo_extents = 5.0
 
+[node name="Tower_Projectiles_Container" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_entered"]
 [connection signal="body_exited" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_exited"]
 [connection signal="timeout" from="Bullet Spawner" to="." method="_on_bullet_spawner_timeout"]

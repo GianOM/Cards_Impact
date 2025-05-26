@@ -1,16 +1,16 @@
 extends CardState
 
-const MOUSE_Y_SNAPBACK_THRESHOLD := 1000
+const MOUSE_Y_SNAPBACK_THRESHOLD := 750
 
 func enter() -> void:
-	CollisionCheck.is_a_card_being_dragged = true
-	card_ui.color.color = Color.WEB_PURPLE
-	card_ui.state.text = "AIMING"
 	card_ui.targets.clear()
 	var offset := Vector2(card_ui.parent.size.x / 2, -card_ui.size.y / 2)
 	offset.x -= card_ui.size.x / 2
 	card_ui.animate_to_position(card_ui.parent.global_position + offset, 0.2)
 	card_ui.drop_point_detector.monitoring = false
+	#-------------------------------------------------------------------------v
+	CollisionCheck.is_a_card_being_dragged = true
+	#-------------------------------------------------------------------------^
 	Events.card_aim_started.emit(card_ui)
 
 func exit() -> void:

@@ -9,9 +9,9 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 #Ainda to Usando Isso aq. Como automatizar? O Array é preenchido
 @export var troop_types: Array[Moving_Units_Data] = []
 
-
 var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem spawnadas
-	
+
+
 @rpc("any_peer","call_local","reliable")
 func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente o EnemySpawner
 	var troop_data_resource: Moving_Units_Data = troop_types[idx]
@@ -25,6 +25,8 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente 
 	
 	Lista_de_Tropas.append(temp_troop)
 	
+	#temp_troop.queue_free()
+	
 	Number_of_Troops_to_Spawn += 1
 	enemy_spawner_counter.get_node("Troops_Counter").text = str(Number_of_Troops_to_Spawn)
 
@@ -32,15 +34,14 @@ func _on_spawn_timer_cooldown_timeout() -> void:
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
 	#print(ReadyButton.I_AM_READY)
 	if Number_of_Troops_to_Spawn > 0 and is_everyone_ready():
-		$Path3D.add_child(Lista_de_Tropas[Number_of_Troops_to_Spawn - 1])
-		Lista_de_Tropas.remove_at(Number_of_Troops_to_Spawn - 1)#Removemos o elemento do Array para evitar acessos incorretos
+		$Path3D.add_child(Lista_de_Tropas[-Number_of_Troops_to_Spawn])
+		Lista_de_Tropas.remove_at(0)#Removemos o elemento do Array para evitar acessos incorretos
 		
 		Number_of_Troops_to_Spawn -= 1
 		enemy_spawner_counter.get_node("Troops_Counter").text = str(Number_of_Troops_to_Spawn)
 		
 	elif !is_everyone_ready():
 		Lista_de_Tropas = Lista_de_Tropas.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
-		
 
 func is_everyone_ready() -> bool:
 	#Checka se todo mundo ta ready iterando pela lista de players que é

@@ -7,13 +7,6 @@ extends Node2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
 
-#func _ready() -> void:
-	#await get_tree().create_timer(4).timeout
-	#take_damage(21)
-	#stats.block += 17
-
-
-
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value.create_instance()
 	

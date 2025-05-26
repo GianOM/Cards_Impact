@@ -144,6 +144,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 21, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_bu04a")
 
+[node name="Base Projectile Container" type="Node3D" parent="."]
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_bb8rx")
 

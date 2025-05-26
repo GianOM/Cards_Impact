@@ -12,7 +12,6 @@ func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_aim_started)
 	Events.card_aim_ended.connect(_on_card_aim_ended)
 
-
 func _process(delta: float) -> void:
 	if not targeting:
 		return
@@ -69,16 +68,16 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	
 	current_card.targets.erase(area)
 
-
+#-----------------------------------------------------------------------------v
 func _on_card_drop_area_area_entered(area: Area2D) -> void:
 	if not current_card or not targeting:
 		return
 	if not current_card.targets.has(area):
 		current_card.targets.append(area)
 
-
 func _on_card_drop_area_area_exited(area: Area2D) -> void:
 	if not current_card or not targeting:
 		return
 	
 	current_card.targets.erase(area)
+#-----------------------------------------------------------------------------^

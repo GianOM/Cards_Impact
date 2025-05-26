@@ -65,13 +65,13 @@ func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 func _on_bullet_spawner_timeout() -> void:
 	if Possible_Targets.size() > 0 and is_Tower_Place_on_Grid == true:
 			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
-			get_tree().root.add_child(temp_projectile)
+			$Tower_Projectiles_Container.add_child(temp_projectile)
 			temp_projectile.global_position = projectile_generation_point.global_position
 			temp_projectile.seleciona_mesh_pelo_indice(Tower_Index)
 			
-			for n in range (Possible_Targets.size()):
-				if Possible_Targets[n] != null:
-					temp_projectile.set_projectile_target(Possible_Targets[n])
+			for Target in (Possible_Targets):
+				if Target != null:
+					temp_projectile.set_projectile_target(Target)
 					break
 			
 			temp_projectile.is_Projectile_Flying = true
