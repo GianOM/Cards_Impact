@@ -15,4 +15,5 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(INDEX: int):
 	if ReadyButton.I_AM_READY == false:
 		path_area_3d.rpc("Adcionar_Tropa_Ao_Enemy_Spawner",INDEX)
 	elif ReadyButton.I_AM_READY == true:
-		print("Voce nao pode colocar tropas apos a fase de preparacao")
+		var msg := "[center]Voce nao pode colocar tropas apos a fase de preparacao[/center]"
+		SignalManager.emit_signal("warning_message", msg)

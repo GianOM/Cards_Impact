@@ -36,6 +36,8 @@ func _on_base_buller_spawner_timer_timeout() -> void:
 			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
 			$"Base Projectile Container".add_child(temp_projectile)
 			temp_projectile.global_position = base_projectile_origin_marker_3d.global_position
+			
+			#Func nao existe mais
 			temp_projectile.seleciona_mesh_pelo_indice(1)
 			
 			for Base_Target in Base_Possible_Targets:

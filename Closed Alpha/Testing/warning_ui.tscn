@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8gigwoqmugpq"]
+
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="1_f4pov"]
+[ext_resource type="Script" uid="uid://eyo5ufpwkxgt" path="res://Testing/warning_ui.gd" id="2_h5qt5"]
+
+[node name="WarningUI" type="Panel"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.5
+offset_top = -23.5
+offset_right = 378.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f4pov")
+script = ExtResource("2_h5qt5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="WarningLabel" type="RichTextLabel" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Warning Warning Warning Warning Warning[/center]"

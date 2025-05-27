@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2sb25nigkhhn"]
+[gd_scene load_steps=13 format=3 uid="uid://2sb25nigkhhn"]
 
 [ext_resource type="Script" uid="uid://b86m4m8oakkht" path="res://Testing/battle.gd" id="1_e41k2"]
 [ext_resource type="Resource" uid="uid://d1jvn8s0i3ln4" path="res://Testing/characters/warrior/warrior.tres" id="4_1sdae"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://6phfh6l1w5hf" path="res://Testing/player_handler.gd" id="7_odhhd"]
 [ext_resource type="PackedScene" uid="uid://c6qs4x6qw8jit" path="res://Testing/mana_ui.tscn" id="10_55wsm"]
 [ext_resource type="PackedScene" uid="uid://i5rcdxvoxm0y" path="res://Testing/token_ui.tscn" id="10_odhhd"]
+[ext_resource type="PackedScene" uid="uid://b8gigwoqmugpq" path="res://Testing/warning_ui.tscn" id="11_1sdae"]
 [ext_resource type="PackedScene" uid="uid://v3v1nx7sdiih" path="res://Testing/tooltip.tscn" id="11_odhhd"]
 [ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="12_1sdae"]
 
@@ -74,6 +75,8 @@ theme_override_font_sizes/font_size = 40
 text = "Discard All"
 
 [node name="TokenUI" parent="BattleUI" instance=ExtResource("10_odhhd")]
+
+[node name="WarningUI" parent="BattleUI" instance=ExtResource("11_1sdae")]
 
 [connection signal="area_entered" from="CardDropArea" to="CardTargetSelector" method="_on_card_drop_area_area_entered"]
 [connection signal="area_exited" from="CardDropArea" to="CardTargetSelector" method="_on_card_drop_area_area_exited"]

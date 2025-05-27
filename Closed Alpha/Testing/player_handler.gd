@@ -10,6 +10,7 @@ var character: CharacterStats
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
+	CollisionCheck.refund_card.connect(_refund_card)
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
@@ -71,3 +72,24 @@ func reshuffle_deck_from_discard() -> void: #reshuffles discarded cards back to 
 
 func _on_card_played(card: Card) -> void:
 	character.discard.add_card(card)
+	
+	#draw card from discard pile based on id_number is working
+	##print(character.discard)
+	#var discard_pile = character.discard.find_cards()
+	##print(discard_pile[0].id_number)
+	#for i in character.discard.size():
+		#if discard_pile[i].id_number == 1:
+			##print("found you")
+			#hand.add_card(character.discard.draw_card())
+
+func _refund_card(card_id: int) -> void:
+	#var card_refunded := false
+	var discard_pile = character.discard.find_cards()
+	for i in character.discard.size():
+		if discard_pile[i].id_number == card_id:
+		#print(discard_pile[i].id_number)
+			character.gaslight_tokens += discard_pile[i].gaslight_cost
+			character.gatekeep_tokens += discard_pile[i].gatekeep_cost
+			hand.add_card(character.discard.draw_card())
+			#card_refunded = true
+			return

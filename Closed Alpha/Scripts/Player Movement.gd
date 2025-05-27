@@ -136,9 +136,12 @@ func Handle_Mouse_Click():
 					
 				elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
 					SignalManager.occupied_tile_warning()
+					var msg := "[center]Cannot deploy on occupied tile[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 				elif (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team != My_Team):
 					SignalManager.cannot_interact_with_enemy_field()
-					print("NAO PODE COLOCAR TORRES NO CAMPO INIMIGO")
+					var msg := "[center]NAO PODE COLOCAR TORRES NO CAMPO INIMIGO[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 					
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
 				#Troop_Spawner_Team e uma variavel do Enemy Spawner que é setada pelo PATH no ready
@@ -146,7 +149,8 @@ func Handle_Mouse_Click():
 					#My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
 					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
 				else:
-					print("VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE")
+					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 				
 				
 
@@ -176,8 +180,11 @@ func Delete_Tower_at_Clicked():
 	#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
 	
 	#Acessa O preco do Gaslight e do gateKeep
-	print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gaslight_Token_Cost)
-	print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gatekeep_Token_Cost)
+	#print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gaslight_Token_Cost)
+	#print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gatekeep_Token_Cost)
+	
+	CollisionCheck.refund_card.emit(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index)
+	print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index)
 	
 	
 	My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.queue_free()

@@ -5,6 +5,9 @@ signal occupied_tile
 signal cannot_reroll
 signal cannot_deploy_in_enemy_field
 
+signal warning_message
+
+#var warning: String
 var is_ready
 
 func occupied_tile_warning():

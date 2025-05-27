@@ -51,6 +51,8 @@ func Create_Multiplayer_Game():
 	
 	print("Host Created")
 	
+	Teste_UPNP()
+	
 func Join_Multiplayer_Game():
 	#Cria um Peer e seta ele como Client
 	var ClientPeer = ENetMultiplayerPeer.new()
@@ -87,3 +89,38 @@ func _Server_Disconnected():
 	multiplayer.multiplayer_peer = null
 	List_of_Players.clear()
 	server_disconnected.emit()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+func Teste_UPNP():
+	var UPnP = UPNP.new()
+	
+	var discover_result = UPnP.discover()
+	
+	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
+							"UPNP Discover Failed! Error %s" % discover_result)
+							
+							
+	#assert(UPnP.get_gateway() and UPnP.get_gateway().is_valid_gateway(), \
+							#"UPNP Invalid Gateway")
+							#
+	#var map_result = UPnP.add_port_mapping(7777)
+	#assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
+			#"UPNP Port Mapping Failed! Error %s" % map_result)
+			#
+	#print("New IP is: %s" % UPnP.query_external_address())
+	##print(discover_result)
+	
+	
+	
+	

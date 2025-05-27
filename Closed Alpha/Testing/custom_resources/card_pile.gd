@@ -20,6 +20,12 @@ func add_card(card: Card):
 func shuffle() -> void:
 	cards.shuffle()
 
+func size() -> int:
+	return cards.size()
+
+func find_cards() -> Array:
+	return cards
+
 func clear() -> void:
 	cards.clear()
 	card_pile_size_changed.emit(cards.size())
@@ -27,6 +33,7 @@ func clear() -> void:
 func _to_string() -> String:
 	var _card_strings: PackedStringArray = []
 	for i in range(cards.size()):
-		_card_strings.append("%s: %s" % [i+1, cards[i].id])
+		#_card_strings.append("%s: %s" % [i+1, cards[i].id_number])
+		_card_strings.append("%s" % [cards[i].id_number])
 	return "\n".join(_card_strings)
 	

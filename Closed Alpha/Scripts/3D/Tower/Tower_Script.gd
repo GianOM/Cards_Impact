@@ -24,17 +24,7 @@ var Tower_Projectiles:Array[Projetil]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
-
-
-
-
 @export var Tower_Database: Array[Tower_Data] = []
-
-
-
-
-
-
 
 
 func Troca_Pra_Torre_Pelo_Indice(idx:int):
