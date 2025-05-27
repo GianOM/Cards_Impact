@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Tower_Data" load_steps=2 format=3 uid="uid://blye43s0crlo7"]
+
+[ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Resources/Towers/Towers_Resource_Database.gd" id="1_80k53"]
+
+[resource]
+script = ExtResource("1_80k53")
+Tower_Name = "Rook Tower"
+Tower_Range = 10.0
+Tower_Damage = 5.0
+Tower_Index = 0
+Tower_Attack_Cooldown = 1.0
+Gaslight_Token_Cost = 9
+Gatekeep_Token_Cost = 1
+Tower_scene_path = "uid://dkf8ovpmdkks6"
+metadata/_custom_type_script = "uid://b1evb28lgpqnb"

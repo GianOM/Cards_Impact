@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bjui3wcqxaao2"]
+
+[ext_resource type="Texture2D" uid="uid://d1y7wy8fce3y8" path="res://Assets/2D Assets/queen.png" id="1_ypo61"]
+[ext_resource type="Script" uid="uid://dpjqv3ipgth4d" path="res://Testing/characters/warrior/cards/warrior_block.gd" id="2_ypo61"]
+
+[resource]
+script = ExtResource("2_ypo61")
+id_number = 1
+id = "warrior_block"
+type = 0
+target = 1
+cost = 0
+gaslight_cost = 3
+gatekeep_cost = 10
+icon = ExtResource("1_ypo61")
+tooltip_text = "[center]Gain [color=\"0044ff\"]5 [/color]block.[/center]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"
