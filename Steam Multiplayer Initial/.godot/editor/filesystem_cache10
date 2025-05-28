@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1748468856
+::res://::1748470637
 export_presets.cfg::TextFile/TextFile::-1::1748307107::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::829143363638864324::1748307107::1748307107::1::::<><><>0<>0<>1425327dd3a054e320b15a1838ef205f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://addons/::1748394494
@@ -13,13 +13,13 @@ godotsteam.gdextension::GDExtension/GDExtension::1354175436491722888::1748328417
 ::res://addons/godotsteam/osx/libgodotsteam.macos.template_release.framework/::1748394494
 ::res://addons/godotsteam/osx/libgodotsteam.macos.template_release.framework/Resources/::1748394494
 ::res://addons/godotsteam/win32/::1748394494
-::res://addons/godotsteam/win64/::1748468852
+::res://addons/godotsteam/win64/::1748470632
 ::res://addons/steam-multiplayer-peer/::1748394494
 README.md::TextFile/TextFile::-1::1748328428::0::1::::<><><>0<>0<><>::
 steam-multiplayer-peer.gdextension::GDExtension/GDExtension::6852350981092989085::1748328428::0::1::::<><><>0<>0<><>::
 ::res://addons/steam-multiplayer-peer/linux/::1748394494
 ::res://addons/steam-multiplayer-peer/macos/::1748394494
-::res://addons/steam-multiplayer-peer/windows/::1748468853
+::res://addons/steam-multiplayer-peer/windows/::1748470633
 ::res://Assets/::1748394492
 ::res://Assets/2D Assets/::1748394492
 Arrow.png::CompressedTexture2D/CompressedTexture2D::8772755888474378176::1748314117::1748314117::1::::<><><>0<>0<>ddc0c79d8f793a17766e46ca1a8556e8<>res://.godot/imported/Arrow.png-20903b9862c958c80fa4b6f19fef4a6e.ctex::
@@ -49,14 +49,14 @@ Base 2.glb::PackedScene/PackedScene::1152843139029488807::1748307107::1748307107
 Base 2_Nexus_Base Material_BaseColor.png::CompressedTexture2D/CompressedTexture2D::8205975665479039061::1748307107::1748307107::1::::<><><>0<>0<>539476c67d8a934b354387cafb0539b5<>res://.godot/imported/Base 2_Nexus_Base Material_BaseColor.png-204502bb89b5cbfb87f9312fc3aefecb.s3tc.ctex::
 Base 2_Terrain.glb::PackedScene/PackedScene::3250577408312609128::1748307107::1748307107::1::::<><><>0<>0<>2684c75e1940f213b2444d576ccff273<>res://.godot/imported/Base 2_Terrain.glb-baa9e4815544fde9f43e7e170496b336.scn::
 Nexus.glb::PackedScene/PackedScene::6352442925438632334::1748307107::1748307107::1::::<><><>0<>0<>451cc3112bfd538f2b99368d89c86cf8<>res://.godot/imported/Nexus.glb-1fc8fc34327a70688d29bddcb1ae0e56.scn::
-::res://Assets/3D Assets/Floors/::1748445845
+::res://Assets/3D Assets/Floors/::1748468863
 Ground.glb::PackedScene/PackedScene::7077719228271320391::1748307107::1748307107::1::::<><><>0<>0<>f4d63d3aff6da8fb34606069301e8657<>res://.godot/imported/Ground.glb-e0ea7e275616d27683657cda224f47c0.scn::
-Ground.tres::StandardMaterial3D::4994349099830921903::1748445845::0::1::::<><><>0<>0<><>::
-::res://Assets/3D Assets/Grid/::1748445845
+Ground.tres::StandardMaterial3D::4994349099830921903::1748468863::0::1::::<><><>0<>0<><>::
+::res://Assets/3D Assets/Grid/::1748468863
 Default_Grid_Material.tres::StandardMaterial3D/StandardMaterial3D::1174129839290800627::1748307107::0::1::::<><><>0<>0<><>::
 Hexagon.glb::PackedScene/PackedScene::126613578607492647::1748307107::1748307107::1::::<><><>0<>0<>c30c1c8ee2b19431a6bc84cd648d6ec5<>res://.godot/imported/Hexagon.glb-04d9b910804fa56d8e896f2cc9e79287.scn::
-Highlighted_Grid_Material.tres.tres::StandardMaterial3D::1536461785418962699::1748445845::0::1::::<><><>0<>0<><>::
-Occupied_Grid_Material.tres::StandardMaterial3D::5650594105956857043::1748445845::0::1::::<><><>0<>0<><>::
+Highlighted_Grid_Material.tres.tres::StandardMaterial3D::1536461785418962699::1748468863::0::1::::<><><>0<>0<><>::
+Occupied_Grid_Material.tres::StandardMaterial3D::5650594105956857043::1748468863::0::1::::<><><>0<>0<><>::
 Single Hex Tile.glb::PackedScene/PackedScene::5546409275317593761::1748307107::1748307107::1::::<><><>0<>0<>9d740cad5b0423ab0d34a5f6fbf80ef6<>res://.godot/imported/Single Hex Tile.glb-e53d5619b72a0d5b240f39caa7918910.scn::
 ::res://Assets/3D Assets/Path/::1748394492
 Enemy Spawner.glb::PackedScene/PackedScene::5538078987231681861::1748307107::1748307107::1::::<><><>0<>0<>83684945f18a895bf67ed5a18340a783<>res://.godot/imported/Enemy Spawner.glb-386404a88786e7af7cd1e5c9c0a16665.scn::
@@ -85,12 +85,12 @@ Projectile_Resource_Database.gd::GDScript/GDScript::2890198314889792564::1748307
 Towers_Resource_Database.gd::GDScript/GDScript::4220866441557598579::1748307107::0::1::::Tower_Data<>Resource<><>0<>0<><>::
 ::res://Resources/Troops/::1748394492
 Troops_Data.gd::GDScript/GDScript::4163514286258429554::1748307107::0::1::::Moving_Units_Data<>Resource<><>0<>0<><>::
-::res://Scenes/::1748468247
+::res://Scenes/::1748468884
 Main2D.tscn::PackedScene/PackedScene::7310790346822561206::1748307107::0::1::::<><><>0<>0<><>::uid://mj2pemeljci3::::res://Scripts/main_2d.gd<>uid://bujnthksap3km::::res://Scripts/2D/card_manager.gd<>uid://daqi4n4xwp355::::res://Assets/2D Assets/back.png<>uid://23mucqr8g3xy::::res://Scripts/2D/player_hand.gd<>uid://bbd1vp3hxspss::::res://Scenes/2D/card_slot.tscn<>uid://detu08ox8fipn::::res://Scripts/2D/Ready_Button.gd<>uid://bg0vdxq1ieapr::::res://Scripts/2D/deck.gd<>uid://dquvn15n4atwx::::res://Assets/2D Assets/cardBack.png<>uid://c30w0tlu61pxg::::res://Scripts/2D/left_menu.gd<>uid://b4oerpv5ajd21::::res://Scripts/2D/input_manager.gd<>uid://c2knikk04vfes::::res://Assets/2D Assets/backFullscreen.png<>uid://ded7wdp534o5o::::res://Scenes/2D/rerolled_slot.tscn
-Main Menu Navigation.gd::GDScript::8020920831848724294::1748467126::0::1::::<>Control<><>0<>0<><>::
+Main Menu Navigation.gd::GDScript::8020920831848724294::1748468884::0::1::::<>Control<><>0<>0<><>::
 Main.tscn::PackedScene/PackedScene::643489349355459992::1748333758::0::1::::<><><>0<>0<><>::uid://l1g3sqkn5k7y::::res://Scripts/main_3d.gd<>uid://c7y05pvvfpsu6::::res://Scenes/3D/Grid/hex_grid.tscn<>uid://cdfkg2go0lk76::::res://Assets/3D Assets/Floors/Ground.tres<>uid://bl0uplexdc73f::::res://Scenes/3D/Base/Base_Main.tscn<>uid://dcfnwcecgfqx7::::res://Scenes/Main2D.tscn<>uid://pdsy54p1w64h::::res://Scenes/3D/Paths/Path_Example.tscn<>uid://2sb25nigkhhn::::res://Testing/testing_main.tscn<>uid://detu08ox8fipn::::res://Scripts/2D/Ready_Button.gd
-main_menu.tscn::PackedScene::6484237695365682471::1748468247::0::1::::<><><>0<>0<><>::uid://b8yq8oyeptc1b::::res://Scripts/main_menu.gd<>uid://dmjnnny14vhwg::::res://Scenes/Main Menu Navigation.gd
-Player Camera Scene.tscn::PackedScene::6243937854667716699::1748468247::0::1::::<><><>0<>0<><>::uid://cse7mmdfiyule::::res://Scripts/Player Movement.gd<>uid://bycfmjbqf4vwk::::res://Scripts/Player_Raycast.gd
+main_menu.tscn::PackedScene::6484237695365682471::1748468884::0::1::::<><><>0<>0<><>::uid://b8yq8oyeptc1b::::res://Scripts/main_menu.gd<>uid://dmjnnny14vhwg::::res://Scenes/Main Menu Navigation.gd
+Player Camera Scene.tscn::PackedScene/PackedScene::6243937854667716699::1748468247::0::1::::<><><>0<>0<><>::uid://cse7mmdfiyule::::res://Scripts/Player Movement.gd<>uid://bycfmjbqf4vwk::::res://Scripts/Player_Raycast.gd
 ::res://Scenes/2D/::1748394492
 card.tscn::PackedScene/PackedScene::5449475175195337048::1748307107::0::1::::<><><>0<>0<><>::uid://dgddtt5c8xlk1::::res://Scripts/2D/card.gd<>uid://dquvn15n4atwx::::res://Assets/2D Assets/cardBack.png<>uid://jscq5rb365cj::::res://Assets/2D Assets/baseCard.png
 card_slot.tscn::PackedScene/PackedScene::2464419635531528594::1748307107::0::1::::<><><>0<>0<><>::uid://dmi10uj705e64::::res://Assets/2D Assets/cardSlot.png<>uid://dxcfxlmnw4yhe::::res://Scripts/2D/card_slot.gd
@@ -98,7 +98,7 @@ rerolled_slot.tscn::PackedScene/PackedScene::7448192972271800426::1748307107::0:
 ::res://Scenes/3D/::1748394492
 ::res://Scenes/3D/Base/::1748468247
 Base_Healthbar.tscn::PackedScene/PackedScene::5320061406869337884::1748307107::0::1::::<><><>0<>0<><>::uid://223da6jf3bpj::::res://Scripts/3D/Base/Tower_Base_Health_Bar_Script.gd<>uid://daqi4n4xwp355::::res://Assets/2D Assets/back.png
-Base_Main.tscn::PackedScene::3211349119312063965::1748468247::0::1::::<><><>0<>0<><>::uid://c0p3disnp2dc0::::res://Scripts/3D/Base/Base_Main_Script.gd<>uid://do6bhqw1asaw0::::res://Assets/3D Assets/Base/Base 2_Nexus_Base Material_BaseColor.png<>uid://ch2cvtaxikhcm::::res://Scenes/3D/Base/Base_Healthbar.tscn
+Base_Main.tscn::PackedScene/PackedScene::3211349119312063965::1748468247::0::1::::<><><>0<>0<><>::uid://c0p3disnp2dc0::::res://Scripts/3D/Base/Base_Main_Script.gd<>uid://do6bhqw1asaw0::::res://Assets/3D Assets/Base/Base 2_Nexus_Base Material_BaseColor.png<>uid://ch2cvtaxikhcm::::res://Scenes/3D/Base/Base_Healthbar.tscn
 ::res://Scenes/3D/Floors/::1748394492
 Floor.tscn::PackedScene/PackedScene::4070289426191602279::1748307107::0::1::::<><><>0<>0<><>::uid://c73rab40ocxtv::::res://Assets/3D Assets/Floors/Ground.glb<>uid://cdfkg2go0lk76::::res://Assets/3D Assets/Floors/Ground.tres
 ::res://Scenes/3D/Grid/::1748394492
@@ -109,13 +109,13 @@ Enemy_spawner.tscn::PackedScene/PackedScene::4180785531991080800::1748307107::0:
 Enemy_Spawner_Counter.tscn::PackedScene/PackedScene::3394765811562217231::1748307107::0::1::::<><><>0<>0<><>::
 Path_Example.tscn::PackedScene/PackedScene::1060163173973188941::1748307107::0::1::::<><><>0<>0<><>::uid://ch6la6k5fwu8t::::res://Scripts/3D/Path/Path_Main_Script.gd<>uid://b0tg6rqspritc::::res://Scenes/3D/Paths/Enemy_spawner.tscn<>uid://b0k3qbvnojn27::::res://Resources/Troops/Troops_Data.gd<>uid://6hqrx2mn30rl::::res://Scripts/3D/Troops/Data/Tier_1_Pawn.tres<>uid://d25t2gj41y63x::::res://Scripts/3D/Troops/Data/Tier_2_Bishop.tres
 ::res://Scenes/3D/Projectile/::1748468247
-Projectile.tscn::PackedScene::3730090169970964407::1748468247::0::1::::<><><>0<>0<><>::uid://bke453hr87l52::::res://Scripts/3D/Projectiles/Projectile_Main_Script.gd<>uid://bhgbe5pdvt365::::res://Resources/Projectile/Projectile_Resource_Database.gd<>uid://dpy1nyqi7ruo5::::res://Scripts/3D/Projectiles/Data/Tier_1_Projectile_Blue.tres<>uid://dx33mp6bnf5uc::::res://Scripts/3D/Projectiles/Data/Tier_2_Projectile_Yellow.tres
+Projectile.tscn::PackedScene/PackedScene::3730090169970964407::1748468247::0::1::::<><><>0<>0<><>::uid://bke453hr87l52::::res://Scripts/3D/Projectiles/Projectile_Main_Script.gd<>uid://bhgbe5pdvt365::::res://Resources/Projectile/Projectile_Resource_Database.gd<>uid://dpy1nyqi7ruo5::::res://Scripts/3D/Projectiles/Data/Tier_1_Projectile_Blue.tres<>uid://dx33mp6bnf5uc::::res://Scripts/3D/Projectiles/Data/Tier_2_Projectile_Yellow.tres
 Projectile_Database.tscn::PackedScene/PackedScene::5705017569796425426::1748307107::0::1::::<><><>0<>0<><>::uid://dmsr760yx283y::::res://Assets/3D Assets/Projectile/Tier 1 Projectile Material.tres<>uid://e8shro1v1g8k::::res://Assets/3D Assets/Projectile/Tier 2 Projectile Material.tres
 ::res://Scenes/3D/Projectile/Projectile Database/::1748394492
 Tier_1_Projectile.tscn::PackedScene/PackedScene::4493910060073928288::1748307107::0::1::::<><><>0<>0<><>::
 Tier_2_Projectile.tscn::PackedScene/PackedScene::5538800618977674010::1748307107::0::1::::<><><>0<>0<><>::
 ::res://Scenes/3D/Towers/::1748468247
-Towers.tscn::PackedScene::8927983407597083503::1748468247::0::1::::<><><>0<>0<><>::uid://cwp7f8fsjx0ws::::res://Scripts/3D/Tower/Tower_Script.gd<>uid://b1evb28lgpqnb::::res://Resources/Towers/Towers_Resource_Database.gd<>uid://blye43s0crlo7::::res://Scripts/3D/Tower/Data/Tier_1_Rook.tres<>uid://dxtc8cjh8ve5a::::res://Scripts/3D/Tower/Data/Tier_2_Queen.tres
+Towers.tscn::PackedScene/PackedScene::8927983407597083503::1748468247::0::1::::<><><>0<>0<><>::uid://cwp7f8fsjx0ws::::res://Scripts/3D/Tower/Tower_Script.gd<>uid://b1evb28lgpqnb::::res://Resources/Towers/Towers_Resource_Database.gd<>uid://blye43s0crlo7::::res://Scripts/3D/Tower/Data/Tier_1_Rook.tres<>uid://dxtc8cjh8ve5a::::res://Scripts/3D/Tower/Data/Tier_2_Queen.tres
 Towers_Database.tscn::PackedScene/PackedScene::3622270454856647854::1748307107::0::1::::<><><>0<>0<><>::
 ::res://Scenes/3D/Towers/Towers Database/::1748394492
 Tier_1_Tower_Rook.tscn::PackedScene/PackedScene::7873502164817946347::1748307107::0::1::::<><><>0<>0<><>::
@@ -127,10 +127,10 @@ Troops_Database.tscn::PackedScene/PackedScene::172920013550702876::1748307107::0
 Hovering Troop.tscn::PackedScene/PackedScene::2952732743219365946::1748307107::0::1::::<><><>0<>0<><>::uid://ch2e12hp8ft2q::::res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn<>uid://cuw3ykyjqa5io::::res://Scripts/3D/Troops/Hovering_Troop.gd<>uid://byxugcc8drmi2::::res://Scenes/3D/Troops/Troops Database/Tier_2_BISHOP.tscn
 Tier_1_PAWN.tscn::PackedScene/PackedScene::5320192200494570570::1748307107::0::1::::<><><>0<>0<><>::
 Tier_2_BISHOP.tscn::PackedScene/PackedScene::4119658783608381235::1748307107::0::1::::<><><>0<>0<><>::
-::res://Scripts/::1748468247
+::res://Scripts/::1748468884
 collision_check.gd::GDScript/GDScript::7068949947430681789::1748398287::0::1::::<>Node<><>0<>0<><>::
-Lobby_Multiplayer.gd::GDScript::6870070413560220909::1748468173::0::1::::<>Node<><>0<>0<><>::
-main_2d.gd::GDScript::862511897984045868::1748468247::0::1::::<>Node2D<><>0<>0<><>::
+Lobby_Multiplayer.gd::GDScript::6870070413560220909::1748468863::0::1::::<>Node<><>0<>0<><>::
+main_2d.gd::GDScript::862511897984045868::1748468884::0::1::::<>Node2D<><>0<>0<><>::
 main_3d.gd::GDScript/GDScript::826166376419937920::1748307107::0::1::::<>Node3D<><>0<>0<><>::
 main_menu.gd::GDScript/GDScript::4753228765533474053::1748337920::0::1::::<>Node<><>0<>0<><>::
 Player Movement.gd::GDScript/GDScript::6046463072335859306::1748399011::0::1::::<>Node3D<><>0<>0<><>::
@@ -151,7 +151,7 @@ Ready_Button.gd::GDScript/GDScript::7480501343648656835::1748307107::0::1::::<>B
 rerolled_slot.gd::GDScript/GDScript::4409788649423531720::1748307107::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Scripts/3D/::1748394492
 ::res://Scripts/3D/Base/::1748445958
-Base_Main_Script.gd::GDScript::6560234006432134993::1748445958::0::1::::Tower_Base<>Node3D<><>0<>0<><>::
+Base_Main_Script.gd::GDScript/GDScript::6560234006432134993::1748445958::0::1::::Tower_Base<>Node3D<><>0<>0<><>::
 Tower_Base_Health_Bar_Script.gd::GDScript/GDScript::1952542459071303579::1748307107::0::1::::<>ProgressBar<><>0<>0<><>::
 ::res://Scripts/3D/Grid/::1748394492
 Generate_Grid.gd::GDScript/GDScript::4084298651842075003::1748307107::0::1::::<>Node3D<><>0<>0<><>::
@@ -178,7 +178,7 @@ Tier_1_Pawn.tres::Resource/Moving_Units_Data::2191307877748568993::1748307107::0
 Tier_2_Bishop.tres::Resource/Moving_Units_Data::9117494331622658571::1748307107::0::1::::<><><>0<>0<><>::uid://b0k3qbvnojn27::::res://Resources/Troops/Troops_Data.gd
 ::res://Scripts/Networks/::1748394492
 Network_Manager.gd::GDScript/GDScript::1949004966084343856::1748333367::0::1::::<>Node<><>0<>0<><>::
-::res://Testing/::1748445845
+::res://Testing/::1748468863
 battle.gd::GDScript/GDScript::4767429307955710585::1748395384::0::1::::<>Node2D<><>0<>0<><>::
 battle_ui.gd::GDScript/GDScript::7886875977391211405::1748395384::0::1::::BattleUI<>CanvasLayer<><>0<>0<><>::
 card_arc.tscn::PackedScene/PackedScene::3533615732529500471::1748395384::0::1::::<><><>0<>0<><>::
@@ -193,7 +193,7 @@ card_ui.tscn::PackedScene/PackedScene::7856272946898488586::1748395384::0::1::::
 enemy.gd::GDScript/GDScript::5132678020280562363::1748395384::0::1::::Enemy<>Area2D<><>0<>0<><>::
 enemy.tscn::PackedScene/PackedScene::8798234963722961760::1748395384::0::1::::<><><>0<>0<><>::uid://bffltoe30gw13::::res://Assets/2D Assets/ianCardH.png<>uid://cfekpsn4xphn4::::res://Testing/enemy.gd<>uid://dw8uai8j8rx8k::::res://Assets/2D Assets/Arrow.png<>uid://cie52aqmxldau::::res://Testing/stats_ui.tscn
 hand.gd::GDScript/GDScript::4530629555134310444::1748395384::0::1::::Hand<>HBoxContainer<><>0<>0<><>::
-main_theme.tres::Theme::5188940077588743733::1748445845::0::1::::<><><>0<>0<><>::uid://ob1icvd5tqxb::::res://Testing/card_base_stylebox.tres<>uid://dyf0lvfgm46q7::::res://Testing/card_hover_stylebox.tres
+main_theme.tres::Theme::5188940077588743733::1748468863::0::1::::<><><>0<>0<><>::uid://ob1icvd5tqxb::::res://Testing/card_base_stylebox.tres<>uid://dyf0lvfgm46q7::::res://Testing/card_hover_stylebox.tres
 mana_ui.gd::GDScript/GDScript::5858027155746250468::1748395384::0::1::::ManaUI<>Panel<><>0<>0<><>::
 mana_ui.tscn::PackedScene/PackedScene::6982871514806864879::1748395384::0::1::::<><><>0<>0<><>::uid://cppw37g5v8la7::::res://Testing/mana_ui.gd<>uid://ob1icvd5tqxb::::res://Testing/card_base_stylebox.tres
 player.gd::GDScript/GDScript::6881175661496035536::1748395384::0::1::::Player<>Node2D<><>0<>0<><>::
@@ -220,11 +220,11 @@ card_state.gd::GDScript/GDScript::5036210089786368468::1748395384::0::1::::CardS
 warrior.tres::Resource/CharacterStats::9004051419848266755::1748395384::0::1::::<><><>0<>0<><>::uid://ct2x4yii2yv6w::::res://Assets/2D Assets/caio.png<>uid://b14yip8fnp05b::::res://Testing/custom_resources/character_stats.gd<>uid://cti84313d1i1d::::res://Testing/characters/warrior/warrior_attack_deck.tres<>uid://iuyw5w4jqdor::::res://Testing/characters/warrior/warrior_defend_deck.tres
 warrior_attack_deck.tres::Resource/CardPile::6125001379421782679::1748395384::0::1::::<><><>0<>0<><>::uid://boah0y84tqxap::::res://Testing/custom_resources/card.gd<>uid://dt7hia3dephev::::res://Testing/characters/warrior/attack_cards/pawn.tres<>uid://cluogl642arjk::::res://Testing/characters/warrior/attack_cards/bishop.tres<>uid://bdr0jx61ll6e3::::res://Testing/custom_resources/card_pile.gd
 warrior_defend_deck.tres::Resource/CardPile::604296410494246057::1748395384::0::1::::<><><>0<>0<><>::uid://boah0y84tqxap::::res://Testing/custom_resources/card.gd<>uid://wjg2wxy385od::::res://Testing/characters/warrior/defend_cards/rook.tres<>uid://bdr0jx61ll6e3::::res://Testing/custom_resources/card_pile.gd<>uid://bjui3wcqxaao2::::res://Testing/characters/warrior/defend_cards/queen.tres
-::res://Testing/characters/warrior/attack_cards/::1748445845
+::res://Testing/characters/warrior/attack_cards/::1748468863
 bishop.gd::GDScript/GDScript::6786237993224688402::1748395384::0::1::::<>Card<><>0<>0<><>::
-bishop.tres::Resource::5587067582147430544::1748445845::0::1::::<><><>0<>0<><>::uid://dqvt5r4pcms3w::::res://Assets/2D Assets/bishop.png<>uid://dpjqv3ipgth4d::::res://Testing/characters/warrior/defend_cards/queen.gd
+bishop.tres::Resource::5587067582147430544::1748468863::0::1::::<><><>0<>0<><>::uid://dqvt5r4pcms3w::::res://Assets/2D Assets/bishop.png<>uid://dpjqv3ipgth4d::::res://Testing/characters/warrior/defend_cards/queen.gd
 pawn.gd::GDScript/GDScript::6008829791762602999::1748395384::0::1::::<>Card<><>0<>0<><>::
-pawn.tres::Resource::8559349517029208785::1748445845::0::1::::<><><>0<>0<><>::uid://dm5sp6werkxky::::res://Assets/2D Assets/pawn.png<>uid://dpjqv3ipgth4d::::res://Testing/characters/warrior/defend_cards/queen.gd
+pawn.tres::Resource::8559349517029208785::1748468863::0::1::::<><><>0<>0<><>::uid://dm5sp6werkxky::::res://Assets/2D Assets/pawn.png<>uid://dpjqv3ipgth4d::::res://Testing/characters/warrior/defend_cards/queen.gd
 ::res://Testing/characters/warrior/defend_cards/::1748397144
 queen.gd::GDScript/GDScript::8231684562695137745::1748395384::0::1::::<>Card<><>0<>0<><>::
 queen.tres::Resource/Resource::3059944729049071847::1748396772::0::1::::<><><>0<>0<><>::uid://d1y7wy8fce3y8::::res://Assets/2D Assets/queen.png<>uid://dpjqv3ipgth4d::::res://Testing/characters/warrior/defend_cards/queen.gd

@@ -54,13 +54,6 @@ func join_lobby(lobby_id = 0):
 
 
 
-
-
-
-
-
-
-
 func _on_local_multiplayer_clicked():
 	Hide_All_Menus()
 	$"Local Multiplayer".show()

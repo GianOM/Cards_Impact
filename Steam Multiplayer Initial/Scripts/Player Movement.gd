@@ -27,7 +27,7 @@ const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
 const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
 
 #TODO: Trocar o nome da variavel para algo que faca mais sentido
-@export var Tower_Selected_Index:int = 0
+@export var Global_Card_Index:int = 0
 var Individual_Troop_Selected_Index:int = 0
 
 # --- Times ---
@@ -130,7 +130,10 @@ func Handle_Mouse_Click():
 			if My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and CollisionCheck.is_a_card_being_dragged:#codigo para colocar a torre
 				#Se a Grid Cell esta livre, ou seja, se a Placed_Tower for null, e vc selecionou uma Tile que nao é uma tile inimiga
 				#vc pode colocar uma torre no lugar
-				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team == My_Team):
+				
+				#CollisionCheck.card_id_attack é -1 para cartas de defesa
+				#CollisionCheck.card_id_defense é -1 para cartas de ataque
+				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team == My_Team) and (CollisionCheck.card_id_attack == -1):
 					#CODIGO PARA BOTAR A TORRE
 					
 					Create_Tower_at_Clicked.rpc()
@@ -145,14 +148,24 @@ func Handle_Mouse_Click():
 					SignalManager.cannot_interact_with_enemy_field()
 					var msg := "[center]NAO PODE COLOCAR TORRES NO CAMPO INIMIGO[/center]"
 					SignalManager.emit_signal("warning_message", msg)
+				
+				#Para o caso de tentarmos colocar uma carta de ataque no grid das torres
+				elif CollisionCheck.card_id_defense == -1:
+					#Se CollisionCheck.card_id_defense == -1, o player esta selecionando uma carta de defesa
+					var msg := "[center]VOCE NÃO PODE POSICIONAR UNIDADES EM ESPAÇOS PARA TORRES[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 					
-			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner):
+			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner) and (CollisionCheck.card_id_defense == -1):
 				#Troop_Spawner_Team e uma variavel do Enemy Spawner que é setada pelo PATH no ready
 				if My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
-					#My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
+					#My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Global_Card_Index)
 					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
-				else:
+				elif My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team != My_Team:
 					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
+					SignalManager.emit_signal("warning_message", msg)
+			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner) and (CollisionCheck.card_id_attack == -1):
+					#Se CollisionCheck.card_id_attack == -1, o player esta selecionando uma carta de defesa
+					var msg := "[center]VOCE NÃO PODE ADICIONAR TORRES AO ENEMY SPAWNER[/center]"
 					SignalManager.emit_signal("warning_message", msg)
 				
 				
@@ -160,12 +173,13 @@ func Handle_Mouse_Click():
 func Handle_Card_ID():
 	
 	#CollisionCheck.card_id_number é um ID Global. De 0 a 1, significa Torre, e de 1 a 2, significa tropa
+	
 	if CollisionCheck.card_id_number > 1:
 		My_Ray_Cast.Troop_Instance.set_mesh_from_tier(CollisionCheck.card_id_attack)
-		Tower_Selected_Index = CollisionCheck.card_id_attack
+		Global_Card_Index = CollisionCheck.card_id_attack
 	else:
 		My_Ray_Cast.Tower_Instance.Troca_Pra_Torre_Pelo_Indice(CollisionCheck.card_id_defense)
-		Tower_Selected_Index = CollisionCheck.card_id_defense
+		Global_Card_Index = CollisionCheck.card_id_defense
 	
 	
 @rpc("any_peer","call_local","reliable")
@@ -173,7 +187,7 @@ func Create_Tower_at_Clicked():
 	var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
 	get_tree().current_scene.add_child(Tower_Instance) 
 	
-	Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
+	Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Global_Card_Index)
 	
 	Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
 	

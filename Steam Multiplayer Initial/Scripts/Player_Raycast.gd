@@ -82,10 +82,10 @@ func Screen_Point_to_Ray() -> void:
 		#o check de hexagono tem que vir antes de tentar pegarmos o owner, 
 		#ou entao, ele vai crashar ao tentar selecionar uma tropa
 		if Ray_Hit_Owner is Hexagono:
-			if CollisionCheck.is_a_card_being_dragged and Ray_Hit_Owner.Placed_Tower == null:
-				
-				CollisionCheck.is_Tower_Showing_up = true
-				
+			#CollisionCheck.card_id_attack é -1 para cartas de defesa
+			#CollisionCheck.card_id_defense é -1 para cartas de ataque
+			if CollisionCheck.is_a_card_being_dragged and Ray_Hit_Owner.Placed_Tower == null and CollisionCheck.card_id_attack == -1:
+
 				#O indice e setado no Player Movement usando eventos
 				Tower_Instance.scale = INSTANCE_SCALE_VISIBLE
 				Tower_Instance.global_position = Ray_Hit.global_position
@@ -115,7 +115,7 @@ func Screen_Point_to_Ray() -> void:
 			#possui uma torre
 		
 		elif Ray_Hit_Owner is Enemy_Spawner:
-			Troop_Instance.set_mesh_from_tier(player.Tower_Selected_Index)
+			Troop_Instance.set_mesh_from_tier(player.Global_Card_Index)
 			
 			Troop_Instance.scale = INSTANCE_SCALE_VISIBLE
 			Troop_Instance.global_position = Ray_Hit.global_position

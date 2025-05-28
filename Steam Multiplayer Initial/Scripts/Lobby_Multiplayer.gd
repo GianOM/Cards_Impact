@@ -35,12 +35,7 @@ var Steam_Lobby_ID:int
 
 var Steam_Peer: SteamMultiplayerPeer
 
-var player_name = "The Warrior"
 
-
-
-func _ready() -> void:
-	pass
 	
 func _process(delta: float) -> void:
 	Steam.run_callbacks()
@@ -63,7 +58,6 @@ func Local_Signals_Init():
 
 
 func Create_Multiplayer_Game():
-	
 	#Cria um novo Peer e seta ele como servidor
 	var Basic_Peer = ENetMultiplayerPeer.new()
 	
@@ -149,8 +143,7 @@ func initialize_steam() -> void:
 	else:
 		Steam_ID = Steam.getSteamID()
 		Steam_UserName = Steam.getPersonaName()
-		print(Steam_ID)
-		print_rich("[color=red]%s[/color]" % Steam_UserName)
+		print_rich("[color=red]Username: %s of Steam ID: %s[/color]" % [Steam_UserName, Steam_ID])
 		
 		
 	Steam.lobby_created.connect(_on_steam_lobby_created.bind())
@@ -165,13 +158,15 @@ func _player_Steam_connected(id):
 	# Registration of a client beings here, tell the connected player that we are here.
 	register_Steam_player.rpc_id(id, Steam_UserName)
 	
-@rpc("any_peer","reliable")
+@rpc("any_peer","reliable","call_local")
 func register_Steam_player(My_Steam_Username):
 	var id = multiplayer.get_remote_sender_id()
 	
 	List_of_Players[id] = Player_Basic_Info#Captura informacoes basicas sobre o Host
 	
 	List_of_Players[id].name = My_Steam_Username#Atualiza o nome do host para ser o seu ID, neste caso 1
+	
+	player_connected.emit(id, Player_Basic_Info)
 	
 	print(List_of_Players)
 	
@@ -192,6 +187,9 @@ func _on_steam_lobby_created(connected, id):
 			#Rgistra o Player manualmente no List of Players, ja que nao e possivel chamar a funcao
 			List_of_Players[multiplayer.get_unique_id()] = Player_Basic_Info#Captura informacoes basicas sobre o Host
 			List_of_Players[multiplayer.get_unique_id()].name = Steam_UserName#Atualiza o nome do host para ser o seu ID, neste caso 1
+			
+			player_connected.emit(1, Player_Basic_Info)
+			
 			
 			print("List of Players: ")
 			print(List_of_Players)
