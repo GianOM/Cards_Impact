@@ -15,25 +15,36 @@ func _on_public_multiplayer_clicked():
 	$CanvasLayer/Title.hide()
 	$"Public Multiplayer".show()
 	LobbyMultiplayer.initialize_steam()
+	Steam.lobby_match_list.connect(_on_lobby_match_list)
 
 func _on_public_multiplayer_host_clicked():
 	Hide_All_Menus()
 	print("Voce agora esta hosteando um servido da Staem")
+	LobbyMultiplayer.create_Steam_Lobby()
 	
 	
 func _on_public_multiplayer_join_clicked():
-	Hide_All_Menus()
-	
-	Steam.lobby_match_list.connect(_on_lobby_match_list)
-	LobbyMultiplayer.Steam_get_lobby_list()
+	print("Clickou em Join")
 	
 
 func _on_lobby_match_list(lobbies: Array):
 	for lobby in lobbies:
 		var lobby_name: String = Steam.getLobbyData(lobby, "name")
 		if lobby_name != "":
-			print(lobby_name)
+			create_lobby_button(lobby_name)
+			
+func refresh_lobby_list():
+	for lobby in $"Public Multiplayer/Panel/ScrollContainer/VBoxContainer".get_children():
+		lobby.queue_free()
+	LobbyMultiplayer.Steam_get_lobby_list()
 	
+
+func create_lobby_button(Lobby_Name: String):
+	var Novo_Botao = Button.new()
+	Novo_Botao.set_text(Lobby_Name)
+	$"Public Multiplayer/Panel/ScrollContainer/VBoxContainer".add_child(Novo_Botao)
+
+
 
 func _on_local_multiplayer_clicked():
 	Hide_All_Menus()
@@ -47,14 +58,6 @@ func _on_local_multiplayer_join():
 	Hide_All_Menus()
 	LobbyMultiplayer.Join_Multiplayer_Game()
 	print("Conecting...")
-
-
-func refresh_lobby_list():
-	for lobby in $"Public Multiplayer/ScrollContainer/VBoxContainer".get_children():
-		lobby.queue_free()
-	LobbyMultiplayer.Steam_get_lobby_list()
-
-
 
 func _on_back_to_Start_menu_clicked():
 	Hide_All_Menus()

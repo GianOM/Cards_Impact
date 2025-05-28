@@ -6,6 +6,8 @@ enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 
 @export_group("Card Attributes")
 @export var id_number: int
+@export var id_attack: int
+@export var id_defend: int
 @export var id: String
 @export var type: Type
 @export var target: Target

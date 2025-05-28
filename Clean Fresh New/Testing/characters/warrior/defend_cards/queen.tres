@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("2_c2wwf")
 id_number = 1
+id_attack = -1
+id_defend = 1
 id = "queen"
 type = 1
 target = 1

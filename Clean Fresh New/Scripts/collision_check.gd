@@ -11,7 +11,8 @@ var tower_was_placed := false
 var card_id_number: int
 #var card_id_number_refund: int
 
-
+var card_id_attack: int
+var card_id_defense: int
 
 
 var number_of_towers_placed: int = 0

@@ -171,32 +171,15 @@ func initialize_steam() -> void:
 	Steam_Peer = SteamMultiplayerPeer.new()
 	
 	
-	#peer.create_lobby(SteamMultiplayerPeer.LO)
-	
-	
-	#Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 2)
-	#
-	##Steam.setLobbyData(Steam_ID, "max_players", str(2))
-	#Steam.setLobbyData(Steam_ID, "has_password", "1")
-	#Steam.setLobbyData(Steam_ID, "password", str(123))
-	#
-	#Steam.setLobbyMemberLimit(Steam_ID, 2)
-	#
-	#Steam.setLobbyJoinable(Steam_ID, true)
-	
-	
 	
 	
 func create_Steam_Lobby():
 	var lobby_type = LOBBY_TYPES.PUBLIC
 	
-	#Steam_Peer.create_lobby(lobby_type)
-	
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC,2)
 	
 	multiplayer.multiplayer_peer = Steam_Peer
 	
-	#_on_Steam_Lobby_created.emit()
 	
 	
 func _on_Steam_Lobby_created(connected, id):

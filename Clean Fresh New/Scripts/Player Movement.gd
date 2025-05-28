@@ -22,9 +22,11 @@ var Camera_Zoom_Speed :float = 800
 var Clamped_Zoom:float = 0
 
 # --- Constantes de Cenário ---
+
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
 const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Tier_1_PAWN.tscn")
 
+#TODO: Trocar o nome da variavel para algo que faca mais sentido
 @export var Tower_Selected_Index:int = 0
 var Individual_Troop_Selected_Index:int = 0
 
@@ -148,7 +150,7 @@ func Handle_Mouse_Click():
 				#Troop_Spawner_Team e uma variavel do Enemy Spawner que é setada pelo PATH no ready
 				if My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
 					#My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", Tower_Selected_Index)
-					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(Tower_Selected_Index)
+					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
 				else:
 					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
 					SignalManager.emit_signal("warning_message", msg)
@@ -156,9 +158,15 @@ func Handle_Mouse_Click():
 				
 
 func Handle_Card_ID():
-	Tower_Selected_Index = CollisionCheck.card_id_number
-	My_Ray_Cast.Tower_Instance.Troca_Pra_Torre_Pelo_Indice(Tower_Selected_Index)
-	My_Ray_Cast.Troop_Instance.set_mesh_from_tier(Tower_Selected_Index)
+	
+	#CollisionCheck.card_id_number é um ID Global. De 0 a 1, significa Torre, e de 1 a 2, significa tropa
+	if CollisionCheck.card_id_number > 1:
+		My_Ray_Cast.Troop_Instance.set_mesh_from_tier(CollisionCheck.card_id_attack)
+		Tower_Selected_Index = CollisionCheck.card_id_attack
+	else:
+		My_Ray_Cast.Tower_Instance.Troca_Pra_Torre_Pelo_Indice(CollisionCheck.card_id_defense)
+		Tower_Selected_Index = CollisionCheck.card_id_defense
+	
 	
 @rpc("any_peer","call_local","reliable")
 func Create_Tower_at_Clicked():

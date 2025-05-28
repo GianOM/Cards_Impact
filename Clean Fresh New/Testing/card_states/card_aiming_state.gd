@@ -11,6 +11,9 @@ func enter() -> void:
 	#-------------------------------------------------------------------------v
 	CollisionCheck.is_a_card_being_dragged = true
 	CollisionCheck.card_id_number = card_ui.card.id_number
+	
+	CollisionCheck.card_id_attack = card_ui.card.id_attack
+	CollisionCheck.card_id_defense = card_ui.card.id_defend
 	#-------------------------------------------------------------------------^
 	Events.card_aim_started.emit(card_ui)
 

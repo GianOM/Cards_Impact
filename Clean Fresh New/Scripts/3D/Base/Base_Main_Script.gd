@@ -15,6 +15,8 @@ var Base_Possible_Targets:Array[Moving_Units]
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
+@export var Base_Projetile_Damage: float = 10.0
+
 
 @rpc("any_peer","call_local","reliable")
 func Take_Damage(Amount:float):
@@ -38,7 +40,7 @@ func _on_base_buller_spawner_timer_timeout() -> void:
 			temp_projectile.global_position = base_projectile_origin_marker_3d.global_position
 			
 			#Func nao existe mais
-			temp_projectile.seleciona_mesh_pelo_indice(1)
+			temp_projectile.Inicializa_Projetil(1, Base_Projetile_Damage)
 			
 			for Base_Target in Base_Possible_Targets:
 				if Base_Target != null:
