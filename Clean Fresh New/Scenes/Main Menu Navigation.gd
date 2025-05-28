@@ -2,6 +2,7 @@ extends Control
 
 
 
+signal on_steam_lobby_created
 
 
 func _on_multiplayer_selected():
@@ -21,6 +22,7 @@ func _on_public_multiplayer_host_clicked():
 	Hide_All_Menus()
 	print("Voce agora esta hosteando um servido da Staem")
 	LobbyMultiplayer.create_Steam_Lobby()
+	on_steam_lobby_created.emit()
 	
 	
 func _on_public_multiplayer_join_clicked():

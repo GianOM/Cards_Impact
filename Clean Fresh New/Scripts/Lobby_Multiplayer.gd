@@ -74,7 +74,7 @@ func _ready() -> void:
 	
 	#Steam Setup
 	
-	Steam.lobby_created.connect(_on_Steam_Lobby_created.bind())
+	#Steam.lobby_created.connect(_on_Steam_Lobby_created.bind())
 	
 	
 func _process(delta: float) -> void:
@@ -167,46 +167,44 @@ func initialize_steam() -> void:
 		print_rich("[color=red]%s[/color]" % Steam_UserName)
 		
 		
-		
+	Steam.lobby_created.connect(_on_steam_lobby_created.bind())
+	
 	Steam_Peer = SteamMultiplayerPeer.new()
 	
 	
 	
 	
+func _on_steam_lobby_created(connected, id):
+		if connected:
+			var Steam_Lobby_ID = id
+			
+			Steam.setLobbyData(Steam_Lobby_ID, "name", "ODEIO QUILLER")
+			Steam.setLobbyJoinable(Steam_Lobby_ID, true)
+			
+			print("FOI !!!")
+			
+			_create_host()
+			
+			
+func _create_host():
+	var error = Steam_Peer.create_host(0)
+	if error == OK:
+		multiplayer.multiplayer_peer = Steam_Peer
+		if not OS.has_feature("dedicated_server"):
+			#_New_Player_Connected(1)
+			print("CONECTADO COM SUCESSO")
+	else:
+		print(error)
+		
 func create_Steam_Lobby():
-	var lobby_type = LOBBY_TYPES.PUBLIC
 	
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC,2)
 	
-	multiplayer.multiplayer_peer = Steam_Peer
 	
-	
-	
-func _on_Steam_Lobby_created(connected, id):
-	if connected:
-		Steam_Lobby_ID = id
-		
-		# Set basic lobby data
-		#update_lobby_name()  # Set initial name with player count
-		#Steam.setLobbyData(steam_lobby_id, "max_players", str(host_max_players.value))
-		#
-		## Set password protection status
-		#if host_password_protected.button_pressed:
-			#Steam.setLobbyData(steam_lobby_id, "has_password", "1")
-			#Steam.setLobbyData(steam_lobby_id, "password", host_password_input.text)
-		#else:
-			#Steam.setLobbyData(steam_lobby_id, "has_password", "0")
-		#
-		## Set member limit
-		#Steam.setLobbyMemberLimit(steam_lobby_id, host_max_players.value)
-		#
-		## Make the lobby joinable
-		#Steam.setLobbyJoinable(steam_lobby_id, true)
-		#
-		#print(steam_lobby_id, " Running")
 
 
-func Refresh_Lobby_List() -> void:
+func _on_lobby_joined() -> void:
+	print("New Player In")
 	pass
 	
 func Steam_get_lobby_list() -> void:
