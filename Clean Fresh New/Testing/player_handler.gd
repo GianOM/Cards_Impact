@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
+	
 	start_turn()
 
 func start_turn() -> void:
@@ -25,13 +26,12 @@ func start_turn() -> void:
 	else:
 		character.draw_pile = character.attack_deck.duplicate(true)
 		switch = false
+	character.draw_pile.shuffle()
+	character.discard = CardPile.new()
 	character.block = 0
 	character.update_gaslight_tokens()
 	character.update_gatekeep_tokens()
 	character.reset_mana()
-	
-	character.draw_pile.shuffle()
-	character.discard = CardPile.new()
 	draw_cards(character.cards_per_turn)
 
 func reroll() -> void:

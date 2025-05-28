@@ -221,8 +221,10 @@ func _on_Steam_Lobby_created(connected, id):
 		#Steam.setLobbyJoinable(steam_lobby_id, true)
 		#
 		#print(steam_lobby_id, " Running")
-	
-	
+
+
+func Refresh_Lobby_List() -> void:
+	pass
 	
 func Steam_get_lobby_list() -> void:
 	#LOBBY_DISTANCE_FILTER_CLOSE = 0

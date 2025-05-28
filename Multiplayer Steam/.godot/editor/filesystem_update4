@@ -1,7 +1,0 @@
-res://Scenes/main_menu.tscn
-res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
-res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
-res://Assets/3D Assets/Floors/Ground.tres
-res://Scripts/main_2d.gd
-res://Testing/main_theme.tres
-res://Testing/player_handler.gd

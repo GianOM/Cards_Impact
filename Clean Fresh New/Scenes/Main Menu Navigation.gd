@@ -48,10 +48,17 @@ func _on_local_multiplayer_join():
 	LobbyMultiplayer.Join_Multiplayer_Game()
 	print("Conecting...")
 
+
+func refresh_lobby_list():
+	for lobby in $"Public Multiplayer/ScrollContainer/VBoxContainer".get_children():
+		lobby.queue_free()
+	LobbyMultiplayer.Steam_get_lobby_list()
+
+
+
 func _on_back_to_Start_menu_clicked():
 	Hide_All_Menus()
 	$"Single Or Multiplayer".show()
-	
 	
 	
 func Hide_All_Menus():
