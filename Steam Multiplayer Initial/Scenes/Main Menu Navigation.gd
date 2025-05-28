@@ -20,7 +20,7 @@ func _on_public_multiplayer_clicked():
 
 func _on_public_multiplayer_host_clicked():
 	Hide_All_Menus()
-	print("Voce agora esta hosteando um servido da Staem")
+	print("Started to create a Lobby")
 	LobbyMultiplayer.create_Steam_Lobby()
 	on_steam_lobby_created.emit()
 	
@@ -45,12 +45,26 @@ func create_lobby_button(Lobby_Name: String):
 	var Novo_Botao = Button.new()
 	Novo_Botao.set_text(Lobby_Name)
 	$"Public Multiplayer/Panel/ScrollContainer/VBoxContainer".add_child(Novo_Botao)
+	
+	Novo_Botao.connect("pressed", Callable(self, "join_lobby").bind(Lobby_Name))
+
+func join_lobby(lobby_id = 0):
+	print("Joining lobby %s" % lobby_id)
+	LobbyMultiplayer.join_game(lobby_id)
+
+
+
+
+
+
+
 
 
 
 func _on_local_multiplayer_clicked():
 	Hide_All_Menus()
 	$"Local Multiplayer".show()
+	LobbyMultiplayer.Local_Signals_Init()
 
 func _on_local_multiplayer_host():
 	Hide_All_Menus()
@@ -60,6 +74,14 @@ func _on_local_multiplayer_join():
 	Hide_All_Menus()
 	LobbyMultiplayer.Join_Multiplayer_Game()
 	print("Conecting...")
+	
+	
+	
+	
+	
+	
+	
+	
 
 func _on_back_to_Start_menu_clicked():
 	Hide_All_Menus()
