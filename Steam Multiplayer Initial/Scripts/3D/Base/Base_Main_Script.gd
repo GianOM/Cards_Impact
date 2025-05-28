@@ -8,10 +8,7 @@ var Base_Possible_Targets:Array[Moving_Units]
 
 @onready var progress_bar: Control = $SubViewport/ProgressBar
 
-
-@onready var base_node_3d: Node3D = $"."
 @onready var base_projectile_origin_marker_3d: Marker3D = $Base_Projectile_Origin_Marker3D
-
 
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
@@ -29,7 +26,7 @@ func Take_Damage(Amount:float):
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
 		#Seta o alvo da tropa, para que assim a tropa possa acessa - lo e dar dano
-		body.Base_Target = base_node_3d
+		body.Base_Target = self
 		Base_Possible_Targets.append(body)
 
 

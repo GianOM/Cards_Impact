@@ -220,7 +220,10 @@ func create_Steam_Lobby():
 	
 	
 func join_game(lobby_id = 0):
+	Steam_Peer = SteamMultiplayerPeer.new()
 	Steam.lobby_joined.connect(_on_lobby_joined.bind())
+	#print("Connecting Player %s" % Steam_UserName)
+	print("Entering lobby_id %d of %s" % [lobby_id, Steam_UserName])
 	Steam.joinLobby(int(lobby_id))
 	
 	
@@ -266,5 +269,5 @@ func Steam_get_lobby_list() -> void:
 	#LOBBY_DISTANCE_FILTER_FAR = 2
 	#LOBBY_DISTANCE_FILTER_WORLDWIDE = 3
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_FAR)
-	#Steam.addRequestLobbyListStringFilter("name", "CImpact", Steam.LOBBY_COMPARISON_EQUAL)
+	Steam.addRequestLobbyListStringFilter("name", "CImpact", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()

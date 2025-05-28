@@ -33,7 +33,7 @@ func _on_lobby_match_list(lobbies: Array):
 	for lobby in lobbies:
 		var lobby_name: String = Steam.getLobbyData(lobby, "name")
 		if lobby_name != "":
-			create_lobby_button(lobby_name)
+			create_lobby_button(lobby_name,lobby)
 			
 func refresh_lobby_list():
 	for lobby in $"Public Multiplayer/Panel/ScrollContainer/VBoxContainer".get_children():
@@ -41,12 +41,12 @@ func refresh_lobby_list():
 	LobbyMultiplayer.Steam_get_lobby_list()
 	
 
-func create_lobby_button(Lobby_Name: String):
+func create_lobby_button(Lobby_Name: String, Lobby_ID: int):
 	var Novo_Botao = Button.new()
 	Novo_Botao.set_text(Lobby_Name)
 	$"Public Multiplayer/Panel/ScrollContainer/VBoxContainer".add_child(Novo_Botao)
 	
-	Novo_Botao.connect("pressed", Callable(self, "join_lobby").bind(Lobby_Name))
+	Novo_Botao.connect("pressed", Callable(self, "join_lobby").bind(Lobby_ID))
 
 func join_lobby(lobby_id = 0):
 	print("Joining lobby %s" % lobby_id)
