@@ -1,4 +1,4 @@
-res://Scenes/main_menu.tscn
+res://Scenes/3D/Projectile/Projectile Spawner.tscn
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
 res://Assets/3D Assets/Floors/Ground.tres
@@ -6,12 +6,10 @@ res://Scripts/main_2d.gd
 res://Testing/characters/warrior/attack_cards/pawn.tres
 res://Testing/characters/warrior/attack_cards/bishop.tres
 res://Testing/main_theme.tres
-res://Scenes/Player Camera Scene.tscn
-res://Scenes/3D/Projectile/Projectile.tscn
-res://Scenes/3D/Base/Base_Main.tscn
+res://Scripts/3D/Projectiles/Projectile_Spawner_Main_Script.gd
 res://Scenes/3D/Towers/Towers.tscn
-res://Scripts/Player Movement.gd
-res://Scripts/Player_Raycast.gd
-res://Scripts/collision_check.gd
+res://Scripts/3D/Tower/Tower_Script.gd
+res://Scenes/main_menu.tscn
 res://Scripts/Lobby_Multiplayer.gd
-res://Scenes/Main Menu Navigation.gd
+res://Scenes/3D/Base/Base_Main.tscn
+res://Scripts/3D/Base/Base_Main_Script.gd

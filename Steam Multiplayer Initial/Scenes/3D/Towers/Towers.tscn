@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://d0g1t2f3o3mb4"]
+[gd_scene load_steps=16 format=4 uid="uid://d0g1t2f3o3mb4"]
 
 [ext_resource type="Script" uid="uid://cwp7f8fsjx0ws" path="res://Scripts/3D/Tower/Tower_Script.gd" id="2_8kg0s"]
 [ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Resources/Towers/Towers_Resource_Database.gd" id="3_rqto1"]
 [ext_resource type="Resource" uid="uid://blye43s0crlo7" path="res://Scripts/3D/Tower/Data/Tier_1_Rook.tres" id="4_uhd5e"]
 [ext_resource type="Resource" uid="uid://dxtc8cjh8ve5a" path="res://Scripts/3D/Tower/Data/Tier_2_Queen.tres" id="5_3s87q"]
+[ext_resource type="PackedScene" uid="uid://bh1mokr2xb2ga" path="res://Scenes/3D/Projectile/Projectile Spawner.tscn" id="5_rqto1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4q1c"]
 
@@ -140,16 +141,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.274634, 0)
 shape = SubResource("SphereShape3D_ihhw0")
 debug_fill = false
 
+[node name="Tower_Projectiles_Container" type="Node3D" parent="."]
+
 [node name="Bullet Spawner" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="Projectile Generation Point" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0569, 0)
-gizmo_extents = 5.0
-
-[node name="Tower_Projectiles_Container" type="Node3D" parent="."]
+[node name="Projectile Generation Point" parent="." instance=ExtResource("5_rqto1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.44151, 0)
 
 [connection signal="body_entered" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_entered"]
 [connection signal="body_exited" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_exited"]

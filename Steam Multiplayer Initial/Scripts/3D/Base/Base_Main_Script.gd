@@ -14,12 +14,24 @@ const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 @export var Base_Projetile_Damage: float = 10.0
 
+@onready var projectile_generation_point: Projectile_Generator = $"Projectile Generation Point"
+
+
+
+func _ready() -> void:
+	#Por enquanto estamos inicialiando manualmente o projetil
+	projectile_generation_point.Tower_Index = 1
+	projectile_generation_point.Tower_Damage = 20.0
+
+
 
 @rpc("any_peer","call_local","reliable")
 func Take_Damage(Amount:float):
 	Base_Health_Points -= Amount
 	#O codigo abaixo atualiza a UI de Vida
 	progress_bar.get_node("Base_Progress_Bar").Update_Base_Health(Base_Health_Points)
+
+
 
 
 
@@ -32,18 +44,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_base_buller_spawner_timer_timeout() -> void:
 	if Base_Possible_Targets.size() > 0:
-			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
-			$"Base Projectile Container".add_child(temp_projectile)
-			temp_projectile.global_position = base_projectile_origin_marker_3d.global_position
+			projectile_generation_point.Spawn_a_Prjectile(Base_Possible_Targets)
 			
-			#Func nao existe mais
-			temp_projectile.Inicializa_Projetil(1, Base_Projetile_Damage)
-			
-			for Base_Target in Base_Possible_Targets:
-				if Base_Target != null:
-					temp_projectile.set_projectile_target(Base_Target)
-					break
-			
-			temp_projectile.is_Projectile_Flying = true
 			
 			Base_Possible_Targets = Base_Possible_Targets.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
+			
+	if projectile_generation_point.List_of_Projectiles.size() > 16:
+		projectile_generation_point.Clean_Up_Projectile_Array()

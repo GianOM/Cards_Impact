@@ -16,19 +16,24 @@ var is_Tower_Place_on_Grid : bool = false
 @onready var tower_aim: MeshInstance3D = $Main_Tower/Tower_Aim
 @onready var collision_shape_3d: CollisionShape3D = $Enemy_Detection_3D/CollisionShape3D
 @onready var tower_range: MeshInstance3D = $Main_Tower/Tower_Range
-@onready var projectile_generation_point: Marker3D = $"Projectile Generation Point"
 
 @onready var bullet_spawner: Timer = $"Bullet Spawner"
 
 var Tower_Projectiles:Array[Projetil]
 
-const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
+@onready var projectile_generation_point: Projectile_Generator = $"Projectile Generation Point"
+
 
 @export var Tower_Database: Array[Tower_Data] = []
+
+#
+#func _ready() -> void:
+	#
 
 
 func Troca_Pra_Torre_Pelo_Indice(idx:int):
 	Tower_Index = idx #Usada para acessar e setar a malha do projetil
+	projectile_generation_point.Tower_Index = idx
 	
 	var Tower_Data_Resource: Tower_Data = Tower_Database[idx]
 	
@@ -41,6 +46,7 @@ func Troca_Pra_Torre_Pelo_Indice(idx:int):
 	My_Gatekeep_Token_Cost = Tower_Data_Resource.Gatekeep_Token_Cost
 	
 	Tower_Damage = Tower_Data_Resource.Tower_Damage
+	projectile_generation_point.Tower_Damage = Tower_Damage#A inicializacao do projetil esta dentro deste objeto
 	
 	$Enemy_Detection_3D/CollisionShape3D.shape.set_radius(Tower_Data_Resource.Tower_Range)#O COLLISION SHAPE É O REAL RAIO DA TORRE
 	#O TOWER_RANGE É O VISUALIZADOR DO RANGE
@@ -49,7 +55,6 @@ func Troca_Pra_Torre_Pelo_Indice(idx:int):
 								0.1*Tower_Data_Resource.Tower_Range)
 	
 	$"Bullet Spawner".set_wait_time(Tower_Data_Resource.Tower_Attack_Cooldown)
-	
 	#main_tower.Inicializa_Torre(idx)
 	
 func Zerar_o_Tower_Range():
@@ -77,9 +82,8 @@ func _process(delta: float) -> void:
 	else:
 		tower_aim.global_position = main_tower.global_position
 	
-	if Tower_Projectiles.size() > 32:
-		Tower_Projectiles = Tower_Projectiles.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
-
+	if projectile_generation_point.List_of_Projectiles.size() > 32:
+		projectile_generation_point.Clean_Up_Projectile_Array()
 
 func _on_enemy_detection_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
@@ -91,15 +95,4 @@ func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 
 func _on_bullet_spawner_timeout() -> void:
 	if Possible_Targets.size() > 0 and is_Tower_Place_on_Grid == true:
-			var temp_projectile : Projetil = PROJECTILE.instantiate()#Precisamos desta varial...PQ???
-			$Tower_Projectiles_Container.add_child(temp_projectile)
-			temp_projectile.global_position = projectile_generation_point.global_position
-			temp_projectile.Inicializa_Projetil(Tower_Index, Tower_Damage)
-			
-			for Target in (Possible_Targets):
-				if Target != null:
-					temp_projectile.set_projectile_target(Target)
-					break
-			
-			temp_projectile.is_Projectile_Flying = true
-			Tower_Projectiles.append(temp_projectile)
+		projectile_generation_point.Spawn_a_Prjectile(Possible_Targets)

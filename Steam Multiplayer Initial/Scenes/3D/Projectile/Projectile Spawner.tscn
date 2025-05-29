@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh1mokr2xb2ga"]
+
+[ext_resource type="Script" uid="uid://cbie5ssxmoiay" path="res://Scripts/3D/Projectiles/Projectile_Spawner_Main_Script.gd" id="1_ttheh"]
+
+[node name="Projectile Generation Point" type="Marker3D"]
+gizmo_extents = 5.0
+script = ExtResource("1_ttheh")

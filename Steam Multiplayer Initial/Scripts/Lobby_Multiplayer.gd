@@ -38,7 +38,7 @@ var Steam_Peer: SteamMultiplayerPeer
 
 
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Steam.run_callbacks()
 
 
@@ -174,6 +174,8 @@ func register_Steam_player(My_Steam_Username):
 	var id: int = multiplayer.get_remote_sender_id()
 	
 	List_of_Players[id] = {"name": My_Steam_Username,"is_Player_Ready": false}
+	
+	print(List_of_Players)
 	
 	
 	

@@ -1,3 +1,5 @@
+res://Scripts/3D/Projectiles
+res://Scenes/3D/Projectile
 res://Scenes
 res://Testing/custom_resources
 res://Assets/2D Assets
@@ -18,8 +20,6 @@ res://Scripts/3D/Base
 res://Scenes/3D/Base
 C:/KILLER VERS
 res://Scripts/3D/Tower
-res://Scripts/3D/Path
-res://Assets/3D Assets/Base
 C:/Rotten Crops v0.25
 C:/Cards_Impact_2.0
 C:/Concursos

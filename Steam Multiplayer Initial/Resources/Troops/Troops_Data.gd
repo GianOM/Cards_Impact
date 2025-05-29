@@ -7,3 +7,4 @@ extends Resource
 @export var Tier: int#Variavel de 0 a 1
 
 @export_file("*.tscn") var troop_scene_path: String
+	

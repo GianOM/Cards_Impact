@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://bl0uplexdc73f"]
+[gd_scene load_steps=15 format=4 uid="uid://bl0uplexdc73f"]
 
 [ext_resource type="Script" uid="uid://c0p3disnp2dc0" path="res://Scripts/3D/Base/Base_Main_Script.gd" id="1_n1hws"]
+[ext_resource type="PackedScene" uid="uid://bh1mokr2xb2ga" path="res://Scenes/3D/Projectile/Projectile Spawner.tscn" id="2_bu04a"]
 [ext_resource type="Texture2D" uid="uid://do6bhqw1asaw0" path="res://Assets/3D Assets/Base/Base 2_Nexus_Base Material_BaseColor.png" id="2_n1hws"]
 [ext_resource type="PackedScene" uid="uid://ch2cvtaxikhcm" path="res://Scenes/3D/Base/Base_Healthbar.tscn" id="3_bb8rx"]
 
@@ -101,9 +102,8 @@ properties/0/replication_mode = 1
 [node name="Base_Node3D" type="Node3D"]
 script = ExtResource("1_n1hws")
 
-[node name="Base_Projectile_Origin_Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00325352, 18.5554, 0)
-gizmo_extents = 10.0
+[node name="Projectile Generation Point" parent="." instance=ExtResource("2_bu04a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.57877, 4.08583, 0)
 
 [node name="Base_Buller_Spawner_Timer" type="Timer" parent="."]
 wait_time = 0.5
