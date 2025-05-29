@@ -5,6 +5,9 @@ signal player_disconnected(peer_id)
 signal server_disconnected
 
 
+signal player_list_changed()
+
+
 #LobbyMultiplayer.List_of_Players RETORNA O ID
 #Exemplo de variavel LobbyMultiplayer.List_of_Players[n]:
 #for n in LobbyMultiplayer.List_of_Players:
@@ -30,8 +33,6 @@ signal on_steam_lobby_created
 
 var Steam_ID
 var Steam_UserName
-
-var Steam_Lobby_ID:int
 
 var Steam_Peer: SteamMultiplayerPeer
 
@@ -68,7 +69,7 @@ func Create_Multiplayer_Game():
 	
 	List_of_Players[1].name = 1#Atualiza o nome do host para ser o seu ID, neste caso 1
 	
-	player_connected.emit(1, Player_Basic_Info)
+	#player_connected.emit(1, Player_Basic_Info)
 	
 	
 	
@@ -89,13 +90,11 @@ func Join_Multiplayer_Game():
 func _New_Player_Connected(id):
 	print("Registrando Player %d na Database" % id)
 	_register_player.rpc_id(id, Player_Basic_Info)
-	print(List_of_Players)
-	
+		
 @rpc("any_peer","reliable")
 func _register_player(new_player_info):
 	var new_player_id = multiplayer.get_remote_sender_id()
 	List_of_Players[new_player_id] = new_player_info
-	player_connected.emit(new_player_id, new_player_info)
 	
 	print(List_of_Players)
 	
@@ -108,7 +107,7 @@ func _Player_Connected_Sucessfully():
 	var peer_id = multiplayer.get_unique_id()
 	List_of_Players[peer_id] = Player_Basic_Info
 	List_of_Players[peer_id].name = str(peer_id)#Atualiza o nome do novo peer para ser o seu ID
-	player_connected.emit(peer_id, Player_Basic_Info)
+	#player_connected.emit(peer_id, Player_Basic_Info)
 	
 func _Connection_Failed():
 	#Setar o player como null apaga ele
@@ -147,33 +146,39 @@ func initialize_steam() -> void:
 		
 		
 	Steam.lobby_created.connect(_on_steam_lobby_created.bind())
+	Steam.lobby_joined.connect(_on_lobby_joined.bind())
+	
 	
 	multiplayer.peer_connected.connect(self._player_Steam_connected)
+	#multiplayer.connected_to_server.connect(self._Player_Connected_Sucessfully_to_Steam_Server)
+
 	#multiplayer.peer_disconnected.connect(self._player_disconnected)
-	
 	
 	
 # Callback from SceneTree.
 func _player_Steam_connected(id):
+	#RECBE O ID DO HOST
+	
+	var new_ID = multiplayer.get_unique_id()
+	print("Me registrando como o ID:  %d" % new_ID)
+	List_of_Players[new_ID] = {"name": Steam_UserName,"is_Player_Ready": false}
+	
 	# Registration of a client beings here, tell the connected player that we are here.
 	register_Steam_player.rpc_id(id, Steam_UserName)
 	
-@rpc("any_peer","reliable","call_local")
+@rpc("any_peer","reliable")
 func register_Steam_player(My_Steam_Username):
-	var id = multiplayer.get_remote_sender_id()
 	
-	List_of_Players[id] = Player_Basic_Info#Captura informacoes basicas sobre o Host
+	print("Registrando o camarada de fora %d" % multiplayer.get_remote_sender_id())
 	
-	List_of_Players[id].name = My_Steam_Username#Atualiza o nome do host para ser o seu ID, neste caso 1
+	var id: int = multiplayer.get_remote_sender_id()
 	
-	player_connected.emit(id, Player_Basic_Info)
+	List_of_Players[id] = {"name": My_Steam_Username,"is_Player_Ready": false}
 	
-	print(List_of_Players)
 	
 	
 func _on_steam_lobby_created(connected, id):
 		if connected:
-			var Steam_Lobby_ID = id
 			
 			Steam.setLobbyData(id, "name", "CImpact")
 			#Steam.setLobbyData(id, "mode", "CoOP")
@@ -187,9 +192,6 @@ func _on_steam_lobby_created(connected, id):
 			#Rgistra o Player manualmente no List of Players, ja que nao e possivel chamar a funcao
 			List_of_Players[multiplayer.get_unique_id()] = Player_Basic_Info#Captura informacoes basicas sobre o Host
 			List_of_Players[multiplayer.get_unique_id()].name = Steam_UserName#Atualiza o nome do host para ser o seu ID, neste caso 1
-			
-			player_connected.emit(1, Player_Basic_Info)
-			
 			
 			print("List of Players: ")
 			print(List_of_Players)
@@ -219,15 +221,15 @@ func create_Steam_Lobby():
 	
 func join_game(lobby_id = 0):
 	Steam_Peer = SteamMultiplayerPeer.new()
-	Steam.lobby_joined.connect(_on_lobby_joined.bind())
-	#print("Connecting Player %s" % Steam_UserName)
-	print("Entering lobby_id %d of %s" % [lobby_id, Steam_UserName])
+	#Me registro antes de entrar em um lobby
+	
+	print("Entering lobby_id %d" % lobby_id)
 	Steam.joinLobby(int(lobby_id))
 	
 	
-func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int) -> void:
 	
-	print("New Player Entering")
+	
+func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int) -> void:
 	
 	if response == 1:
 		var id = Steam.getLobbyOwner(lobby)
@@ -235,22 +237,22 @@ func _on_lobby_joined(lobby: int, permissions: int, locked: bool, response: int)
 			print("Connecting client to socket...")
 			connect_socket(id)
 			
-		else:
+	else:
 		# Get the failure reason
-			var FAIL_REASON: String
-			match response:
-				2:  FAIL_REASON = "This lobby no longer exists."
-				3:  FAIL_REASON = "You don't have permission to join this lobby."
-				4:  FAIL_REASON = "The lobby is now full."
-				5:  FAIL_REASON = "Uh... something unexpected happened!"
-				6:  FAIL_REASON = "You are banned from this lobby."
-				7:  FAIL_REASON = "You cannot join due to having a limited account."
-				8:  FAIL_REASON = "This lobby is locked or disabled."
-				9:  FAIL_REASON = "This lobby is community locked."
-				10: FAIL_REASON = "A user in the lobby has blocked you from joining."
-				11: FAIL_REASON = "A user you have blocked is in the lobby."
+		var FAIL_REASON: String
+		match response:
+			2:  FAIL_REASON = "This lobby no longer exists."
+			3:  FAIL_REASON = "You don't have permission to join this lobby."
+			4:  FAIL_REASON = "The lobby is now full."
+			5:  FAIL_REASON = "Uh... something unexpected happened!"
+			6:  FAIL_REASON = "You are banned from this lobby."
+			7:  FAIL_REASON = "You cannot join due to having a limited account."
+			8:  FAIL_REASON = "This lobby is locked or disabled."
+			9:  FAIL_REASON = "This lobby is community locked."
+			10: FAIL_REASON = "A user in the lobby has blocked you from joining."
+			11: FAIL_REASON = "A user you have blocked is in the lobby."
 			
-	print("Resposta do servidor %d" % response)
+		print("Resposta do servidor %d" % response)
 			
 func connect_socket(steam_id: int):
 	var error = Steam_Peer.create_client(steam_id, 0)
