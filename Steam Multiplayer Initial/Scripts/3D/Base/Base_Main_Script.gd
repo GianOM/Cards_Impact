@@ -8,8 +8,6 @@ var Base_Possible_Targets:Array[Moving_Units]
 
 @onready var progress_bar: Control = $SubViewport/ProgressBar
 
-@onready var base_projectile_origin_marker_3d: Marker3D = $Base_Projectile_Origin_Marker3D
-
 const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 @export var Base_Projetile_Damage: float = 10.0

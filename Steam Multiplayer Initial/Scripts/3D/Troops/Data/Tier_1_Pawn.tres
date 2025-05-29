@@ -6,7 +6,7 @@
 script = ExtResource("1_37vim")
 Vida = 10.0
 Velocidade = 0.05
-Dano = 100.0
+Dano = 35.0
 Tier = 0
 troop_scene_path = "uid://ch2e12hp8ft2q"
 metadata/_custom_type_script = "uid://b0k3qbvnojn27"

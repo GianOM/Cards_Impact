@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cynaphj5tfkt8"]
+[gd_scene load_steps=6 format=3 uid="uid://cynaphj5tfkt8"]
 
 [ext_resource type="Script" uid="uid://b8yq8oyeptc1b" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://dmjnnny14vhwg" path="res://Scenes/Main Menu Navigation.gd" id="2_n45e2"]
+[ext_resource type="Script" uid="uid://xpjeycpbdum3" path="res://Scenes/Timer_Update.gd" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://k45of7rggveu" path="res://Assets/2D Assets/UIs/Timer_Icon.png" id="3_ce3w2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1ehe0"]
+properties/0/path = NodePath("Label:Total_Timer_in_Seconds")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_1ehe0")
@@ -289,6 +296,47 @@ offset_right = 286.0
 offset_bottom = -19.0
 text = "Back to Start Menu"
 
+[node name="Timer" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Timer"]
+
+[node name="Container" type="Container" parent="Timer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -73.0
+offset_top = 9.0
+offset_right = -52.0
+offset_bottom = 33.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Timer/CanvasLayer/Container"]
+position = Vector2(2.155, 0)
+scale = Vector2(0.0882353, 0.0882353)
+texture = ExtResource("3_ce3w2")
+centered = false
+
+[node name="Label" type="Label" parent="Timer/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.91
+offset_top = 7.015
+offset_right = -6.91003
+offset_bottom = 36.015
+grow_horizontal = 0
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_1ehe0")
+
+[node name="One Second Timer" type="Timer" parent="Timer/CanvasLayer"]
+autostart = true
+ignore_time_scale = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Timer/CanvasLayer"]
+replication_config = SubResource("SceneReplicationConfig_1ehe0")
+
 [connection signal="pressed" from="Control/CanvasLayer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/Single Or Multiplayer/VBoxContainer/Multiplayer Button" to="Control" method="_on_multiplayer_selected"]
@@ -300,3 +348,4 @@ text = "Back to Start Menu"
 [connection signal="pressed" from="Control/Public Multiplayer/VBoxContainer/Join Multiplayer Steam Buton" to="Control" method="_on_public_multiplayer_join_clicked"]
 [connection signal="pressed" from="Control/Public Multiplayer/Refresh Lobby List" to="Control" method="refresh_lobby_list"]
 [connection signal="pressed" from="Control/Back to Start Menu/Back to Start Menu Button" to="Control" method="_on_back_to_Start_menu_clicked"]
+[connection signal="timeout" from="Timer/CanvasLayer/One Second Timer" to="Timer/CanvasLayer/Label" method="One_Second_Timer_Timeout"]

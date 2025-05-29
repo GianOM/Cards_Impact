@@ -8,7 +8,7 @@ const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
 const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Troops Database/Hovering Troop.tscn")
 
 
-const INSTANCE_SCALE_HIDDEN = Vector3(0.01, 0.01, 0.01)
+const INSTANCE_SCALE_HIDDEN = Vector3(0.0002, 0.0002, 0.0002)
 const INSTANCE_SCALE_VISIBLE = Vector3(1.0, 1.0, 1.0)
 const RAYCAST_DISTANCE = 8192.0
 
