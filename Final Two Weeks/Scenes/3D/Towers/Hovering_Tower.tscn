@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cogx68ckggtti"]
+
+[ext_resource type="PackedScene" uid="uid://dkf8ovpmdkks6" path="res://Scenes/3D/Towers/Towers Database/Tier_1_Tower_Rook.tscn" id="1_hs18w"]
+[ext_resource type="PackedScene" uid="uid://rjped6nfx0uw" path="res://Scenes/3D/Towers/Towers Database/Tier_2_Tower_Queen.tscn" id="2_qd3no"]
+[ext_resource type="PackedScene" uid="uid://nommvgr1hal" path="res://Scenes/3D/Towers/Towers Database/Tier_1_Jenga.tscn" id="3_80ucx"]
+[ext_resource type="PackedScene" uid="uid://ek6p4emw0488" path="res://Scenes/3D/Towers/Towers Database/Tier_3_Appartment.tscn" id="4_p1vfw"]
+[ext_resource type="PackedScene" uid="uid://cmfqxcmrtvtkh" path="res://Scenes/3D/Towers/Towers Database/Tier_2_Santorino.tscn" id="5_m8m3b"]
+[ext_resource type="PackedScene" uid="uid://bvdujqwgqk6xd" path="res://Scenes/3D/Towers/Towers Database/Tier_3_Bunker.tscn" id="6_jdhit"]
+[ext_resource type="Script" uid="uid://gwqs6ujx3p12" path="res://Scripts/3D/Tower/Hovering_Tower.gd" id="7_qd3no"]
+
+[node name="HoveringTower" type="Node3D"]
+script = ExtResource("7_qd3no")
+
+[node name="Index_0" type="Node3D" parent="."]
+
+[node name="Rook Tower" parent="Index_0" instance=ExtResource("1_hs18w")]
+
+[node name="Index_1" type="Node3D" parent="."]
+
+[node name="Tower_Tier_2" parent="Index_1" instance=ExtResource("2_qd3no")]
+
+[node name="Index_2" type="Node3D" parent="."]
+
+[node name="Jenga" parent="Index_2" instance=ExtResource("3_80ucx")]
+
+[node name="Index_3" type="Node3D" parent="."]
+
+[node name="Banco Imobiliario" parent="Index_3" instance=ExtResource("4_p1vfw")]
+
+[node name="Index_4" type="Node3D" parent="."]
+
+[node name="Santorini" parent="Index_4" instance=ExtResource("5_m8m3b")]
+
+[node name="Index_5" type="Node3D" parent="."]
+
+[node name="Bunker" parent="Index_5" instance=ExtResource("6_jdhit")]
+script = ExtResource("7_qd3no")

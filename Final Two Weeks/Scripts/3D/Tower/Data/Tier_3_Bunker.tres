@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Tower_Data" load_steps=2 format=3 uid="uid://bt728uh4g6bqe"]
+
+[ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Resources/Towers/Towers_Resource_Database.gd" id="1_a14be"]
+
+[resource]
+script = ExtResource("1_a14be")
+Tower_Name = "Bunker"
+Tower_Range = 40.0
+Tower_Damage = 25.0
+Tower_Index = 5
+Tower_Attack_Cooldown = 0.2
+Gaslight_Token_Cost = 0
+Gatekeep_Token_Cost = 0
+Tower_scene_path = "uid://bvdujqwgqk6xd"
+metadata/_custom_type_script = "uid://b1evb28lgpqnb"

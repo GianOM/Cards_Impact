@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bjui3wcqxaao2"]
+
+[ext_resource type="Texture2D" uid="uid://d1y7wy8fce3y8" path="res://Assets/2D Assets/queen.png" id="1_wnmtv"]
+[ext_resource type="Script" uid="uid://dpjqv3ipgth4d" path="res://Testing/characters/warrior/defend_cards/queen.gd" id="2_c2wwf"]
+
+[resource]
+script = ExtResource("2_c2wwf")
+id_number = 1
+id_attack = -1
+id_defend = 1
+id = "queen"
+type = 1
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 3
+gatekeep_cost = 10
+icon = ExtResource("1_wnmtv")
+tooltip_text = "[center]Somewhat [color=\"0044ff\"]decent [/color]tower.[/center]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

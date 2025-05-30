@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://co71lrr3pkls5"]
+
+[ext_resource type="Texture2D" uid="uid://cgycjjvns54xf" path="res://Assets/2D Assets/apartment.png" id="1_2on7x"]
+[ext_resource type="Script" uid="uid://bann0jm6pnq63" path="res://Testing/characters/warrior/defend_cards/rook.gd" id="2_kcnoe"]
+
+[resource]
+script = ExtResource("2_kcnoe")
+id_number = 9
+id_attack = -1
+id_defend = 3
+id = "apartment"
+type = 1
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 9
+gatekeep_cost = 1
+icon = ExtResource("1_2on7x")
+tooltip_text = "[center]Piece of [color=\"ff0000\"]shit [/color]tower.[/center]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

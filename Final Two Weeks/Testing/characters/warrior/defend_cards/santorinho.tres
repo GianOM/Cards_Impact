@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dpmkbjghrloi0"]
+
+[ext_resource type="Texture2D" uid="uid://jg20w80mxxvw" path="res://Assets/2D Assets/santorinho.png" id="1_hi61n"]
+[ext_resource type="Script" uid="uid://bann0jm6pnq63" path="res://Testing/characters/warrior/defend_cards/rook.gd" id="2_vfht5"]
+
+[resource]
+script = ExtResource("2_vfht5")
+id_number = 10
+id_attack = -1
+id_defend = 4
+id = "santorinho"
+type = 1
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 9
+gatekeep_cost = 1
+icon = ExtResource("1_hi61n")
+tooltip_text = "[center]Piece of [color=\"ff0000\"]shit [/color]tower.[/center]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cluogl642arjk"]
+
+[ext_resource type="Texture2D" uid="uid://dqvt5r4pcms3w" path="res://Assets/2D Assets/bishop.png" id="1_mfa2h"]
+[ext_resource type="Script" uid="uid://dpjqv3ipgth4d" path="res://Testing/characters/warrior/defend_cards/queen.gd" id="2_rw3in"]
+
+[resource]
+script = ExtResource("2_rw3in")
+id_number = 3
+id_attack = 1
+id_defend = -1
+id = "bishop"
+type = 0
+unit_amount = 5
+target = 1
+cost = 0
+gaslight_cost = 7
+gatekeep_cost = 5
+icon = ExtResource("1_mfa2h")
+tooltip_text = "[center]Uhhhhhhh [color=\"734599\"]meh [/color]unit.[/center]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

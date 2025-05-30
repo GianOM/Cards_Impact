@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Moving_Units_Data" load_steps=2 format=3 uid="uid://cpxl8c4qv07fv"]
+
+[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Resources/Troops/Troops_Data.gd" id="1_qbbsr"]
+
+[resource]
+script = ExtResource("1_qbbsr")
+Vida = 40.0
+Velocidade = 0.2
+Dano = 100.0
+Tier = 2
+troop_scene_path = "uid://da5wqm4h8m0pi"
+metadata/_custom_type_script = "uid://b0k3qbvnojn27"
