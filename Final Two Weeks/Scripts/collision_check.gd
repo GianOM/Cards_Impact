@@ -8,7 +8,7 @@ var is_a_card_being_dragged: bool = false
 var tower_was_placed := false
 var troop_was_placed := false
 
-
+var number_of_units: int
 var card_id_number: int
 #var card_id_number_refund: int
 var turn_number: int
@@ -21,6 +21,11 @@ var number_of_towers_placed: int = 0
 var tower_placed = false
 
 var I_AM_READY := false
+
+#Variavel Global usada para saber se estamos no momento de Freeze
+#Quando o Shop aparece
+var is_Shop_Time = false
+
 
 @rpc("any_peer", "call_local", "reliable")
 func troca_o_estado_do_botao() ->  void:

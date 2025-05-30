@@ -112,8 +112,9 @@ func Screen_Point_to_Ray() -> void:
 					remove_range_hovering = Ray_Hit_Owner
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
 			#possui uma torre
-		
-		elif Ray_Hit_Owner is Enemy_Spawner:
+			
+		#Garante que
+		elif Ray_Hit_Owner is Enemy_Spawner and  CollisionCheck.is_a_card_being_dragged:
 			Troop_Instance.set_mesh_from_tier(player.Global_Card_Index)
 			
 			Troop_Instance.scale = INSTANCE_SCALE_VISIBLE

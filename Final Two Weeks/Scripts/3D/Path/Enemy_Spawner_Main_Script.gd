@@ -6,15 +6,13 @@ extends MeshInstance3D
 
 var Troop_Spawner_Team: int
 
-
 	
 
 @rpc("any_peer","call_local","reliable")
 func Adcionar_Tropa_Ao_Enemy_Spawner(INDEX: int, Troop_Quantity:int):
-	#path_area_3d.Adcionar_Tropa_Ao_Enemy_Spawner(INDEX)
-	if CollisionCheck.I_AM_READY == false:
+	if CollisionCheck.is_Shop_Time == false:
 		for i in range(Troop_Quantity):
 			path_area_3d.rpc("Adcionar_Tropa_Ao_Enemy_Spawner",INDEX)
-	elif CollisionCheck.I_AM_READY == true:
-		var msg := "[center]Voce nao pode colocar tropas apos a fase de preparacao[/center]"
+	elif CollisionCheck.is_Shop_Time == true:
+		var msg := "[center]Voce nao pode colocar tropas durante o periodo de compras[/center]"
 		SignalManager.emit_signal("warning_message", msg)

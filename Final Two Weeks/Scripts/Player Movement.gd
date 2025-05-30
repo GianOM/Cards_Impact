@@ -21,6 +21,11 @@ var Camera_Rotation_Speed :float = 50
 var Camera_Zoom_Speed :float = 800
 var Clamped_Zoom:float = 0
 
+
+# --- Camera Snapping ----
+const TEAM_HOST_BASE_POSITION: Vector3 = Vector3(1,0,40)
+const TEAM_CLIENT_BASE_POSITION: Vector3 = Vector3(1,0,-40)
+
 # --- Constantes de Cenário ---
 
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Towers.tscn")
@@ -90,6 +95,15 @@ func Handle_Camera_Movement(delta: float) -> void:
 	#Atualiza a Posicao do Node3D Player
 	position += velocity*delta
 	
+	#Snap Cameras to player or enemy base
+	if Input.is_action_pressed("1_Key"):
+		position = TEAM_HOST_BASE_POSITION
+		#const TEAM_HOST_BASE: Vector3 = Vector3(1,0,40)
+		#const TEAM_CLIENT_BASE: Vector3 = Vector3(1,0,40)
+	elif Input.is_action_pressed("2_Key"):
+		position = TEAM_CLIENT_BASE_POSITION
+		
+	
 func Handle_Camera_Rotation(delta: float) -> void:
 	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
 	var Input_Sprint = Input.is_action_pressed("Shift_Key")
@@ -109,15 +123,15 @@ func Handle_Camera_Zoom(delta:float) -> void:
 	var zoom_direction = (int(Input.is_action_just_released("Scroll_Down"))
 						- int(Input.is_action_just_released("Scroll_Up")) )
 						
-	#Clamped_Zoom limita o Zoom de um valor acumulado -5 ate +3
+	#Clamped_Zoom limita o Zoom de um valor acumulado -5 ate +45
 	var zoom_amount = Camera_Zoom_Speed * zoom_direction * delta
-	var new_zoom = clamp(Clamped_Zoom + zoom_amount, -5.0, 45.0)
+	var new_zoom = clamp(Clamped_Zoom + zoom_amount, -5, 40)
 	zoom_amount = new_zoom - Clamped_Zoom
 	Clamped_Zoom = new_zoom
 
 	camera_3d.translate_object_local(Vector3(0, 0, zoom_amount))
 		
-	camera_3d.rotation.x = clamp(camera_3d.rotation.x - zoom_direction * 0.01, -1.25, -1.01)#Rotaciona a camera pra cima e para baixo um pouco quando da zoom
+	camera_3d.rotation.x = clamp(camera_3d.rotation.x - zoom_direction * 0.02, -1.35, -0.68)#Rotaciona a camera pra cima e para baixo um pouco quando da zoom
 	
 func Handle_Mouse_Click():
 	if Input.is_action_just_released("left_mouse_click"):
@@ -158,7 +172,7 @@ func Handle_Mouse_Click():
 				#Troop_Spawner_Team e uma variavel do Enemy Spawner que é setada pelo PATH no ready
 				if My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
 					#O segundo parametro da funcao abaixo indica o numero de tropas a serem adicionadas ao Enemy Spawner
-					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack, 5 )
+					My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack, CollisionCheck.number_of_units)
 					CollisionCheck.troop_was_placed = true
 				elif My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team != My_Team:
 					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
@@ -171,7 +185,6 @@ func Handle_Mouse_Click():
 				
 
 func Handle_Card_ID():
-	
 	#CollisionCheck.card_id_number é um ID Global. De 0 a 1, significa Torre, e de 1 a 2, significa tropa
 	
 	#CollisionCheck.card_id_attack é -1 para cartas de defesa
@@ -193,7 +206,7 @@ func Create_Tower_at_Clicked():
 	var Tower_Instance = TOWERS_SCENE.instantiate() as Node3D
 	get_tree().current_scene.add_child(Tower_Instance) 
 	
-		#----KILLER WAS HERE------
+	#----KILLER WAS HERE------
 	Tower_Instance.turn_in_which_tower_was_placed = CollisionCheck.turn_number
 	#-
 	
@@ -202,20 +215,15 @@ func Create_Tower_at_Clicked():
 	Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
 	
 	Tower_Instance.Zerar_o_Tower_Range()#Zera o indicador visual do range da torre
-	Tower_Instance.is_Tower_Place_on_Grid = true#Usada para evitar que a hovered tower de dano
-	
+		
 	My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower = Tower_Instance#Cria uma referencia a torre
 	
+	#Troca o Material pra a Hex Cell ficar verde
 	My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
 	
 @rpc("any_peer","call_local","reliable")
 func Delete_Tower_at_Clicked():
 	#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
-	
-	#Acessa O preco do Gaslight e do gateKeep
-	#print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gaslight_Token_Cost)
-	#print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.My_Gatekeep_Token_Cost)
-	
 	
 	#TODO: CRASHA QUANDO CLICKA NO VAZIO
 		#------KILLER WAS HERE-------------------------
@@ -223,7 +231,6 @@ func Delete_Tower_at_Clicked():
 		var msg := "[center]Cannot refund towers placed on previous turns[/center]"
 		SignalManager.emit_signal("warning_message", msg)
 		return
-	#print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.turn_in_which_tower_was_placed)
 	#------------------
 	
 	CollisionCheck.refund_card.emit(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index)

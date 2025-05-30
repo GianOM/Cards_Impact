@@ -10,9 +10,6 @@ var Possible_Targets:Array[Moving_Units]
 var My_Gaslight_Token_Cost:int
 var My_Gatekeep_Token_Cost:int
 
-var is_Tower_Place_on_Grid : bool = false
-
-
 #----KILLER WAS HERE-----
 var turn_in_which_tower_was_placed: int
 
@@ -20,8 +17,6 @@ var turn_in_which_tower_was_placed: int
 @onready var tower_aim: MeshInstance3D = $Main_Tower/Tower_Aim
 @onready var collision_shape_3d: CollisionShape3D = $Enemy_Detection_3D/CollisionShape3D
 @onready var tower_range: MeshInstance3D = $Main_Tower/Tower_Range
-
-@onready var bullet_spawner: Timer = $"Bullet Spawner"
 
 var Tower_Projectiles:Array[Projetil]
 
@@ -61,7 +56,7 @@ func Inicializa_Torre_Pelo_Indice(idx:int):
 								0.1*Tower_Data_Resource.Tower_Range,
 								0.1*Tower_Data_Resource.Tower_Range)
 	
-	$"Bullet Spawner".set_wait_time(Tower_Data_Resource.Tower_Attack_Cooldown)
+	projectile_generation_point.set_cooldown_timer(Tower_Data_Resource.Tower_Attack_Cooldown)
 	
 func Zerar_o_Tower_Range():
 		tower_range.scale = Vector3(0.01,
@@ -78,6 +73,8 @@ func Show_Tower_Range_When_Hovered():
 
 func _process(delta: float) -> void:
 	if Possible_Targets.size() > 0:
+		projectile_generation_point.can_I_shoot = true
+		projectile_generation_point.Array_of_Targets = Possible_Targets
 		for n in range (Possible_Targets.size()):
 				if Possible_Targets[n] != null:
 					tower_aim.global_position = Possible_Targets[n].global_position
@@ -86,6 +83,7 @@ func _process(delta: float) -> void:
 		tower_aim.global_position.y += 3
 
 	else:
+		projectile_generation_point.can_I_shoot = false
 		tower_aim.global_position = main_tower.global_position
 	
 	if projectile_generation_point.List_of_Projectiles.size() > 32:
@@ -99,6 +97,6 @@ func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 	if body is Moving_Units:
 		Possible_Targets.remove_at(0)
 
-func _on_bullet_spawner_timeout() -> void:
-	if Possible_Targets.size() > 0 and is_Tower_Place_on_Grid == true:
-		projectile_generation_point.Spawn_a_Prjectile(Possible_Targets)
+#func _on_bullet_spawner_timeout() -> void:
+	#if Possible_Targets.size() > 0 and is_Tower_Place_on_Grid == true:
+		#projectile_generation_point.Spawn_a_Prjectile(Possible_Targets)

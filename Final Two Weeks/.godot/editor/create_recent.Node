@@ -1,9 +1,10 @@
+Marker3D
+Timer
 Node3D
 Container
 Sprite2D
 MultiplayerSynchronizer
 CanvasLayer
-Timer
 Label
 Node2D
 Control
@@ -11,4 +12,3 @@ Button
 VBoxContainer
 ScrollContainer
 Panel
-RichTextLabel

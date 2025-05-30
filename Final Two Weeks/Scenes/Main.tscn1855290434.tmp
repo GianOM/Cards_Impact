@@ -119,7 +119,7 @@ Path_Team = 1
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 1.7521, 88.2388)
 
 [node name="Team_0_Camera_Snap_Position" type="Marker3D" parent="Player Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862461, 0, 39.812)
 gizmo_extents = 10.0
 
 [node name="Enemy Base" type="Node" parent="."]

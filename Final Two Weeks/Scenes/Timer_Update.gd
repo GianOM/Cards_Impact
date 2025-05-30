@@ -5,7 +5,11 @@ extends Label
 
 @export var Total_Timer_in_Seconds: int = 0
 
-
+func Reset_my_Timer():
+	Total_Timer_in_Seconds = 0
+	one_second_timer.start()#Resets the Timer
+	
+	
 func One_Second_Timer_Timeout():
 	Total_Timer_in_Seconds += 1
 	

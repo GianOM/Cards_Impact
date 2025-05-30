@@ -5,3 +5,10 @@
 [node name="Projectile Generation Point" type="Marker3D"]
 gizmo_extents = 5.0
 script = ExtResource("1_ttheh")
+
+[node name="Projectile_Spawn_Cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Projectile_Spawn_Cooldown" to="." method="_on_projectile_spawn_cooldown_timeout"]

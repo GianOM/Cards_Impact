@@ -20,6 +20,7 @@ func _ready() -> void:
 	#Por enquanto estamos inicialiando manualmente o projetil
 	projectile_generation_point.Tower_Index = 1
 	projectile_generation_point.Tower_Damage = 20.0
+	projectile_generation_point.set_cooldown_timer(0.5)
 
 
 
@@ -42,10 +43,15 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_base_buller_spawner_timer_timeout() -> void:
 	if Base_Possible_Targets.size() > 0:
-			projectile_generation_point.Spawn_a_Prjectile(Base_Possible_Targets)
+			projectile_generation_point.Array_of_Targets = Base_Possible_Targets
+			projectile_generation_point.can_I_shoot = true
 			
 			
 			Base_Possible_Targets = Base_Possible_Targets.filter(func(p): return p != null)#Limpa um array, removendo toda e qualquer elemento que seja null
-			
+	else:
+		projectile_generation_point.can_I_shoot = false
+		
+		
+	
 	if projectile_generation_point.List_of_Projectiles.size() > 16:
 		projectile_generation_point.Clean_Up_Projectile_Array()

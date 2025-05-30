@@ -147,14 +147,8 @@ debug_fill = false
 
 [node name="Tower_Projectiles_Container" type="Node3D" parent="."]
 
-[node name="Bullet Spawner" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.5
-autostart = true
-
 [node name="Projectile Generation Point" parent="." instance=ExtResource("5_rqto1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.44151, 0)
 
 [connection signal="body_entered" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_entered"]
 [connection signal="body_exited" from="Enemy_Detection_3D" to="." method="_on_enemy_detection_3d_body_exited"]
-[connection signal="timeout" from="Bullet Spawner" to="." method="_on_bullet_spawner_timeout"]

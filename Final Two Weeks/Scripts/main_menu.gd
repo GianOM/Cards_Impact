@@ -22,7 +22,7 @@ func _on_play_pressed() -> void:
 	Hide_Main_Menu.rpc()#Chama a funcao no modo RPC para garantir que todos os clientes escondam o menu
 	#Hide_Main_Menu()
 	change_level_to_play.call_deferred()
-	#SceneSwitcher.switch_scene("res://Scenes/Main.tscn")
+	$Timer/CanvasLayer/Label.Reset_my_Timer()
 	
 @rpc("authority","call_local","reliable")
 func Hide_Main_Menu():

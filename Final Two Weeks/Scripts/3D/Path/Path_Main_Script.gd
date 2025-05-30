@@ -40,7 +40,7 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente 
 func _on_spawn_timer_cooldown_timeout() -> void:
 	#ReadyButton.I_AM_READY é uma variavel global que indica que o player esta ready
 	#print(ReadyButton.I_AM_READY)
-	if Number_of_Troops_to_Spawn > 0 and is_everyone_ready():
+	if Number_of_Troops_to_Spawn > 0 and CollisionCheck.is_Shop_Time == false:
 		$Path3D.add_child(Lista_de_Tropas[-Number_of_Troops_to_Spawn])
 		Lista_de_Tropas.remove_at(0)#Removemos o elemento do Array para evitar acessos incorretos
 		
