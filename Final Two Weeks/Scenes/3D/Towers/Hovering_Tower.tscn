@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cogx68ckggtti"]
+[gd_scene load_steps=9 format=3 uid="uid://cogx68ckggtti"]
 
 [ext_resource type="PackedScene" uid="uid://dkf8ovpmdkks6" path="res://Scenes/3D/Towers/Towers Database/Tier_1_Tower_Rook.tscn" id="1_hs18w"]
 [ext_resource type="PackedScene" uid="uid://rjped6nfx0uw" path="res://Scenes/3D/Towers/Towers Database/Tier_2_Tower_Queen.tscn" id="2_qd3no"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmfqxcmrtvtkh" path="res://Scenes/3D/Towers/Towers Database/Tier_2_Santorino.tscn" id="5_m8m3b"]
 [ext_resource type="PackedScene" uid="uid://bvdujqwgqk6xd" path="res://Scenes/3D/Towers/Towers Database/Tier_3_Bunker.tscn" id="6_jdhit"]
 [ext_resource type="Script" uid="uid://gwqs6ujx3p12" path="res://Scripts/3D/Tower/Hovering_Tower.gd" id="7_qd3no"]
+[ext_resource type="PackedScene" uid="uid://bg8eca8wp46hl" path="res://Scenes/3D/Towers/Towers Database/Money_Tower_Tier_1.tscn" id="8_80ucx"]
 
 [node name="HoveringTower" type="Node3D"]
 script = ExtResource("7_qd3no")
@@ -35,3 +36,7 @@ script = ExtResource("7_qd3no")
 
 [node name="Bunker" parent="Index_5" instance=ExtResource("6_jdhit")]
 script = ExtResource("7_qd3no")
+
+[node name="Index_6" type="Node3D" parent="."]
+
+[node name="Money Tower" parent="Index_6" instance=ExtResource("8_80ucx")]

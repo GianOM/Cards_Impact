@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_37vim")
-Vida = 10.0
+Vida = 20.0
 Velocidade = 0.05
 Dano = 35.0
 Tier = 0

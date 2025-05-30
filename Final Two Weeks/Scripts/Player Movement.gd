@@ -199,6 +199,10 @@ func Handle_Card_ID():
 			#Caso contrario,
 			My_Ray_Cast.Tower_Instance.set_mesh_from_tier(CollisionCheck.card_id_defense)
 			Global_Card_Index = CollisionCheck.card_id_defense
+			
+			#CODIGO ABAIXO PARA DEBUGGAR
+			#My_Ray_Cast.Tower_Instance.set_mesh_from_tier(6)
+			#Global_Card_Index = 6
 	
 	
 @rpc("any_peer","call_local","reliable")

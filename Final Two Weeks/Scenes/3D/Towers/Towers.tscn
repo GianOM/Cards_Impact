@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d0g1t2f3o3mb4"]
+[gd_scene load_steps=21 format=4 uid="uid://d0g1t2f3o3mb4"]
 
 [ext_resource type="Script" uid="uid://cwp7f8fsjx0ws" path="res://Scripts/3D/Tower/Tower_Script.gd" id="2_8kg0s"]
 [ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Resources/Towers/Towers_Resource_Database.gd" id="3_rqto1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cjf46youa6eme" path="res://Scripts/3D/Tower/Data/Tier_3_Appartment.tres" id="6_xhv0o"]
 [ext_resource type="Resource" uid="uid://dfwq8udigsjx5" path="res://Scripts/3D/Tower/Data/Tier_2_Santorino.tres" id="7_mf8pr"]
 [ext_resource type="Resource" uid="uid://bt728uh4g6bqe" path="res://Scripts/3D/Tower/Data/Tier_3_Bunker.tres" id="8_yvedt"]
+[ext_resource type="Resource" uid="uid://dg5532fxf55u4" path="res://Scripts/3D/Tower/Data/Money_Tower_Tier_1.tres" id="9_xhv0o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4q1c"]
 
@@ -120,7 +121,7 @@ radius = 10.0
 
 [node name="Tower Example" type="Node3D"]
 script = ExtResource("2_8kg0s")
-Tower_Database = Array[ExtResource("3_rqto1")]([ExtResource("4_uhd5e"), ExtResource("5_3s87q"), ExtResource("5_2mku1"), ExtResource("6_xhv0o"), ExtResource("7_mf8pr"), ExtResource("8_yvedt")])
+Tower_Database = Array[ExtResource("3_rqto1")]([ExtResource("4_uhd5e"), ExtResource("5_3s87q"), ExtResource("5_2mku1"), ExtResource("6_xhv0o"), ExtResource("7_mf8pr"), ExtResource("8_yvedt"), ExtResource("9_xhv0o")])
 
 [node name="Main_Tower" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ollxf")

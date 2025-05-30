@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_qbbsr")
-Vida = 40.0
+Vida = 35.0
 Velocidade = 0.2
 Dano = 100.0
 Tier = 2

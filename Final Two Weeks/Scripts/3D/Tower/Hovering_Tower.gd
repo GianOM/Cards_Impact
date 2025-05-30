@@ -1,6 +1,7 @@
 extends Node3D
 
 
+#TODO: THIS IS A DUMB WAY OF DOING THIS. FIND A BETTER ONE
 func set_mesh_from_tier(index: int):
 	#Como fazer um Switch/Case padrao
 	match index:
@@ -24,7 +25,9 @@ func set_mesh_from_tier(index: int):
 		5:
 			Hide_All_Meshes()
 			$Index_5.show()
-			
+		6:
+			Hide_All_Meshes()
+			$Index_6.show()
 			
 func Hide_All_Meshes():
 	$Index_0.hide()
@@ -33,4 +36,4 @@ func Hide_All_Meshes():
 	$Index_3.hide()
 	$Index_4.hide()
 	$Index_5.hide()
-	
+	$Index_6.hide()

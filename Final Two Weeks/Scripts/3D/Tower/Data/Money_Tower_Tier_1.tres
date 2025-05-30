@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Tower_Data" load_steps=2 format=3 uid="uid://dg5532fxf55u4"]
+
+[ext_resource type="Script" uid="uid://b1evb28lgpqnb" path="res://Resources/Towers/Towers_Resource_Database.gd" id="1_e6hu1"]
+
+[resource]
+script = ExtResource("1_e6hu1")
+Tower_Name = "The Bank"
+Tower_Range = 0.01
+Tower_Damage = 0.01
+Tower_Index = 6
+Tower_Attack_Cooldown = 20.0
+Gaslight_Token_Cost = 0
+Gatekeep_Token_Cost = 0
+Tower_scene_path = "uid://bg8eca8wp46hl"
+metadata/_custom_type_script = "uid://b1evb28lgpqnb"
