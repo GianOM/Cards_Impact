@@ -1,0 +1,15 @@
+res://Scenes/3D/Projectile/Projectile Spawner.tscn
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Testing/characters/warrior/attack_cards/pawn.tres
+res://Testing/characters/warrior/attack_cards/bishop.tres
+res://Testing/main_theme.tres
+res://Scenes/main_menu.tscn
+res://Scenes/3D/Base/Base_Main.tscn
+res://Scenes/Player Camera Scene.tscn
+res://Scenes/Main.tscn
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Scenes/3D/Paths/Enemy_spawner.tscn
+res://Scenes/3D/Paths/Enemy_Spawner_Counter.tscn
+res://Testing/testing_main.tscn
