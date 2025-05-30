@@ -19,6 +19,7 @@ func _ready() -> void:
 	ready_button.pressed.connect(_on_ready_button_pressed)
 	Events.hide_ui_requested.connect(_hide_ui)
 	Events.show_ui_requested.connect(_show_ui)
+	Events.disable_reroll_button_requested.connect(_disable_reroll_button)
 	#turn_number = 1
 
 func _hide_ui() -> void:
@@ -56,3 +57,7 @@ func _on_ready_button_pressed() -> void:
 		ready_button.text = "READY"
 	else:
 		ready_button.text = "UNREADY"
+		
+		
+func _disable_reroll_button() -> void:
+	reroll_button.disabled = true

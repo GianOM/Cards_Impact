@@ -1,0 +1,4 @@
+res://Scenes/3D/Paths/Enemy_spawner.tscn
+res://Testing/global/events.gd
+res://Testing/card_ui.gd
+res://Testing/battle_ui.gd

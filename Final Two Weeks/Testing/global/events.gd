@@ -2,6 +2,8 @@ extends Node
 
 #Card stuff
 @warning_ignore("unused_signal")
+signal disable_reroll_button_requested
+@warning_ignore("unused_signal")
 signal card_drag_started(card_ui: CardUI)
 @warning_ignore("unused_signal")
 signal card_drag_ended(card_ui: CardUI)

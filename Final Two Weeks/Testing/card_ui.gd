@@ -4,6 +4,7 @@ extends Control
 @warning_ignore("unused_signal")
 signal reparent_requested(which_card_ui: CardUI)
 
+
 const BASE_STYLEBOX := preload("res://Testing/card_base_stylebox.tres")
 const DRAG_STYLEBOX := preload("res://Testing/card_dragging_stylebox.tres")
 const HOVER_STYLEBOX := preload("res://Testing/card_hover_stylebox.tres")
@@ -45,10 +46,13 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween.tween_property(self, "global_position", new_position, duration)
 
 func play() -> void:
+	
 	if not card:
 		return
 	#card.deployed_past_turn = true
+	Events.disable_reroll_button_requested.emit()
 	card.play(targets, char_stats)
+	
 	queue_free()
 
 func _on_gui_input(event: InputEvent) -> void:
