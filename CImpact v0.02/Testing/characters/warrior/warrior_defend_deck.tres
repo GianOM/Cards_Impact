@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=10 format=3 uid="uid://iuyw5w4jqdor"]
+
+[ext_resource type="Script" uid="uid://boah0y84tqxap" path="res://Testing/custom_resources/card.gd" id="1_be553"]
+[ext_resource type="Resource" uid="uid://wjg2wxy385od" path="res://Testing/characters/warrior/defend_cards/rook.tres" id="2_b0fla"]
+[ext_resource type="Script" uid="uid://bdr0jx61ll6e3" path="res://Testing/custom_resources/card_pile.gd" id="2_nu6fr"]
+[ext_resource type="Resource" uid="uid://bjui3wcqxaao2" path="res://Testing/characters/warrior/defend_cards/queen.tres" id="3_00vpf"]
+[ext_resource type="Resource" uid="uid://co71lrr3pkls5" path="res://Testing/characters/warrior/defend_cards/apartment.tres" id="4_7j4le"]
+[ext_resource type="Resource" uid="uid://bds77g5rkrx6q" path="res://Testing/characters/warrior/defend_cards/bunker.tres" id="5_bc1us"]
+[ext_resource type="Resource" uid="uid://dtwx2wtl77ie6" path="res://Testing/characters/warrior/defend_cards/jenga.tres" id="6_hfony"]
+[ext_resource type="Resource" uid="uid://dpmkbjghrloi0" path="res://Testing/characters/warrior/defend_cards/santorini.tres" id="7_bc1us"]
+[ext_resource type="Resource" uid="uid://luhxih1udc7t" path="res://Testing/characters/warrior/defend_cards/money_tower.tres" id="8_hfony"]
+
+[resource]
+script = ExtResource("2_nu6fr")
+cards = Array[ExtResource("1_be553")]([ExtResource("2_b0fla"), ExtResource("2_b0fla"), ExtResource("2_b0fla"), ExtResource("3_00vpf"), ExtResource("3_00vpf"), ExtResource("3_00vpf"), ExtResource("4_7j4le"), ExtResource("4_7j4le"), ExtResource("4_7j4le"), ExtResource("5_bc1us"), ExtResource("5_bc1us"), ExtResource("5_bc1us"), ExtResource("6_hfony"), ExtResource("6_hfony"), ExtResource("6_hfony"), ExtResource("7_bc1us"), ExtResource("7_bc1us"), ExtResource("7_bc1us"), ExtResource("8_hfony"), ExtResource("8_hfony")])
+metadata/_custom_type_script = "uid://bdr0jx61ll6e3"
