@@ -1,25 +1,2 @@
-res://Testing/testing_main.tscn
-res://Testing/characters/warrior/attack_cards/pawn.tres
-res://Testing/characters/warrior/attack_cards/bishop.tres
-res://Testing/characters/warrior/attack_cards/car.tres
-res://Testing/characters/warrior/attack_cards/domino.tres
-res://Testing/characters/warrior/attack_cards/hat.tres
-res://Testing/characters/warrior/attack_cards/knight.tres
-res://Testing/characters/warrior/defend_cards/rook.tres
-res://Testing/characters/warrior/defend_cards/queen.tres
-res://Testing/characters/warrior/defend_cards/apartment.tres
-res://Testing/characters/warrior/defend_cards/bunker.tres
-res://Testing/characters/warrior/defend_cards/jenga.tres
-res://Testing/characters/warrior/defend_cards/santorini.tres
-res://Testing/characters/warrior/defend_cards/money_tower.tres
-res://Testing/characters/warrior/warrior_defend_deck.tres
-res://Testing/main_theme.tres
-res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
-res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
-res://Scripts/Player Movement.gd
-res://Scripts/Player_Raycast.gd
-res://Scenes/3D/Paths/Path_Example.tscn
-res://Scripts/3D/Path/Enemy_Spawner_Main_Script.gd
-res://Scripts/3D/Path/Path_Main_Script.gd
-res://Scenes/3D/Troops/Troops Database/Tier_3_Horse.tscn
-res://Scenes/3D/Troops/Troops Database/Hovering Troop.tscn
+res://Scenes/3D/Towers/Hovering_Tower.tscn
+res://Scenes/VSFFF.tres

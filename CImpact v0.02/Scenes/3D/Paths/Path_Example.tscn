@@ -1,14 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://pdsy54p1w64h"]
+[gd_scene load_steps=9 format=4 uid="uid://pdsy54p1w64h"]
 
 [ext_resource type="Script" uid="uid://ch6la6k5fwu8t" path="res://Scripts/3D/Path/Path_Main_Script.gd" id="1_aqeca"]
 [ext_resource type="PackedScene" uid="uid://b0tg6rqspritc" path="res://Scenes/3D/Paths/Enemy_spawner.tscn" id="2_aqeca"]
-[ext_resource type="Script" uid="uid://b0k3qbvnojn27" path="res://Resources/Troops/Troops_Data.gd" id="2_r7jhd"]
-[ext_resource type="Resource" uid="uid://6hqrx2mn30rl" path="res://Scripts/3D/Troops/Data/Tier_1_Pawn.tres" id="3_uw470"]
-[ext_resource type="Resource" uid="uid://d25t2gj41y63x" path="res://Scripts/3D/Troops/Data/Tier_2_Bishop.tres" id="4_ckm71"]
-[ext_resource type="Resource" uid="uid://cpxl8c4qv07fv" path="res://Scripts/3D/Troops/Data/Tier_3_Horse.tres" id="5_ckm71"]
-[ext_resource type="Resource" uid="uid://c4dhxs1kgapjw" path="res://Scripts/3D/Troops/Data/Tier_2_Domino.tres" id="5_uw470"]
-[ext_resource type="Resource" uid="uid://cqlkdlhrdh52e" path="res://Scripts/3D/Troops/Data/Tier_3_Car.tres" id="6_mda0a"]
-[ext_resource type="Resource" uid="uid://c4vt8ac6qhkxa" path="res://Scripts/3D/Troops/Data/Tier_1_Hat.tres" id="7_1hajb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_220m1"]
 albedo_color = Color(0.739714, 0.489012, 0.266262, 1)
@@ -61,7 +54,6 @@ point_count = 2
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_aqeca")
-troop_types = Array[ExtResource("2_r7jhd")]([ExtResource("3_uw470"), ExtResource("4_ckm71"), ExtResource("5_ckm71"), ExtResource("6_mda0a"), ExtResource("7_1hajb"), ExtResource("5_uw470")])
 
 [node name="Path_Example" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.4187)

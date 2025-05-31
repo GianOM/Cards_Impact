@@ -7,7 +7,9 @@ const TROOPS = preload("res://Scenes/3D/Troops/Troops.tscn")
 #Contador pra Debugar
 @onready var enemy_spawner_counter: Control = $"Enemy Spawner/SubViewport/EnemySpawnerCounter"
 #Ainda to Usando Isso aq. Como automatizar? O Array é preenchido
-@export var troop_types: Array[Moving_Units_Data] = []
+#TODO: INICIALIZAR A VARIAVEL ABAIXO
+
+var troop_types: Array[Moving_Units_Data] = []
 
 @onready var enemy_spawner: Enemy_Spawner = $"Enemy Spawner"
 
@@ -17,7 +19,23 @@ var Lista_de_Tropas: Array[PathFollow3D]#Array contendo todas as tropas a serem 
 
 func _ready() -> void:
 	enemy_spawner.Troop_Spawner_Team = Path_Team
+	Load_Moving_Units_Resource_from_Path("res://Scripts/3D/Troops/Data/")
 	
+func Load_Moving_Units_Resource_from_Path(path):
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				pass
+				#print("Found directory: " + file_name)
+			else:
+				var file_path = path.path_join(file_name)
+				var resource = load(file_path)
+				#print("Found file: " + file_name)
+				troop_types.append(resource)
+			file_name = dir.get_next()
 
 @rpc("any_peer","call_local","reliable")
 func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int, Number_of_Troops:int):#Quem chama esta funcao e somente o EnemySpawner

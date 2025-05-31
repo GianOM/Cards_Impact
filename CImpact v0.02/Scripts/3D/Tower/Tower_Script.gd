@@ -23,11 +23,30 @@ var Tower_Projectiles:Array[Projetil]
 @onready var projectile_generation_point: Projectile_Generator = $"Projectile Generation Point"
 
 
-@export var Tower_Database: Array[Tower_Data] = []
+var Tower_Database: Array[Tower_Data] = []
 
-#
-#func _ready() -> void:
-	#
+
+func _ready() -> void:
+	Load_Tower_Resource_Database("res://Scripts/3D/Tower/Data/")
+
+			
+
+func Load_Tower_Resource_Database(path:String):
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				#print("Found directory: " + file_name)
+				pass
+			else:
+				var file_path = path.path_join(file_name)
+				var resource = load(file_path)
+				#print("Found file: " + file_name)
+				Tower_Database.append(resource)
+			file_name = dir.get_next()
+	
 
 
 func Inicializa_Torre_Pelo_Indice(idx:int):
