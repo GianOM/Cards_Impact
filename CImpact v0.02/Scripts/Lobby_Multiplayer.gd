@@ -270,6 +270,6 @@ func Steam_get_lobby_list() -> void:
 	#LOBBY_DISTANCE_FILTER_DEFAULT = 1
 	#LOBBY_DISTANCE_FILTER_FAR = 2
 	#LOBBY_DISTANCE_FILTER_WORLDWIDE = 3
-	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_FAR)
+	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
 	Steam.addRequestLobbyListStringFilter("name", "CImpact", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()

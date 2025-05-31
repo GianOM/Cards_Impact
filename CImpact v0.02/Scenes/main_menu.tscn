@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cynaphj5tfkt8"]
+[gd_scene load_steps=7 format=3 uid="uid://cynaphj5tfkt8"]
 
 [ext_resource type="Script" uid="uid://b8yq8oyeptc1b" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://dmjnnny14vhwg" path="res://Scenes/Main Menu Navigation.gd" id="2_n45e2"]
 [ext_resource type="Script" uid="uid://xpjeycpbdum3" path="res://Scenes/Timer_Update.gd" id="3_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://k45of7rggveu" path="res://Assets/2D Assets/UIs/Timer_Icon.png" id="3_ce3w2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+bg_color = Color(0.35, 0.306367, 0.231, 0.431373)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1ehe0"]
 properties/0/path = NodePath("Label:Total_Timer_in_Seconds")
@@ -34,16 +41,16 @@ follow_viewport_enabled = true
 
 [node name="Title" type="Label" parent="Control/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.28
-anchor_top = 0.158
-anchor_right = 0.743
-anchor_bottom = 0.743
-offset_left = 61.68
-offset_top = 27.36
-offset_right = -99.2
-offset_bottom = -42.84
+anchor_left = 0.177
+anchor_top = 0.143
+anchor_right = 0.794
+anchor_bottom = 0.689
+offset_left = 72.08
+offset_top = 26.78
+offset_right = -26.2401
+offset_bottom = -22.06
 scale = Vector2(1.2, 1.2)
-pivot_offset = Vector2(307.5, 135)
+pivot_offset = Vector2(247, 135)
 theme_override_font_sizes/font_size = 69
 text = "CARDS IMPACT"
 horizontal_alignment = 1
@@ -52,13 +59,13 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.271
-anchor_top = 0.251
-anchor_right = 0.676
-anchor_bottom = 0.373
-offset_left = 0.125992
-offset_top = -0.101006
-offset_right = 0.0559692
-offset_bottom = 0.0769958
+anchor_top = 0.369
+anchor_right = 0.675
+anchor_bottom = 0.492
+offset_left = -0.207306
+offset_top = 0.0593262
+offset_right = 0.216675
+offset_bottom = -0.00867462
 pivot_offset = Vector2(100, 11)
 text = "A game by Killer and Gian"
 horizontal_alignment = 1
@@ -67,13 +74,10 @@ vertical_alignment = 1
 [node name="Play" type="Button" parent="Control/CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.793
-anchor_top = 0.712
-anchor_right = 0.978
-anchor_bottom = 0.82
-offset_left = 0.439941
-offset_top = 0.039978
-offset_right = 0.239868
-offset_bottom = 0.400024
+anchor_top = 0.686
+anchor_right = 1.0
+anchor_bottom = 0.847
+offset_right = -10.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
@@ -81,26 +85,28 @@ text = "Play"
 
 [node name="Exit" type="Button" parent="Control/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.839
+anchor_left = 0.794
 anchor_top = 0.856
-anchor_right = 0.936
-anchor_bottom = 0.939
-offset_left = 0.119873
+anchor_right = 1.0
+anchor_bottom = 0.968
+offset_left = 43.3198
 offset_top = 0.519958
-offset_right = 0.879883
-offset_bottom = -0.120056
+offset_right = -59.4401
+offset_bottom = 0.039917
+pivot_offset = Vector2(21.64, 0)
 theme_override_font_sizes/font_size = 31
 text = "Exit"
 
 [node name="Single Or Multiplayer" type="Control" parent="Control"]
 layout_mode = 1
 anchor_left = 0.314
-anchor_right = 0.686
+anchor_right = 0.67
 anchor_bottom = 1.0
 offset_left = -0.880005
-offset_right = 0.879883
+offset_right = 0.23999
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(171.44, 270)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Single Or Multiplayer"]
 layout_mode = 1
@@ -111,10 +117,11 @@ anchor_right = 0.674
 anchor_bottom = 0.544
 offset_left = -0.919983
 offset_top = 0.519958
-offset_right = 0.919922
-offset_bottom = -0.52002
+offset_right = -0.0879517
+offset_bottom = 5.47998
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(125, 50)
 theme_override_constants/separation = 15
 alignment = 1
 
@@ -198,41 +205,39 @@ text = "Join"
 [node name="Public Multiplayer" type="Control" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 499.0
-offset_top = 357.0
-offset_right = -499.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Control/Public Multiplayer"]
-clip_contents = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.277
-anchor_top = 0.187
-anchor_right = 0.723
-anchor_bottom = 0.867
-offset_left = -0.114006
-offset_top = 18.119
-offset_right = 0.113983
-offset_bottom = -0.721008
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -89.0
+offset_top = 48.0
+offset_right = 88.0
+offset_bottom = 265.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Public Multiplayer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.0282486
+anchor_top = 0.0184332
+anchor_right = 0.971751
+anchor_bottom = 0.981567
 offset_left = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Public Multiplayer/Panel/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Public Multiplayer"]
 layout_mode = 1
@@ -263,37 +268,30 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.716
 anchor_top = 0.136
-anchor_right = 0.784
-anchor_bottom = 0.178
-offset_left = -0.152039
-offset_top = -0.328003
-offset_right = 0.151978
-offset_bottom = 0.306
+anchor_right = 0.716
+anchor_bottom = 0.136
+offset_left = 92.848
+offset_top = 11.672
+offset_right = 155.848
+offset_bottom = 42.672
 text = "Refresh"
 
 [node name="Back to Start Menu" type="Control" parent="Control"]
 layout_mode = 1
-anchor_left = 0.019
-anchor_top = 0.906
-anchor_right = 0.15
-anchor_bottom = 0.978
-offset_left = -36.48
-offset_top = 101.52
-offset_right = -288.0
-offset_bottom = 23.76
+anchor_top = 1.0
+anchor_bottom = 1.0
 grow_vertical = 0
 
 [node name="Back to Start Menu Button" type="Button" parent="Control/Back to Start Menu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.007
-anchor_top = 0.895
-anchor_right = 0.007
-anchor_bottom = 0.895
-offset_left = 31.0
-offset_top = -106.0
-offset_right = 286.0
-offset_bottom = -19.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -87.0
+offset_right = 255.0
+offset_bottom = -10.0
+grow_vertical = 0
 text = "Back to Start Menu"
 
 [node name="Timer" type="Node2D" parent="."]

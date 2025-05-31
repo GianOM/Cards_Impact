@@ -1,3 +1,4 @@
+Button
 Timer
 VBoxContainer
 RichTextLabel
@@ -10,5 +11,4 @@ CanvasLayer
 Label
 Node2D
 Control
-Button
 ScrollContainer

@@ -7,13 +7,6 @@ extends Node
 
 const MAIN = preload("res://Scenes/Main.tscn")
 
-#E 0:00:00:888   start: Failed to instantiate an autoload, can't load from path: res://Scripts/2D/Ready_Button.gd.
-  #<C++ Error>   Condition "res.is_null()" is true. Continuing.
-  #<C++ Source>  main/main.cpp:4069 @ start()
-
-
-
-
 func _ready() -> void:
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.connected_to_server.connect(_Connected_To_Server_Sucessfully)
