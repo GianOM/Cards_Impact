@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://rjped6nfx0uw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnj2o"]
+resource_local_to_scene = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qi16b"]
 _surfaces = [{
@@ -17,6 +18,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_67jp4"]
+resource_local_to_scene = true
 resource_name = "Tier 2 Tower Example_Cylinder_007"
 _surfaces = [{
 "aabb": AABB(-1.53734, 0.00602663, -1.5476, 3.07469, 6.23975, 3.09519),

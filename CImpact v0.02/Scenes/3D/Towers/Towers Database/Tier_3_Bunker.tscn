@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://bvdujqwgqk6xd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnpuy"]
+resource_local_to_scene = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_s37o6"]
 _surfaces = [{
@@ -17,6 +18,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bvxg5"]
+resource_local_to_scene = true
 resource_name = "Bunker_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-1.55573, 0.00602663, -1.5646, 3.11147, 5.56667, 3.12919),

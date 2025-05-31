@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://c2li30xe06phx"]
 
-[ext_resource type="Shader" uid="uid://c8sv31dpjsp46" path="res://Scenes/VSFFF.tres" id="1_jodjt"]
+[ext_resource type="Shader" uid="uid://c8sv31dpjsp46" path="res://Scenes/Hovering_Shader.tres" id="1_jodjt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wk21"]
 render_priority = 0

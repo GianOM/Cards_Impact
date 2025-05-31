@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://bg8eca8wp46hl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2vj7"]
+resource_local_to_scene = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ehkev"]
 _surfaces = [{
@@ -17,6 +18,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8xn6h"]
+resource_local_to_scene = true
 resource_name = "Money Tower_Cube"
 _surfaces = [{
 "aabb": AABB(-1.0003, 0.0016638, -1.51136, 2.0006, 12.2636, 3.02166),

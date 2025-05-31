@@ -215,7 +215,7 @@ func Create_Tower_at_Clicked():
 	Tower_Instance.turn_in_which_tower_was_placed = CollisionCheck.turn_number
 	#-
 	
-	Tower_Instance.Inicializa_Torre_Pelo_Indice(Global_Card_Index)
+	Tower_Instance.Inicializa_Torre_Pelo_Indice(Global_Card_Index, multiplayer.get_remote_sender_id())
 	
 	Tower_Instance.global_position = My_Ray_Cast.Ray_Hit.global_position
 	

@@ -13,7 +13,7 @@ func Reset_my_Timer():
 func One_Second_Timer_Timeout():
 	Total_Timer_in_Seconds += 1
 	
-	var minutes = Total_Timer_in_Seconds / 60
+	var minutes: int = Total_Timer_in_Seconds / 60
 	var seconds = Total_Timer_in_Seconds % 60
 	
 	self.text = "%02d:%02d" % [minutes, seconds]

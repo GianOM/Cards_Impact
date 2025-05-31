@@ -49,7 +49,7 @@ func Load_Tower_Resource_Database(path:String):
 	
 
 
-func Inicializa_Torre_Pelo_Indice(idx:int):
+func Inicializa_Torre_Pelo_Indice(idx:int, Team_Index: int):
 	Tower_Index = idx #Usada para acessar e setar a malha do projetil
 	if Tower_Index > 1 :
 		projectile_generation_point.Tower_Index = 1
@@ -62,6 +62,12 @@ func Inicializa_Torre_Pelo_Indice(idx:int):
 	var Correct_Tower_InstanceMesh3D = Tower_Scene.instantiate()#Ja que a Packed Scene so contem uma InstanceMesh3D, instancia-la carrega para uma variavel
 	
 	$Main_Tower.mesh = Correct_Tower_InstanceMesh3D.mesh
+	
+	if Team_Index == 1:
+		$Main_Tower.get_active_material(0).set_albedo(Color(1,0,0,1))
+	else:
+		$Main_Tower.get_active_material(0).set_albedo(Color(0,0,1,1))
+	print("PLS")
 	
 	My_Gaslight_Token_Cost = Tower_Data_Resource.Gaslight_Token_Cost
 	My_Gatekeep_Token_Cost = Tower_Data_Resource.Gatekeep_Token_Cost

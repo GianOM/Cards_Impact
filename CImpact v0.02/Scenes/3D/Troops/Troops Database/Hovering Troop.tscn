@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://biclcu40ctid3"]
 
 [ext_resource type="Script" uid="uid://cuw3ykyjqa5io" path="res://Scripts/3D/Troops/Hovering_Troop.gd" id="1_n8irj"]
-[ext_resource type="Shader" uid="uid://c8sv31dpjsp46" path="res://Scenes/VSFFF.tres" id="2_6nwjl"]
+[ext_resource type="Shader" uid="uid://c8sv31dpjsp46" path="res://Scenes/Hovering_Shader.tres" id="2_6nwjl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8irj"]
 render_priority = 0
