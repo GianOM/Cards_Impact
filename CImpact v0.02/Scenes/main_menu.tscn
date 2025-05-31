@@ -205,32 +205,35 @@ text = "Join"
 [node name="Public Multiplayer" type="Control" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_left = 0.384375
+anchor_top = 0.425926
+anchor_right = 0.617708
+anchor_bottom = 0.962963
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Control/Public Multiplayer"]
 layout_mode = 1
-offset_left = -89.0
-offset_top = 48.0
-offset_right = 88.0
-offset_bottom = 265.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Public Multiplayer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0282486
+anchor_left = 0.0254237
 anchor_top = 0.0184332
-anchor_right = 0.971751
-anchor_bottom = 0.981567
-offset_left = -1.0
+anchor_right = 0.980226
+anchor_bottom = 0.990783
+offset_left = -0.5
+offset_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Public Multiplayer/Panel/ScrollContainer"]
@@ -242,16 +245,14 @@ theme_override_constants/separation = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Public Multiplayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.446
-anchor_right = 0.554
-anchor_bottom = 0.112
-offset_left = -0.212006
-offset_top = 1.0
-offset_right = 0.211975
-offset_bottom = 0.0239944
+anchor_left = -0.799107
+anchor_top = 0.0206897
+anchor_right = -0.111607
+anchor_bottom = 0.303448
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
+metadata/_edit_use_anchors_ = true
 
 [node name="Host Multiplayer Steam Buton" type="Button" parent="Control/Public Multiplayer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -266,18 +267,18 @@ text = "Join"
 [node name="Refresh Lobby List" type="Button" parent="Control/Public Multiplayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.716
-anchor_top = 0.136
-anchor_right = 0.716
-anchor_bottom = 0.136
-offset_left = 92.848
-offset_top = 11.672
-offset_right = 155.848
-offset_bottom = 42.672
+anchor_left = 1.09821
+anchor_top = 0.0206897
+anchor_right = 1.65179
+anchor_bottom = 0.127586
+grow_horizontal = 2
+grow_vertical = 2
 text = "Refresh"
+metadata/_edit_use_anchors_ = true
 
 [node name="Back to Start Menu" type="Control" parent="Control"]
 layout_mode = 1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0

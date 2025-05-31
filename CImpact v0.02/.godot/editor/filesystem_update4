@@ -1,3 +1,4 @@
+res://Scenes/main_menu.tscn
 res://Scenes/Hovering_Shader.tres
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
@@ -17,3 +18,5 @@ res://Testing/characters/warrior/defend_cards/santorini.tres
 res://Testing/characters/warrior/defend_cards/money_tower.tres
 res://Testing/characters/warrior/warrior_defend_deck.tres
 res://Testing/main_theme.tres
+res://Scenes/3D/Towers/Hovering_Tower.tscn
+res://Scripts/Lobby_Multiplayer.gd
