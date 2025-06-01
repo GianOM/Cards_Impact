@@ -6,24 +6,27 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yq3t3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yq3t3"]
-properties/0/path = NodePath(".:position")
+properties/0/path = NodePath("RayCast3D:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-properties/1/path = NodePath("RayCast3D:position")
+properties/1/path = NodePath("RayCast3D:target_position")
 properties/1/spawn = true
 properties/1/replication_mode = 1
-properties/2/path = NodePath("RayCast3D:target_position")
+properties/2/path = NodePath("Camera3D:position")
 properties/2/spawn = true
 properties/2/replication_mode = 1
-properties/3/path = NodePath("Camera3D:position")
+properties/3/path = NodePath("Camera3D:rotation")
 properties/3/spawn = true
 properties/3/replication_mode = 1
-properties/4/path = NodePath("Camera3D:rotation")
+properties/4/path = NodePath(".:Global_Card_Index")
 properties/4/spawn = true
 properties/4/replication_mode = 1
-properties/5/path = NodePath(".:Global_Card_Index")
+properties/5/path = NodePath(".:rotation")
 properties/5/spawn = true
 properties/5/replication_mode = 1
+properties/6/path = NodePath(".:position")
+properties/6/spawn = true
+properties/6/replication_mode = 1
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_1jhqv")
@@ -35,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7.23164
 top_level = true
 exclude_parent = false
 debug_shape_custom_color = Color(5.58317e-06, 0.581147, 0.792479, 1)
+debug_shape_thickness = 3
 script = ExtResource("2_yq3t3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

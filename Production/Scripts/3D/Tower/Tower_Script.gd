@@ -79,9 +79,13 @@ func Inicializa_Torre_Pelo_Indice(idx:int, Team_Index: int):
 	
 	projectile_generation_point.set_cooldown_timer(Tower_Data_Resource.Tower_Attack_Cooldown)
 	
+@rpc("any_peer","call_local","unreliable")
 func Zerar_o_Tower_Range():
 		tower_range.scale = TOWER_RANGE_ZEROED_SCALE
-	
+		
+		
+		
+@rpc("any_peer","call_local","unreliable")
 func Show_Tower_Range_When_Hovered():
 	var Novo_Raio = collision_shape_3d.shape.get_radius()
 

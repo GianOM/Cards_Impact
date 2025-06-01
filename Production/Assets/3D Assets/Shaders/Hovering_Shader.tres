@@ -258,7 +258,6 @@ void light() {
 
 }
 "
-graph_offset = Vector2(137.021, 10.007)
 modes/depth_draw = 1
 varyings/Object_Position_Coodinates = "0,4"
 nodes/vertex/3/node = SubResource("VisualShaderNodeVaryingSetter_7awua")

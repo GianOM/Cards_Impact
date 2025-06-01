@@ -95,9 +95,15 @@ func Screen_Point_to_Ray() -> void:
 			#O CODIGO ABAIXO MOSTRA E ESCONDE O TOWER RANGE SE ESTIVER HOVERING
 			if (Ray_Hit_Owner != remove_range_hovering) and (remove_range_hovering != null):
 				if (remove_range_hovering.Placed_Tower!= null):
-					remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
+					#O check abaixo garante que somente o proprio player pode remover ou visualizar o range das torres
+					if Owner_ID == multiplayer.get_unique_id():
+						
+						remove_range_hovering.Placed_Tower.Zerar_o_Tower_Range()
 			
 			if Ray_Hit_Owner.Placed_Tower != null:
+				#O check abaixo garante que somente o proprio player pode remover ou visualizar o range das torres
+				if Owner_ID == multiplayer.get_unique_id():
+					
 					Ray_Hit_Owner.Placed_Tower.Show_Tower_Range_When_Hovered()
 					remove_range_hovering = Ray_Hit_Owner
 			#Impede que o Tower Hover esteja visivel quando passar o mouse por uma tile que ja
