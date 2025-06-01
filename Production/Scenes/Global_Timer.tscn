@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cunac8cqmvik8"]
+
+[ext_resource type="Texture2D" uid="uid://k45of7rggveu" path="res://Assets/2D Assets/UIs/Timer_Icon.png" id="1_ejvwl"]
+[ext_resource type="Script" uid="uid://xpjeycpbdum3" path="res://Scenes/Timer_Update.gd" id="2_bneyt"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1ehe0"]
+properties/0/path = NodePath("Label:Total_Timer_in_Seconds")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Timer" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -960.0
+offset_right = -960.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(871, 26)
+scale = Vector2(0.123, 0.123)
+texture = ExtResource("1_ejvwl")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_bneyt")
+
+[node name="One Second Timer" type="Timer" parent="CanvasLayer"]
+autostart = true
+ignore_time_scale = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="CanvasLayer"]
+replication_config = SubResource("SceneReplicationConfig_1ehe0")
+
+[connection signal="timeout" from="CanvasLayer/One Second Timer" to="CanvasLayer/Label" method="One_Second_Timer_Timeout"]
