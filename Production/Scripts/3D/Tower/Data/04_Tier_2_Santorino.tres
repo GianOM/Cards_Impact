@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_vf18i")
 Tower_Name = "Santorino"
-Tower_Range = 20.0
-Tower_Damage = 25.0
+Tower_Range = 30.0
+Tower_Damage = 22.0
 Tower_Index = 4
-Tower_Attack_Cooldown = 0.8
+Tower_Attack_Cooldown = 0.9
 Gaslight_Token_Cost = 0
 Gatekeep_Token_Cost = 0
 Tower_scene_path = "uid://cmfqxcmrtvtkh"
