@@ -10,7 +10,7 @@ const HAND_DISCARD_INTERVAL := 0.15
 @onready var passive_income_timer: Timer = %PassiveIncomeTimer
 
 var character: CharacterStats
-var switch: bool
+#var switch: bool
 
 
 func _ready() -> void:
@@ -26,18 +26,20 @@ func _generate_income() -> void:
 
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
-	
+	character.draw_pile = character.deck.duplicate(true)
+	character.draw_pile.shuffle()
+	character.discard = CardPile.new()
 	start_turn()
 
 func start_turn() -> void:
-	if switch == false:
-		switch = true
-		character.draw_pile = character.defend_deck.duplicate(true)
-	else:
-		character.draw_pile = character.attack_deck.duplicate(true)
-		switch = false
-	character.draw_pile.shuffle()
-	character.discard = CardPile.new()
+	#if switch == false:
+		#switch = true
+		#character.draw_pile = character.attack_deck.duplicate(true)
+	#else:
+		#character.draw_pile = character.defend_deck.duplicate(true)
+		#switch = false
+	#character.draw_pile.shuffle()
+	#character.discard = CardPile.new()
 	character.block = 0
 	character.update_gaslight_tokens()
 	character.update_gatekeep_tokens()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtwx2wtl77ie6"]
 
-[ext_resource type="Texture2D" uid="uid://1xxucsp8twcy" path="res://Assets/2D Assets/jenga.png" id="1_0afy3"]
+[ext_resource type="Texture2D" uid="uid://1xxucsp8twcy" path="res://Assets/2D Assets/Jenga.png" id="1_0afy3"]
 [ext_resource type="Script" uid="uid://ypvsvwsse0e4" path="res://Testing/characters/warrior/defend_cards/jenga.gd" id="1_mmkh1"]
 
 [resource]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2sb25nigkhhn"]
+[gd_scene load_steps=20 format=3 uid="uid://2sb25nigkhhn"]
 
 [ext_resource type="Script" uid="uid://b86m4m8oakkht" path="res://Testing/battle.gd" id="1_e41k2"]
 [ext_resource type="Resource" uid="uid://d1jvn8s0i3ln4" path="res://Testing/characters/warrior/warrior.tres" id="4_1sdae"]
@@ -10,8 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c6qs4x6qw8jit" path="res://Testing/mana_ui.tscn" id="10_55wsm"]
 [ext_resource type="PackedScene" uid="uid://i5rcdxvoxm0y" path="res://Testing/token_ui.tscn" id="10_odhhd"]
 [ext_resource type="PackedScene" uid="uid://b8gigwoqmugpq" path="res://Testing/warning_ui.tscn" id="11_1sdae"]
+[ext_resource type="PackedScene" uid="uid://csnhxuug4haax" path="res://Testing/card_pile_opener.tscn" id="11_e41k2"]
 [ext_resource type="PackedScene" uid="uid://v3v1nx7sdiih" path="res://Testing/tooltip.tscn" id="11_odhhd"]
 [ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="12_1sdae"]
+[ext_resource type="Texture2D" uid="uid://c1qywtoxjpec1" path="res://Assets/2D Assets/Discard.png" id="12_jtj6a"]
+[ext_resource type="Texture2D" uid="uid://bntauqn0c0bs8" path="res://Assets/2D Assets/DiscardHover.png" id="13_6vt2j"]
+[ext_resource type="PackedScene" uid="uid://djjdlrokoqg5y" path="res://Testing/card_pile_view.tscn" id="16_m0ppn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0ppn"]
 size = Vector2(1921, 734.5)
@@ -86,6 +90,7 @@ alignment = 1
 script = ExtResource("6_o617d")
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("10_55wsm")]
+visible = false
 char_stats = ExtResource("4_1sdae")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("11_odhhd")]
@@ -149,6 +154,50 @@ text = "Reroll
 00:00
 "
 
+[node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("11_e41k2")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -309.0
+offset_right = 135.0
+offset_bottom = -209.0
+grow_vertical = 0
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DrawPileButton"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 11.0
+offset_right = 157.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+text = "99"
+
+[node name="DiscardPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("11_e41k2")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -147.0
+offset_right = 137.0
+offset_bottom = -47.0
+grow_vertical = 0
+texture_normal = ExtResource("12_jtj6a")
+texture_hover = ExtResource("13_6vt2j")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DiscardPileButton"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 11.0
+offset_right = 157.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+text = "99"
+
 [node name="TokenUI" parent="BattleUI" instance=ExtResource("10_odhhd")]
 
 [node name="WarningUI" parent="BattleUI" instance=ExtResource("11_1sdae")]
@@ -183,6 +232,17 @@ unique_name_in_owner = true
 [node name="RerollTimer" type="Timer" parent="BattleUI"]
 wait_time = 60.0
 one_shot = true
+
+[node name="CardPileViews" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="DrawPileView" parent="CardPileViews" instance=ExtResource("16_m0ppn")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("16_m0ppn")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="area_entered" from="CardDropArea" to="CardTargetSelector" method="_on_card_drop_area_area_entered"]
 [connection signal="area_exited" from="CardDropArea" to="CardTargetSelector" method="_on_card_drop_area_area_exited"]

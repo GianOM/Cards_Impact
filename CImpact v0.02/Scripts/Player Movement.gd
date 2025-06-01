@@ -76,6 +76,23 @@ func _process(delta: float) -> void:
 	#print(CollisionCheck.tower_was_placed)
 	
 func Handle_Camera_Movement(delta: float) -> void:
+	
+	#Snap Cameras to player or enemy base
+	#TEAM_HOST_BASE: Vector3 = Vector3(1,0,40)
+	#TEAM_CLIENT_BASE: Vector3 = Vector3(1,0,40)
+	if Input.is_action_pressed("1_Key"):
+		position = TEAM_HOST_BASE_POSITION
+		#A linha abaixo garante que o momento do player é zerado assim que ele teleporta
+		velocity = Vector3.ZERO
+		return
+	elif Input.is_action_pressed("2_Key"):
+		position = TEAM_CLIENT_BASE_POSITION
+		#A linha abaixo garante que o momento do player é zerado assim que ele teleporta
+		velocity = Vector3.ZERO
+		return
+	
+	
+	
 	var Input_Sprint = Input.is_action_pressed("Shift_Key")
 	if Input_Sprint:
 		max_speed = SPRINT_MAX_SPEED
@@ -97,14 +114,7 @@ func Handle_Camera_Movement(delta: float) -> void:
 	#Atualiza a Posicao do Node3D Player
 	position += velocity*delta
 	
-	#Snap Cameras to player or enemy base
-	if Input.is_action_pressed("1_Key"):
-		position = TEAM_HOST_BASE_POSITION
-		#const TEAM_HOST_BASE: Vector3 = Vector3(1,0,40)
-		#const TEAM_CLIENT_BASE: Vector3 = Vector3(1,0,40)
-	elif Input.is_action_pressed("2_Key"):
-		position = TEAM_CLIENT_BASE_POSITION
-		
+	
 	
 func Handle_Camera_Rotation(delta: float) -> void:
 	#Se o Player Aperta Shift, Aumenta a Variavel Camera_Move_Speed e Camera_Rotation Speed
@@ -150,10 +160,17 @@ func Handle_Mouse_Click():
 				#CollisionCheck.card_id_attack é -1 para cartas de defesa
 				#CollisionCheck.card_id_defense é -1 para cartas de ataque
 				if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower == null) and (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team == My_Team) and (CollisionCheck.card_id_attack == -1):
-					#CODIGO PARA BOTAR A TORRE
 					
-					Create_Tower_at_Clicked.rpc()
-					CollisionCheck.tower_was_placed = true
+					if CollisionCheck.is_Shop_Time == false:
+						#CODIGO PARA BOTAR A TORRE
+						
+						Create_Tower_at_Clicked.rpc()
+						CollisionCheck.tower_was_placed = true
+						
+						
+					elif CollisionCheck.is_Shop_Time == true:
+						var msg := "[center]Voce não pode colocar torres durante o periodo de compras[/center]"
+						SignalManager.emit_signal("warning_message", msg)
 					
 					
 				elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
@@ -186,8 +203,6 @@ func Handle_Mouse_Click():
 				
 
 func Handle_Card_ID():
-	#CollisionCheck.card_id_number é um ID Global. De 0 a 1, significa Torre, e de 1 a 2, significa tropa
-	
 	#CollisionCheck.card_id_attack é -1 para cartas de defesa
 	#CollisionCheck.card_id_defense é -1 para cartas de ataque
 	if CollisionCheck.is_a_card_being_dragged:

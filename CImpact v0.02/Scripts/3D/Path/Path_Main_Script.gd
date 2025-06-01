@@ -48,7 +48,7 @@ func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int, Number_of_Troops:int):#Quem chama 
 	var temp_troop = TROOPS.instantiate()
 	temp_troop.get_node("Moving_Unit_CharacterBody3D").inicializar_Moving_Unit(troop_data_resource, Correct_Troop_InstanceMesh3D)
 	
-	for i in range(Number_of_Troops):
+	for i in range(troop_data_resource.Troops_Quantity):
 		
 		#Usamos um duplicate ou entao ele nao consegue adcionar
 		Lista_de_Tropas.append(temp_troop.duplicate())

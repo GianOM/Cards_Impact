@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cf6tc5ho148e8"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cf6tc5ho148e8"]
 
 [ext_resource type="StyleBox" uid="uid://ob1icvd5tqxb" path="res://Testing/card_base_stylebox.tres" id="1_6k2w6"]
 [ext_resource type="StyleBox" uid="uid://dyf0lvfgm46q7" path="res://Testing/card_hover_stylebox.tres" id="1_de7hx"]
@@ -20,18 +20,11 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.542415, 0.478329, 0.171139, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de7hx"]
-bg_color = Color(0, 0, 0, 0.372549)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
 [resource]
 Button/styles/disabled = SubResource("StyleBoxFlat_wqmmb")
 Button/styles/focus = SubResource("StyleBoxEmpty_m3p2d")
 Button/styles/hover = ExtResource("1_de7hx")
 Button/styles/normal = ExtResource("1_6k2w6")
 Button/styles/pressed = SubResource("StyleBoxFlat_8k1at")
-Panel/styles/panel = SubResource("StyleBoxFlat_de7hx")
+Panel/styles/panel = ExtResource("1_6k2w6")
 PanelContainer/styles/panel = ExtResource("1_6k2w6")

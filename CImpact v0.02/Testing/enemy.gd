@@ -7,7 +7,7 @@ const ARROW_OFFSET = 100
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var stats_ui: StatsUI = $StatsUI
 
 
 func set_enemy_stats(value: Stats) -> void:

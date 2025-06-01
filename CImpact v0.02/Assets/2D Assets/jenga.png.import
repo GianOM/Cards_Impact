@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1xxucsp8twcy"
-path="res://.godot/imported/jenga.png-e8703e0ce433be2798edcc447372e7c2.ctex"
+path="res://.godot/imported/Jenga.png-e6b734a130bd877ce15ec5429cefe2a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D Assets/jenga.png"
-dest_files=["res://.godot/imported/jenga.png-e8703e0ce433be2798edcc447372e7c2.ctex"]
+source_file="res://Assets/2D Assets/Jenga.png"
+dest_files=["res://.godot/imported/Jenga.png-e6b734a130bd877ce15ec5429cefe2a6.ctex"]
 
 [params]
 

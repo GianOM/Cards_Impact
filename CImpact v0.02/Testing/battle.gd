@@ -2,9 +2,9 @@ extends Node2D
 
 @export var char_stats: CharacterStats
 
-@onready var battle_ui: BattleUI = $BattleUI as BattleUI
-@onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
-#@onready var player: Player = $Player as Player
+@onready var battle_ui: BattleUI = $BattleUI
+@onready var player_handler: PlayerHandler = $PlayerHandler
+#@onready var player: Player = $Player
 
 func _ready() -> void:
 	#Temporary code, this sets the stats for every battle
@@ -19,3 +19,4 @@ func _ready() -> void:
 
 func start_battle(stats: CharacterStats) -> void:
 	player_handler.start_battle(stats)
+	battle_ui.initialize_card_pile_ui()

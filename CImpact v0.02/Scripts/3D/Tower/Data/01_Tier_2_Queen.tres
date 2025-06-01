@@ -6,9 +6,9 @@
 script = ExtResource("1_hf8lo")
 Tower_Name = "Queen Tower"
 Tower_Range = 15.0
-Tower_Damage = 8.0
+Tower_Damage = 20.0
 Tower_Index = 1
-Tower_Attack_Cooldown = 0.48
+Tower_Attack_Cooldown = 1.0
 Gaslight_Token_Cost = 3
 Gatekeep_Token_Cost = 10
 Tower_scene_path = "uid://rjped6nfx0uw"

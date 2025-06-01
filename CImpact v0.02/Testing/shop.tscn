@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1a8yxr57q1na"]
+
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="1_dw773"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="ShopUI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="ShopUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -606.0
+offset_top = -333.5
+offset_right = 606.0
+offset_bottom = 333.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dw773")
+
+[node name="Label" type="Label" parent="ShopUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.5
+offset_right = 131.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1

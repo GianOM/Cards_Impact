@@ -6,7 +6,7 @@
 script = ExtResource("1_80k53")
 Tower_Name = "Rook Tower"
 Tower_Range = 10.0
-Tower_Damage = 5.0
+Tower_Damage = 25.0
 Tower_Index = 0
 Tower_Attack_Cooldown = 1.0
 Gaslight_Token_Cost = 9

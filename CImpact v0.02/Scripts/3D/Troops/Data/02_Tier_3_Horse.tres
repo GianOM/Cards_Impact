@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_qbbsr")
-Vida = 35.0
-Velocidade = 0.2
-Dano = 100.0
+Vida = 60.0
+Velocidade = 0.1
+Dano = 55.0
 Tier = 2
+Troops_Quantity = 5
 troop_scene_path = "uid://da5wqm4h8m0pi"
 metadata/_custom_type_script = "uid://b0k3qbvnojn27"

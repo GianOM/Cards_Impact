@@ -1,4 +1,7 @@
 res://Assets/2D Assets
+res://Testing
+res://Testing/items
+res://Testing/custom_resources
 res://Scripts/3D/Tower/Data
 res://Scripts/3D/Tower
 res://Scripts/3D/Troops/Data
@@ -6,8 +9,6 @@ res://Scenes/3D/Troops/Troops Database
 res://Scenes
 res://Scripts/3D/Projectiles
 res://Scenes/3D/Projectile
-res://Testing/custom_resources
-res://Testing
 res://Scripts/3D/Projectiles/Data
 res://Scenes/3D/Projectile/Projectile Database
 res://Scenes/3D/Towers/Towers Database

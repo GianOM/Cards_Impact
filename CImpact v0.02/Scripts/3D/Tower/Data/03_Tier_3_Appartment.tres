@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_us8ye")
 Tower_Name = "Appartment"
-Tower_Range = 25.0
-Tower_Damage = 14.0
+Tower_Range = 15.0
+Tower_Damage = 30.0
 Tower_Index = 3
-Tower_Attack_Cooldown = 0.25
+Tower_Attack_Cooldown = 0.8
 Gaslight_Token_Cost = 0
 Gatekeep_Token_Cost = 0
 Tower_scene_path = "uid://ek6p4emw0488"

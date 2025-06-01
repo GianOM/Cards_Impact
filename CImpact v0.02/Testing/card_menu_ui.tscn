@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjau1minqtjur"]
+
+[ext_resource type="Script" uid="uid://cwc2vrnw3ttfk" path="res://Testing/card_menu_ui.gd" id="1_mjuwi"]
+[ext_resource type="StyleBox" uid="uid://ob1icvd5tqxb" path="res://Testing/card_base_stylebox.tres" id="2_uxnqc"]
+[ext_resource type="Resource" uid="uid://luhxih1udc7t" path="res://Testing/characters/warrior/defend_cards/money_tower.tres" id="2_xqsmo"]
+[ext_resource type="Texture2D" uid="uid://bgwwfj51cmsrv" path="res://Assets/2D Assets/Gaslight.png" id="3_ivvm4"]
+[ext_resource type="Texture2D" uid="uid://wj0gxltorvo0" path="res://Assets/2D Assets/Gatekeep.png" id="4_nj0vh"]
+[ext_resource type="Texture2D" uid="uid://bxo6u1fy3axrx" path="res://Assets/2D Assets/UnitSymbol.png" id="5_cr51e"]
+[ext_resource type="Texture2D" uid="uid://do3ccr6vtug8d" path="res://Assets/2D Assets/rook.png" id="6_5yegd"]
+
+[node name="CardMenuUI" type="CenterContainer"]
+offset_right = 150.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+script = ExtResource("1_mjuwi")
+card = ExtResource("2_xqsmo")
+
+[node name="Visuals" type="Control" parent="."]
+custom_minimum_size = Vector2(150, 240)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_uxnqc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Visuals"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Visuals/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="GaslightIcon" type="TextureRect" parent="Visuals/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_ivvm4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GaslightCost" type="RichTextLabel" parent="Visuals/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+
+[node name="GatekeepIcon" type="TextureRect" parent="Visuals/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_nj0vh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GatekeepCost" type="RichTextLabel" parent="Visuals/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Visuals"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 193.0
+offset_right = 140.0
+offset_bottom = 229.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Visuals/MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UnitIcon" type="TextureRect" parent="Visuals/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("5_cr51e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UnitAmount" type="RichTextLabel" parent="Visuals/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "10"
+
+[node name="Cost" type="Label" parent="Visuals"]
+visible = false
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_5yegd")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="Visuals" to="." method="_on_visuals_gui_input"]
+[connection signal="mouse_entered" from="Visuals" to="." method="_on_visuals_mouse_entered"]
+[connection signal="mouse_exited" from="Visuals" to="." method="_on_visuals_mouse_exited"]

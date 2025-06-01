@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dgb6wg4ab26uk"]
+
+[ext_resource type="Script" uid="uid://ep4tyfqfd3kn" path="res://Testing/custom_resources/item.gd" id="1_vgior"]
+
+[resource]
+script = ExtResource("1_vgior")
+id = "test"
+cost = 0
+tooltip_text = ""
+metadata/_custom_type_script = "uid://ep4tyfqfd3kn"

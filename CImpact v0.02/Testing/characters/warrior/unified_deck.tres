@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=16 format=3 uid="uid://dj3w331roc0go"]
+
+[ext_resource type="Script" uid="uid://boah0y84tqxap" path="res://Testing/custom_resources/card.gd" id="1_tp5uf"]
+[ext_resource type="Resource" uid="uid://co71lrr3pkls5" path="res://Testing/characters/warrior/defend_cards/apartment.tres" id="2_6pbr4"]
+[ext_resource type="Resource" uid="uid://dt7hia3dephev" path="res://Testing/characters/warrior/attack_cards/pawn.tres" id="2_xux7j"]
+[ext_resource type="Resource" uid="uid://bds77g5rkrx6q" path="res://Testing/characters/warrior/defend_cards/bunker.tres" id="3_cstie"]
+[ext_resource type="Resource" uid="uid://cluogl642arjk" path="res://Testing/characters/warrior/attack_cards/bishop.tres" id="3_t3j8i"]
+[ext_resource type="Resource" uid="uid://bd2c4xpsuhg54" path="res://Testing/characters/warrior/attack_cards/car.tres" id="4_mi8dp"]
+[ext_resource type="Resource" uid="uid://dtwx2wtl77ie6" path="res://Testing/characters/warrior/defend_cards/jenga.tres" id="4_rnejs"]
+[ext_resource type="Resource" uid="uid://hc8yrpeukgga" path="res://Testing/characters/warrior/attack_cards/domino.tres" id="5_i4tlq"]
+[ext_resource type="Resource" uid="uid://luhxih1udc7t" path="res://Testing/characters/warrior/defend_cards/money_tower.tres" id="5_oay32"]
+[ext_resource type="Resource" uid="uid://bjui3wcqxaao2" path="res://Testing/characters/warrior/defend_cards/queen.tres" id="6_qmqv4"]
+[ext_resource type="Resource" uid="uid://bvg6uugalqb00" path="res://Testing/characters/warrior/attack_cards/hat.tres" id="6_xgwfl"]
+[ext_resource type="Resource" uid="uid://bl3tcmhhoc2p0" path="res://Testing/characters/warrior/attack_cards/knight.tres" id="7_0fu34"]
+[ext_resource type="Resource" uid="uid://wjg2wxy385od" path="res://Testing/characters/warrior/defend_cards/rook.tres" id="7_rpu8q"]
+[ext_resource type="Script" uid="uid://bdr0jx61ll6e3" path="res://Testing/custom_resources/card_pile.gd" id="8_6pbr4"]
+[ext_resource type="Resource" uid="uid://dpmkbjghrloi0" path="res://Testing/characters/warrior/defend_cards/santorini.tres" id="8_i58aw"]
+
+[resource]
+script = ExtResource("8_6pbr4")
+cards = Array[ExtResource("1_tp5uf")]([ExtResource("2_6pbr4"), ExtResource("2_6pbr4"), ExtResource("2_6pbr4"), ExtResource("3_cstie"), ExtResource("3_cstie"), ExtResource("3_cstie"), ExtResource("4_rnejs"), ExtResource("4_rnejs"), ExtResource("4_rnejs"), ExtResource("5_oay32"), ExtResource("5_oay32"), ExtResource("5_oay32"), ExtResource("5_oay32"), ExtResource("6_qmqv4"), ExtResource("6_qmqv4"), ExtResource("6_qmqv4"), ExtResource("7_rpu8q"), ExtResource("7_rpu8q"), ExtResource("7_rpu8q"), ExtResource("8_i58aw"), ExtResource("8_i58aw"), ExtResource("8_i58aw"), ExtResource("3_t3j8i"), ExtResource("3_t3j8i"), ExtResource("3_t3j8i"), ExtResource("4_mi8dp"), ExtResource("4_mi8dp"), ExtResource("4_mi8dp"), ExtResource("5_i4tlq"), ExtResource("5_i4tlq"), ExtResource("5_i4tlq"), ExtResource("6_xgwfl"), ExtResource("6_xgwfl"), ExtResource("6_xgwfl"), ExtResource("7_0fu34"), ExtResource("7_0fu34"), ExtResource("7_0fu34"), ExtResource("2_xux7j"), ExtResource("2_xux7j"), ExtResource("2_xux7j")])
+metadata/_custom_type_script = "uid://bdr0jx61ll6e3"

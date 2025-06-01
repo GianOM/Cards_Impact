@@ -3,15 +3,21 @@ extends CanvasLayer
 
 @export var char_stats: CharacterStats: set = _set_char_stats
 
-@onready var hand: Hand = $Hand as Hand
-@onready var mana_ui: ManaUI = $ManaUI as ManaUI
-@onready var token_ui: TokenUI = $TokenUI as TokenUI
+@onready var hand: Hand = $Hand
+@onready var mana_ui: ManaUI = $ManaUI
+@onready var token_ui: TokenUI = $TokenUI
 @onready var end_turn_button: Button = %EndTurnButton
 @onready var reroll_button: Button = %RerollButton
 @onready var ready_button: Button = %ReadyButton
 @onready var fps: RichTextLabel = %FPS
 @onready var reroll_timer: Timer = $RerollTimer
 @onready var paid_reroll_button: Button = %PaidRerollButton
+
+@onready var draw_pile_button: CardPileOpener = %DrawPileButton
+@onready var discard_pile_button: CardPileOpener = %DiscardPileButton
+@onready var draw_pile_view: CardPileView = %DrawPileView
+@onready var discard_pile_view: CardPileView = %DiscardPileView
+
 
 
 var on_cooldown := false
@@ -25,8 +31,16 @@ func _ready() -> void:
 	ready_button.pressed.connect(_on_ready_button_pressed)
 	Events.hide_ui_requested.connect(_hide_ui)
 	Events.show_ui_requested.connect(_show_ui)
+	draw_pile_button.pressed.connect(draw_pile_view.show_current_view.bind("Draw Pile", true))
+	discard_pile_button.pressed.connect(discard_pile_view.show_current_view.bind("Discard Pile"))
 	#Events.disable_reroll_button_requested.connect(_disable_reroll_button)
 	#turn_number = 1
+
+func initialize_card_pile_ui() -> void:
+	draw_pile_button.card_pile = char_stats.draw_pile
+	draw_pile_view.card_pile = char_stats.draw_pile
+	discard_pile_button.card_pile = char_stats.discard
+	discard_pile_view.card_pile = char_stats.discard
 
 func _process(_delta):
 	fps.text = ""
