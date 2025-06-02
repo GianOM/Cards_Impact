@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dt7hia3dephev"]
+
+[ext_resource type="Texture2D" uid="uid://dm5sp6werkxky" path="res://Assets/2D Assets/pawn.png" id="1_iutl3"]
+[ext_resource type="Script" uid="uid://dpjqv3ipgth4d" path="res://Testing/characters/warrior/defend_cards/queen.gd" id="2_uluv6"]
+
+[resource]
+script = ExtResource("2_uluv6")
+id_number = 2
+id_attack = 0
+id_defend = -1
+id = "Pawn (Tier 1 Attack)"
+type = 0
+tier = 0
+unit_amount = 10
+target = 1
+cost = 0
+gaslight_cost = 3
+gatekeep_cost = 0
+gaslight_income = 0.0
+icon = ExtResource("1_iutl3")
+tooltip_text = "Troops: [color=red]12[/color]
+HP: [color=green]40[/color]
+Speed: [color=yellow]0.03[/color]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

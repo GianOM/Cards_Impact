@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://co71lrr3pkls5"]
+
+[ext_resource type="Texture2D" uid="uid://cgycjjvns54xf" path="res://Assets/2D Assets/apartment.png" id="1_2on7x"]
+[ext_resource type="Script" uid="uid://c2m26wxejj6sy" path="res://Testing/characters/warrior/defend_cards/apartment.gd" id="1_ahwrb"]
+
+[resource]
+script = ExtResource("1_ahwrb")
+id_number = 9
+id_attack = -1
+id_defend = 3
+id = "Apartment (Tier 2 Defend)"
+type = 1
+tier = 1
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 1000
+gatekeep_cost = 0
+gaslight_income = 0.0
+icon = ExtResource("1_2on7x")
+tooltip_text = "Range: [color=red]13[/color]
+Damage: [color=green]22[/color]
+Attack CD: [color=yellow]0.64[/color]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

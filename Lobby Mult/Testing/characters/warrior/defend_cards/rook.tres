@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://wjg2wxy385od"]
+
+[ext_resource type="Texture2D" uid="uid://do3ccr6vtug8d" path="res://Assets/2D Assets/rook.png" id="1_sg0nr"]
+[ext_resource type="Script" uid="uid://bann0jm6pnq63" path="res://Testing/characters/warrior/defend_cards/rook.gd" id="2_bv5p2"]
+
+[resource]
+script = ExtResource("2_bv5p2")
+id_number = 0
+id_attack = -1
+id_defend = 0
+id = "Rook (Tier 1 Defend)"
+type = 1
+tier = 0
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 9
+gatekeep_cost = 0
+gaslight_income = 0.0
+icon = ExtResource("1_sg0nr")
+tooltip_text = "Range: [color=red]10[/color]
+Damage: [color=green]24[/color]
+Attack CD: [color=yellow]1.0[/color]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"

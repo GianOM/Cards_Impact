@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://i5rcdxvoxm0y"]
+
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="1_2hh44"]
+[ext_resource type="Script" uid="uid://cfy1snvfb66ew" path="res://Testing/token_ui.gd" id="2_2470r"]
+[ext_resource type="Texture2D" uid="uid://bgwwfj51cmsrv" path="res://Assets/2D Assets/Gaslight.png" id="3_btq65"]
+[ext_resource type="Texture2D" uid="uid://wj0gxltorvo0" path="res://Assets/2D Assets/Gatekeep.png" id="4_uds0t"]
+[ext_resource type="PackedScene" uid="uid://c8cystk1v1rgm" path="res://Testing/coin_ui.tscn" id="5_pf5ua"]
+
+[node name="TokenUI" type="PanelContainer"]
+offset_right = 471.0
+offset_bottom = 159.0
+theme = ExtResource("1_2hh44")
+script = ExtResource("2_2470r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GaslightIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("3_btq65")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GaslightTokens" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+
+[node name="IncomePerSecond" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[right]0"
+
+[node name="GaslightIcon2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("3_btq65")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PerSecond" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "/s"
+
+[node name="GatekeepIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_uds0t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GatekeepTokens" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+
+[node name="CoinUI" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_pf5ua")]
+unique_name_in_owner = true
+layout_mode = 2

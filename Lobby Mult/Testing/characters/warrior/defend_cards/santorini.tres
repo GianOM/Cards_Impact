@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dpmkbjghrloi0"]
+
+[ext_resource type="Texture2D" uid="uid://jg20w80mxxvw" path="res://Assets/2D Assets/santorinho.png" id="1_6244p"]
+[ext_resource type="Script" uid="uid://cpoweahqe23vi" path="res://Testing/characters/warrior/defend_cards/santorini.gd" id="1_wproo"]
+
+[resource]
+script = ExtResource("1_wproo")
+id_number = 10
+id_attack = -1
+id_defend = 4
+id = "Santorini (Tier 2 Defend)"
+type = 1
+tier = 1
+unit_amount = 1
+target = 1
+cost = 0
+gaslight_cost = 9
+gatekeep_cost = 0
+gaslight_income = 0.0
+icon = ExtResource("1_6244p")
+tooltip_text = "Range: [color=red]30[/color]
+Damage: [color=green]22[/color]
+Attack CD: [color=yellow]0.9[/color]"
+metadata/_custom_type_script = "uid://boah0y84tqxap"
