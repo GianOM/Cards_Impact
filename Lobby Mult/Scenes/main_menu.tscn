@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cynaphj5tfkt8"]
+[gd_scene load_steps=8 format=3 uid="uid://cynaphj5tfkt8"]
 
 [ext_resource type="Script" uid="uid://b8yq8oyeptc1b" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Theme" uid="uid://ca0rvbb2ul3rx" path="res://Scenes/Main_Menu_Theme.tres" id="2_ce3w2"]
 [ext_resource type="Script" uid="uid://dmjnnny14vhwg" path="res://Scenes/Main Menu Navigation.gd" id="2_n45e2"]
 [ext_resource type="Script" uid="uid://uimfkrc3hfoe" path="res://Scenes/Lobby_Chat.gd" id="3_1ehe0"]
 [ext_resource type="Script" uid="uid://c4n7cwmeffl2m" path="res://Scenes/Player_Lobby_Main_Script.gd" id="4_cp0ys"]
-[ext_resource type="Script" uid="uid://clg4yc4pyppwi" path="res://Scenes/player_1_stats_hbox.gd" id="4_n45e2"]
-[ext_resource type="Script" uid="uid://cominxxrlq08f" path="res://Scenes/player_2_stats_hbox.gd" id="5_opfnp"]
+[ext_resource type="Script" uid="uid://cyqgclieb406q" path="res://Scenes/lobby_ready_button.gd" id="4_opfnp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
 bg_color = Color(0.35, 0.306367, 0.231, 0.431373)
@@ -112,6 +111,25 @@ offset_right = 0.199982
 grow_vertical = 0
 theme = ExtResource("2_ce3w2")
 text = "Back to Start Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Lobby Ready Button" type="Button" parent="Control/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.804
+anchor_top = 0.033
+anchor_right = 0.983
+anchor_bottom = 0.117
+offset_left = 0.159973
+offset_top = 0.18
+offset_right = 0.319946
+offset_bottom = -0.180004
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_ce3w2")
+toggle_mode = true
+text = "Ready"
+script = ExtResource("4_opfnp")
 metadata/_edit_use_anchors_ = true
 
 [node name="Single Or Multiplayer" type="Control" parent="Control"]
@@ -348,7 +366,6 @@ text = "Status"
 [node name="Player_1_Stats_HBOX" type="HBoxContainer" parent="Control/Public Multiplayer Lobby/VBoxContainer/Players List Panel/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-script = ExtResource("4_n45e2")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Public Multiplayer Lobby/VBoxContainer/Players List Panel/VBoxContainer/Player_1_Stats_HBOX"]
@@ -373,7 +390,6 @@ text = "Not Ready"
 visible = false
 layout_mode = 2
 alignment = 1
-script = ExtResource("5_opfnp")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Public Multiplayer Lobby/VBoxContainer/Players List Panel/VBoxContainer/Player_2_Stats_HBOX"]
@@ -428,6 +444,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Control/CanvasLayer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Back to Start Menu Button" to="Control" method="_on_back_to_Start_menu_clicked"]
+[connection signal="toggled" from="Control/CanvasLayer/Lobby Ready Button" to="Control/CanvasLayer/Lobby Ready Button" method="_on_toggled"]
 [connection signal="pressed" from="Control/Single Or Multiplayer/VBoxContainer/Multiplayer Button" to="Control" method="_on_multiplayer_selected"]
 [connection signal="pressed" from="Control/Multiplayer Local or Steam/VBoxContainer/Public Multiplayer Button" to="Control" method="_on_public_multiplayer_clicked"]
 [connection signal="pressed" from="Control/Multiplayer Local or Steam/VBoxContainer/Local Multiplayer Button" to="Control" method="_on_local_multiplayer_clicked"]

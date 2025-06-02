@@ -23,3 +23,6 @@ res://Testing/characters/warrior/unified_deck.tres
 res://Testing/characters/warrior/warrior.tres
 res://Testing/main_theme.tres
 res://Scenes/Main_Menu_Theme.tres
+res://Scenes/Player_Lobby_Main_Script.gd
+res://Scenes/lobby_ready_button.gd
+res://Scripts/Lobby_Multiplayer.gd

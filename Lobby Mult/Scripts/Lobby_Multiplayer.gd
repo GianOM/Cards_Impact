@@ -23,8 +23,6 @@ var Player_Basic_Info = {"name": "NAME","is_Player_Ready": false}
 
 
 #----------------------STEAM------------------------------------
-signal Player_2_Inicializado
-
 #signal Player_2_Registrado_no_Host(Id_do_Player_2)
 signal Player_2_Registrado_no_Host
 
@@ -121,7 +119,6 @@ func _Player_Connected_Sucessfully():
 	List_of_Players[peer_id] = Player_Basic_Info
 	List_of_Players[peer_id].name = "O Cliente"#Atualiza o nome do novo peer para ser o seu ID
 	#player_connected.emit(peer_id, Player_Basic_Info)
-	Player_2_Inicializado.emit()
 	
 func _Connection_Failed():
 	#Setar o player como null apaga ele
@@ -199,7 +196,10 @@ func register_Steam_player(My_Steam_Username):
 	
 	List_of_Players[id] = {"name": My_Steam_Username,"is_Player_Ready": false}
 	
+	
 	print(List_of_Players)
+	
+	Player_2_Registrado_no_Host.emit()
 	
 	
 #O id abaixo retorna o lobby id, e nao o player ID
