@@ -1,0 +1,103 @@
+res://Assets/3D Assets/Floors/Ground.tres::b40a41342e9450d0cab8c114d48f9e00::1748876444::res://.godot/exported/133200997/export-504a6fdf0c5ce18d505fc52d9b21633d-Ground.res
+res://Assets/3D Assets/Grid/Default_Grid_Material.tres::cedaa7a04bb7c1914c73bc5904720351::1748694777::res://.godot/exported/133200997/export-c4a5ec883e91744a79cc60e402b489ae-Default_Grid_Material.res
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres::53c3cfe65fbf5add5c27cdabd643e72b::1748876444::res://.godot/exported/133200997/export-d2e2416bbd0264268701864fb0f0aa35-Highlighted_Grid_Material.tres.res
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres::8230862bdc184a6ff5c23fd5ea88d9bb::1748876444::res://.godot/exported/133200997/export-143948bf98cd830ace898c3791441686-Occupied_Grid_Material.res
+res://Scenes/3D/Floors/Floor.tscn::25462957c97eaaa2dfc54d244ec7b32f::1748694777::res://.godot/exported/133200997/export-ec189ddc6812c23be863bf11248efa2a-Floor.scn
+res://Scenes/3D/Grid/Hexagon Tile.tscn::56b105cac8bfe3ed36c5aff065c3780b::1748694777::res://.godot/exported/133200997/export-b953cfe40a10c2f9a918734cfe31111c-Hexagon Tile.scn
+res://Scenes/3D/Grid/hex_grid.tscn::72ac9a7e1f7af7150c6e375c1e2d0a54::1748694777::res://.godot/exported/133200997/export-8a2047bf1073efef563918ae9c42a61c-hex_grid.scn
+res://Scenes/3D/Paths/Path_Example.tscn::5bdcea055883bb6120bbf893eb47f0a1::1748781381::res://.godot/exported/133200997/export-65ded1716029a78ea3bde00a7e71fbd8-Path_Example.scn
+res://Scenes/3D/Projectile/Projectile.tscn::9cd3ef51eb492eaa6212668c56a79eaa::1748694777::res://.godot/exported/133200997/export-1889c69fd7eeded4323bf67ee047dea5-Projectile.scn
+res://Scenes/3D/Towers/Towers.tscn::cb769581c731630c9d605fc644b111ef::1748791700::res://.godot/exported/133200997/export-21bcbdef99b12d5b5c17b345074c0a52-Towers.scn
+res://Scenes/3D/Towers/Towers_Database.tscn::a22b560a733edab1252d5b3672444ede::1748694777::res://.godot/exported/133200997/export-091cdbebafccd15722663115075a2214-Towers_Database.scn
+res://Scenes/3D/Troops/Troops.tscn::e13d2a49138b839b0e33b2de6b4dac1d::1748781381::res://.godot/exported/133200997/export-4d77c1fc10cfaf4ade31d3745c65a66c-Troops.scn
+res://Scenes/Main.tscn::1efa1c5c3797b2ad8ec18e1bc50f9373::1748836348::res://.godot/exported/133200997/export-a8e1520d83f25710dd4e3da8c6f32601-Main.scn
+res://Scenes/main_menu.tscn::2137078746cbf7218208092932637ded::1748905470::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/Player Camera Scene.tscn::ee8ba2ab8de53b899c5b2225c429927c::1748791781::res://.godot/exported/133200997/export-f4f8cc58eb48d5992a48b645512449a4-Player Camera Scene.scn
+res://Assets/3D Assets/Projectile/Tier 1 Projectile Material.tres::45c1dbef54f5b4c55728aad0c806adc1::1748694777::res://.godot/exported/133200997/export-ccbd9ca3b9d58de8914ed5cf7579eb9a-Tier 1 Projectile Material.res
+res://Assets/3D Assets/Projectile/Tier 2 Projectile Material.tres::7bedb9562bb2bf88f82a7b377d5828d9::1748694777::res://.godot/exported/133200997/export-508266b1676844d7c379c0672bd4a03e-Tier 2 Projectile Material.res
+res://Scenes/3D/Paths/Enemy_spawner.tscn::e308ecbbb940357da6efd86c68df4785::1748694777::res://.godot/exported/133200997/export-fe8dc8048194b506f20b7c7a9acf9d7e-Enemy_spawner.scn
+res://Scenes/3D/Base/Base_Main.tscn::d0391126cb6af326627db91603b197b6::1748694777::res://.godot/exported/133200997/export-b5bf4cd31983d628e4360951e0f88dbc-Base_Main.scn
+res://Assets/3D Assets/Shaders/Hovering_Shader.tres::ad9975fe73cef5ae0c1574c54065c9b9::1748909446::res://.godot/exported/133200997/export-d8ff01af4d24e03dbbf5c28e3c1f8681-Hovering_Shader.res
+res://Assets/3D Assets/Shaders/Hull_Outline.tres::4be05e7e724b157bcd0287125efaadb0::1748909446::res://.godot/exported/133200997/export-e7a94ff9a80ceea8c26ef4d553213088-Hull_Outline.res
+res://Scenes/3D/Base/Base_Healthbar.tscn::72f56d99bbc1e03b9cd0fcf337e83ea5::1748694777::res://.godot/exported/133200997/export-caa620d69d9de958878febef70af4a16-Base_Healthbar.scn
+res://Scenes/3D/Paths/Enemy_Spawner_Counter.tscn::ffe6a1673facd9bdd28061b875a5e2b6::1748694777::res://.godot/exported/133200997/export-6ae7da0a0baaff0d2a4663515d3714dd-Enemy_Spawner_Counter.scn
+res://Scenes/3D/Projectile/Projectile Database/Tier_1_Projectile.tscn::f95ac1fd9928d397fd8ee916ffcc36fa::1748694777::res://.godot/exported/133200997/export-5a0baa23c55d55cd6007f59092c6bab6-Tier_1_Projectile.scn
+res://Scenes/3D/Projectile/Projectile Database/Tier_2_Projectile.tscn::7ab8d956c71c1567e2993200bb39c55b::1748694777::res://.godot/exported/133200997/export-5e5a6624edd17bc7b265887132faff0f-Tier_2_Projectile.scn
+res://Scenes/3D/Projectile/Projectile Spawner.tscn::734e8669a170c9ad467a8658a21bcadc::1748694777::res://.godot/exported/133200997/export-add18ad33a50c98c8ad6125f1a17597a-Projectile Spawner.scn
+res://Scenes/3D/Towers/Towers Database/00_Tier_1_Rook.tscn::ffa3aa9e32bb6a3aec2aaae0bdfe7d29::1748771759::res://.godot/exported/133200997/export-dde5943d83de3e30d0cc26c9aabd3190-00_Tier_1_Rook.scn
+res://Scenes/3D/Towers/Towers Database/01_Tier_1_Queen.tscn::2ff8accf252fae314dca2ad882363c9b::1748694777::res://.godot/exported/133200997/export-a5d8bb07e8416962cee5f376e4a207eb-01_Tier_1_Queen.scn
+res://Scenes/3D/Towers/Towers Database/02_Tier_1_Jenga.tscn::68c17647bf2d78210d19f5abcb675e6a::1748777589::res://.godot/exported/133200997/export-ce1061b576243eb05704bb71c36e2a4d-02_Tier_1_Jenga.scn
+res://Scenes/3D/Towers/Towers Database/03_Tier_2_Apartamento.tscn::dcbb3a67949b11c751c18b6f88210376::1748759469::res://.godot/exported/133200997/export-6c14b10b0de3ddd0d6902160d12985e7-03_Tier_2_Apartamento.scn
+res://Scenes/3D/Towers/Towers Database/04_Tier_2_Santorino.tscn::d0225bd06bd0d05bdbcdc6386c539672::1748759469::res://.godot/exported/133200997/export-8d67563fb211a40afb4dadcf54a0dd13-04_Tier_2_Santorino.scn
+res://Scenes/3D/Towers/Towers Database/05_Tier_2_Bunker.tscn::940c04554d18514ae1d54b475e5fc9b8::1748694777::res://.godot/exported/133200997/export-da5641ce8d929d69d973af68182b370f-05_Tier_2_Bunker.scn
+res://Scenes/3D/Towers/Towers Database/06_Money_Tier_1.tscn::457e8626b846157fa87842d92e26625b::1748694777::res://.godot/exported/133200997/export-e8518f0f61795397d3a6b8de8ad601d0-06_Money_Tier_1.scn
+res://Scenes/3D/Towers/Hovering_Tower.tscn::c437d4b7aede4a7b05db383446ddabfa::1748908747::res://.godot/exported/133200997/export-721b6af59bf038a2b9999382b2f5c3cc-Hovering_Tower.scn
+res://Scenes/3D/Troops/Troops Database/00_Tier_1_Pawn.tscn::90c5c01298529c84ae00d0627b9a58a9::1748758818::res://.godot/exported/133200997/export-eabf0f49c35749604f403c1d0e2f855c-00_Tier_1_Pawn.scn
+res://Scenes/3D/Troops/Troops Database/01_Tier_1_Bishop.tscn::0742c175b7d7db5b4b5ac886c98b1f12::1748758819::res://.godot/exported/133200997/export-4cbd4b170c0f414e4358a9ee2639d46b-01_Tier_1_Bishop.scn
+res://Scenes/3D/Troops/Troops Database/02_Tier_1_Horse.tscn::a8c962ee279c2d208e6900472ac0f107::1748694777::res://.godot/exported/133200997/export-0e8668e3ed1c04196caa32ffdfc54788-02_Tier_1_Horse.scn
+res://Scenes/3D/Troops/Troops Database/03_Tier_2_Car.tscn::668ec36ed35bc8c88cbbe6d8bd671718::1748694777::res://.godot/exported/133200997/export-dd34f825f1e26804d84fadc1a57408b3-03_Tier_2_Car.scn
+res://Scenes/3D/Troops/Troops Database/04_Tier_2_Hat.tscn::2d91aa7b9588d1ab353c1b2dfeabbe37::1748694777::res://.godot/exported/133200997/export-ba3191e4ec7370dadb0d4814c6e23f60-04_Tier_2_Hat.scn
+res://Scenes/3D/Troops/Troops Database/05_Tier_2_Domino.tscn::06161da46bdce0554c8b46587e2a4a66::1748694777::res://.godot/exported/133200997/export-262cd3d4273f18ea1b3d5c74ba036dbd-05_Tier_2_Domino.scn
+res://Scenes/3D/Troops/Hovering Troop.tscn::687d03de8ff2eb6bd0292e0e8103271b::1748781381::res://.godot/exported/133200997/export-4cae352098eff4c6ad42dd4b0c7efd37-Hovering Troop.scn
+res://Scenes/3D/Troops/Troops_Database.tscn::b64e485d9e7efc33f8232d7b51e15173::1748694777::res://.godot/exported/133200997/export-343d37d1dc4961bf0fcf275ac592d802-Troops_Database.scn
+res://Scenes/Basic_Shader.tscn::e3a88bdc1c3c692e6dadccb9b3597d45::1748764378::res://.godot/exported/133200997/export-cc3a2b028fe77bafe6a76c5192bd1d6c-Basic_Shader.scn
+res://Scenes/Global_Timer.tscn::1153586a249cbb91c8cc1c754bdc8194::1748777590::res://.godot/exported/133200997/export-5edf17fef1e8929f8981f1c334affaba-Global_Timer.scn
+res://Scenes/Main_Menu_Theme.tres::0434f15bbbdef7e805072365607f4537::1748876444::res://.godot/exported/133200997/export-7ddbf75be9c8ca32f5ae18995aa2db18-Main_Menu_Theme.res
+res://Scripts/3D/Projectiles/Data/Tier_1_Projectile_Blue.tres::202828832c46bc7f8804afd7b1df6a48::1748694777::res://.godot/exported/133200997/export-2957b81ed127808232b503ba5ef79a82-Tier_1_Projectile_Blue.res
+res://Scripts/3D/Projectiles/Data/Tier_2_Projectile_Yellow.tres::7a57c2aa059ff779d1882f7500820742::1748694777::res://.godot/exported/133200997/export-7e2aaecd0a18adfcd0e13099fc5c1970-Tier_2_Projectile_Yellow.res
+res://Scripts/3D/Tower/Data/00_Tier_1_Rook.tres::470d2e0ef87767d30a3a1958d97e3b52::1748781220::res://.godot/exported/133200997/export-7fe54c7f7647c6f3caf384a7c01382ab-00_Tier_1_Rook.res
+res://Scripts/3D/Tower/Data/01_Tier_1_Queen.tres::a7255e4d793ecd22f021c8f0d6e31667::1748749844::res://.godot/exported/133200997/export-80be5ec482392755da8e0c917fac3443-01_Tier_1_Queen.res
+res://Scripts/3D/Tower/Data/02_Tier_1_Jenga.tres::e87c5dd13a3bbb4b3f6d16814417e5cd::1748749844::res://.godot/exported/133200997/export-a63e544f7fe8b32e5a3f9b51714dc342-02_Tier_1_Jenga.res
+res://Scripts/3D/Tower/Data/03_Tier_2_Appartment.tres::09bb08bbea3a9e0188eb8197431c3d20::1748781220::res://.godot/exported/133200997/export-1e529dd7175f864d6db1b0134af82b1e-03_Tier_2_Appartment.res
+res://Scripts/3D/Tower/Data/04_Tier_2_Santorino.tres::87893944dd68241f92008e3230a0b69a::1748781220::res://.godot/exported/133200997/export-a3f4613a131320906b5492c4816dee04-04_Tier_2_Santorino.res
+res://Scripts/3D/Tower/Data/05_Tier_2_Bunker.tres::8aa3f419d86898107f785c84d1961918::1748781220::res://.godot/exported/133200997/export-722f30db0d7c1c90ca3087f5de3755f4-05_Tier_2_Bunker.res
+res://Scripts/3D/Tower/Data/06_Money_Tier_1.tres::7dc28de9180ac7fccfb47d50c4d5a31c::1748694777::res://.godot/exported/133200997/export-ce92019d545505b49a65c118b643ccbf-06_Money_Tier_1.res
+res://Scripts/3D/Troops/Data/00_Tier_1_Pawn.tres::e23577495d1eb106a94b87abc4bdb014::1748781381::res://.godot/exported/133200997/export-bf38a50c7da86e7a3a37c6e4158997d5-00_Tier_1_Pawn.res
+res://Scripts/3D/Troops/Data/01_Tier_1_Bishop.tres::8e851d9aa8fbfc02cdbf0e8c5638d38d::1748781381::res://.godot/exported/133200997/export-a59ba2ab4a6f8f66e8498dcdad21e775-01_Tier_1_Bishop.res
+res://Scripts/3D/Troops/Data/02_Tier_1_Horse.tres::e13ba2b207b81993ee4fd5c0c80a58b5::1748781381::res://.godot/exported/133200997/export-56432ca0c7ab72a98ed8c282379c732e-02_Tier_1_Horse.res
+res://Scripts/3D/Troops/Data/03_Tier_2_Car.tres::a8ac6c829ae4a49e89990c03d8635fa5::1748781381::res://.godot/exported/133200997/export-615c1e212cd68f9d172e3da606b87707-03_Tier_2_Car.res
+res://Scripts/3D/Troops/Data/04_Tier_2_Hat.tres::9b4b1d2777e781552a1b9de6a79ac1e7::1748781381::res://.godot/exported/133200997/export-e2744a383793fc163158fe3bc8e8b992-04_Tier_2_Hat.res
+res://Scripts/3D/Troops/Data/05_Tier_2_Domino.tres::5e306505c9ddcac5d207b27e88f00ad9::1748781381::res://.godot/exported/133200997/export-09994b97b4eebd8dd0a4b97199782523-05_Tier_2_Domino.res
+res://Testing/characters/warrior/attack_cards/bishop.tres::be0380ac2708173bb2bc6ca8f209dbab::1748876444::res://.godot/exported/133200997/export-15e6ba76758691357f09d771f75aa85c-bishop.res
+res://Testing/characters/warrior/attack_cards/car.tres::0ce14b3d79018367cdfdd133b142d2bb::1748876444::res://.godot/exported/133200997/export-05d1ab8836ae7753bdaf34cbd059e06b-car.res
+res://Testing/characters/warrior/attack_cards/domino.tres::19f6655be7ab610d1cfe20dc17c4295a::1748876444::res://.godot/exported/133200997/export-ab137dac39f1921a803308c0d12bcf29-domino.res
+res://Testing/characters/warrior/attack_cards/hat.tres::f2b1d220f4a4def3b5c08b1d76eba9f8::1748876444::res://.godot/exported/133200997/export-2b5476779cda6751ea7c6b4b25ee559e-hat.res
+res://Testing/characters/warrior/attack_cards/knight.tres::1309f4af056c0e2e2de8aff64f71960e::1748876444::res://.godot/exported/133200997/export-6a6929811ff7142957a1ec93dafa58fe-knight.res
+res://Testing/characters/warrior/attack_cards/pawn.tres::845992b5f0df2b004c31a5e880029d09::1748876444::res://.godot/exported/133200997/export-0adad23d161fb7b16aa8a27f31c72e3d-pawn.res
+res://Testing/characters/warrior/defend_cards/apartment.tres::30546c7d4d7c67e76cc66e98a9626c99::1748876444::res://.godot/exported/133200997/export-fb1b2c810910a4158a6e2f554a51710c-apartment.res
+res://Testing/characters/warrior/defend_cards/bunker.tres::dec3067902a1f8ae3b6eeb2fa996194f::1748876444::res://.godot/exported/133200997/export-7d0f598f4d6c34de6fcb5a0ec17eb486-bunker.res
+res://Testing/characters/warrior/defend_cards/jenga.tres::2750b0d9bcb8bb277ccd885baf055eee::1748876444::res://.godot/exported/133200997/export-e37a4c195985532827618e72662ac6db-jenga.res
+res://Testing/characters/warrior/defend_cards/money_tower.tres::fa203afadc544e9ffa158819132070ed::1748876444::res://.godot/exported/133200997/export-3efbbac92bd7a73de7b10e61f3c3a55d-money_tower.res
+res://Testing/characters/warrior/defend_cards/queen.tres::e3c7109884b23d4b0ff0bc55d6023545::1748876444::res://.godot/exported/133200997/export-2d08cef64ab05981bce6fdd33496c383-queen.res
+res://Testing/characters/warrior/defend_cards/rook.tres::4a745724dbc977a5e1a12e493631267a::1748876444::res://.godot/exported/133200997/export-e49956bdc896333662adf73054774484-rook.res
+res://Testing/characters/warrior/defend_cards/santorini.tres::418c01131db4c7a6436b1b8e50b9e91b::1748876444::res://.godot/exported/133200997/export-5aa0a848419800d18277e479142e0be4-santorini.res
+res://Testing/characters/warrior/unified_deck.tres::8a9d0400bc10ca83af11daf8880d7b38::1748876444::res://.godot/exported/133200997/export-8a4e9cb1c071fc1e57c0b2b7a5a09cc4-unified_deck.res
+res://Testing/characters/warrior/warrior.tres::a54929e8491e788658428c48881b21e6::1748876444::res://.godot/exported/133200997/export-aef7c5b437dc7620bfc9de2ef903f8b1-warrior.res
+res://Testing/characters/warrior/warrior_attack_deck.tres::915461de3eb84c9b9b283c79fb8195af::1748876444::res://.godot/exported/133200997/export-dec697356b9a1c069cf741871498abc6-warrior_attack_deck.res
+res://Testing/characters/warrior/warrior_defend_deck.tres::047091910fb6f85c45a0029668cfff0f::1748876444::res://.godot/exported/133200997/export-9a2f97da72b5ec15be9c9dc91fe4200e-warrior_defend_deck.res
+res://Testing/enemies/ian/test_enemy.tres::41023d664617904b19220d7e3f41cf6f::1748785866::res://.godot/exported/133200997/export-3c6f5a8957854cc0b57f5461bdb7811b-test_enemy.res
+res://Testing/items/shop_item_pool.tres::4f935891daab020280272569c3d7989d::1748785866::res://.godot/exported/133200997/export-302f8f795fc1a1d235b7eb062bcd9738-shop_item_pool.res
+res://Testing/items/test_item.tres::2e1be40599dbdc9d3025a9243b4434cf::1748785866::res://.godot/exported/133200997/export-491dd3b5eec108a3c9c97f95c1a45b03-test_item.res
+res://Testing/card_arc.tscn::e577d2c5e422ea6ab0e24ada9222eb1f::1748785866::res://.godot/exported/133200997/export-219c65f069fdb4ea3cd88109fefb61ad-card_arc.scn
+res://Testing/card_base_stylebox.tres::479df98455045e31f49034f939b4dad0::1748785866::res://.godot/exported/133200997/export-ba5ac3177a6b37b0dd170b88d2df23f6-card_base_stylebox.res
+res://Testing/card_dragging_stylebox.tres::c71286ba93b912af3b9ac93a3564c060::1748785866::res://.godot/exported/133200997/export-45bc43c42b0126764253cb668cf7a24b-card_dragging_stylebox.res
+res://Testing/card_hover_stylebox.tres::7f2ab4f6991245d68e55572d9ee71967::1748785866::res://.godot/exported/133200997/export-e07e5a9e283272ddb97e360ea4d5fdef-card_hover_stylebox.res
+res://Testing/card_menu_ui.tscn::106d97b8c75065ba9e96b2034572a984::1748806597::res://.godot/exported/133200997/export-87f9567385575777514999cad47ab035-card_menu_ui.scn
+res://Testing/card_pile_opener.tscn::d6b8c9b934c3635a118d45d7d5366b37::1748785866::res://.godot/exported/133200997/export-923922555af756047690df1e3777f504-card_pile_opener.scn
+res://Testing/card_pile_view.tscn::8af9f881807cf0cf2c94c3c34531ea11::1748785866::res://.godot/exported/133200997/export-70ad8c35097e68fdf1e0bc48b2a97ceb-card_pile_view.scn
+res://Testing/card_target_selector.tscn::fb87ef8e226e36c8b0326467f34c92f6::1748785866::res://.godot/exported/133200997/export-79a412d265beb78112fd55ce9f6ec3ba-card_target_selector.scn
+res://Testing/card_tooltip_popup.tscn::90635c2019a9d0099eb3c1126020c651::1748785866::res://.godot/exported/133200997/export-8cb5871e9a4c944f008438b0c0438c49-card_tooltip_popup.scn
+res://Testing/card_ui.tscn::d4c328fa2f252a1b12bf40b0b2b99a7a::1748806597::res://.godot/exported/133200997/export-99cc82c4364f59ba27a0571046e25596-card_ui.scn
+res://Testing/card_visuals.tscn::0ad75a24539126045b25c7b6fe9346ff::1748803323::res://.godot/exported/133200997/export-19fd21a5e23541ccbb158e27816ce83e-card_visuals.scn
+res://Testing/coin_ui.tscn::09a9574718883254baa0520a475789a3::1748806597::res://.godot/exported/133200997/export-90e794a8db974f23d760261622bd73db-coin_ui.scn
+res://Testing/enemy.tscn::4784872b765d5cf6286870c0e9760ff5::1748785866::res://.godot/exported/133200997/export-d1074e10daad0e4c5bfb532f186ac62c-enemy.scn
+res://Testing/item_ui.tscn::087eab7f02a5384996825d10e6780888::1748785866::res://.godot/exported/133200997/export-9171f468fb6f9539afb8f80e3c3f4f68-item_ui.scn
+res://Testing/main_theme.tres::4b99cf49f94585cfc5752f8fec011bdc::1748876444::res://.godot/exported/133200997/export-7873c6edb522d449896002c9474c0681-main_theme.res
+res://Testing/mana_ui.tscn::fdd63d1b28511553da17b0e7d2331039::1748785866::res://.godot/exported/133200997/export-b3d818f4564afbf63366be18e9e55820-mana_ui.scn
+res://Testing/player.tscn::4c826e85fa29949276f2268e5faf2bdc::1748785866::res://.godot/exported/133200997/export-7a99175c5c26c9c09586b5024d67010e-player.scn
+res://Testing/shop.tscn::e71ceaacb7eb52a00729dab7c4666b1a::1748785866::res://.godot/exported/133200997/export-116ec06cad31c1fd464c9fdf1117a7af-shop.scn
+res://Testing/stats_ui.tscn::a92623c81da7f70b29eb56a34f680424::1748785866::res://.godot/exported/133200997/export-e4cf903d935df19a15c1346a6fab67b3-stats_ui.scn
+res://Testing/testing_main.tscn::f829402c9fabf7196f6ec7c946815326::1748806596::res://.godot/exported/133200997/export-8458163829ad2ee5d513198b8f8548dc-testing_main.scn
+res://Testing/token_ui.tscn::238c95e9d62d9acf4ec6338c39d503df::1748807235::res://.godot/exported/133200997/export-5d5bad59fd1610ad4e40c1dc4d466549-token_ui.scn
+res://Testing/tooltip.tscn::a0081abca20576c913f81f039c8101d0::1748792402::res://.godot/exported/133200997/export-8e50abb80effaca39be6cfa77bbb56b1-tooltip.scn
+res://Testing/warning_ui.tscn::56ca832876012ad182ed740d28ed6054::1748785866::res://.godot/exported/133200997/export-a8b993e21c50c1385937fce30f048d77-warning_ui.scn
