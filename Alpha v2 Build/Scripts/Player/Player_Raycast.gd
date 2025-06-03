@@ -1,5 +1,13 @@
 extends RayCast3D
 
+
+
+#Os sinais trocam a cor das tropas
+signal Change_Hover_to_Green
+signal Change_Hover_to_Red
+
+
+
 # --- Constantes ---
 const TOWERS_SCENE = preload("res://Scenes/3D/Towers/Hovering_Tower.tscn")
 const INDIVIDUAL_TROOP_SCENE = preload("res://Scenes/3D/Troops/Hovering Troop.tscn")
@@ -27,6 +35,12 @@ var remove_range_hovering: Hexagono
 # --- Multiplayer Variables ---
 
 var Owner_ID: int
+
+#Checka se o Enemy Spawner e do meu time
+# My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
+
+#Checka se o Hexagono e do meu time
+#My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team != player.My_Team
 
 func _ready() -> void:
 	
@@ -74,6 +88,11 @@ func Screen_Point_to_Ray() -> void:
 			Troop_Instance.scale = INSTANCE_SCALE_HIDDEN
 			#CollisionCheck.card_id_attack é -1 para cartas de defesa
 			#CollisionCheck.card_id_defense é -1 para cartas de ataque
+			
+			#Se Ray_Hit.get_owner().Hexagon_Team == player.My_Team for true, ele passa true como parametro
+			#Se for false, ele passa false GENIUS 139 IQ MOMENT
+			Tower_Instance.set_shader_color_based_on_raycast_result(Ray_Hit.get_owner().Hexagon_Team == player.My_Team)
+				
 			if CollisionCheck.is_a_card_being_dragged and Ray_Hit_Owner.Placed_Tower == null and CollisionCheck.card_id_attack == -1:
 
 				#O indice e setado no Player Movement usando eventos
@@ -111,7 +130,12 @@ func Screen_Point_to_Ray() -> void:
 			
 		#Garante que
 		elif Ray_Hit_Owner is Enemy_Spawner and  CollisionCheck.is_a_card_being_dragged:
+			
 			Troop_Instance.set_mesh_from_tier(player.Global_Card_Index)
+			
+			#Ray_Hit.get_owner().Troop_Spawner_Team == player.My_Team for true, ele passa true como parametro
+			#Se for false, ele passa false GENIUS 139 IQ MOMENT
+			Troop_Instance.set_shader_color_based_on_raycast_result(Ray_Hit.get_owner().Troop_Spawner_Team == player.My_Team)
 			
 			Troop_Instance.scale = INSTANCE_SCALE_VISIBLE
 			Troop_Instance.global_position = Ray_Hit.global_position

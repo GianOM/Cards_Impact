@@ -16,11 +16,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_f63tn")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.5
 shader_parameter/Opacity_Amount = 0.4
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_26kvf"]
 _surfaces = [{
@@ -68,11 +70,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_ymvod")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.2
 shader_parameter/Opacity_Amount = 0.5
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_26yxg"]
 _surfaces = [{
@@ -120,11 +124,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_n0pbp")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.2
 shader_parameter/Opacity_Amount = 0.5
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pdbof"]
 _surfaces = [{
@@ -172,11 +178,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_q5qv3")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.2
 shader_parameter/Opacity_Amount = 0.5
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bwphe"]
 _surfaces = [{
@@ -224,11 +232,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_xga8w")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.2
 shader_parameter/Opacity_Amount = 0.5
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w6v5o"]
 _surfaces = [{
@@ -276,11 +286,13 @@ shader_parameter/Outline_Color = Color(0.780392, 0.701961, 0, 1)
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_bs08k")
 shader = ExtResource("2_6nwjl")
+shader_parameter/Main_Hover_Color = Color(0.40248, 0.78, 0.2652, 1)
 shader_parameter/Opacity_Mult = 0.2
 shader_parameter/Opacity_Amount = 0.5
 shader_parameter/Alpha = 0.4
 shader_parameter/Beta = 0.3
 shader_parameter/Gama = 2.0
+shader_parameter/Rim_Color = Color(0.780392, 0.701961, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_23ysl"]
 _surfaces = [{

@@ -73,6 +73,38 @@ func set_mesh_from_tier(index: int):
 			Set_Tower_Range_from_Index(6)
 			$Index_6.show()
 			
+			
+			
+			
+			
+			
+			
+#TODO: FIX THIS DUMB SHIT
+#1. Colocar os Vectors 4 como variaveis
+#2. Get the active mesh index to avoid changing all of them
+func set_shader_color_based_on_raycast_result(is_in_Correct_field: bool):
+	if is_in_Correct_field:
+		$"Index_0/Rook Tower".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$Index_1/Tower_Tier_2.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$Index_2/Jenga.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$"Index_3/Banco Imobiliario".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$Index_4/Santorini.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$Index_5/Bunker.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$"Index_6/Money Tower".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		$Tower_Range.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(0.318,0.961,0.086,1))
+		
+		
+	else:
+		$"Index_0/Rook Tower".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$Index_1/Tower_Tier_2.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$Index_2/Jenga.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$"Index_3/Banco Imobiliario".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$Index_4/Santorini.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$Index_5/Bunker.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$"Index_6/Money Tower".get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+		$Tower_Range.get_active_material(0).set_shader_parameter("Main_Hover_Color", Vector4(1,0,0,1))
+	
+
 func Hide_All_Meshes():
 	$Index_0.hide()
 	$Index_1.hide()
