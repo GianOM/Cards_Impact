@@ -1,0 +1,191 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu7u0kkwfe8mp"]
+
+[ext_resource type="Script" uid="uid://cse7mmdfiyule" path="res://Scripts/Player/Player Movement.gd" id="1_1jhqv"]
+[ext_resource type="Script" uid="uid://bycfmjbqf4vwk" path="res://Scripts/Player/Player_Raycast.gd" id="2_yq3t3"]
+[ext_resource type="Script" uid="uid://gh6s5f6c4nqe" path="res://Scripts/Player/Player Tower UI.gd" id="3_hje2h"]
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="3_io50g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yq3t3"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yq3t3"]
+properties/0/path = NodePath("RayCast3D:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("RayCast3D:target_position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera3D:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Camera3D:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:Global_Card_Index")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:position")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_1jhqv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7.23164, 4.99977)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+top_level = true
+exclude_parent = false
+debug_shape_custom_color = Color(0, 0.579333, 0.79, 0)
+debug_shape_thickness = 1
+script = ExtResource("2_yq3t3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01903, 0)
+mesh = SubResource("CapsuleMesh_yq3t3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Tower UI" type="Control" parent="CanvasLayer"]
+visible = false
+z_index = 500
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_hje2h")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Tower UI"]
+z_index = 501
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 80.0
+offset_top = -120.825
+offset_right = 283.0
+offset_bottom = 137.175
+
+[node name="Close Button" type="Button" parent="CanvasLayer/Tower UI/Panel"]
+z_index = 502
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.842813
+anchor_right = 1.0
+anchor_bottom = 0.12
+offset_left = -23.091
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 16.04
+grow_horizontal = 0
+theme = ExtResource("3_io50g")
+text = "X"
+
+[node name="Tower_Name" type="Label" parent="CanvasLayer/Tower UI/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 141.0
+offset_bottom = 37.0
+text = "The Tower Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tower Stats Text" type="Control" parent="CanvasLayer/Tower UI/Panel"]
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 51.0
+offset_right = 145.0
+offset_bottom = 191.0
+
+[node name="Text Vbox" type="VBoxContainer" parent="CanvasLayer/Tower UI/Panel/Tower Stats Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Range Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Text/Text Vbox"]
+layout_mode = 2
+text = "Range"
+horizontal_alignment = 1
+
+[node name="Damage Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Text/Text Vbox"]
+layout_mode = 2
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="Att Speed Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Text/Text Vbox"]
+layout_mode = 2
+text = "Atack Speed"
+horizontal_alignment = 1
+
+[node name="Tower Stats Numbers" type="Control" parent="CanvasLayer/Tower UI/Panel"]
+anchors_preset = 0
+offset_left = 124.0
+offset_top = 58.0
+offset_right = 199.0
+offset_bottom = 173.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Tower UI/Panel/Tower Stats Numbers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="Range Number Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Numbers/VBoxContainer"]
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+
+[node name="Damage Number Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Numbers/VBoxContainer"]
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+
+[node name="Atack Speed Number Text" type="Label" parent="CanvasLayer/Tower UI/Panel/Tower Stats Numbers/VBoxContainer"]
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+
+[node name="Upgrade and Sell" type="Control" parent="CanvasLayer/Tower UI/Panel"]
+anchors_preset = 0
+offset_top = 219.0
+offset_right = 203.0
+offset_bottom = 257.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Tower UI/Panel/Upgrade and Sell"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_io50g")
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Upgrade Button" type="Button" parent="CanvasLayer/Tower UI/Panel/Upgrade and Sell/HBoxContainer"]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="Sell Buton" type="Button" parent="CanvasLayer/Tower UI/Panel/Upgrade and Sell/HBoxContainer"]
+layout_mode = 2
+text = "Sell"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yq3t3")
+
+[connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Close Button" to="CanvasLayer/Tower UI" method="_on_close_button_clicked"]
