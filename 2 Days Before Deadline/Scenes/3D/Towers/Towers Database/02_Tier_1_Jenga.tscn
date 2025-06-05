@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://nommvgr1hal"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa2ag"]
+resource_local_to_scene = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d8ded"]
 _surfaces = [{

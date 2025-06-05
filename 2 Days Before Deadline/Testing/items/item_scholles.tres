@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b8ugskr0ov0as"]
+
+[ext_resource type="Texture2D" uid="uid://bxqgi0xbpq1cr" path="res://Assets/2D Assets/schollesCardH.png" id="1_2ju3h"]
+[ext_resource type="Script" uid="uid://ep4tyfqfd3kn" path="res://Testing/custom_resources/item.gd" id="2_dpsum"]
+
+[resource]
+script = ExtResource("2_dpsum")
+item_name = "Scholles"
+id = "scholles"
+character_type = 1
+starter_item = true
+icon = ExtResource("1_2ju3h")
+tooltip = "Starting item test"
+metadata/_custom_type_script = "uid://ep4tyfqfd3kn"

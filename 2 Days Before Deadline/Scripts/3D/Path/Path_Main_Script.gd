@@ -44,7 +44,7 @@ func Load_Moving_Units_Resource_from_Path(path):
 			file_name = dir.get_next()
 
 @rpc("any_peer","call_local","reliable")
-func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int, Number_of_Troops:int):#Quem chama esta funcao e somente o EnemySpawner
+func Adcionar_Tropa_Ao_Enemy_Spawner(idx:int):#Quem chama esta funcao e somente o EnemySpawner
 	var troop_data_resource: Moving_Units_Data = troop_types[idx]
 	
 	var troop_scene = load(troop_data_resource.troop_scene_path)#Carrega a PackedScene contendo a malha 3D

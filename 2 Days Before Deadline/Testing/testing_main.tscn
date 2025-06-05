@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2sb25nigkhhn"]
+[gd_scene load_steps=21 format=3 uid="uid://2sb25nigkhhn"]
 
 [ext_resource type="Script" uid="uid://b86m4m8oakkht" path="res://Testing/battle.gd" id="1_e41k2"]
 [ext_resource type="Resource" uid="uid://d1jvn8s0i3ln4" path="res://Testing/characters/warrior/warrior.tres" id="4_1sdae"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c1qywtoxjpec1" path="res://Assets/2D Assets/Discard.png" id="12_jtj6a"]
 [ext_resource type="Texture2D" uid="uid://bntauqn0c0bs8" path="res://Assets/2D Assets/DiscardHover.png" id="13_6vt2j"]
 [ext_resource type="PackedScene" uid="uid://djjdlrokoqg5y" path="res://Testing/card_pile_view.tscn" id="16_m0ppn"]
+[ext_resource type="PackedScene" uid="uid://demc1gux4itk4" path="res://Testing/item_handler.tscn" id="17_6vt2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0ppn"]
 size = Vector2(1921, 734.5)
@@ -232,6 +233,13 @@ unique_name_in_owner = true
 [node name="RerollTimer" type="Timer" parent="BattleUI"]
 wait_time = 60.0
 one_shot = true
+
+[node name="ItemHandler" parent="BattleUI" instance=ExtResource("17_6vt2j")]
+unique_name_in_owner = true
+offset_left = 1813.0
+offset_top = 148.0
+offset_right = 1913.0
+offset_bottom = 771.0
 
 [node name="CardPileViews" type="CanvasLayer" parent="."]
 layer = 2

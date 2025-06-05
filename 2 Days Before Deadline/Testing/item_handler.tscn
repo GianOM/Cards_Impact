@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://demc1gux4itk4"]
+
+[ext_resource type="Script" uid="uid://4dlr5ra3lbgk" path="res://Testing/item_handler.gd" id="1_kv4vm"]
+[ext_resource type="Texture2D" uid="uid://dbenvbg7205ot" path="res://Assets/2D Assets/ArrowUI.png" id="1_lj51v"]
+[ext_resource type="Texture2D" uid="uid://b68mqxnc5j6q2" path="res://Assets/2D Assets/ArrowUIdisabled.png" id="2_kv4vm"]
+[ext_resource type="Script" uid="uid://cgjo6drfgql13" path="res://Testing/items_control.gd" id="3_ehip5"]
+[ext_resource type="PackedScene" uid="uid://lghsorihm48j" path="res://Testing/item_ui.tscn" id="4_jw34n"]
+
+[node name="ItemHandler" type="VBoxContainer"]
+custom_minimum_size = Vector2(100, 400)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kv4vm")
+
+[node name="UpButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("1_lj51v")
+texture_pressed = ExtResource("1_lj51v")
+texture_hover = ExtResource("1_lj51v")
+texture_disabled = ExtResource("2_kv4vm")
+stretch_mode = 5
+
+[node name="ItemsControl" type="Control" parent="." node_paths=PackedStringArray("up_button", "down_button")]
+clip_contents = true
+custom_minimum_size = Vector2(0, 415)
+layout_mode = 2
+script = ExtResource("3_ehip5")
+up_button = NodePath("../UpButton")
+down_button = NodePath("../DownButton")
+
+[node name="Items" type="VBoxContainer" parent="ItemsControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 415)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 932.0
+
+[node name="ItemUI" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI2" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI3" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI4" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI5" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI6" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI7" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI8" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="ItemUI9" parent="ItemsControl/Items" instance=ExtResource("4_jw34n")]
+layout_mode = 2
+
+[node name="DownButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("1_lj51v")
+texture_pressed = ExtResource("1_lj51v")
+texture_hover = ExtResource("1_lj51v")
+texture_disabled = ExtResource("2_kv4vm")
+stretch_mode = 5
+flip_v = true

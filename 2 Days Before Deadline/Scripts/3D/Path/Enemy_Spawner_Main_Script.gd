@@ -9,5 +9,5 @@ var Troop_Spawner_Team: int
 	
 
 @rpc("any_peer","call_local","reliable")
-func Adcionar_Tropa_Ao_Enemy_Spawner(INDEX: int, Troop_Quantity:int):
-	path_area_3d.rpc("Adcionar_Tropa_Ao_Enemy_Spawner", INDEX, Troop_Quantity)
+func Adcionar_Tropa_Ao_Enemy_Spawner(INDEX: int):
+	path_area_3d.rpc("Adcionar_Tropa_Ao_Enemy_Spawner", INDEX)

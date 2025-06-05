@@ -27,8 +27,15 @@ signal player_hand_discarded
 signal player_turn_ended
 @warning_ignore("unused_signal")
 signal reroll_requested
-
 @warning_ignore("unused_signal")
 signal hide_ui_requested
 @warning_ignore("unused_signal")
 signal show_ui_requested
+
+#Shop stuff
+@warning_ignore("unused_signal")
+signal shop_item_bought(item: Item, coin_cost: int)
+@warning_ignore("unused_signal")
+signal shop_card_bought(card: Card, coin_cost: int)
+@warning_ignore("unused_signal")
+signal shop_exited

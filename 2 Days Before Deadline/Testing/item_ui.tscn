@@ -1,9 +1,66 @@
-[gd_scene format=3 uid="uid://lghsorihm48j"]
+[gd_scene load_steps=7 format=3 uid="uid://lghsorihm48j"]
+
+[ext_resource type="Script" uid="uid://drd26sh2ptd1e" path="res://Testing/item_ui.gd" id="1_qwuiu"]
+[ext_resource type="Texture2D" uid="uid://wj0gxltorvo0" path="res://Assets/2D Assets/Gatekeep.png" id="1_ur8tr"]
+[ext_resource type="Resource" uid="uid://c06wothym3fso" path="res://Testing/items/coupon.tres" id="2_fmaxy"]
+
+[sub_resource type="Animation" id="Animation_gminq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fmaxy"]
+resource_name = "effect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycj0n"]
+_data = {
+&"RESET": SubResource("Animation_gminq"),
+&"effect": SubResource("Animation_fmaxy")
+}
 
 [node name="ItemUI" type="Control"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+script = ExtResource("1_qwuiu")
+item = ExtResource("2_fmaxy")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_ur8tr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ycj0n")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

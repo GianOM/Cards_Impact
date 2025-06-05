@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs10jx5fbt5cg"]
+
+[ext_resource type="Script" uid="uid://sxswqqg7dubm" path="res://Testing/shop_card.gd" id="1_a4xc1"]
+[ext_resource type="PackedScene" uid="uid://bjau1minqtjur" path="res://Testing/card_menu_ui.tscn" id="1_c0wwq"]
+[ext_resource type="Texture2D" uid="uid://bio4eyqm16td3" path="res://Assets/2D Assets/Coin.png" id="2_a4xc1"]
+[ext_resource type="Resource" uid="uid://hc8yrpeukgga" path="res://Testing/characters/warrior/attack_cards/domino.tres" id="2_aetxa"]
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="3_aetxa"]
+
+[node name="ShopCard" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 358)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a4xc1")
+card = ExtResource("2_aetxa")
+
+[node name="CardContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="CardContainer" instance=ExtResource("1_c0wwq")]
+layout_mode = 2
+
+[node name="Price" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Price"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_a4xc1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PriceLabel" type="Label" parent="Price"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "99"
+
+[node name="BuyButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme = ExtResource("3_aetxa")
+theme_override_font_sizes/font_size = 30
+text = "Buy"
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

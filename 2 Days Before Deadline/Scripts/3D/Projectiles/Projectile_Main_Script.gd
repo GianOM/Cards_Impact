@@ -29,11 +29,12 @@ func _process(_delta: float) -> void:
 	#O codigo abaixo garante que o projetil nao desapareca do nada enquanto esta voando e o alvo foi morto
 	#Assim, ele continua ate que a distancia no eixo X seja minima, quando entao ele se apaga
 	elif Target == null and is_Projectile_Flying:
-		if ( abs(global_position.x - Dead_Target_Position.x) - 0.01):
+		if ( abs(global_position.z - Dead_Target_Position.z) < 0.1):
 			queue_free()
 		else:
 			velocity = global_position.direction_to(Dead_Target_Position) * Projectile_Speed
 			look_at(Dead_Target_Position)
+			move_and_slide()
 			#queue_free()
 		
 	#Adcionar aqui uma funcao pra destruir o projeto mid-air se o Target morrer
@@ -43,12 +44,13 @@ func set_projectile_target(Alvo: Moving_Units):
 	
 func Inicializa_Projetil(index:int, Tower_damage: float):
 	
-	var Projectile_Data_Resource: Projectile_Data = Projectile_Database[index]
+	var Projectile_Data_Resource: Projectile_Data = Projectile_Database[2]
 	
 	var Projectile_Scene = load(Projectile_Data_Resource.Projectile_Scene_Path)#Carrega a PackedScene contendo a malha 3D
 	var Correct_Projectile_InstanceMesh3D = Projectile_Scene.instantiate()#Ja que a Packed Scene so contem uma InstanceMesh3D, instancia-la carrega para uma variavel
 	
-	$Projectile_Mesh.mesh = Correct_Projectile_InstanceMesh3D.mesh
+	add_child(Correct_Projectile_InstanceMesh3D)
+	#$Projectile_Mesh.mesh = Correct_Projectile_InstanceMesh3D.mesh
 	
 	Projectile_Speed = Projectile_Data_Resource.Projectile_Speed
 	Projectile_Damage = Tower_damage

@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfu6rnk0ndg4w"]
+
+[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="1_led3d"]
+
+[sub_resource type="Gradient" id="Gradient_ue4q0"]
+offsets = PackedFloat32Array(0, 0.408163, 0.685714, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.595158, 0.38122, 0.141951, 1, 0.51587, 0.266395, 0.112155, 1, 0.370037, 0.0551988, 0.0573511, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0b5pk"]
+gradient = SubResource("Gradient_ue4q0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gk3hs"]
+font_size = 100
+outline_size = 10
+outline_color = Color(0.517614, 0.131659, 1.44392e-07, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.558)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_led3d"]
+
+[node name="CivilizationSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0b5pk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = -372.0
+offset_right = 93.5
+offset_bottom = -287.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Warrior"
+label_settings = SubResource("LabelSettings_gk3hs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -153.0
+offset_right = -90.0
+offset_bottom = -66.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_led3d")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="CivilizationButtons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 43.0
+offset_right = 266.0
+offset_bottom = 1043.0
+theme_override_constants/separation = 50
+
+[node name="WarriorButton" type="Button" parent="CivilizationButtons"]
+custom_minimum_size = Vector2(190, 300)
+layout_mode = 2
+theme = ExtResource("1_led3d")
+theme_override_font_sizes/font_size = 50
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_led3d")
+text = "Warrior"
+
+[node name="TBAButton" type="Button" parent="CivilizationButtons"]
+custom_minimum_size = Vector2(190, 300)
+layout_mode = 2
+theme = ExtResource("1_led3d")
+theme_override_font_sizes/font_size = 50
+toggle_mode = true
+button_group = SubResource("ButtonGroup_led3d")
+text = "TBA"
+
+[node name="TBAButton2" type="Button" parent="CivilizationButtons"]
+custom_minimum_size = Vector2(190, 300)
+layout_mode = 2
+theme = ExtResource("1_led3d")
+theme_override_font_sizes/font_size = 50
+toggle_mode = true
+button_group = SubResource("ButtonGroup_led3d")
+text = "TBA"

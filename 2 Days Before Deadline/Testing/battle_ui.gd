@@ -12,6 +12,7 @@ extends CanvasLayer
 @onready var fps: RichTextLabel = %FPS
 @onready var reroll_timer: Timer = $RerollTimer
 @onready var paid_reroll_button: Button = %PaidRerollButton
+@onready var item_handler: ItemHandler = %ItemHandler
 
 @onready var draw_pile_button: CardPileOpener = %DrawPileButton
 @onready var discard_pile_button: CardPileOpener = %DiscardPileButton
@@ -24,6 +25,7 @@ var on_cooldown := false
 #var turn_number: int
 
 func _ready() -> void:
+	#item_handler.add_item(character.starting_item)
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
 	reroll_button.pressed.connect(_on_reroll_button_pressed)
@@ -73,6 +75,7 @@ func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
 	reroll_button.disabled = true
 	paid_reroll_button.disabled = true
+	CollisionCheck.turn_number += 1
 	Events.player_turn_ended.emit()
 	#turn_number += 1
 

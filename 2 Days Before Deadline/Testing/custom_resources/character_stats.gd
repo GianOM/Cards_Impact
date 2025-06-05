@@ -1,6 +1,7 @@
 class_name CharacterStats
 extends Stats
 
+@export var character_name: String
 @export var starting_deck: CardPile
 @export var starting_defend_deck: CardPile
 @export var starting_attack_deck: CardPile
@@ -9,6 +10,7 @@ extends Stats
 @export var initial_gaslight_tokens: int
 @export var initial_gatekeep_tokens: int
 @export var base_income: float
+@export var starting_item: Item
 
 var gaslight_tokens: int: set = set_gaslight_tokens
 var gatekeep_tokens: int: set = set_gatekeep_tokens

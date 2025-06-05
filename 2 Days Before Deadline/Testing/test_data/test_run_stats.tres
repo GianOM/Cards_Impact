@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RunStats" load_steps=2 format=3 uid="uid://bxodi4gdhfnu7"]
+
+[ext_resource type="Script" uid="uid://cg58ceobab4y3" path="res://Testing/custom_resources/run_stats.gd" id="1_w46ef"]
+
+[resource]
+script = ExtResource("1_w46ef")
+coins = 50
+t1_weight = 8.0
+t2_weight = 2.0
+metadata/_custom_type_script = "uid://cg58ceobab4y3"

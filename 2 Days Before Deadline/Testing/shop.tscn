@@ -1,35 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1a8yxr57q1na"]
+[gd_scene load_steps=5 format=3 uid="uid://b1a8yxr57q1na"]
 
 [ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="1_dw773"]
+[ext_resource type="Script" uid="uid://ci81oi52roac4" path="res://Testing/shop.gd" id="1_pvcij"]
+[ext_resource type="PackedScene" uid="uid://cs10jx5fbt5cg" path="res://Testing/shop_card.tscn" id="2_awkgu"]
+[ext_resource type="PackedScene" uid="uid://btsaf0ci0awl" path="res://Testing/card_tooltip_popup.tscn" id="3_31p3a"]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pvcij")
 
-[node name="ShopUI" type="CanvasLayer" parent="."]
+[node name="BG" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="ShopUI"]
+[node name="Background" type="ColorRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.669)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Title" type="Label" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -606.0
-offset_top = -333.5
-offset_right = 606.0
-offset_bottom = 333.5
+offset_left = -71.0
+offset_top = -342.0
+offset_right = 71.0
+offset_bottom = -257.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_dw773")
-
-[node name="Label" type="Label" parent="ShopUI/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -131.5
-offset_right = 131.5
-offset_bottom = 73.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 text = "SHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LeaveButton" type="Button" parent="UI"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 373.0
+offset_right = 250.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dw773")
+theme_override_font_sizes/font_size = 50
+text = "Leave"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -181.0
+offset_right = 304.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cards" type="HBoxContainer" parent="UI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="ShopCard" parent="UI/VBoxContainer/Cards" instance=ExtResource("2_awkgu")]
+layout_mode = 2
+
+[node name="ShopCard2" parent="UI/VBoxContainer/Cards" instance=ExtResource("2_awkgu")]
+layout_mode = 2
+
+[node name="ShopCard3" parent="UI/VBoxContainer/Cards" instance=ExtResource("2_awkgu")]
+layout_mode = 2
+
+[node name="Items" type="HBoxContainer" parent="UI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardTooltipPopup" parent="UI" instance=ExtResource("3_31p3a")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="UI/LeaveButton" to="." method="_on_leave_button_pressed"]
