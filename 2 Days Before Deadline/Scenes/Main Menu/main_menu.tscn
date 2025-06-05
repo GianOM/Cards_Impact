@@ -114,6 +114,7 @@ text = "Back to Start Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="Lobby Ready Button" type="Button" parent="Control/CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.804
 anchor_top = 0.033
@@ -414,12 +415,14 @@ alignment = 1
 
 [node name="Player1 Status" type="Label" parent="Control/Public Multiplayer Lobby/VBoxContainer/Players List Panel/Players Status VBOX"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Not Ready"
 horizontal_alignment = 1
 
 [node name="Player2 Status2" type="Label" parent="Control/Public Multiplayer Lobby/VBoxContainer/Players List Panel/Players Status VBOX"]
 visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Not Ready"
 horizontal_alignment = 1
 

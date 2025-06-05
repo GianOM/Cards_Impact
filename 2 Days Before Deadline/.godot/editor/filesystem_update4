@@ -1,0 +1,26 @@
+res://Scenes/Main Menu/main_menu.tscn
+res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
+res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
+res://Assets/3D Assets/Shaders/Hovering_Shader.tres
+res://Assets/3D Assets/Shaders/Hull_Outline.tres
+res://Assets/3D Assets/Floors/Ground.tres
+res://Testing/characters/warrior/defend_cards/rook.tres
+res://Testing/characters/warrior/defend_cards/money_tower.tres
+res://Testing/characters/warrior/attack_cards/pawn.tres
+res://Testing/characters/warrior/attack_cards/bishop.tres
+res://Testing/characters/warrior/attack_cards/car.tres
+res://Testing/characters/warrior/attack_cards/domino.tres
+res://Testing/characters/warrior/attack_cards/hat.tres
+res://Testing/characters/warrior/attack_cards/knight.tres
+res://Testing/characters/warrior/warrior_attack_deck.tres
+res://Testing/characters/warrior/defend_cards/queen.tres
+res://Testing/characters/warrior/defend_cards/apartment.tres
+res://Testing/characters/warrior/defend_cards/bunker.tres
+res://Testing/characters/warrior/defend_cards/jenga.tres
+res://Testing/characters/warrior/defend_cards/santorini.tres
+res://Testing/characters/warrior/warrior_defend_deck.tres
+res://Testing/characters/warrior/unified_deck.tres
+res://Testing/characters/warrior/warrior.tres
+res://Testing/main_theme.tres
+res://Scenes/Main Menu/Main_Menu_Theme.tres
+res://Scenes/Player/Player Camera Scene.tscn

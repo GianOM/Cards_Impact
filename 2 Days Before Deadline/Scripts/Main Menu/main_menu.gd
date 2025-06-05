@@ -12,10 +12,15 @@ func _ready() -> void:
 	multiplayer.connected_to_server.connect(_Connected_To_Server_Sucessfully)
 	
 func _on_play_pressed() -> void:
+	for Jogador in LobbyMultiplayer.List_of_Players:
+		if LobbyMultiplayer.List_of_Players[Jogador].is_Player_Ready == false:
+			print("A PLAYER IS NOT READY")
+			return
+	
 	Hide_Main_Menu.rpc()#Chama a funcao no modo RPC para garantir que todos os clientes escondam o menu
-	#Hide_Main_Menu()
+	
 	change_level_to_play.call_deferred()
-	#$Timer/CanvasLayer/Label.Reset_my_Timer()
+	
 	
 @rpc("authority","call_local","reliable")
 func Hide_Main_Menu():

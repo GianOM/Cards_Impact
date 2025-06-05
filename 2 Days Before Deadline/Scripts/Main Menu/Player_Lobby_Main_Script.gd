@@ -30,10 +30,16 @@ func Update_Status_Text(Id_to_Update:int, Status_to_Update:bool):
 	if Status_to_Update == true:
 		if Id_to_Update == 1:
 			player_status.text = "Ready"
+			player_status.set("theme_override_colors/font_color",Color(0,1,0,1))
+			
 		else:
 			player_2_status.text = "Ready"
+			player_2_status.set("theme_override_colors/font_color",Color(0,1,0,1))
+			
 	elif Status_to_Update == false:
 		if Id_to_Update == 1:
 			player_status.text = "Not Ready"
+			player_status.set("theme_override_colors/font_color",Color(1,0,0,1))
 		else:
 			player_2_status.text = "Not Ready"
+			player_2_status.set("theme_override_colors/font_color",Color(1,0,0,1))

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu7u0kkwfe8mp"]
+[gd_scene load_steps=6 format=3 uid="uid://cu7u0kkwfe8mp"]
 
 [ext_resource type="Script" uid="uid://cse7mmdfiyule" path="res://Scripts/Player/Player Movement.gd" id="1_1jhqv"]
 [ext_resource type="Script" uid="uid://bycfmjbqf4vwk" path="res://Scripts/Player/Player_Raycast.gd" id="2_yq3t3"]
 [ext_resource type="Script" uid="uid://gh6s5f6c4nqe" path="res://Scripts/Player/Player Tower UI.gd" id="3_hje2h"]
-[ext_resource type="Theme" uid="uid://cf6tc5ho148e8" path="res://Testing/main_theme.tres" id="3_io50g"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yq3t3"]
 
@@ -45,6 +44,7 @@ script = ExtResource("2_yq3t3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01903, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_yq3t3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -82,7 +82,6 @@ offset_top = 2.0
 offset_right = -2.0
 offset_bottom = 16.04
 grow_horizontal = 0
-theme = ExtResource("3_io50g")
 text = "X"
 
 [node name="Tower_Name" type="Label" parent="CanvasLayer/Tower UI/Panel"]
@@ -164,6 +163,7 @@ offset_right = 203.0
 offset_bottom = 257.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Tower UI/Panel/Upgrade and Sell"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -173,7 +173,6 @@ offset_top = -15.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_io50g")
 theme_override_constants/separation = 50
 alignment = 1
 
@@ -189,3 +188,4 @@ text = "Sell"
 replication_config = SubResource("SceneReplicationConfig_yq3t3")
 
 [connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Close Button" to="CanvasLayer/Tower UI" method="_on_close_button_clicked"]
+[connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Upgrade and Sell/HBoxContainer/Sell Buton" to="CanvasLayer/Tower UI" method="Sell_Selected_Tower"]

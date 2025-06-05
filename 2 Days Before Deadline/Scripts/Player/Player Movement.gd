@@ -11,8 +11,6 @@ const DEFAULT_MAX_SPEED: float = 15.0
 const SPRINT_MAX_SPEED: float = 30.0
 const FRICTION: float = 22.0
 
-const MONEY_TOWER_INCOME := 0.5
-
 var velocity: Vector3 = Vector3.ZERO
 var max_speed: float = 15
 
@@ -62,6 +60,8 @@ func _enter_tree() -> void:
 	
 func _ready() -> void:
 	camera_3d.set_current(is_multiplayer_authority())
+	
+	#multiplayer.allow_object_decoding = true
 
 func _process(delta: float) -> void:
 	
@@ -173,22 +173,21 @@ func Handle_Mouse_Click():
 					
 					
 				elif(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):#Manda um Warning que o Player tentou colocar uma torre em uma grid ocupada
-					var msg := "[center]Cannot deploy on occupied tile[/center]"
-					SignalManager.emit_signal("warning_message", msg)
+					print("Cannot deploy on occupied tile")
+					
 				elif (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team != My_Team):
-					var msg := "[center]NAO PODE COLOCAR TORRES NO CAMPO INIMIGO[/center]"
-					SignalManager.emit_signal("warning_message", msg)
+					
+					print("NAO PODE COLOCAR TORRES NO CAMPO INIMIGO")
 				
 				#Para o caso de tentarmos colocar uma carta de ataque no grid das torres
 				elif CollisionCheck.card_id_defense == -1:
 					#Se CollisionCheck.card_id_defense == -1, o player esta selecionando uma carta de defesa
-					var msg := "[center]VOCE NÃO PODE POSICIONAR UNIDADES EM ESPAÇOS PARA TORRES[/center]"
-					SignalManager.emit_signal("warning_message", msg)
+					print("VOCE NÃO PODE POSICIONAR UNIDADES EM ESPAÇOS PARA TORRES")
 					
 					
 			elif My_Ray_Cast.Ray_Hit.get_owner() is Hexagono and (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null):
 				#My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Name
-				$"CanvasLayer/Tower UI".Initialize_Tower_Parameters(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower)
+				$"CanvasLayer/Tower UI".Initialize_Tower_Parameters(My_Ray_Cast.Ray_Hit.get_owner())
 				$"CanvasLayer/Tower UI".position = get_viewport().get_mouse_position()
 				
 				
@@ -197,22 +196,19 @@ func Handle_Mouse_Click():
 				if My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
 					if CollisionCheck.is_Shop_Time == false:
 						#O segundo parametro da funcao abaixo indica o numero de tropas a serem adicionadas ao Enemy Spawner
-						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack, CollisionCheck.number_of_units)
+						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
 						CollisionCheck.troop_was_placed = true
 					else:
-						var msg := "[center]Voce nao pode colocar tropas durante o periodo de compras[/center]"
-						SignalManager.emit_signal("warning_message", msg)
+						print("Voce nao pode colocar tropas durante o periodo de compras")
 						
 				elif My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team != My_Team:
-					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
-					SignalManager.emit_signal("warning_message", msg)
+					print("VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE")
 					
 					
 					
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner) and (CollisionCheck.card_id_attack == -1):
 					#Se CollisionCheck.card_id_attack == -1, o player esta selecionando uma carta de defesa
-					var msg := "[center]VOCE NÃO PODE ADICIONAR TORRES AO ENEMY SPAWNER[/center]"
-					SignalManager.emit_signal("warning_message", msg)
+					print("VOCE NÃO PODE ADICIONAR TORRES AO ENEMY SPAWNER")
 				
 				
 
@@ -256,28 +252,29 @@ func Create_Tower_at_Clicked():
 	My_Ray_Cast.Ray_Hit.get_owner().Occupied_Cell()
 	
 @rpc("any_peer","call_local","reliable")
-func Delete_Tower_at_Clicked():
+func Delete_Tower_at_Clicked(Clicked_Hexagon_name: String):
 	#REMOVE A TORRE SE NO LUGAR DA GRID TINHA ALGO, ou seja, se nao era null
 	
-	#TODO: CRASHA QUANDO CLICKA NO VAZIO
-		#------KILLER WAS HERE-------------------------
-	if My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.turn_in_which_tower_was_placed != CollisionCheck.turn_number:
-		var msg := "[center]Cannot refund towers deployed prior to rerolling[/center]"
-		SignalManager.emit_signal("warning_message", msg)
-		return
-	if My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index == 6:
-		CollisionCheck.gaslight_income -= MONEY_TOWER_INCOME
-	#------------------
 	
-	CollisionCheck.refund_card.emit(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index)
-	print(My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.Tower_Index)
+	#O godot nao consegue passar objetos customs pelo RPC
+	#Entao, passamos o nome do objeto e como a cena é a mesma, recriamos
+	#uma referencia ao objeto
+	var Translated_Hexagon_Reference = get_tree().current_scene.get_node("/root/Menu/"+Clicked_Hexagon_name)
 	
-	
-	My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower.queue_free()
-	
-	My_Ray_Cast.Ray_Hit.get_owner().Highlight()
-	My_Ray_Cast.last_hovered = My_Ray_Cast.Ray_Hit.get_owner()
-	
+	#O codigo roda nos 2 players do Client. Por isso, precisamos o seguinte check
+	#Para garantir que um dos players nao tente apagar 2x
+	if Translated_Hexagon_Reference.Placed_Tower != null:
+		#if Translated_Hexagon_Reference.Placed_Tower.Tower_Index == 6:
+			#CollisionCheck.gaslight_income -= MONEY_TOWER_INCOME
+			
+		CollisionCheck.refund_card.emit(Translated_Hexagon_Reference.Placed_Tower.Tower_Index)
+		#
+		#
+		Translated_Hexagon_Reference.Placed_Tower.queue_free()
+		
+		Translated_Hexagon_Reference.Highlight()
+		My_Ray_Cast.last_hovered = Translated_Hexagon_Reference
+		
 	
 	
 #TODO: MELHORAR ISSO AQUI !!!
@@ -287,10 +284,15 @@ func _input(event: InputEvent) -> void:
 			if (My_Ray_Cast.is_colliding()):
 				if My_Ray_Cast.Ray_Hit.get_owner() is Hexagono:
 					if (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null) and My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team == My_Team:
-						Delete_Tower_at_Clicked.rpc()
+						
+						Delete_Tower_at_Clicked.rpc(My_Ray_Cast.Ray_Hit.get_owner().name)
+						
 					elif (My_Ray_Cast.Ray_Hit.get_owner().Placed_Tower != null) and My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team != My_Team:
 						var msg := "[center]Cannot sell Oponents Towers[/center]"
 						SignalManager.emit_signal("warning_message", msg)
+						
+						
+					
 						
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 			if Owner_ID == multiplayer.get_unique_id():
