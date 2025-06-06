@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://b0tg6rqspritc"]
+[gd_scene load_steps=9 format=4 uid="uid://b0tg6rqspritc"]
 
 [ext_resource type="Script" uid="uid://b6lajtxmb1p34" path="res://Scripts/3D/Path/Enemy_Spawner_Main_Script.gd" id="1_uwp6b"]
 [ext_resource type="PackedScene" uid="uid://bompkdiy31vbj" path="res://Scenes/3D/Paths/Enemy_Spawner_Counter.tscn" id="2_r4kbd"]
+[ext_resource type="PackedScene" uid="uid://ceqht1q5n83vt" path="res://Scenes/3D/Paths/Warning Sign.tscn" id="3_u5wga"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nw37"]
 albedo_color = Color(0.65, 0, 1, 1)
@@ -64,3 +65,6 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51482, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_r4kbd")
+
+[node name="Troop Warning Sign" parent="." instance=ExtResource("3_u5wga")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

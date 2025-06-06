@@ -49,11 +49,24 @@ func start_turn() -> void:
 	#print("turn number: " + str(CollisionCheck.turn_number))
 
 func reroll() -> void:
-	#EDITADO POR GIAN EM 06/06
+	#EDITADO POR GIAN EM 06/06 -------------------------------------------------
 	#if not hand.get_children():
 		#return
+		
+	#hand.disable_hand()
+	#var tween := create_tween()
+	#var count := 0
+	#for card_ui in hand.get_children():
+		#tween.tween_callback(character.discard.add_card.bind(card_ui.card))
+		#tween.tween_callback(hand.discard_card.bind(card_ui))
+		#tween.tween_interval(HAND_DISCARD_INTERVAL)
+		#count += 1
+	#
+	#await tween.finished
 	
-	#Se tem alguma carna na mao, descarta uma a uma
+	#--------------------------------------------------------------------------
+	
+	#Se tem alguma carta na mao, descarta uma a uma
 	#Caso contrario, so puxa as cartas
 	if hand.get_children():
 		hand.disable_hand()

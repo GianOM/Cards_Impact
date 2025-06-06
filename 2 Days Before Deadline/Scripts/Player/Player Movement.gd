@@ -196,7 +196,8 @@ func Handle_Mouse_Click():
 				if My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team == My_Team:
 					if CollisionCheck.is_Shop_Time == false:
 						#O segundo parametro da funcao abaixo indica o numero de tropas a serem adicionadas ao Enemy Spawner
-						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
+						#My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
+						My_Ray_Cast.Ray_Hit.get_owner().rpc("Adcionar_Tropa_Ao_Enemy_Spawner", CollisionCheck.card_id_attack)
 						CollisionCheck.troop_was_placed = true
 					else:
 						var msg := "[center]Voce nao pode colocar tropas durante o periodo de compras[/center]"

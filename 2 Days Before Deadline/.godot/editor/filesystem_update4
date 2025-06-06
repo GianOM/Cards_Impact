@@ -1,4 +1,4 @@
-res://Scenes/3D/Paths/Path_Example.tscn
+res://Scenes/3D/Paths/Enemy_spawner.tscn
 res://Testing/card_base_stylebox.tres
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
@@ -24,12 +24,12 @@ res://Testing/characters/warrior/warrior_defend_deck.tres
 res://Testing/characters/warrior/unified_deck.tres
 res://Testing/characters/warrior/warrior.tres
 res://Testing/main_theme.tres
-res://Testing/battle_ui.gd
-res://Scenes/3D/Paths/Enemy_spawner.tscn
 res://Scenes/Main.tscn
 res://Scenes/Player/Player Camera Scene.tscn
 res://Testing/testing_main.tscn
 res://Testing/mana_ui.tscn
 res://Testing/token_ui.tscn
-res://Testing/player_handler.gd
-res://Testing/custom_resources/character_stats.gd
+res://Scripts/3D/Path/Enemy_Spawner_Main_Script.gd
+res://Scenes/3D/Paths/Warning Sign.tscn
+res://Scripts/Player/Player Movement.gd
+res://Scenes/3D/Paths/Path_Example.tscn
