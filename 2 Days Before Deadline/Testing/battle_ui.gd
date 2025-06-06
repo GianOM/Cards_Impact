@@ -28,8 +28,13 @@ func _ready() -> void:
 	#item_handler.add_item(character.starting_item)
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
+	
 	reroll_button.pressed.connect(_on_reroll_button_pressed)
 	paid_reroll_button.pressed.connect(_on_paid_reroll_button_pressed)
+	
+	
+	Initialize_Reroll_Disable()
+	
 	ready_button.pressed.connect(_on_ready_button_pressed)
 	Events.hide_ui_requested.connect(_hide_ui)
 	Events.show_ui_requested.connect(_show_ui)
@@ -84,6 +89,25 @@ func time_left_to_reroll():
 	var minute = floor(time_left / 60)
 	var second = int(time_left) % 60
 	return [minute, second]
+	
+	
+	
+func _on_ready_button_pressed() -> void:
+	CollisionCheck.troca_o_estado_do_botao()
+	if !CollisionCheck.I_AM_READY:
+		ready_button.text = "READY"
+	else:
+		ready_button.text = "UNREADY"
+		
+		
+
+#region REROLL BUTTONS
+func Initialize_Reroll_Disable():
+	on_cooldown = true
+	reroll_timer.start()
+	end_turn_button.disabled = true
+	paid_reroll_button.disabled = true
+	reroll_button.disabled = true
 
 func _on_reroll_button_pressed() -> void:
 	on_cooldown = true
@@ -101,17 +125,10 @@ func _on_paid_reroll_button_pressed() -> void:
 	CollisionCheck.turn_number += 1
 	Events.reroll_requested.emit()
 
-func _on_ready_button_pressed() -> void:
-	CollisionCheck.troca_o_estado_do_botao()
-	if !CollisionCheck.I_AM_READY:
-		ready_button.text = "READY"
-	else:
-		ready_button.text = "UNREADY"
-		
-		
 func _disable_reroll_button() -> void:
 	reroll_button.disabled = true
 
 func _on_reroll_timer_timeout() -> void:
 	reroll_button.disabled = false
 	on_cooldown = false
+#endregion

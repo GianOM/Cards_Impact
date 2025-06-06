@@ -74,6 +74,7 @@ script = ExtResource("7_odhhd")
 hand = NodePath("../BattleUI/Hand")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+follow_viewport_enabled = true
 script = ExtResource("7_o617d")
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
@@ -123,7 +124,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -318.0
+offset_left = -472.0
 offset_top = -139.0
 offset_right = -43.0
 offset_bottom = -47.0
@@ -131,7 +132,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("12_1sdae")
 theme_override_font_sizes/font_size = 40
-text = "x0 to Reroll"
+text = "x100 to Draw Cards"
 icon = ExtResource("10_1sdae")
 alignment = 0
 expand_icon = true
@@ -151,7 +152,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("12_1sdae")
 theme_override_font_sizes/font_size = 40
-text = "Reroll
+text = "Draw Cards
 00:00
 "
 
@@ -231,7 +232,7 @@ text = "60"
 unique_name_in_owner = true
 
 [node name="RerollTimer" type="Timer" parent="BattleUI"]
-wait_time = 60.0
+wait_time = 150.0
 one_shot = true
 
 [node name="ItemHandler" parent="BattleUI" instance=ExtResource("17_6vt2j")]

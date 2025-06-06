@@ -30,7 +30,6 @@ signal Player_2_Registrado_no_Host
 signal Terminou_de_Construir_o_Lobby
 
 
-@onready var controle: Control
 
 var Steam_ID
 var Steam_UserName
@@ -131,14 +130,6 @@ func _Server_Disconnected():
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 func initialize_steam() -> void:
 	
 	#Quando lancar na steam, soltar o app_id
@@ -167,10 +158,9 @@ func initialize_steam() -> void:
 	Steam.lobby_joined.connect(_on_lobby_joined.bind())
 	
 	
+	
 	multiplayer.peer_connected.connect(self._player_Steam_connected)
-	#multiplayer.connected_to_server.connect(self._Player_Connected_Sucessfully_to_Steam_Server)
-
-	#multiplayer.peer_disconnected.connect(self._player_disconnected)
+	multiplayer.server_disconnected.connect(self._Server_Disconnected)
 	
 	
 # Callback from SceneTree.

@@ -171,6 +171,45 @@ text = "Single Player"
 layout_mode = 2
 text = "Multi Player"
 
+[node name="Singleplayer Buttons" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchor_left = 0.341083
+anchor_right = 0.697083
+anchor_bottom = 1.0
+offset_left = -0.880005
+offset_right = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(342.32, 220)
+theme = ExtResource("2_ce3w2")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Singleplayer Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.456
+anchor_right = 0.674
+anchor_bottom = 0.544
+offset_left = -0.919983
+offset_top = 0.519958
+offset_right = -0.0879517
+offset_bottom = 5.47998
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 50)
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Campaign Button" type="Button" parent="Control/Singleplayer Buttons/VBoxContainer"]
+layout_mode = 2
+text = "Campaign"
+
+[node name="Endless Mode Button" type="Button" parent="Control/Singleplayer Buttons/VBoxContainer"]
+layout_mode = 2
+text = "Endless Mode"
+
 [node name="Multiplayer Local or Steam" type="Control" parent="Control"]
 visible = false
 layout_mode = 1
@@ -461,6 +500,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Control/CanvasLayer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Back to Start Menu Button" to="Control" method="_on_back_to_Start_menu_clicked"]
 [connection signal="toggled" from="Control/CanvasLayer/Lobby Ready Button" to="Control/CanvasLayer/Lobby Ready Button" method="_on_toggled"]
+[connection signal="pressed" from="Control/Single Or Multiplayer/VBoxContainer/Single player Button" to="Control" method="_on_singleplayer_selected"]
 [connection signal="pressed" from="Control/Single Or Multiplayer/VBoxContainer/Multiplayer Button" to="Control" method="_on_multiplayer_selected"]
 [connection signal="pressed" from="Control/Multiplayer Local or Steam/VBoxContainer/Public Multiplayer Button" to="Control" method="_on_public_multiplayer_clicked"]
 [connection signal="pressed" from="Control/Multiplayer Local or Steam/VBoxContainer/Local Multiplayer Button" to="Control" method="_on_local_multiplayer_clicked"]

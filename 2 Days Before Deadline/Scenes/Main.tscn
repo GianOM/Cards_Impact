@@ -21,8 +21,11 @@ sky_material = SubResource("ProceduralSkyMaterial_jw32o")
 [sub_resource type="Environment" id="Environment_vy5pj"]
 background_mode = 2
 sky = SubResource("Sky_50glp")
-tonemap_mode = 2
-glow_enabled = true
+ambient_light_energy = 16.0
+tonemap_mode = 3
+tonemap_exposure = 1.36
+tonemap_white = 0.7
+ssil_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13ncr"]
 

@@ -1,3 +1,4 @@
+Compositor
 Projectile_Data
 Shader
 VisualShader

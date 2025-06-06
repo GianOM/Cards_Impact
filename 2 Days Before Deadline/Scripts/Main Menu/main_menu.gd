@@ -11,6 +11,16 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.connected_to_server.connect(_Connected_To_Server_Sucessfully)
 	
+	LobbyMultiplayer.server_disconnected.connect(_Back_to_Main_Menu_after_host_quitted)
+
+
+
+func _Back_to_Main_Menu_after_host_quitted():
+	control.show()#Esconde os botoes e as fotos
+	canvas_layer.show()#Esconde o Titulo e Subtitulo
+	$Control.reset_main_menu()
+	
+	
 func _on_play_pressed() -> void:
 	for Jogador in LobbyMultiplayer.List_of_Players:
 		if LobbyMultiplayer.List_of_Players[Jogador].is_Player_Ready == false:

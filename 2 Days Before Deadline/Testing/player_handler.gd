@@ -61,7 +61,11 @@ func reroll() -> void:
 		count += 1
 	
 	await tween.finished
-	draw_cards(count - 1)
+	
+	#EDITADO POR GIAN EM 06/06
+	#draw_cards(count - 1)
+	
+	draw_cards(8)
 
 
 func end_turn() -> void:

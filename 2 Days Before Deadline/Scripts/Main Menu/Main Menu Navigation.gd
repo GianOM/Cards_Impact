@@ -7,6 +7,31 @@ signal on_steam_lobby_created
 func _ready() -> void:
 	LobbyMultiplayer.Terminou_de_Construir_o_Lobby.connect(Atualiza_a_List_de_Players_do_Lobby)
 	LobbyMultiplayer.Player_2_Registrado_no_Host.connect(Atualiza_a_List_de_Players_do_Lobby)
+	
+
+
+
+
+
+
+
+#A funcao abaixo reseta o menu principal apost o host quitar
+func reset_main_menu():
+	Hide_All_Menus()
+	$"CanvasLayer/Back to Start Menu Button".hide()
+	$"Single Or Multiplayer".show()
+
+
+
+
+func _on_singleplayer_selected():
+	Hide_All_Menus()
+	$"CanvasLayer/Back to Start Menu Button".show()
+	
+	$"Singleplayer Buttons".show()
+	print("SINGLEPLAYER YAY")
+
+
 
 
 func _on_multiplayer_selected():
@@ -14,8 +39,7 @@ func _on_multiplayer_selected():
 	$"CanvasLayer/Back to Start Menu Button".show()
 	$"Multiplayer Local or Steam".show()
 
-# ----------- STEAM MULTIPLAYER ----------------------
-
+#region STEAM MULTIPLAYER
 func _on_public_multiplayer_clicked():
 	Hide_All_Menus()
 	$CanvasLayer/Title.hide()
@@ -47,16 +71,6 @@ func Atualiza_a_List_de_Players_do_Lobby():
 	$"Public Multiplayer Lobby/VBoxContainer/Players List Panel/VBoxContainer".Refresh_Player_Lobby_List()
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 func _on_public_multiplayer_join_clicked():
 	print("Clickou em Join")
 	
@@ -84,9 +98,12 @@ func create_lobby_button(Lobby_Name: String, Lobby_ID: int):
 func join_lobby(lobby_id = 0):
 	print("Joining lobby %s" % lobby_id)
 	LobbyMultiplayer.join_game(lobby_id)
+#endregion
 
-# ----------- LOCAL MULTIPLAYER ----------------------
 
+
+
+#region LOCAL MULTIPLAYER
 func _on_local_multiplayer_clicked():
 	Hide_All_Menus()
 	$"Local Multiplayer".show()
@@ -101,13 +118,7 @@ func _on_local_multiplayer_join():
 	LobbyMultiplayer.Join_Multiplayer_Game()
 	print("Conecting...")
 	$"Public Multiplayer Lobby".show()
-	
-	
-	
-	
-	
-	
-	
+#endregion
 	
 	
 	
@@ -121,10 +132,10 @@ func _on_back_to_Start_menu_clicked():
 	
 	
 func Hide_All_Menus():
+	$"Singleplayer Buttons".hide()
 	$"Single Or Multiplayer".hide()
 	$"Multiplayer Local or Steam".hide()
 	$"Local Multiplayer".hide()
 	$"Public Multiplayer".hide()
 	$"Public Multiplayer Lobby".hide()
 	$"CanvasLayer/Lobby Ready Button".hide()
-	#$"CanvasLayer/Back to Start Menu Button".hide()

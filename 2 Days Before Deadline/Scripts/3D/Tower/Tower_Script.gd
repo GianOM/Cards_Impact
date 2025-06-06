@@ -117,6 +117,7 @@ func Show_Tower_Range_When_Hovered():
 								
 								
 								
+@rpc("any_peer","call_local","unreliable")
 func Upgrade_Tower():
 	Tower_Range = Tower_Range * 1.2
 	$Enemy_Detection_3D/CollisionShape3D.shape.set_radius(Tower_Range)
@@ -156,7 +157,11 @@ func _process(delta: float) -> void:
 func _on_enemy_detection_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
 		Possible_Targets.append(body)
+	#elif body is Torre:
+		#print("YAAAY A FREN")
 
 func _on_enemy_detection_3d_body_exited(body: Node3D) -> void:
 	if body is Moving_Units:
 		Possible_Targets.remove_at(0)
+	#elif body is Torre:
+		#print("NOOOO, LOST A FREN")

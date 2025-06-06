@@ -25,7 +25,7 @@ func Initialize_Tower_Parameters(Clicked_Hexagon:Hexagono):
 	
 	
 func Upgrade_Selected_Tower():
-	My_Hexagon.Placed_Tower.Upgrade_Tower()
+	My_Hexagon.Placed_Tower.rpc("Upgrade_Tower")
 	Initialize_Tower_Parameters(My_Hexagon)
 	print("UPGRADED")
 	

@@ -43,7 +43,7 @@ points = PackedVector3Array(-3.31107, 2.03746, -30.1692, 3.35864, 2.40825, 30.22
 
 [sub_resource type="Curve3D" id="Curve3D_4xxd8"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -29.6868, 0, 0, 0, 0, 0, 0, 0, 0, 29.5822),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -0.459625, -27.652, 0, 0, 0, 0, 0, 0, 0, 0, 29.5822),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -73,7 +73,7 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("2_aqeca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130969, 2.74075, -57.068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130969, 2.31606, -57.068)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_r7jhd")
