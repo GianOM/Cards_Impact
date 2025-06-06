@@ -1,11 +1,11 @@
 res://Scenes/Main Menu/main_menu.tscn
-res://Testing/characters/warrior/defend_cards/rook.tres
-res://Testing/characters/warrior/defend_cards/money_tower.tres
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
 res://Assets/3D Assets/Shaders/Hovering_Shader.tres
 res://Assets/3D Assets/Shaders/Hull_Outline.tres
 res://Assets/3D Assets/Floors/Ground.tres
+res://Testing/characters/warrior/defend_cards/rook.tres
+res://Testing/characters/warrior/defend_cards/money_tower.tres
 res://Testing/characters/warrior/attack_cards/pawn.tres
 res://Testing/characters/warrior/attack_cards/bishop.tres
 res://Testing/characters/warrior/attack_cards/car.tres
@@ -25,3 +25,31 @@ res://Testing/main_theme.tres
 res://Scenes/Main Menu/Main_Menu_Theme.tres
 res://Scenes/Player/Player Camera Scene.tscn
 res://Testing/testing_main.tscn
+res://Resources/Troops/Troops_Data.gd
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Scripts/3D/Troops/Data/00_Tier_1_Pawn.tres
+res://Testing/items/test_item.tres
+res://Scenes/3D/Troops/Troops.tscn
+res://Scripts/3D/Projectiles/Data/Tier_3_Projectile_Red.tres
+res://Scripts/Player/Player Movement.gd
+res://Scenes/3D/Projectile/Projectile.tscn
+res://Scripts/3D/Projectiles/Data/Tier_4_Projectile_Red.tres
+res://Scripts/3D/Projectiles/Data/Tier_3_Projectile_Green.tres
+res://Scenes/3D/Projectile/Projectile Database/Tier_3_Projectile.tscn
+res://Scripts/3D/Projectiles/Projectile_Main_Script.gd
+res://Scenes/3D/Projectile/Projectile Spawner.tscn
+res://Scenes/3D/Projectile/Projectile Database/Tier_4_Projectile.tscn
+res://Scripts/3D/Tower/Tower_Script.gd
+res://Scenes/3D/Towers/Towers.tscn
+res://Scripts/3D/Base/Base_Main_Script.gd
+res://Scenes/3D/Base/Base_Main.tscn
+res://Scripts/Player/Player Tower UI.gd
+res://Scenes/3D/Towers/Towers Database/00_Tier_1_Rook.tscn
+res://Scripts/3D/Tower/Data/00_Tier_1_Rook.tres
+res://Scripts/3D/Tower/Data/01_Tier_1_Queen.tres
+res://Scripts/3D/Tower/Data/02_Tier_1_Jenga.tres
+res://Scripts/3D/Tower/Data/03_Tier_2_Appartment.tres
+res://Scripts/3D/Tower/Data/04_Tier_2_Santorino.tres
+res://Scripts/3D/Tower/Data/05_Tier_2_Bunker.tres
+res://Scripts/3D/Tower/Data/06_Money_Tier_1.tres
+res://Scripts/Main Menu/Main Menu Navigation.gd

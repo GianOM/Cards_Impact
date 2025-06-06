@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu7u0kkwfe8mp"]
+[gd_scene load_steps=7 format=3 uid="uid://cu7u0kkwfe8mp"]
 
 [ext_resource type="Script" uid="uid://cse7mmdfiyule" path="res://Scripts/Player/Player Movement.gd" id="1_1jhqv"]
 [ext_resource type="Script" uid="uid://bycfmjbqf4vwk" path="res://Scripts/Player/Player_Raycast.gd" id="2_yq3t3"]
 [ext_resource type="Script" uid="uid://gh6s5f6c4nqe" path="res://Scripts/Player/Player Tower UI.gd" id="3_hje2h"]
+[ext_resource type="Theme" uid="uid://ca0rvbb2ul3rx" path="res://Scenes/Main Menu/Main_Menu_Theme.tres" id="3_tfwyo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yq3t3"]
 
@@ -51,11 +52,11 @@ mesh = SubResource("CapsuleMesh_yq3t3")
 layer = 2
 
 [node name="Tower UI" type="Control" parent="CanvasLayer"]
-visible = false
 z_index = 500
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("3_tfwyo")
 script = ExtResource("3_hje2h")
 metadata/_edit_use_anchors_ = true
 
@@ -188,4 +189,5 @@ text = "Sell"
 replication_config = SubResource("SceneReplicationConfig_yq3t3")
 
 [connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Close Button" to="CanvasLayer/Tower UI" method="_on_close_button_clicked"]
+[connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Upgrade and Sell/HBoxContainer/Upgrade Button" to="CanvasLayer/Tower UI" method="Upgrade_Selected_Tower"]
 [connection signal="pressed" from="CanvasLayer/Tower UI/Panel/Upgrade and Sell/HBoxContainer/Sell Buton" to="CanvasLayer/Tower UI" method="Sell_Selected_Tower"]

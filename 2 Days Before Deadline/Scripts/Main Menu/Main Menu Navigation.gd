@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _on_multiplayer_selected():
 	Hide_All_Menus()
+	$"CanvasLayer/Back to Start Menu Button".show()
 	$"Multiplayer Local or Steam".show()
 
 # ----------- STEAM MULTIPLAYER ----------------------
@@ -116,6 +117,7 @@ func _on_local_multiplayer_join():
 func _on_back_to_Start_menu_clicked():
 	Hide_All_Menus()
 	$"Single Or Multiplayer".show()
+	$"CanvasLayer/Back to Start Menu Button".hide()
 	
 	
 func Hide_All_Menus():
@@ -125,3 +127,4 @@ func Hide_All_Menus():
 	$"Public Multiplayer".hide()
 	$"Public Multiplayer Lobby".hide()
 	$"CanvasLayer/Lobby Ready Button".hide()
+	#$"CanvasLayer/Back to Start Menu Button".hide()

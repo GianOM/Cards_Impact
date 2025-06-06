@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_vf18i")
-Tower_Name = "Santorino"
+Tower_Name = "Santorino (Lvl 0)"
 Tower_Range = 30.0
 Tower_Damage = 22.0
 Tower_Index = 4

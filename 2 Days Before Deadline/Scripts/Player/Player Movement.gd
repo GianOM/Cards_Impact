@@ -176,9 +176,9 @@ func Handle_Mouse_Click():
 					print("Cannot deploy on occupied tile")
 					
 				elif (My_Ray_Cast.Ray_Hit.get_owner().Hexagon_Team != My_Team):
-					
-					print("NAO PODE COLOCAR TORRES NO CAMPO INIMIGO")
-				
+					var msg := "[center]NAO PODE COLOCAR TORRES NO CAMPO INIMIGO[/center]"
+					SignalManager.emit_signal("warning_message", msg)
+									
 				#Para o caso de tentarmos colocar uma carta de ataque no grid das torres
 				elif CollisionCheck.card_id_defense == -1:
 					#Se CollisionCheck.card_id_defense == -1, o player esta selecionando uma carta de defesa
@@ -199,16 +199,19 @@ func Handle_Mouse_Click():
 						My_Ray_Cast.Ray_Hit.get_owner().Adcionar_Tropa_Ao_Enemy_Spawner(CollisionCheck.card_id_attack)
 						CollisionCheck.troop_was_placed = true
 					else:
-						print("Voce nao pode colocar tropas durante o periodo de compras")
+						var msg := "[center]Voce nao pode colocar tropas durante o periodo de compras[/center]"
+						SignalManager.emit_signal("warning_message", msg)
 						
 				elif My_Ray_Cast.Ray_Hit.get_owner().Troop_Spawner_Team != My_Team:
-					print("VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE")
+					var msg := "[center]VOCE NAO PODE ADCIONAR TROPAS PARA ATACAR SUA PROPRIA BASE[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 					
 					
 					
 			elif (My_Ray_Cast.Ray_Hit.get_owner() is Enemy_Spawner) and (CollisionCheck.card_id_attack == -1):
 					#Se CollisionCheck.card_id_attack == -1, o player esta selecionando uma carta de defesa
-					print("VOCE NÃO PODE ADICIONAR TORRES AO ENEMY SPAWNER")
+					var msg := "[center]VOCE NÃO PODE ADICIONAR TORRES AO ENEMY SPAWNER[/center]"
+					SignalManager.emit_signal("warning_message", msg)
 				
 				
 

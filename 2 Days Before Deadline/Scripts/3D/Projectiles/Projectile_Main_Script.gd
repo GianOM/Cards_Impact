@@ -44,7 +44,7 @@ func set_projectile_target(Alvo: Moving_Units):
 	
 func Inicializa_Projetil(index:int, Tower_damage: float):
 	
-	var Projectile_Data_Resource: Projectile_Data = Projectile_Database[2]
+	var Projectile_Data_Resource: Projectile_Data = Projectile_Database[index]
 	
 	var Projectile_Scene = load(Projectile_Data_Resource.Projectile_Scene_Path)#Carrega a PackedScene contendo a malha 3D
 	var Correct_Projectile_InstanceMesh3D = Projectile_Scene.instantiate()#Ja que a Packed Scene so contem uma InstanceMesh3D, instancia-la carrega para uma variavel

@@ -22,7 +22,14 @@ func Initialize_Tower_Parameters(Clicked_Hexagon:Hexagono):
 		$"Panel/Upgrade and Sell/HBoxContainer".show()
 	
 	
+	
+	
+func Upgrade_Selected_Tower():
+	My_Hexagon.Placed_Tower.Upgrade_Tower()
+	Initialize_Tower_Parameters(My_Hexagon)
+	print("UPGRADED")
+	
+	
 func Sell_Selected_Tower():
 	player.Delete_Tower_at_Clicked.rpc(My_Hexagon.name)
 	hide()
-	print("VENDIDO")

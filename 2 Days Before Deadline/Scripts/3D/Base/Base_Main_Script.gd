@@ -18,7 +18,7 @@ const PROJECTILE = preload("res://Scenes/3D/Projectile/Projectile.tscn")
 
 func _ready() -> void:
 	#Por enquanto estamos inicialiando manualmente o projetil
-	projectile_generation_point.Tower_Index = 1
+	projectile_generation_point.Tower_Index = 5
 	projectile_generation_point.Tower_Damage = 20.0
 	projectile_generation_point.set_cooldown_timer(0.5)
 
@@ -29,11 +29,9 @@ func Take_Damage(Amount:float):
 	Base_Health_Points -= Amount
 	#O codigo abaixo atualiza a UI de Vida
 	progress_bar.get_node("Base_Progress_Bar").Update_Base_Health(Base_Health_Points)
-
-
-
-
-
+	
+	
+	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Moving_Units:
 		#Seta o alvo da tropa, para que assim a tropa possa acessa - lo e dar dano

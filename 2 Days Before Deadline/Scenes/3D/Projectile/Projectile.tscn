@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bte5bmnenitp4"]
+[gd_scene load_steps=8 format=3 uid="uid://bte5bmnenitp4"]
 
 [ext_resource type="Script" uid="uid://bke453hr87l52" path="res://Scripts/3D/Projectiles/Projectile_Main_Script.gd" id="1_fpv2f"]
 [ext_resource type="Script" uid="uid://bhgbe5pdvt365" path="res://Resources/Projectile/Projectile_Resource_Database.gd" id="2_5081t"]
 [ext_resource type="Resource" uid="uid://dpy1nyqi7ruo5" path="res://Scripts/3D/Projectiles/Data/Tier_1_Projectile_Blue.tres" id="3_i8m00"]
 [ext_resource type="Resource" uid="uid://dx33mp6bnf5uc" path="res://Scripts/3D/Projectiles/Data/Tier_2_Projectile_Yellow.tres" id="4_dr0pq"]
-[ext_resource type="Resource" uid="uid://bxrjf8wrtxe36" path="res://Scripts/3D/Projectiles/Data/Tier_3_Projectile_Red.tres" id="5_5081t"]
+[ext_resource type="Resource" uid="uid://bxrjf8wrtxe36" path="res://Scripts/3D/Projectiles/Data/Tier_4_Projectile_Red.tres" id="5_5081t"]
+[ext_resource type="Resource" uid="uid://ci2axp0mx2wq6" path="res://Scripts/3D/Projectiles/Data/Tier_3_Projectile_Green.tres" id="5_i8m00"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d2xvo"]
 radius = 0.270339
@@ -12,7 +13,7 @@ height = 1.13985
 
 [node name="Projectile_Body3D" type="CharacterBody3D"]
 script = ExtResource("1_fpv2f")
-Projectile_Database = Array[ExtResource("2_5081t")]([ExtResource("3_i8m00"), ExtResource("4_dr0pq"), ExtResource("5_5081t")])
+Projectile_Database = Array[ExtResource("2_5081t")]([ExtResource("3_i8m00"), ExtResource("4_dr0pq"), ExtResource("5_i8m00"), ExtResource("5_5081t"), ExtResource("5_5081t"), ExtResource("5_5081t")])
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2

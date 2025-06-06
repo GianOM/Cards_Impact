@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_e6hu1")
-Tower_Name = "The Bank"
+Tower_Name = "The Bank (Lvl 0)"
 Tower_Range = 0.01
 Tower_Damage = 0.01
 Tower_Index = 6

@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource("1_vgior")
+item_name = ""
 id = "test"
-cost = 0
-tooltip_text = ""
+character_type = 0
+starter_item = false
+tooltip = ""
 metadata/_custom_type_script = "uid://ep4tyfqfd3kn"

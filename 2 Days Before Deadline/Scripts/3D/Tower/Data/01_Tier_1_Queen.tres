@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_hf8lo")
-Tower_Name = "Queen Tower"
+Tower_Name = "Queen Tower (Lvl 0)"
 Tower_Range = 15.0
 Tower_Damage = 20.0
 Tower_Index = 1
