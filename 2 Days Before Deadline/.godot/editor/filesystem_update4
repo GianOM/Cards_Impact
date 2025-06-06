@@ -1,4 +1,5 @@
-res://Scenes/Main Menu/main_menu.tscn
+res://Scenes/3D/Paths/Path_Example.tscn
+res://Testing/card_base_stylebox.tres
 res://Assets/3D Assets/Grid/Highlighted_Grid_Material.tres.tres
 res://Assets/3D Assets/Grid/Occupied_Grid_Material.tres
 res://Assets/3D Assets/Shaders/Hovering_Shader.tres
@@ -23,27 +24,12 @@ res://Testing/characters/warrior/warrior_defend_deck.tres
 res://Testing/characters/warrior/unified_deck.tres
 res://Testing/characters/warrior/warrior.tres
 res://Testing/main_theme.tres
-res://Scripts/Main Menu/Main Menu Navigation.gd
-res://Scenes/Player/Player Camera Scene.tscn
-res://Scenes/3D/Towers/Towers.tscn
-res://Scenes/3D/Towers/Towers Database/00_Tier_1_Rook.tscn
-res://Scripts/3D/Tower/Tower_Script.gd
-res://Scripts/Networks/Lobby_Multiplayer.gd
-res://Scripts/Main Menu/main_menu.gd
-res://Testing/custom_resources/card_pile.gd
-res://Scenes/3D/Troops/Troops.tscn
-res://Scenes/3D/Troops/Troops_Database.tscn
-res://Scenes/3D/Troops/Hovering Troop.tscn
-res://Scenes/3D/Paths/Path_Example.tscn
-res://Scenes/Main.tscn
-res://Scenes/3D/Paths/Enemy_spawner.tscn
-res://Scripts/Player/Player Tower UI.gd
-res://Testing/card_visuals.tscn
-res://Testing/card_base_stylebox.tres
-res://Testing/card_ui.tscn
 res://Testing/battle_ui.gd
+res://Scenes/3D/Paths/Enemy_spawner.tscn
+res://Scenes/Main.tscn
+res://Scenes/Player/Player Camera Scene.tscn
 res://Testing/testing_main.tscn
-res://Testing/player_handler.gd
 res://Testing/mana_ui.tscn
-res://Testing/test_data/test_run_stats.tres
 res://Testing/token_ui.tscn
+res://Testing/player_handler.gd
+res://Testing/custom_resources/character_stats.gd

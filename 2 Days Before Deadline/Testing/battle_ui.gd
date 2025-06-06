@@ -119,11 +119,16 @@ func _on_reroll_button_pressed() -> void:
 	Events.reroll_requested.emit()
 
 func _on_paid_reroll_button_pressed() -> void:
-	end_turn_button.disabled = true
-	paid_reroll_button.disabled = true
-	reroll_button.disabled = true
-	CollisionCheck.turn_number += 1
-	Events.reroll_requested.emit()
+	
+	if char_stats.gaslight_tokens > 80:
+		end_turn_button.disabled = true
+		paid_reroll_button.disabled = true
+		reroll_button.disabled = true
+		CollisionCheck.turn_number += 1
+		Events.reroll_requested.emit()
+		
+		char_stats.gaslight_tokens -= 80
+		
 
 func _disable_reroll_button() -> void:
 	reroll_button.disabled = true
